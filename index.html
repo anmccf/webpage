@@ -147,6 +147,16 @@ section{padding:6rem 2rem}
 .news-card h4{font-family:'Noto Serif KR',serif;font-size:1rem;color:white;margin-bottom:.7rem;line-height:1.5}
 .news-card p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7}
 .news-card .ndate{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:1rem}
+.news-card .nc-img{width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:.8rem}
+.news-card .nc-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.78rem;color:var(--gold-light);text-decoration:none;border:1px solid rgba(196,154,42,.3);padding:.25rem .7rem;border-radius:4px;transition:.15s}
+.news-card .nc-link:hover{background:rgba(196,154,42,.1)}
+.nc-autolink{color:var(--gold-light);text-decoration:underline;word-break:break-all}
+/* board modal image */
+.bm-img{width:100%;max-height:280px;object-fit:cover;border-radius:8px;margin-bottom:1rem}
+.bm-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.85rem;color:var(--maroon);text-decoration:none;border:1px solid var(--border);padding:.4rem 1rem;border-radius:4px;transition:.15s}
+.bm-link:hover{background:var(--maroon-pale)}
+/* board card image thumbnail */
+.board-thumb{width:64px;height:64px;object-fit:cover;border-radius:6px;flex-shrink:0}
 
 /* ── INSTAGRAM ── */
 #instagram{background:var(--cream)}
@@ -603,7 +613,7 @@ footer strong{color:white}
       </div>
     </div>
     <div class="ig-footer" style="margin-top:1.5rem">
-      <a href="https://www.instagram.com/anm_ccf" target="_blank" class="btn-ig-follow" id="igFollowBtn">
+      <a href="https://www.instagram.com/anm_ccf" target="_blank" class="btn-ig-follow" id="igFollowBtn" data-ig="anm_ccf">
         📸 @anm_ccf 팔로우
       </a>
     </div>
@@ -621,24 +631,7 @@ footer strong{color:white}
       <p id="contactWelcomeText">Texas A&M에 새로 오셨나요? 정착하는 데 도움이 필요하시면 언제든지 편하게 연락해 주세요. 함께 신앙 공동체를 만들어가요!</p>
     </div>
     <div class="contact-persons" id="contactPersons">
-      <div class="contact-person">
-        <div class="cp-role">담임 목사</div>
-        <div class="cp-name" id="cPastorName">유주호 목사님</div>
-        <a href="tel:4349441176" id="cPhone">📞 434-944-1176</a>
-        <a href="mailto:peterlove153@gmail.com" id="cEmail">✉️ peterlove153@gmail.com</a>
-      </div>
-      <div class="contact-person" id="contactRep" style="display:none">
-        <div class="cp-role">학생 대표</div>
-        <div class="cp-name" id="cRepName"></div>
-        <a href="#" id="cRepPhone" style="display:none"></a>
-        <a href="#" id="cRepEmail" style="display:none"></a>
-      </div>
-      <div class="contact-person" id="contactSec" style="display:none">
-        <div class="cp-role">학생 총무</div>
-        <div class="cp-name" id="cSecName"></div>
-        <a href="#" id="cSecPhone" style="display:none"></a>
-        <a href="#" id="cSecEmail" style="display:none"></a>
-      </div>
+      <!-- JS로 렌더링 -->
     </div>
     <div class="contact-links" id="contactLinks">
       <a href="#" class="contact-link-item" id="cKakao" style="display:none">💬 카카오톡 오픈채팅</a>
@@ -751,6 +744,13 @@ footer strong{color:white}
       <div class="fg"><label>분류</label><select id="n-tag"><option>공지</option><option>행사</option><option>안내</option><option>기도</option><option>감사</option><option>모집</option></select></div>
       <div class="fg"><label>제목</label><input type="text" id="n-title" placeholder="소식 제목"></div>
       <div class="fg"><label>내용</label><textarea id="n-body" placeholder="소식 내용을 입력하세요..."></textarea></div>
+      <div class="fg"><label>이미지 URL (선택) — Google Drive·Imgur 직접 링크</label><input type="url" id="n-img" placeholder="https://drive.google.com/file/d/... 또는 https://i.imgur.com/..."></div>
+      <div class="fg"><label>링크 (선택) — 버튼으로 표시됨</label>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:.5rem">
+          <input type="url" id="n-link" placeholder="https://...">
+          <input type="text" id="n-link-label" placeholder="링크 이름" style="width:100px">
+        </div>
+      </div>
       <div class="fg" style="display:flex;align-items:center;gap:.5rem">
         <input type="checkbox" id="n-pin" style="width:auto">
         <label style="margin:0;font-size:.82rem;color:var(--text-mid)">📌 상단 고정</label>
@@ -770,6 +770,13 @@ footer strong{color:white}
       </div>
       <div class="fg"><label>제목</label><input type="text" id="bd-title" placeholder="게시글 제목"></div>
       <div class="fg"><label>내용</label><textarea id="bd-body" placeholder="내용을 입력하세요..."></textarea></div>
+      <div class="fg"><label>이미지 URL (선택)</label><input type="url" id="bd-img" placeholder="https://drive.google.com/file/d/... 또는 https://i.imgur.com/..."></div>
+      <div class="fg"><label>링크 (선택)</label>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:.5rem">
+          <input type="url" id="bd-link" placeholder="https://...">
+          <input type="text" id="bd-link-label" placeholder="링크 이름" style="width:100px">
+        </div>
+      </div>
       <div class="fg" style="display:flex;align-items:center;gap:.5rem">
         <input type="checkbox" id="bd-pin" style="width:auto">
         <label style="margin:0;font-size:.82rem;color:var(--text-mid)">📌 상단 고정</label>
@@ -814,6 +821,9 @@ footer strong{color:white}
       <div class="sec-heading">📦 이전 주로 보관</div>
       <p style="font-size:.8rem;color:var(--text-light);margin-bottom:.8rem">현재 찬양을 이전 주 목록에 보관하고 새 주를 시작합니다.</p>
       <button class="submit-btn" style="background:#5a4a8a" onclick="archiveCurrentPraise()">📦 이전 주로 보관하기</button>
+      <hr class="form-hr">
+      <div class="sec-heading">📚 이전 주 보관 목록 (수정/삭제)</div>
+      <div class="ail" id="adminArchiveList" style="margin-top:.5rem"></div>
 
       <hr class="form-hr">
       <div class="sec-heading">등록된 찬양</div>
@@ -882,25 +892,16 @@ footer strong{color:white}
       <button class="submit-btn" onclick="saveWelcomeMsg()">✅ 환영 메시지 저장</button>
 
       <hr class="form-hr">
-      <div class="sec-heading">👨‍💼 담임 목사 연락처</div>
-      <div class="fg"><label>이름</label><input type="text" id="ca-p-name" placeholder="예: 유주호 목사님"></div>
-      <div class="fg"><label>전화번호</label><input type="tel" id="ca-p-phone" placeholder="예: 434-944-1176"></div>
-      <div class="fg"><label>이메일</label><input type="email" id="ca-p-email"></div>
-      <button class="submit-btn" onclick="savePastorContact()">✅ 목사님 연락처 저장</button>
+      <div class="sec-heading">👤 연락처 추가</div>
+      <div class="fg"><label>직책 (자유 입력)</label><input type="text" id="ca-new-role" placeholder="예: 담임 목사, 학생 대표, 찬양 팀장..."></div>
+      <div class="fg"><label>이름</label><input type="text" id="ca-new-name" placeholder="예: 유주호"></div>
+      <div class="fg"><label>전화번호</label><input type="tel" id="ca-new-phone" placeholder="예: 434-944-1176"></div>
+      <div class="fg"><label>이메일 (선택)</label><input type="email" id="ca-new-email"></div>
+      <button class="submit-btn" onclick="addContactMember()">✅ 연락처 추가</button>
 
       <hr class="form-hr">
-      <div class="sec-heading">👩‍🎓 학생 대표</div>
-      <div class="fg"><label>이름</label><input type="text" id="ca-rep-name" placeholder="예: 홍길동"></div>
-      <div class="fg"><label>전화번호</label><input type="tel" id="ca-rep-phone" placeholder="예: 010-1234-5678"></div>
-      <div class="fg"><label>이메일 (선택)</label><input type="email" id="ca-rep-email"></div>
-      <button class="submit-btn" onclick="saveContacts()">✅ 학생 대표 저장</button>
-
-      <hr class="form-hr">
-      <div class="sec-heading">📋 학생 총무</div>
-      <div class="fg"><label>이름</label><input type="text" id="ca-sec-name" placeholder="예: 김철수"></div>
-      <div class="fg"><label>전화번호</label><input type="tel" id="ca-sec-phone" placeholder="예: 010-9876-5432"></div>
-      <div class="fg"><label>이메일 (선택)</label><input type="email" id="ca-sec-email"></div>
-      <button class="submit-btn" onclick="saveContacts()">✅ 학생 총무 저장</button>
+      <div class="sec-heading">등록된 연락처 (수정/삭제/순서)</div>
+      <div class="ail" id="adminContactList"></div>
     </div>
 
     <!-- 설정 탭 -->
@@ -923,7 +924,7 @@ footer strong{color:white}
       <div class="fg"><label>교회 이름</label><input type="text" id="si-name" placeholder="예: ANMCCF"></div>
       <div class="fg"><label>교회 풀네임</label><input type="text" id="si-fullname" placeholder="예: All Nations Mission Campus Christian Fellowship"></div>
       <div class="fg"><label>교회 웹사이트 URL</label><input type="url" id="si-web" placeholder="예: https://anmccf.github.io/webpage/"></div>
-      <div class="fg"><label>인스타그램 아이디 (@제외)</label><input type="text" id="si-ig" placeholder="예: anmccf"></div>
+      <div class="fg"><label>인스타그램 아이디 (@제외)</label><input type="text" id="si-ig" placeholder="예: anm_ccf"></div>
       <div class="fg"><label>카카오톡 오픈채팅 링크 (선택)</label><input type="url" id="si-kakao" placeholder="https://open.kakao.com/..."></div>
       <div class="fg"><label>히어로 서브라벨 (상단 작은 글씨)</label><input type="text" id="si-label" placeholder="예: Texas A&amp;M Campus Church · College Station"></div>
       <button class="submit-btn" style="background:#1a3d70" onclick="saveSiteInfo()">💾 사이트 정보 저장</button>
@@ -974,7 +975,9 @@ footer strong{color:white}
     <span class="bm-tag" id="bmTag"></span>
     <h3 id="bmTitle"></h3>
     <p class="bm-date" id="bmDate"></p>
+    <img class="bm-img" id="bmImg" src="" alt="" style="display:none" onerror="this.style.display='none'">
     <div class="bm-body" id="bmBody"></div>
+    <a class="bm-link" id="bmLink" href="#" target="_blank" rel="noopener" style="display:none">🔗 <span id="bmLinkLabel">링크 보기</span></a>
   </div>
 </div>
 
@@ -1011,6 +1014,13 @@ function driveImg(url) {
   const m2 = url.match(/[?&]id=([^&]+)/);
   if (m2) return 'https://drive.google.com/uc?export=view&id=' + m2[1];
   return url; // 이미 직접 링크면 그대로
+}
+// 본문 내 URL 자동 링크 변환
+function autoLink(text) {
+  const urlReg = /(https?:\/\/[^\s<>"']+)/g;
+  return text
+    .split('\n').join('<br>')
+    .replace(urlReg, '<a class="nc-autolink" href="$1" target="_blank" rel="noopener">$1</a>');
 }
 
 const ld  = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
@@ -1554,12 +1564,14 @@ function addNews() {
   const body   = document.getElementById('n-body').value.trim();
   const pinEl  = document.getElementById('n-pin');
   const pinned = pinEl ? pinEl.checked : false;
+  const img   = (document.getElementById('n-img')        ||{}).value||'';
+  const link  = (document.getElementById('n-link')       ||{}).value||'';
+  const lbl   = (document.getElementById('n-link-label') ||{}).value||'링크 보기';
   if (!title || !body) { toast('제목과 내용을 입력해 주세요.'); return; }
   const data = ld(K.n, []);
-  data.unshift({ id: uid(), tag, title, body, date: new Date().toISOString().split('T')[0], pinned });
+  data.unshift({ id:uid(), tag, title, body, date:new Date().toISOString().split('T')[0], pinned, img:img.trim(), link:link.trim(), linkLabel:lbl.trim()||'링크 보기' });
   sv(K.n, data); renderNews(); renderAdminNews();
-  document.getElementById('n-title').value = '';
-  document.getElementById('n-body').value = '';
+  ['n-title','n-body','n-img','n-link','n-link-label'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
   if(pinEl) pinEl.checked = false;
   toast('✅ 소식이 추가되었습니다! 발행 버튼으로 반영하세요.');
 }
@@ -1568,12 +1580,18 @@ function renderNews() {
   // 고정 글 먼저
   data = [...data.filter(x=>x.pinned), ...data.filter(x=>!x.pinned)];
   const fixed = `<div class="news-card"><span class="tag">안내</span><h4>ANMCCF에 오신 것을 환영합니다</h4><p>Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다.</p><p class="ndate">상시</p></div>`;
-  document.getElementById('newsGrid').innerHTML = data.map(n => `<div class="news-card" style="${n.pinned?'border:1px solid rgba(196,154,42,.4);background:rgba(196,154,42,.06)':''}">
-    <span class="tag">${n.pinned?'📌 ':'' }${n.tag}</span>
-    <h4>${n.title}</h4>
-    <p>${n.body.split('\n').join('<br>')}</p>
-    <p class="ndate">${fmt(n.date)}</p>
-  </div>`).join('') + fixed;
+  document.getElementById('newsGrid').innerHTML = data.map(n => {
+    const imgHtml  = n.img  ? `<img class="nc-img" src="${driveImg(n.img)}" alt="" onerror="this.style.display='none'">` : '';
+    const linkHtml = n.link ? `<a class="nc-link" href="${n.link}" target="_blank" rel="noopener">🔗 ${n.linkLabel||'링크 보기'}</a>` : '';
+    return `<div class="news-card" style="${n.pinned?'border:1px solid rgba(196,154,42,.4);background:rgba(196,154,42,.06)':''}">
+      ${imgHtml}
+      <span class="tag">${n.pinned?'📌 ':''}${n.tag}</span>
+      <h4>${n.title}</h4>
+      <p>${autoLink(n.body)}</p>
+      ${linkHtml}
+      <p class="ndate">${fmt(n.date)}</p>
+    </div>`;
+  }).join('') + fixed;
 }
 function renderAdminNews() {
   const data = ld(K.n, []);
@@ -1598,9 +1616,12 @@ function delNews(id) {
 function editNews(id) {
   const data = ld(K.n, []), n = data.find(x => x.id === id); if (!n) return;
   openModal('소식 수정', [
-    { label:'분류', key:'tag',   type:'select', options:['공지','행사','안내','기도','감사','모집'], val:n.tag },
-    { label:'제목', key:'title', type:'text',   val:n.title },
-    { label:'내용', key:'body',  type:'textarea', val:n.body }
+    { label:'분류',         key:'tag',       type:'select', options:['공지','행사','안내','기도','감사','모집'], val:n.tag },
+    { label:'제목',         key:'title',     type:'text',     val:n.title },
+    { label:'내용',         key:'body',      type:'textarea', val:n.body  },
+    { label:'이미지 URL',   key:'img',       type:'url',      val:n.img||'' },
+    { label:'링크 URL',     key:'link',      type:'url',      val:n.link||'' },
+    { label:'링크 이름',    key:'linkLabel', type:'text',     val:n.linkLabel||'링크 보기' }
   ], vals => { Object.assign(n, vals); sv(K.n, data); renderNews(); renderAdminNews(); toast('✅ 수정되었습니다! 발행 버튼으로 반영하세요.'); });
 }
 
@@ -1768,14 +1789,13 @@ function archiveCurrentPraise() {
   if (!current.list || !current.list.length) { toast('보관할 찬양 목록이 없습니다.'); return; }
   if (!confirm('현재 찬양 목록을 이전 주로 보관할까요?')) return;
   const archive = ld(K.praiseArchive, []);
-  archive.unshift({ date: current.date, list: current.list, notice: ld(K.praiseNotice,'') });
-  // 최대 8주 보관
-  if (archive.length > 8) archive.splice(8);
+  archive.unshift({ id: uid(), date: current.date, list: current.list, notice: ld(K.praiseNotice,''), yt: ld(K.yt,'') });
+  // 제한 없이 계속 쌓임
   sv(K.praiseArchive, archive);
   sv(K.songs, {date:'',list:[]});
   sv(K.praiseNotice, '');
-  renderPraise(); renderAdminSongs(); renderArchive();
-  toast('📦 보관됐습니다! 새 찬양을 등록해 주세요.');
+  renderPraise(); renderAdminSongs(); renderArchive(); renderAdminArchive();
+  toast('📦 보관됐습니다! 이제 이번 주 찬양을 등록해 주세요.');
 }
 function renderArchive() {
   const archive = ld(K.praiseArchive, []);
@@ -1785,7 +1805,7 @@ function renderArchive() {
   if(archiveEl) archiveEl.style.display='';
   el.innerHTML = archive.map(w => `
     <div class="archive-week">
-      <h5>${w.date ? fmt(w.date) + ' 주일' : '날짜 미상'}</h5>
+      <h5>${w.date ? fmt(w.date) + ' 주일' : '날짜 미상'}${w.yt ? ' <a href="'+w.yt+'" target="_blank" style="font-size:.7rem;color:var(--gold-light);margin-left:.5rem">▶ 전체 재생</a>' : ''}</h5>
       <div class="song-list">
         ${(w.list||[]).map((s,i) => `<div class="song-item">
           <div class="song-num">${i+1}</div>
@@ -1794,15 +1814,42 @@ function renderArchive() {
       </div>
     </div>`).join('');
 }
-// 목사님 연락처 저장 (연락처 탭에서)
-function savePastorContact() {
-  const p = ld(K.p, {});
-  const elF = id => document.getElementById(id);
-  if(elF('ca-p-name')  && elF('ca-p-name').value.trim())  p.name  = elF('ca-p-name').value.trim();
-  if(elF('ca-p-phone') && elF('ca-p-phone').value.trim()) p.phone = elF('ca-p-phone').value.trim();
-  if(elF('ca-p-email') && elF('ca-p-email').value.trim()) p.email = elF('ca-p-email').value.trim();
-  sv(K.p, p); applyPastor(); applyContact(); toast('✅ 목사님 연락처 저장됐습니다! 발행 버튼으로 반영하세요.');
+function renderAdminArchive() {
+  const archive = ld(K.praiseArchive, []);
+  const el = document.getElementById('adminArchiveList'); if(!el) return;
+  if(!archive.length) { el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">보관된 찬양이 없습니다.</p>'; return; }
+  el.innerHTML = archive.map((w,i) => `<div class="ai">
+    <div class="ai-info">
+      <div class="ai-title">📦 ${w.date ? fmt(w.date) + ' 주일' : '날짜 미상'}</div>
+      <div class="ai-meta">${(w.list||[]).length}곡</div>
+    </div>
+    <div class="ai-actions">
+      <button class="ibtn edit" onclick="editArchiveWeek(${i})">수정</button>
+      <button class="ibtn del"  onclick="delArchiveWeek(${i})">삭제</button>
+    </div>
+  </div>`).join('');
 }
+function editArchiveWeek(idx) {
+  const archive = ld(K.praiseArchive, []);
+  const w = archive[idx]; if(!w) return;
+  openModal('이전 주 날짜 수정', [
+    { label:'날짜', key:'date', type:'date', val:w.date||'' },
+    { label:'플레이리스트 URL', key:'yt', type:'url', val:w.yt||'' }
+  ], vals => {
+    w.date = vals.date; w.yt = vals.yt;
+    sv(K.praiseArchive, archive); renderArchive(); renderAdminArchive();
+    toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.');
+  });
+}
+function delArchiveWeek(idx) {
+  if(!confirm('이 주 기록을 삭제할까요?')) return;
+  const archive = ld(K.praiseArchive, []);
+  archive.splice(idx, 1);
+  sv(K.praiseArchive, archive); renderArchive(); renderAdminArchive();
+  toast('🗑 삭제됐습니다.');
+}
+// 목사님 연락처 저장 (연락처 탭에서)
+function savePastorContact() { toast('연락처 탭에서 직접 수정/추가해 주세요.'); }
 
 function editSong(id) {
   const songs = ld(K.songs, { date:'', list:[] });
@@ -1906,8 +1953,22 @@ function renderAdminBible() {
   const data=ld(K.bible,[]);
   const el=document.getElementById('adminBibleList'); if(!el) return;
   if(!data.length){el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 성경공부가 없습니다.</p>';return;}
-  el.innerHTML=data.map(b=>`<div class="ai"><div class="ai-info"><div class="ai-title">📖 ${b.name}</div><div class="ai-meta">${[b.time,b.place,b.target].filter(Boolean).join(' · ')}</div></div>
-    <div class="ai-actions"><button class="ibtn del" onclick="delBible('${b.id}')">삭제</button></div></div>`).join('');
+  el.innerHTML=data.map(b=>`<div class="ai">
+    <div class="ai-info"><div class="ai-title">📖 ${b.name}</div><div class="ai-meta">${[b.time,b.place,b.target].filter(Boolean).join(' · ')}</div></div>
+    <div class="ai-actions">
+      <button class="ibtn edit" onclick="editBible('${b.id}')">수정</button>
+      <button class="ibtn del" onclick="delBible('${b.id}')">삭제</button>
+    </div>
+  </div>`).join('');
+}
+function editBible(id) {
+  const data=ld(K.bible,[]), b=data.find(x=>x.id===id); if(!b) return;
+  openModal('성경공부 수정', [
+    { label:'모임 이름', key:'name',   type:'text', val:b.name   },
+    { label:'일시',      key:'time',   type:'text', val:b.time   },
+    { label:'장소',      key:'place',  type:'text', val:b.place  },
+    { label:'대상',      key:'target', type:'text', val:b.target }
+  ], vals => { Object.assign(b, vals); sv(K.bible, data); renderBible(); renderAdminBible(); toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.'); });
 }
 function delBible(id){if(!confirm('삭제할까요?'))return;sv(K.bible,ld(K.bible,[]).filter(x=>x.id!==id));renderBible();renderAdminBible();toast('🗑 삭제됐습니다.');}
 
@@ -1920,11 +1981,14 @@ function addBoard() {
   const body   = document.getElementById('bd-body').value.trim();
   const pinEl  = document.getElementById('bd-pin');
   const pinned = pinEl ? pinEl.checked : false;
+  const img   = (document.getElementById('bd-img')        ||{}).value||'';
+  const link  = (document.getElementById('bd-link')       ||{}).value||'';
+  const lbl   = (document.getElementById('bd-link-label') ||{}).value||'링크 보기';
   if (!title||!body) { toast('제목과 내용을 입력해 주세요.'); return; }
   const data = ld(K.board,[]);
-  data.unshift({id:uid(),tag,title,body,date:new Date().toISOString().split('T')[0],pinned});
+  data.unshift({id:uid(),tag,title,body,date:new Date().toISOString().split('T')[0],pinned,img:img.trim(),link:link.trim(),linkLabel:lbl.trim()||'링크 보기'});
   sv(K.board,data); renderBoard(); renderAdminBoard();
-  ['bd-title','bd-body'].forEach(id=>document.getElementById(id).value='');
+  ['bd-title','bd-body','bd-img','bd-link','bd-link-label'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
   if(document.getElementById('bd-pin')) document.getElementById('bd-pin').checked=false;
   toast('✅ 게시글 추가됐습니다! 발행 버튼으로 반영하세요.');
 }
@@ -1935,23 +1999,38 @@ function renderBoard() {
   // 고정 글 먼저
   data = [...data.filter(x=>x.pinned), ...data.filter(x=>!x.pinned)];
   el.innerHTML=data.map(p=>{
-    const preview = p.body.split('\n').slice(0,2).join(' ').substring(0,80) + (p.body.length>80?'…':'');
+    const preview  = p.body.split('\n').slice(0,2).join(' ').substring(0,80) + (p.body.length>80?'…':'');
     const pinBadge = p.pinned ? '<span class="pin-badge">📌 고정</span>' : '';
+    const thumbHtml = p.img ? `<img class="board-thumb" src="${driveImg(p.img)}" alt="" onerror="this.style.display='none'">` : '';
+    const linkIcon  = p.link ? ' 🔗' : '';
     return `<div class="board-card ${p.pinned?'pinned':''}" onclick="openBoardModal('${p.id}')" title="클릭해서 전체 보기">
       <div><span class="board-tag">${p.tag}</span></div>
-      <div><h4>${pinBadge}${p.title}</h4><p>${preview}</p></div>
-      <div class="board-date">${fmt(p.date)}<br><span style="font-size:.65rem;color:var(--gold)">더 보기 ›</span></div>
+      <div><h4>${pinBadge}${p.title}${linkIcon}</h4><p>${preview}</p></div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem">
+        ${thumbHtml}
+        <div class="board-date">${fmt(p.date)}<br><span style="font-size:.65rem;color:var(--gold)">더 보기 ›</span></div>
+      </div>
     </div>`;
   }).join('');
 }
 function openBoardModal(id) {
   const data = ld(K.board,[]);
   const p = data.find(x=>x.id===id); if(!p) return;
-  document.getElementById('bmTag').textContent  = p.tag;
-  document.getElementById('bmTitle').textContent = p.title;
-  document.getElementById('bmDate').textContent  = fmt(p.date);
-  document.getElementById('bmBody').textContent  = p.body;
-  document.getElementById('boardModal').classList.add('open');
+  const el = i => document.getElementById(i);
+  el('bmTag').textContent   = p.tag;
+  el('bmTitle').textContent = p.title;
+  el('bmDate').textContent  = fmt(p.date);
+  el('bmBody').innerHTML    = autoLink(p.body);
+  // image
+  const imgEl = el('bmImg');
+  if(imgEl) { if(p.img){imgEl.src=driveImg(p.img);imgEl.style.display='';}else{imgEl.style.display='none';} }
+  // link
+  const linkEl = el('bmLink');
+  if(linkEl) {
+    if(p.link){ linkEl.href=p.link; el('bmLinkLabel').textContent=p.linkLabel||'링크 보기'; linkEl.style.display=''; }
+    else { linkEl.style.display='none'; }
+  }
+  el('boardModal').classList.add('open');
 }
 function closeBoardModal() {
   document.getElementById('boardModal').classList.remove('open');
@@ -2045,73 +2124,84 @@ function saveWorshipInfo() {
 // ══════════════════════════════════════════
 //  CONTACT
 // ══════════════════════════════════════════
-const CONTACT_DEFAULTS = { rep:{name:'',phone:'',email:''}, sec:{name:'',phone:'',email:''} };
+// contacts is now an array of {id, role, name, phone, email}
 function saveWelcomeMsg() {
   const msg = document.getElementById('ca-welcome').value.trim();
   sv(K.welcomeMsg, msg); applyContact(); toast('✅ 저장됐습니다! 발행 버튼으로 반영하세요.');
 }
-function saveContacts() {
-  const c = {
-    rep: { name:document.getElementById('ca-rep-name').value.trim(), phone:document.getElementById('ca-rep-phone').value.trim(), email:document.getElementById('ca-rep-email').value.trim() },
-    sec: { name:document.getElementById('ca-sec-name').value.trim(), phone:document.getElementById('ca-sec-phone').value.trim(), email:document.getElementById('ca-sec-email').value.trim() }
-  };
-  sv(K.contacts, c); applyContact(); toast('✅ 연락처 저장됐습니다! 발행 버튼으로 반영하세요.');
+// 연락처 — 유연한 멤버 목록
+function addContactMember() {
+  const el = id => document.getElementById(id);
+  const role  = (el('ca-new-role') ||{}).value||'';
+  const name  = (el('ca-new-name') ||{}).value||'';
+  const phone = (el('ca-new-phone')||{}).value||'';
+  const email = (el('ca-new-email')||{}).value||'';
+  if (!role || !name) { toast('직책과 이름을 입력해 주세요.'); return; }
+  const members = ld(K.contacts, []);
+  members.push({ id: uid(), role, name, phone: phone.trim(), email: email.trim() });
+  sv(K.contacts, members); applyContact(); renderAdminContactList();
+  ['ca-new-role','ca-new-name','ca-new-phone','ca-new-email'].forEach(id=>{const e=el(id);if(e)e.value='';});
+  toast('✅ 연락처 추가됐습니다! 발행 버튼으로 반영하세요.');
+}
+function renderAdminContactList() {
+  const members = ld(K.contacts, []);
+  const el = document.getElementById('adminContactList'); if(!el) return;
+  if (!members.length) { el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 연락처가 없습니다.</p>'; return; }
+  el.innerHTML = members.map(m => `<div class="ai">
+    <div class="ai-info">
+      <div class="ai-title">${m.role} · ${m.name}</div>
+      <div class="ai-meta">${[m.phone,m.email].filter(Boolean).join(' · ')}</div>
+    </div>
+    <div class="ai-actions">
+      <button class="ibtn edit" onclick="editContactMember('${m.id}')">수정</button>
+      <button class="ibtn del"  onclick="delContactMember('${m.id}')">삭제</button>
+    </div>
+  </div>`).join('');
+}
+function editContactMember(id) {
+  const members = ld(K.contacts, []);
+  const m = members.find(x=>x.id===id); if(!m) return;
+  openModal('연락처 수정', [
+    { label:'직책', key:'role',  type:'text', val:m.role  },
+    { label:'이름', key:'name',  type:'text', val:m.name  },
+    { label:'전화', key:'phone', type:'tel',  val:m.phone||'' },
+    { label:'이메일', key:'email', type:'email', val:m.email||'' }
+  ], vals => {
+    Object.assign(m, vals);
+    sv(K.contacts, members); applyContact(); renderAdminContactList();
+    toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.');
+  });
+}
+function delContactMember(id) {
+  if(!confirm('삭제할까요?')) return;
+  sv(K.contacts, ld(K.contacts,[]).filter(x=>x.id!==id));
+  applyContact(); renderAdminContactList(); toast('🗑 삭제됐습니다.');
 }
 function applyContact() {
-  const c = Object.assign({rep:{},sec:{}}, ld(K.contacts, CONTACT_DEFAULTS));
+  const members = ld(K.contacts, []);
   const welcome = ld(K.welcomeMsg, '');
   const el = id => document.getElementById(id);
-  // welcome message
-  if (el('contactWelcomeText') && welcome) el('contactWelcomeText').textContent = welcome;
-  // pastor (from pastor data)
-  const p = ld(K.p, {}); 
-  if (el('cPastorName')) el('cPastorName').textContent = p.name || '유주호 목사님';
-  if (el('cPhone')) { el('cPhone').textContent = '📞 ' + (p.phone||'434-944-1176'); el('cPhone').href = 'tel:' + (p.phone||'').replace(/-/g,''); }
-  if (el('cEmail')) { el('cEmail').textContent = '✉️ ' + (p.email||'peterlove153@gmail.com'); el('cEmail').href = 'mailto:' + (p.email||''); }
-  // rep
-  const repCard = el('contactRep');
-  if (repCard) {
-    if (c.rep && c.rep.name) {
-      repCard.style.display = '';
-      if(el('cRepName')) el('cRepName').textContent = c.rep.name;
-      if(el('cRepPhone') && c.rep.phone) { el('cRepPhone').textContent='📞 '+c.rep.phone; el('cRepPhone').href='tel:'+c.rep.phone.replace(/-/g,''); el('cRepPhone').style.display=''; }
-      if(el('cRepEmail') && c.rep.email) { el('cRepEmail').textContent='✉️ '+c.rep.email; el('cRepEmail').href='mailto:'+c.rep.email; el('cRepEmail').style.display=''; }
-    } else { repCard.style.display='none'; }
-  }
-  // sec
-  const secCard = el('contactSec');
-  if (secCard) {
-    if (c.sec && c.sec.name) {
-      secCard.style.display = '';
-      if(el('cSecName')) el('cSecName').textContent = c.sec.name;
-      if(el('cSecPhone') && c.sec.phone) { el('cSecPhone').textContent='📞 '+c.sec.phone; el('cSecPhone').href='tel:'+c.sec.phone.replace(/-/g,''); el('cSecPhone').style.display=''; }
-      if(el('cSecEmail') && c.sec.email) { el('cSecEmail').textContent='✉️ '+c.sec.email; el('cSecEmail').href='mailto:'+c.sec.email; el('cSecEmail').style.display=''; }
-    } else { secCard.style.display='none'; }
-  }
-  // links
+  // welcome
+  if(el('contactWelcomeText') && welcome) el('contactWelcomeText').textContent = welcome;
+  // render all members dynamically
+  const container = el('contactPersons'); if(!container) return;
+  container.innerHTML = members.map(m => `<div class="contact-person">
+    <div class="cp-role">${m.role}</div>
+    <div class="cp-name">${m.name}</div>
+    ${m.phone ? `<a href="tel:${m.phone.replace(/-/g,'')}" style="display:block;font-size:.82rem;color:var(--maroon);text-decoration:none;margin-top:.2rem">📞 ${m.phone}</a>` : ''}
+    ${m.email ? `<a href="mailto:${m.email}" style="display:block;font-size:.82rem;color:var(--maroon);text-decoration:none;margin-top:.2rem">✉️ ${m.email}</a>` : ''}
+  </div>`).join('');
+  // kakao link
   const s = Object.assign({}, SITE_DEFAULTS, ld(K.s, SITE_DEFAULTS));
-  if(el('cWeb')) { el('cWeb').href = s.web; }
-  if(el('cIg'))  { el('cIg').href = 'https://www.instagram.com/' + s.ig; }
   const kakaoLink = el('cKakao');
   if(kakaoLink) { if(s.kakao){ kakaoLink.href=s.kakao; kakaoLink.style.display=''; } else { kakaoLink.style.display='none'; } }
 }
 function loadContactForms() {
-  const c = Object.assign({rep:{},sec:{}}, ld(K.contacts, CONTACT_DEFAULTS));
-  const p = ld(K.p, {});
   const el = id => document.getElementById(id);
-  if(el('ca-welcome'))   el('ca-welcome').value   = ld(K.welcomeMsg,'');
-  if(el('ca-p-name'))    el('ca-p-name').value    = p.name  || '유주호 목사님';
-  if(el('ca-p-phone'))   el('ca-p-phone').value   = p.phone || '434-944-1176';
-  if(el('ca-p-email'))   el('ca-p-email').value   = p.email || 'peterlove153@gmail.com';
-  if(el('ca-rep-name'))  el('ca-rep-name').value  = c.rep.name  ||'';
-  if(el('ca-rep-phone')) el('ca-rep-phone').value = c.rep.phone ||'';
-  if(el('ca-rep-email')) el('ca-rep-email').value = c.rep.email ||'';
-  if(el('ca-sec-name'))  el('ca-sec-name').value  = c.sec.name  ||'';
-  if(el('ca-sec-phone')) el('ca-sec-phone').value = c.sec.phone ||'';
-  if(el('ca-sec-email')) el('ca-sec-email').value = c.sec.email ||'';
+  if(el('ca-welcome')) el('ca-welcome').value = ld(K.welcomeMsg,'');
+  renderAdminContactList();
   // 공지 에디터
-  const noticeEditEl = el('pr-notice-edit');
-  if(noticeEditEl) noticeEditEl.value = ld(K.praiseNotice,'');
+  if(el('pr-notice-edit')) el('pr-notice-edit').value = ld(K.praiseNotice,'');
 }
 
 function applyWorship() {
@@ -2351,7 +2441,7 @@ function closeModal() { document.getElementById('editModal').classList.remove('o
 document.getElementById('editModal').addEventListener('click', e => { if (e.target === document.getElementById('editModal')) closeModal(); });
 document.getElementById('boardModal').addEventListener('click', e => { if (e.target === document.getElementById('boardModal')) closeBoardModal(); });
 
-function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring(); renderAdminSongs(); }
+function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring(); renderAdminSongs(); renderAdminArchive(); renderAdminContactList(); }
 
 // ══════════════════════════════════════════
 //  INIT — loads data from ./data/*.json files
