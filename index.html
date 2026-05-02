@@ -2343,24 +2343,39 @@ function saveIgEmbed() {
 }
 function applyIgEmbed() {
   const code = ld(K.igEmbed, '');
-  const note = document.getElementById('igSetupNote');
   const container = document.getElementById('igEmbedContainer');
   if (!container) return;
-  if (code) {
-    // Remove old embed scripts to avoid duplicates
-    container.querySelectorAll('script').forEach(s => s.remove());
-    container.innerHTML = code;
-    // Re-execute any scripts in the embed code
-    container.querySelectorAll('script').forEach(oldScript => {
-      const newScript = document.createElement('script');
-      if (oldScript.src) newScript.src = oldScript.src;
-      else newScript.textContent = oldScript.textContent;
-      if (oldScript.async) newScript.async = true;
-      document.head.appendChild(newScript);
-    });
-  } else {
+
+  if (!code) {
     container.innerHTML = '<div class="ig-setup-note"><h4>📸 인스타그램 피드</h4><p>관리자 패널 → 설정 탭에서 Behold.so 임베드 코드를 입력하면 피드가 표시됩니다.</p></div>';
+    return;
   }
+
+  // 기존 Behold 스크립트 완전 제거
+  document.querySelectorAll('script[data-behold]').forEach(s => s.remove());
+  container.innerHTML = '';
+
+  // 임베드 코드에서 div와 script 분리
+  const tmp = document.createElement('div');
+  tmp.innerHTML = code;
+
+  // div 먼저 삽입
+  Array.from(tmp.children).forEach(el => {
+    if (el.tagName !== 'SCRIPT') container.appendChild(el.cloneNode(true));
+  });
+
+  // script는 새로 생성해서 추가 (innerHTML로 넣으면 실행 안 됨)
+  Array.from(tmp.querySelectorAll('script')).forEach(oldScript => {
+    const s = document.createElement('script');
+    s.setAttribute('data-behold', '1');
+    if (oldScript.src) {
+      s.src = oldScript.src;
+      s.async = true;
+    } else {
+      s.textContent = oldScript.textContent;
+    }
+    document.body.appendChild(s);
+  });
 }
 
 function saveSiteInfo() {
@@ -2517,7 +2532,7 @@ async function init() {
       loadDataFile('events.json'),
       loadDataFile('news.json'),
       loadDataFile('settings.json'),
-      loadDataFile('instagram.json'),
+      loadDataFile('instagram.json').catch(()=>null),
       loadDataFile('ministry.json'),
       loadDataFile('bible.json'),
       loadDataFile('board.json'),
@@ -2553,7 +2568,7 @@ async function init() {
     }
     if (exceptions) { sv(K.exc, exceptions); changed = true; }
     if (changed) {
-      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed(); applyContact(); renderArchive(); renderArchive();applyContact();
+      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed(); applyContact(); renderArchive();
     }
 
     // Instagram (renders separately)
