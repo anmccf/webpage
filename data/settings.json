@@ -15,5 +15,5 @@
     "label": "Texas A&M Campus Church · College Station"
   },
   "intro": "",
-  "igEmbed": ""
+  "igEmbed": "<behold-widget feed-id=\"ePgrg0KrvMyGNJYlpArb\"></behold-widget>\n<script>\n  (() => {\n    const d=document,s=d.createElement(\"script\");s.type=\"module\";\n    s.src=\"https://w.behold.so/widget.js\";d.head.append(s);\n  })();\n</script>"
 }
