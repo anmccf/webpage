@@ -539,16 +539,15 @@ footer strong{color:white}
     <p class="section-label">Instagram</p>
     <h2 class="section-title">인스타그램</h2>
     <div class="divider"></div>
-    <div id="igContainer">
-      <div class="ig-loading">
-        <div class="ig-spinner"></div>
-        <span>피드 불러오는 중...</span>
+    <div id="igEmbedContainer">
+      <div class="ig-setup-note" id="igSetupNote">
+        <h4>📸 인스타그램 피드</h4>
+        <p>관리자 패널 → 설정 탭에서 Behold.so 임베드 코드를 입력하면 피드가 표시됩니다.</p>
       </div>
     </div>
-    <div class="ig-footer">
-      <span class="ig-updated" id="igUpdated"></span>
+    <div class="ig-footer" style="margin-top:1.5rem">
       <a href="https://www.instagram.com/anm_ccf" target="_blank" class="btn-ig-follow">
-        📸 인스타그램 팔로우
+        📸 @anm_ccf 팔로우
       </a>
     </div>
   </div>
@@ -763,6 +762,18 @@ footer strong{color:white}
     <div class="tab-content" id="tab-settings">
 
       <!-- 사이트 기본 정보 -->
+      <div class="sec-heading">📸 인스타그램 피드 (Behold.so)</div>
+      <div class="gh-note">
+        1. <a href="https://behold.so" target="_blank">behold.so</a> 에서 무료 가입<br>
+        2. 인스타그램 계정 연결<br>
+        3. Widget 생성 → <strong>Get embed code</strong> 복사<br>
+        4. 아래에 붙여넣기 → 저장
+      </div>
+      <div class="fg"><label>Behold.so 임베드 코드 (전체 붙여넣기)</label><textarea id="si-igEmbed" style="min-height:120px;font-size:.75rem;font-family:monospace" placeholder="&lt;div id=&quot;behold-widget-...&quot;&gt;&lt;/div&gt;&#10;&lt;script&gt;...&lt;/script&gt;"></textarea></div>
+      <button class="submit-btn" style="background:#833ab4" onclick="saveIgEmbed()">📸 인스타 피드 저장</button>
+
+      <hr class="form-hr">
+
       <div class="sec-heading">🏠 사이트 기본 정보</div>
       <div class="fg"><label>교회 이름</label><input type="text" id="si-name" placeholder="예: ANMCCF"></div>
       <div class="fg"><label>교회 풀네임</label><input type="text" id="si-fullname" placeholder="예: All Nations Mission Campus Christian Fellowship"></div>
@@ -831,7 +842,7 @@ footer strong{color:white}
 //  CONSTANTS & HELPERS
 // ══════════════════════════════════════════
 const DEFAULT_PW = 'anmccf2025';
-const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro', songs:'anm_songs', yt:'anm_youtube' };
+const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro', songs:'anm_songs', yt:'anm_youtube', igEmbed:'anm_ig_embed' };
 const GH_KEYS = { repo:'anm_gh_repo', branch:'anm_gh_branch', token:'anm_gh_token' };
 
 const ld  = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
@@ -922,7 +933,8 @@ async function publishAll() {
     pastor:  ld(K.p, {}),
     about:   ld(K.a, {}),
     site:    ld(K.s, SITE_DEFAULTS),
-    intro:   ld(K.intro, '')
+    intro:   ld(K.intro, ''),
+    igEmbed: ld(K.igEmbed, '')
   };
 
   const files = [
@@ -1290,7 +1302,7 @@ function renderNews() {
   const fixed = `<div class="news-card"><span class="tag">안내</span><h4>ANMCCF에 오신 것을 환영합니다</h4><p>Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다.</p><p class="ndate">상시</p></div>`;
   document.getElementById('newsGrid').innerHTML = data.map(n => `<div class="news-card">
     <span class="tag">${n.tag}</span><h4>${n.title}</h4>
-    <p>${n.body.replace(/\n/g,'<br>')}</p>
+    <p>${n.body.split('\n').join('<br>')}</p>
     <p class="ndate">${fmt(n.date)}</p>
   </div>`).join('') + fixed;
 }
@@ -1422,7 +1434,7 @@ function renderMinistry() {
   const g = document.getElementById('ministryGrid');
   if(!g) return;
   if(!data.length) { g.innerHTML='<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem">🙏</div><p style="margin-top:.5rem">사역 소개 내용을 관리자 패널에서 추가해 주세요.</p></div>'; return; }
-  g.innerHTML = data.map(m=>`<div class="ministry-card"><div class="mc-icon">${m.icon}</div><h4>${m.title}</h4><p>${m.body.replace(/\n/g,'<br>')}</p></div>`).join('');
+  g.innerHTML = data.map(m=>`<div class="ministry-card"><div class="mc-icon">${m.icon}</div><h4>${m.title}</h4><p>${m.body.split('\n').join('<br>')}</p></div>`).join('');
 }
 function renderAdminMinistry() {
   const data=ld(K.ministry,[]);
@@ -1501,7 +1513,7 @@ function renderBoard() {
   if(!data.length){el.innerHTML='<div class="empty-state"><div style="font-size:2rem">📌</div><p style="margin-top:.5rem">생활정보, 신입생 안내 등을 관리자 패널에서 추가해 주세요.</p></div>';return;}
   el.innerHTML=data.map(p=>`<div class="board-card">
     <div><span class="board-tag">${p.tag}</span></div>
-    <div><h4>${p.title}</h4><p>${p.body.replace(/\n/g,'<br>')}</p></div>
+    <div><h4>${p.title}</h4><p>${p.body.split('\n').join('<br>')}</p></div>
     <div class="board-date">${fmt(p.date)}</div>
   </div>`).join('');
 }
@@ -1627,7 +1639,37 @@ function loadSiteForms() {
   document.getElementById('si-ig').value      = s.ig       || SITE_DEFAULTS.ig;
   document.getElementById('si-kakao').value   = s.kakao    || '';
   document.getElementById('si-label').value   = s.label    || SITE_DEFAULTS.label;
+  const embedEl = document.getElementById('si-igEmbed');
+  if (embedEl) embedEl.value = ld(K.igEmbed, '');
 }
+function saveIgEmbed() {
+  const code = document.getElementById('si-igEmbed').value.trim();
+  sv(K.igEmbed, code);
+  applyIgEmbed();
+  toast('✅ 인스타 피드 저장! 발행 버튼으로 반영하세요.');
+}
+function applyIgEmbed() {
+  const code = ld(K.igEmbed, '');
+  const note = document.getElementById('igSetupNote');
+  const container = document.getElementById('igEmbedContainer');
+  if (!container) return;
+  if (code) {
+    // Remove old embed scripts to avoid duplicates
+    container.querySelectorAll('script').forEach(s => s.remove());
+    container.innerHTML = code;
+    // Re-execute any scripts in the embed code
+    container.querySelectorAll('script').forEach(oldScript => {
+      const newScript = document.createElement('script');
+      if (oldScript.src) newScript.src = oldScript.src;
+      else newScript.textContent = oldScript.textContent;
+      if (oldScript.async) newScript.async = true;
+      document.head.appendChild(newScript);
+    });
+  } else {
+    container.innerHTML = '<div class="ig-setup-note"><h4>📸 인스타그램 피드</h4><p>관리자 패널 → 설정 탭에서 Behold.so 임베드 코드를 입력하면 피드가 표시됩니다.</p></div>';
+  }
+}
+
 function saveSiteInfo() {
   const s = {
     name:     document.getElementById('si-name').value.trim()     || SITE_DEFAULTS.name,
@@ -1650,7 +1692,7 @@ function applySite() {
   // hero title (fullname split into lines)
   // website links
   const webLinks = [document.getElementById('wWebsite'), document.getElementById('cWeb')];
-  webLinks.forEach(el => { if (!el) return; el.textContent = s.web.replace(/^https?:\/\//,''); el.href = s.web; });
+  webLinks.forEach(el => { if (!el) return; el.textContent = s.web.replace('https://','').replace('http://',''); el.href = s.web; });
   // instagram follow button
   const igBtn = document.querySelector('.btn-ig-follow');
   if (igBtn) igBtn.href = `https://www.instagram.com/${s.ig}`;
@@ -1702,7 +1744,7 @@ function importData() {
 }
 
 // ══════════════════════════════════════════
-//  INSTAGRAM
+//  INSTAGRAM (legacy – kept for data compat)
 // ══════════════════════════════════════════
 function renderInstagram(data) {
   const container = document.getElementById('igContainer');
@@ -1767,7 +1809,7 @@ function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); rende
 // ══════════════════════════════════════════
 async function init() {
   // Render immediately from localStorage (instant display)
-  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise();
+  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed();
 
   // Then try to load fresh data from the JSON files (GitHub Pages serves these)
   try {
@@ -1793,7 +1835,8 @@ async function init() {
       if (settings.pastor)  sv(K.p, settings.pastor);
       if (settings.about)   sv(K.a, settings.about);
       if (settings.site)    sv(K.s, settings.site);
-      if (settings.intro !== undefined) sv(K.intro, settings.intro);
+      if (settings.intro   !== undefined) sv(K.intro,   settings.intro);
+      if (settings.igEmbed !== undefined) sv(K.igEmbed, settings.igEmbed);
       changed = true;
     }
     if (ministry) { sv(K.ministry, ministry); changed = true; }
@@ -1802,7 +1845,7 @@ async function init() {
     if (recurring){ sv(K.r, recurring); changed = true; }
     if (praise)   { if(praise.songs!==undefined) sv(K.songs,praise.songs); if(praise.yt!==undefined) sv(K.yt,praise.yt); changed = true; }
     if (changed) {
-      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise();
+      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed();
     }
 
     // Instagram (renders separately)
