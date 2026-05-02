@@ -1,0 +1,27 @@
+{
+  "worship": {
+    "time": "주일 오전 11:00",
+    "loc": "All Faiths Chapel",
+    "addr": "College Station, TX 77844"
+  },
+  "pastor": {
+    "name": "유주호 목사님",
+    "title": "담임 목사 · Senior Pastor",
+    "phone": "434-944-1176",
+    "email": "peterlove153@gmail.com",
+    "deg": "Liberty Seminary, S.T.M.\n에스라 성경대학원대학교, Th.M.\n총신대학교 신학대학원, M.Div."
+  },
+  "about": {
+    "desc": "",
+    "quote": "",
+    "desc2": ""
+  },
+  "site": {
+    "name": "ANMCCF",
+    "fullname": "All Nations Mission Campus Christian Fellowship",
+    "web": "https://www.anmccf.org",
+    "ig": "anmccf",
+    "kakao": "",
+    "label": "Texas A&M Campus Church · College Station"
+  }
+}
