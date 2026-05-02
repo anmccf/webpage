@@ -715,21 +715,32 @@ async function publishAll() {
     site:    ld(K.s, SITE_DEFAULTS)
   };
 
-  try {
-    const results = await Promise.all([
-      ghCommit('bulletins.json', ld(K.b, [])),
-      ghCommit('events.json',    ld(K.e, [])),
-      ghCommit('news.json',      ld(K.n, [])),
-      ghCommit('settings.json',  settings)
-    ]);
-    const ok = results.every(Boolean);
-    toast(ok ? '🚀 GitHub에 성공적으로 발행되었습니다!' : '⚠️ 일부 파일 발행 실패. 토큰/저장소명을 확인하세요.');
-  } catch (e) {
-    toast('❌ GitHub 발행 실패: ' + e.message);
+  const files = [
+    { name: 'bulletins.json', data: ld(K.b, []) },
+    { name: 'events.json',    data: ld(K.e, []) },
+    { name: 'news.json',      data: ld(K.n, []) },
+    { name: 'settings.json',  data: settings     }
+  ];
+
+  const errors = [];
+  for (const f of files) {
+    const ok = await ghCommit(f.name, f.data);
+    if (!ok) errors.push(f.name);
   }
 
   btn.disabled = false;
   btn.textContent = '발행';
+
+  if (errors.length === 0) {
+    toast('🚀 발행 완료!');
+  } else {
+    // Show detailed error in settings tab status
+    const status = document.getElementById('ghStatus');
+    if (status) {
+      status.innerHTML = `<span class="sync-status err">❌ 실패한 파일: ${errors.join(', ')}<br>브라우저 콘솔(F12)에서 자세한 오류를 확인하세요.</span>`;
+    }
+    toast(`❌ ${errors.length}개 파일 발행 실패 — 설정 탭 확인`);
+  }
 }
 
 async function testGHConnection() {
