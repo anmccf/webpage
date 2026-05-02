@@ -593,7 +593,7 @@ footer strong{color:white}
     <div id="pt-bible" class="pt-pane" style="display:none">
       <img id="bibleImgEl" class="bible-img" src="" alt="성경공부" style="display:none">
       <table class="bible-table" id="bibleTable" style="display:none">
-        <thead><tr><th>모임</th><th>시간</th><th>장소</th><th>대상</th></tr></thead>
+        <thead><tr><th>모임</th><th>학기/기간</th><th>시간</th><th>장소</th><th>인도자</th><th>대상</th></tr></thead>
         <tbody id="bibleBody"></tbody>
       </table>
       <div class="empty-state" id="bibleEmpty"><div style="font-size:2rem">📖</div><p style="margin-top:.5rem">성경공부 일정을 관리자 패널에서 추가해 주세요.</p></div>
@@ -876,9 +876,14 @@ footer strong{color:white}
       <div class="fg"><label>대표 이미지 URL (선택)</label><input type="url" id="bs-img" placeholder="https://i.imgur.com/xxx.jpg"></div>
       <button class="submit-btn" style="background:#6c757d;margin-bottom:1rem" onclick="saveBibleImg()">🖼 성경공부 이미지 저장</button>
       <hr class="form-hr" style="margin-top:0">
-      <div class="fg"><label>모임 이름</label><input type="text" id="bs-name" placeholder="예: 금요 청년 성경공부"></div>
-      <div class="fg"><label>시간</label><input type="text" id="bs-time" placeholder="예: 금요일 오후 7:30"></div>
-      <div class="fg"><label>장소</label><input type="text" id="bs-place" placeholder="예: All Faiths Chapel 102"></div>
+      <div class="fg"><label>모임 이름</label><input type="text" id="bs-name" placeholder="예: 요한계시록 성경공부"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+        <div class="fg" style="margin:0"><label>학기</label><input type="text" id="bs-semester" placeholder="예: 2026 Spring"></div>
+        <div class="fg" style="margin:0"><label>기간</label><input type="text" id="bs-period" placeholder="예: 3월~5월"></div>
+      </div>
+      <div class="fg"><label>시간</label><input type="text" id="bs-time" placeholder="예: 금요일 오후 4:50"></div>
+      <div class="fg"><label>장소</label><input type="text" id="bs-place" placeholder="예: HEB or All Faiths Chapel"></div>
+      <div class="fg"><label>인도자</label><input type="text" id="bs-leader" placeholder="예: 유주호 목사님"></div>
       <div class="fg"><label>대상</label><input type="text" id="bs-target" placeholder="예: 대학생/대학원생"></div>
       <button class="submit-btn" onclick="addBibleStudy()">✅ 성경공부 추가</button>
       <div class="fg" style="margin-top:1rem"><label>성경공부 안내 문구 (선택)</label><textarea id="bs-note" placeholder="예: 말씀을 함께 나누며 신앙이 성장합니다. 누구나 참여하실 수 있습니다."></textarea></div>
@@ -1913,15 +1918,20 @@ function editMinistry(id){const data=ld(K.ministry,[]),m=data.find(x=>x.id===id)
 //  BIBLE STUDY
 // ══════════════════════════════════════════
 function addBibleStudy() {
-  const name   = document.getElementById('bs-name').value.trim();
-  const time   = document.getElementById('bs-time').value.trim();
-  const place  = document.getElementById('bs-place').value.trim();
-  const target = document.getElementById('bs-target').value.trim();
+  const g = id => (document.getElementById(id)||{}).value||'';
+  const name     = g('bs-name').trim();
+  const semester = g('bs-semester').trim();
+  const period   = g('bs-period').trim();
+  const time     = g('bs-time').trim();
+  const place    = g('bs-place').trim();
+  const leader   = g('bs-leader').trim();
+  const target   = g('bs-target').trim();
   if (!name) { toast('모임 이름을 입력해 주세요.'); return; }
   const data = ld(K.bible,[]);
-  data.push({id:uid(),name,time,place,target});
+  data.push({id:uid(), name, semester, period, time, place, leader, target});
   sv(K.bible,data); renderBible(); renderAdminBible();
-  ['bs-name','bs-time','bs-place','bs-target'].forEach(id=>document.getElementById(id).value='');
+  ['bs-name','bs-semester','bs-period','bs-time','bs-place','bs-leader','bs-target']
+    .forEach(id => { const e=document.getElementById(id); if(e) e.value=''; });
   toast('✅ 추가됐습니다! 발행 버튼으로 반영하세요.');
 }
 function saveBibleNote() {
@@ -1943,7 +1953,17 @@ function renderBible() {
   const noteEl=document.getElementById('bibleNote');
   if(!tbody) return;
   if(data.length) {
-    tbody.innerHTML=data.map(b=>`<tr><td><strong>${b.name}</strong></td><td>${b.time||''}</td><td>${b.place||''}</td><td>${b.target||''}</td></tr>`).join('');
+    tbody.innerHTML=data.map(b=>{
+      const semPeriod = [b.semester, b.period].filter(Boolean).join(' ');
+      return `<tr>
+        <td><strong>${b.name}</strong></td>
+        <td>${semPeriod}</td>
+        <td>${b.time||''}</td>
+        <td>${b.place||''}</td>
+        <td>${b.leader||''}</td>
+        <td>${b.target||''}</td>
+      </tr>`;
+    }).join('');
     if(table) table.style.display='';
     if(empty) empty.style.display='none';
   } else {
@@ -1956,21 +1976,31 @@ function renderAdminBible() {
   const data=ld(K.bible,[]);
   const el=document.getElementById('adminBibleList'); if(!el) return;
   if(!data.length){el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 성경공부가 없습니다.</p>';return;}
-  el.innerHTML=data.map(b=>`<div class="ai">
-    <div class="ai-info"><div class="ai-title">📖 ${b.name}</div><div class="ai-meta">${[b.time,b.place,b.target].filter(Boolean).join(' · ')}</div></div>
-    <div class="ai-actions">
-      <button class="ibtn edit" onclick="editBible('${b.id}')">수정</button>
-      <button class="ibtn del" onclick="delBible('${b.id}')">삭제</button>
-    </div>
-  </div>`).join('');
+  el.innerHTML=data.map(b=>{
+    const semPeriod = [b.semester, b.period].filter(Boolean).join(' ');
+    const meta = [semPeriod, b.time, b.place, b.leader].filter(Boolean).join(' · ');
+    return `<div class="ai">
+      <div class="ai-info">
+        <div class="ai-title">📖 ${b.name}</div>
+        <div class="ai-meta">${meta||'(정보 없음)'}</div>
+      </div>
+      <div class="ai-actions">
+        <button class="ibtn edit" onclick="editBible('${b.id}')">수정</button>
+        <button class="ibtn del" onclick="delBible('${b.id}')">삭제</button>
+      </div>
+    </div>`;
+  }).join('');
 }
 function editBible(id) {
   const data=ld(K.bible,[]), b=data.find(x=>x.id===id); if(!b) return;
   openModal('성경공부 수정', [
-    { label:'모임 이름', key:'name',   type:'text', val:b.name   },
-    { label:'일시',      key:'time',   type:'text', val:b.time   },
-    { label:'장소',      key:'place',  type:'text', val:b.place  },
-    { label:'대상',      key:'target', type:'text', val:b.target }
+    { label:'모임 이름', key:'name',     type:'text', val:b.name     ||'' },
+    { label:'학기',      key:'semester', type:'text', val:b.semester ||'' },
+    { label:'기간',      key:'period',   type:'text', val:b.period   ||'' },
+    { label:'시간',      key:'time',     type:'text', val:b.time     ||'' },
+    { label:'장소',      key:'place',    type:'text', val:b.place    ||'' },
+    { label:'인도자',    key:'leader',   type:'text', val:b.leader   ||'' },
+    { label:'대상',      key:'target',   type:'text', val:b.target   ||'' }
   ], vals => { Object.assign(b, vals); sv(K.bible, data); renderBible(); renderAdminBible(); toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.'); });
 }
 function delBible(id){if(!confirm('삭제할까요?'))return;sv(K.bible,ld(K.bible,[]).filter(x=>x.id!==id));renderBible();renderAdminBible();toast('🗑 삭제됐습니다.');}
