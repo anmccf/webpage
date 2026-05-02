@@ -1,4 +1,15 @@
 {
-  "studies": [],
+  "studies": [
+    {
+      "id": "moo23fahbm6",
+      "name": "요한계시록 성경공부",
+      "semester": "2026 Spring",
+      "period": "1-4월",
+      "time": "금요일 오후 4:50",
+      "place": "HEB",
+      "leader": "김무현 장로님",
+      "target": "대학생/대학원생"
+    }
+  ],
   "note": ""
 }
