@@ -69,6 +69,11 @@ section{padding:6rem 2rem}
 
 /* BULLETIN */
 #bulletin{background:var(--cream)}
+.pagination{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:2rem}
+.pag-btn{width:36px;height:36px;border:1px solid var(--border);background:white;border-radius:4px;cursor:pointer;font-size:.9rem;color:var(--maroon);transition:.15s}
+.pag-btn:hover,.pag-btn.active{background:var(--maroon);color:white;border-color:var(--maroon)}
+.pag-btn:disabled{opacity:.4;cursor:default;background:white;color:var(--text-light)}
+.pag-info{font-size:.82rem;color:var(--text-light);margin:0 .5rem}
 .bulletin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
 .bulletin-card{background:white;border:1px solid var(--border);border-radius:8px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow .2s,transform .2s;text-decoration:none;color:inherit}
 .bulletin-card:hover{box-shadow:0 8px 32px rgba(80,0,0,.08);transform:translateY(-3px)}
@@ -150,6 +155,33 @@ section{padding:6rem 2rem}
 .ig-setup-note{background:var(--warm-white);border:1px dashed var(--border);border-radius:8px;padding:2rem;text-align:center}
 .ig-setup-note h4{color:var(--maroon);margin-bottom:.5rem}
 .ig-setup-note p{font-size:.85rem;color:var(--text-light)}
+
+/* INTRO BANNER */
+.intro-banner{background:linear-gradient(135deg,var(--maroon) 0%,#7a1c1c 100%);border-radius:12px;padding:2.5rem 3rem;margin-bottom:3rem;color:white;text-align:center}
+.intro-banner p{font-family:'Noto Serif KR',serif;font-size:1.05rem;line-height:2;color:rgba(255,255,255,.9)}
+
+/* MINISTRY / BIBLE / BOARD */
+#ministry{background:var(--warm-white)}
+#bible{background:var(--cream)}
+#board{background:var(--warm-white)}
+.ministry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.ministry-card{background:white;border:1px solid var(--border);border-radius:8px;padding:1.8rem;transition:box-shadow .2s,transform .2s}
+.ministry-card:hover{box-shadow:0 6px 24px rgba(80,0,0,.07);transform:translateY(-2px)}
+.ministry-card .mc-icon{font-size:1.8rem;margin-bottom:.8rem}
+.ministry-card h4{font-family:'Noto Serif KR',serif;font-size:1rem;color:var(--maroon);margin-bottom:.6rem}
+.ministry-card p{font-size:.88rem;color:var(--text-mid);line-height:1.8}
+.bible-table{width:100%;border-collapse:collapse;background:white;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
+.bible-table th{background:var(--maroon);color:white;padding:.75rem 1rem;text-align:left;font-size:.8rem;letter-spacing:.05em}
+.bible-table td{padding:.75rem 1rem;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--text-mid)}
+.bible-table tr:last-child td{border-bottom:none}
+.bible-table tr:hover td{background:var(--cream)}
+.board-list{display:flex;flex-direction:column;gap:1rem}
+.board-card{background:white;border:1px solid var(--border);border-radius:8px;padding:1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:start;transition:box-shadow .2s}
+.board-card:hover{box-shadow:0 4px 16px rgba(80,0,0,.07)}
+.board-tag{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--maroon-pale);color:var(--maroon);padding:.2rem .6rem;border-radius:3px;white-space:nowrap}
+.board-card h4{font-size:.95rem;font-weight:600;color:var(--text-dark);margin-bottom:.3rem}
+.board-card p{font-size:.85rem;color:var(--text-mid);line-height:1.7}
+.board-date{font-size:.75rem;color:var(--text-light);white-space:nowrap}
 
 /* CONTACT */
 #contact{background:var(--warm-white)}
@@ -281,6 +313,9 @@ footer strong{color:white}
     <li><a href="#calendar">일정</a></li>
     <li><a href="#about">교회 소개</a></li>
     <li><a href="#news">소식</a></li>
+    <li><a href="#ministry">사역</a></li>
+    <li><a href="#bible">성경공부</a></li>
+    <li><a href="#board">게시판</a></li>
     <li><a href="#instagram">인스타그램</a></li>
     <li><a href="#contact">연락처</a></li>
   </ul>
@@ -330,6 +365,7 @@ footer strong{color:white}
     <h2 class="section-title">주보</h2>
     <div class="divider"></div>
     <div class="bulletin-grid" id="bulletinGrid"></div>
+    <div class="pagination" id="bulletinPaging"></div>
   </div>
 </section>
 
@@ -364,6 +400,9 @@ footer strong{color:white}
     <p class="section-label">About Us</p>
     <h2 class="section-title">교회 소개</h2>
     <div class="divider"></div>
+    <div class="intro-banner" id="introWrap" style="display:none">
+      <p id="introText"></p>
+    </div>
     <div class="about-layout">
       <div class="pastor-card">
         <div class="pastor-avatar" id="pAvatar">유</div>
@@ -395,6 +434,56 @@ footer strong{color:white}
     <h2 class="section-title">교회 소식</h2>
     <div class="divider"></div>
     <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- MINISTRY -->
+<section id="ministry">
+  <div class="container">
+    <p class="section-label">Ministry</p>
+    <h2 class="section-title">후원 사역</h2>
+    <div class="divider"></div>
+    <div class="ministry-grid" id="ministryGrid">
+      <div class="empty-state" style="grid-column:1/-1">
+        <div style="font-size:2rem">🙏</div>
+        <p style="margin-top:.5rem">사역 소개 내용을 관리자 패널에서 추가해 주세요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIBLE STUDY -->
+<section id="bible">
+  <div class="container">
+    <p class="section-label">Bible Study</p>
+    <h2 class="section-title">성경공부 안내</h2>
+    <div class="divider"></div>
+    <div id="bibleContent">
+      <table class="bible-table" id="bibleTable" style="display:none">
+        <thead><tr><th>모임</th><th>시간</th><th>장소</th><th>대상</th></tr></thead>
+        <tbody id="bibleBody"></tbody>
+      </table>
+      <div class="empty-state" id="bibleEmpty">
+        <div style="font-size:2rem">📖</div>
+        <p style="margin-top:.5rem">성경공부 일정을 관리자 패널에서 추가해 주세요.</p>
+      </div>
+    </div>
+    <div id="bibleNote" style="margin-top:1.5rem;font-family:'Noto Serif KR',serif;font-size:.95rem;color:var(--text-mid);line-height:1.9;border-left:3px solid var(--gold);padding-left:1.5rem;display:none"></div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section id="board">
+  <div class="container">
+    <p class="section-label">Community Board</p>
+    <h2 class="section-title">게시판</h2>
+    <div class="divider"></div>
+    <div class="board-list" id="boardList">
+      <div class="empty-state">
+        <div style="font-size:2rem">📌</div>
+        <p style="margin-top:.5rem">생활정보, 신입생 안내 등을 관리자 패널에서 추가해 주세요.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -475,6 +564,7 @@ footer strong{color:white}
     <button class="panel-tab" data-tab="calendar">📅 일정</button>
     <button class="panel-tab" data-tab="news">📢 소식</button>
     <button class="panel-tab" data-tab="about">👤 소개</button>
+    <button class="panel-tab" data-tab="extra">🌿 사역/성경/게시판</button>
     <button class="panel-tab" data-tab="settings">⚙️ 설정</button>
   </div>
   <div class="panel-body">
@@ -503,7 +593,22 @@ footer strong{color:white}
 
     <!-- 일정 탭 -->
     <div class="tab-content" id="tab-calendar">
-      <div class="sec-heading">새 일정 추가</div>
+      <div class="sec-heading">🔁 정기 반복 행사</div>
+      <div style="font-size:.8rem;color:var(--text-light);margin-bottom:1rem">매주 자동으로 달력에 표시되는 고정 일정입니다.</div>
+      <div class="fg"><label>행사 이름</label><input type="text" id="r-title" placeholder="예: 주일예배"></div>
+      <div class="fg"><label>요일</label>
+        <select id="r-dow">
+          <option value="0">일요일</option><option value="1">월요일</option>
+          <option value="2">화요일</option><option value="3">수요일</option>
+          <option value="4">목요일</option><option value="5">금요일</option><option value="6">토요일</option>
+        </select>
+      </div>
+      <div class="fg"><label>시간</label><input type="text" id="r-time" placeholder="예: 오전 11:00"></div>
+      <div class="fg"><label>장소</label><input type="text" id="r-place" placeholder="예: All Faiths Chapel"></div>
+      <button class="submit-btn" onclick="addRecurring()">✅ 정기행사 추가</button>
+      <div class="ail" id="adminRecurringList" style="margin-top:1rem"></div>
+      <hr class="form-hr">
+      <div class="sec-heading">📅 단회 일정 추가</div>
       <div class="fg"><label>날짜</label><input type="date" id="e-date"></div>
       <div class="fg"><label>행사 제목</label><input type="text" id="e-title" placeholder="예: 새신자 환영회"></div>
       <div class="fg"><label>시간</label><input type="text" id="e-time" placeholder="예: 오후 7:00"></div>
@@ -511,7 +616,7 @@ footer strong{color:white}
       <div class="fg"><label>상세 내용 (선택)</label><textarea id="e-detail" placeholder="행사 상세 내용"></textarea></div>
       <button class="submit-btn" onclick="addEvent()">✅ 일정 추가</button>
       <hr class="form-hr">
-      <div class="sec-heading">등록된 일정 (수정/삭제)</div>
+      <div class="sec-heading">등록된 단회 일정 (수정/삭제)</div>
       <div class="ail" id="adminEventList"></div>
     </div>
 
@@ -529,6 +634,10 @@ footer strong{color:white}
 
     <!-- 소개 탭 -->
     <div class="tab-content" id="tab-about">
+      <div class="sec-heading">✏️ 상단 소개글</div>
+      <div class="fg"><label>교회 소개 배너 문구 (비워두면 숨김)</label><textarea id="a-intro" style="min-height:80px" placeholder="예: 모든 민족을 주님께로! ANMCCF는 Texas A&M 캠퍼스에서 함께 예배하고 성장하는 공동체입니다."></textarea></div>
+      <button class="submit-btn" onclick="saveIntro()">✅ 소개글 저장</button>
+      <hr class="form-hr">
       <div class="sec-heading">예배 정보 수정</div>
       <div class="fg"><label>예배 시간</label><input type="text" id="a-time" placeholder="예: 주일 오전 11:00"></div>
       <div class="fg"><label>장소명</label><input type="text" id="a-loc" placeholder="예: All Faiths Chapel"></div>
@@ -548,6 +657,43 @@ footer strong{color:white}
       <div class="fg"><label>목사님 인용구</label><textarea id="a-quote" style="min-height:100px"></textarea></div>
       <div class="fg"><label>추가 설명</label><textarea id="a-desc2" style="min-height:100px"></textarea></div>
       <button class="submit-btn" onclick="saveAboutText()">✅ 소개 문구 저장</button>
+    </div>
+
+    <!-- 사역/성경/게시판 탭 -->
+    <div class="tab-content" id="tab-extra">
+
+      <div class="sec-heading">🙏 후원 사역 카드</div>
+      <div class="fg"><label>아이콘 (이모지)</label><input type="text" id="m-icon" placeholder="예: 🙏" maxlength="4"></div>
+      <div class="fg"><label>제목</label><input type="text" id="m-title" placeholder="예: 해외 선교 후원"></div>
+      <div class="fg"><label>내용</label><textarea id="m-body" placeholder="사역 소개 내용..."></textarea></div>
+      <button class="submit-btn" onclick="addMinistry()">✅ 사역 카드 추가</button>
+      <div class="ail" id="adminMinistryList" style="margin-top:1rem"></div>
+
+      <hr class="form-hr">
+
+      <div class="sec-heading">📖 성경공부 일정</div>
+      <div class="fg"><label>모임 이름</label><input type="text" id="bs-name" placeholder="예: 금요 청년 성경공부"></div>
+      <div class="fg"><label>시간</label><input type="text" id="bs-time" placeholder="예: 금요일 오후 7:30"></div>
+      <div class="fg"><label>장소</label><input type="text" id="bs-place" placeholder="예: All Faiths Chapel 102"></div>
+      <div class="fg"><label>대상</label><input type="text" id="bs-target" placeholder="예: 대학생/대학원생"></div>
+      <button class="submit-btn" onclick="addBibleStudy()">✅ 성경공부 추가</button>
+      <div class="fg" style="margin-top:1rem"><label>성경공부 안내 문구 (선택)</label><textarea id="bs-note" placeholder="예: 말씀을 함께 나누며 신앙이 성장합니다. 누구나 참여하실 수 있습니다."></textarea></div>
+      <button class="submit-btn" style="background:#6c757d" onclick="saveBibleNote()">✅ 안내 문구 저장</button>
+      <div class="ail" id="adminBibleList" style="margin-top:1rem"></div>
+
+      <hr class="form-hr">
+
+      <div class="sec-heading">📌 게시판 글쓰기</div>
+      <div class="fg"><label>분류</label>
+        <select id="bd-tag">
+          <option>생활정보</option><option>신입생 안내</option><option>구인/구직</option>
+          <option>물품 나눔</option><option>자유게시판</option><option>기도요청</option>
+        </select>
+      </div>
+      <div class="fg"><label>제목</label><input type="text" id="bd-title" placeholder="게시글 제목"></div>
+      <div class="fg"><label>내용</label><textarea id="bd-body" placeholder="내용을 입력하세요..."></textarea></div>
+      <button class="submit-btn" onclick="addBoard()">✅ 게시글 추가</button>
+      <div class="ail" id="adminBoardList" style="margin-top:1rem"></div>
     </div>
 
     <!-- 설정 탭 -->
@@ -622,7 +768,7 @@ footer strong{color:white}
 //  CONSTANTS & HELPERS
 // ══════════════════════════════════════════
 const DEFAULT_PW = 'anmccf2025';
-const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site' };
+const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro' };
 const GH_KEYS = { repo:'anm_gh_repo', branch:'anm_gh_branch', token:'anm_gh_token' };
 
 const ld  = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
@@ -712,14 +858,19 @@ async function publishAll() {
     worship: ld(K.w, {}),
     pastor:  ld(K.p, {}),
     about:   ld(K.a, {}),
-    site:    ld(K.s, SITE_DEFAULTS)
+    site:    ld(K.s, SITE_DEFAULTS),
+    intro:   ld(K.intro, '')
   };
 
   const files = [
     { name: 'bulletins.json', data: ld(K.b, []) },
     { name: 'events.json',    data: ld(K.e, []) },
     { name: 'news.json',      data: ld(K.n, []) },
-    { name: 'settings.json',  data: settings     }
+    { name: 'settings.json',  data: settings     },
+    { name: 'ministry.json',  data: ld(K.ministry, []) },
+    { name: 'bible.json',     data: { studies: ld(K.bible,[]), note: ld(K.bibleNote,'') } },
+    { name: 'board.json',     data: ld(K.board, []) },
+    { name: 'recurring.json', data: ld(K.r, []) }
   ];
 
   const errors = [];
@@ -863,11 +1014,23 @@ function addBulletin() {
   ['b-date','b-title','b-verse','b-url'].forEach(id => document.getElementById(id).value = '');
   toast('✅ 주보가 추가되었습니다! 상단 [발행] 버튼으로 반영하세요.');
 }
-function renderBulletins() {
-  const data = ld(K.b, []);
+let bulPage = 0;
+const BUL_PER_PAGE = 6;
+function renderBulletins(page) {
+  if (page !== undefined) bulPage = page;
+  const raw = ld(K.b, []);
+  // 최신순 정렬
+  const data = [...raw].sort((a,b) => b.date.localeCompare(a.date));
   const g = document.getElementById('bulletinGrid');
-  if (!data.length) { g.innerHTML = '<div class="empty-state"><div style="font-size:2rem">📋</div><p style="margin-top:.5rem">아직 등록된 주보가 없습니다.</p></div>'; return; }
-  g.innerHTML = data.map(b => `<a class="bulletin-card" href="${b.url||'#'}" target="${b.url?'_blank':'_self'}">
+  const pg = document.getElementById('bulletinPaging');
+  if (!data.length) {
+    g.innerHTML = '<div class="empty-state"><div style="font-size:2rem">📋</div><p style="margin-top:.5rem">아직 등록된 주보가 없습니다.</p></div>';
+    if(pg) pg.innerHTML=''; return;
+  }
+  const totalPages = Math.ceil(data.length / BUL_PER_PAGE);
+  if (bulPage >= totalPages) bulPage = totalPages - 1;
+  const slice = data.slice(bulPage * BUL_PER_PAGE, (bulPage+1) * BUL_PER_PAGE);
+  g.innerHTML = slice.map(b => `<a class="bulletin-card" href="${b.url||'#'}" target="${b.url?'_blank':'_self'}">
     <div class="bulletin-icon">📄</div>
     <div class="bulletin-info">
       <h4>${b.title}</h4>
@@ -875,6 +1038,17 @@ function renderBulletins() {
       <p class="bdate">${fmt(b.date)}</p>
     </div>
   </a>`).join('');
+  // pagination
+  if (pg) {
+    if (totalPages <= 1) { pg.innerHTML=''; return; }
+    let html = `<button class="pag-btn" onclick="renderBulletins(${bulPage-1})" ${bulPage===0?'disabled':''}>‹</button>`;
+    for (let i=0;i<totalPages;i++) {
+      html += `<button class="pag-btn ${i===bulPage?'active':''}" onclick="renderBulletins(${i})">${i+1}</button>`;
+    }
+    html += `<button class="pag-btn" onclick="renderBulletins(${bulPage+1})" ${bulPage===totalPages-1?'disabled':''}>›</button>`;
+    html += `<span class="pag-info">${bulPage+1} / ${totalPages} 페이지</span>`;
+    pg.innerHTML = html;
+  }
 }
 function renderAdminBulletins() {
   const data = ld(K.b, []);
@@ -903,6 +1077,53 @@ function editBulletin(id) {
 }
 
 // ══════════════════════════════════════════
+//  RECURRING EVENTS
+// ══════════════════════════════════════════
+const DOW_KO = ['일','월','화','수','목','금','토'];
+function addRecurring() {
+  const title = document.getElementById('r-title').value.trim();
+  const dow   = parseInt(document.getElementById('r-dow').value);
+  const time  = document.getElementById('r-time').value.trim();
+  const place = document.getElementById('r-place').value.trim();
+  if (!title) { toast('행사 이름을 입력해 주세요.'); return; }
+  const data = ld(K.r, []);
+  data.push({ id: uid(), title, dow, time, place });
+  sv(K.r, data); renderCalendar(); renderAdminRecurring();
+  ['r-title','r-time','r-place'].forEach(id => document.getElementById(id).value='');
+  toast('✅ 정기행사 추가! 발행 버튼으로 반영하세요.');
+}
+function renderAdminRecurring() {
+  const data = ld(K.r, []);
+  const el = document.getElementById('adminRecurringList');
+  if (!el) return;
+  if (!data.length) { el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 정기행사가 없습니다.</p>'; return; }
+  el.innerHTML = data.map(r => `<div class="ai">
+    <div class="ai-info"><div class="ai-title">🔁 ${r.title}</div><div class="ai-meta">매주 ${DOW_KO[r.dow]}요일${r.time?' · '+r.time:''}${r.place?' · '+r.place:''}</div></div>
+    <div class="ai-actions"><button class="ibtn del" onclick="delRecurring('${r.id}')">삭제</button></div>
+  </div>`).join('');
+}
+function delRecurring(id) {
+  if (!confirm('정기행사를 삭제할까요?')) return;
+  sv(K.r, ld(K.r,[]).filter(x=>x.id!==id)); renderCalendar(); renderAdminRecurring(); toast('🗑 삭제되었습니다. 발행 버튼으로 반영하세요.');
+}
+// 정기행사를 향후 8주치 날짜로 확장
+function expandRecurring() {
+  const recurring = ld(K.r, []);
+  const generated = [];
+  const today = new Date(); today.setHours(0,0,0,0);
+  recurring.forEach(r => {
+    for (let w=0; w<8; w++) {
+      const d = new Date(today);
+      const diff = (r.dow - d.getDay() + 7) % 7;
+      d.setDate(d.getDate() + diff + w*7);
+      const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+      generated.push({ id:'rec_'+r.id+'_'+w, date:ds, title:r.title, time:r.time, place:r.place, recurring:true });
+    }
+  });
+  return generated;
+}
+
+// ══════════════════════════════════════════
 //  CALENDAR
 // ══════════════════════════════════════════
 let calDate = new Date();
@@ -921,7 +1142,7 @@ function addEvent() {
   toast('✅ 일정이 추가되었습니다! 발행 버튼으로 반영하세요.');
 }
 function renderCalendar() {
-  const events = ld(K.e, []);
+  const events = [...ld(K.e, []), ...expandRecurring()];
   const y = calDate.getFullYear(), m = calDate.getMonth();
   document.getElementById('calMonthYear').textContent = `${y}년 ${m+1}월`;
   const first = new Date(y, m, 1).getDay(), days = new Date(y, m+1, 0).getDate();
@@ -944,7 +1165,7 @@ function renderCalendar() {
   renderUpcoming();
 }
 function renderUpcoming() {
-  const events = ld(K.e, []);
+  const events = [...ld(K.e, []), ...expandRecurring()];
   const now = new Date(); now.setHours(0,0,0,0);
   const up = events.filter(e => new Date(e.date+'T00:00:00') >= now).slice(0, 5);
   const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1035,6 +1256,135 @@ function editNews(id) {
 }
 
 // ══════════════════════════════════════════
+//  MINISTRY
+// ══════════════════════════════════════════
+function addMinistry() {
+  const icon  = document.getElementById('m-icon').value.trim() || '🙏';
+  const title = document.getElementById('m-title').value.trim();
+  const body  = document.getElementById('m-body').value.trim();
+  if (!title||!body) { toast('제목과 내용을 입력해 주세요.'); return; }
+  const data = ld(K.ministry,[]);
+  data.push({id:uid(),icon,title,body});
+  sv(K.ministry,data); renderMinistry(); renderAdminMinistry();
+  ['m-icon','m-title','m-body'].forEach(id=>document.getElementById(id).value='');
+  toast('✅ 추가됐습니다! 발행 버튼으로 반영하세요.');
+}
+function renderMinistry() {
+  const data = ld(K.ministry,[]);
+  const g = document.getElementById('ministryGrid');
+  if(!g) return;
+  if(!data.length) { g.innerHTML='<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem">🙏</div><p style="margin-top:.5rem">사역 소개 내용을 관리자 패널에서 추가해 주세요.</p></div>'; return; }
+  g.innerHTML = data.map(m=>`<div class="ministry-card"><div class="mc-icon">${m.icon}</div><h4>${m.title}</h4><p>${m.body.replace(/
+/g,'<br>')}</p></div>`).join('');
+}
+function renderAdminMinistry() {
+  const data=ld(K.ministry,[]);
+  const el=document.getElementById('adminMinistryList'); if(!el) return;
+  if(!data.length){el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 사역이 없습니다.</p>';return;}
+  el.innerHTML=data.map(m=>`<div class="ai"><div class="ai-info"><div class="ai-title">${m.icon} ${m.title}</div></div>
+    <div class="ai-actions"><button class="ibtn edit" onclick="editMinistry('${m.id}')">수정</button><button class="ibtn del" onclick="delMinistry('${m.id}')">삭제</button></div></div>`).join('');
+}
+function delMinistry(id){if(!confirm('삭제할까요?'))return;sv(K.ministry,ld(K.ministry,[]).filter(x=>x.id!==id));renderMinistry();renderAdminMinistry();toast('🗑 삭제됐습니다.');}
+function editMinistry(id){const data=ld(K.ministry,[]),m=data.find(x=>x.id===id);if(!m)return;
+  openModal('사역 수정',[{label:'아이콘',key:'icon',type:'text',val:m.icon},{label:'제목',key:'title',type:'text',val:m.title},{label:'내용',key:'body',type:'textarea',val:m.body}],
+  vals=>{Object.assign(m,vals);sv(K.ministry,data);renderMinistry();renderAdminMinistry();toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.');});}
+
+// ══════════════════════════════════════════
+//  BIBLE STUDY
+// ══════════════════════════════════════════
+function addBibleStudy() {
+  const name   = document.getElementById('bs-name').value.trim();
+  const time   = document.getElementById('bs-time').value.trim();
+  const place  = document.getElementById('bs-place').value.trim();
+  const target = document.getElementById('bs-target').value.trim();
+  if (!name) { toast('모임 이름을 입력해 주세요.'); return; }
+  const data = ld(K.bible,[]);
+  data.push({id:uid(),name,time,place,target});
+  sv(K.bible,data); renderBible(); renderAdminBible();
+  ['bs-name','bs-time','bs-place','bs-target'].forEach(id=>document.getElementById(id).value='');
+  toast('✅ 추가됐습니다! 발행 버튼으로 반영하세요.');
+}
+function saveBibleNote() {
+  const note = document.getElementById('bs-note').value.trim();
+  sv(K.bibleNote, note); renderBible(); toast('✅ 저장됐습니다! 발행 버튼으로 반영하세요.');
+}
+function renderBible() {
+  const data=ld(K.bible,[]), note=ld(K.bibleNote,'');
+  const tbody=document.getElementById('bibleBody');
+  const table=document.getElementById('bibleTable');
+  const empty=document.getElementById('bibleEmpty');
+  const noteEl=document.getElementById('bibleNote');
+  if(!tbody) return;
+  if(data.length) {
+    tbody.innerHTML=data.map(b=>`<tr><td><strong>${b.name}</strong></td><td>${b.time||''}</td><td>${b.place||''}</td><td>${b.target||''}</td></tr>`).join('');
+    if(table) table.style.display='';
+    if(empty) empty.style.display='none';
+  } else {
+    if(table) table.style.display='none';
+    if(empty) empty.style.display='';
+  }
+  if(noteEl) { if(note){noteEl.textContent=note;noteEl.style.display='';}else{noteEl.style.display='none';} }
+}
+function renderAdminBible() {
+  const data=ld(K.bible,[]);
+  const el=document.getElementById('adminBibleList'); if(!el) return;
+  if(!data.length){el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 성경공부가 없습니다.</p>';return;}
+  el.innerHTML=data.map(b=>`<div class="ai"><div class="ai-info"><div class="ai-title">📖 ${b.name}</div><div class="ai-meta">${[b.time,b.place,b.target].filter(Boolean).join(' · ')}</div></div>
+    <div class="ai-actions"><button class="ibtn del" onclick="delBible('${b.id}')">삭제</button></div></div>`).join('');
+}
+function delBible(id){if(!confirm('삭제할까요?'))return;sv(K.bible,ld(K.bible,[]).filter(x=>x.id!==id));renderBible();renderAdminBible();toast('🗑 삭제됐습니다.');}
+
+// ══════════════════════════════════════════
+//  BOARD
+// ══════════════════════════════════════════
+function addBoard() {
+  const tag   = document.getElementById('bd-tag').value;
+  const title = document.getElementById('bd-title').value.trim();
+  const body  = document.getElementById('bd-body').value.trim();
+  if (!title||!body) { toast('제목과 내용을 입력해 주세요.'); return; }
+  const data = ld(K.board,[]);
+  data.unshift({id:uid(),tag,title,body,date:new Date().toISOString().split('T')[0]});
+  sv(K.board,data); renderBoard(); renderAdminBoard();
+  ['bd-title','bd-body'].forEach(id=>document.getElementById(id).value='');
+  toast('✅ 게시글 추가됐습니다! 발행 버튼으로 반영하세요.');
+}
+function renderBoard() {
+  const data=ld(K.board,[]);
+  const el=document.getElementById('boardList'); if(!el) return;
+  if(!data.length){el.innerHTML='<div class="empty-state"><div style="font-size:2rem">📌</div><p style="margin-top:.5rem">생활정보, 신입생 안내 등을 관리자 패널에서 추가해 주세요.</p></div>';return;}
+  el.innerHTML=data.map(p=>`<div class="board-card">
+    <div><span class="board-tag">${p.tag}</span></div>
+    <div><h4>${p.title}</h4><p>${p.body.replace(/
+/g,'<br>')}</p></div>
+    <div class="board-date">${fmt(p.date)}</div>
+  </div>`).join('');
+}
+function renderAdminBoard() {
+  const data=ld(K.board,[]);
+  const el=document.getElementById('adminBoardList'); if(!el) return;
+  if(!data.length){el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 게시글이 없습니다.</p>';return;}
+  el.innerHTML=data.map(p=>`<div class="ai"><div class="ai-info"><div class="ai-title">📌 ${p.title}</div><div class="ai-meta">[${p.tag}] ${fmt(p.date)}</div></div>
+    <div class="ai-actions"><button class="ibtn del" onclick="delBoard('${p.id}')">삭제</button></div></div>`).join('');
+}
+function delBoard(id){if(!confirm('삭제할까요?'))return;sv(K.board,ld(K.board,[]).filter(x=>x.id!==id));renderBoard();renderAdminBoard();toast('🗑 삭제됐습니다.');}
+
+// ══════════════════════════════════════════
+//  INTRO TEXT
+// ══════════════════════════════════════════
+function saveIntro() {
+  const txt = document.getElementById('a-intro').value.trim();
+  sv(K.intro, txt); applyIntro(); toast('✅ 소개글 저장됐습니다! 발행 버튼으로 반영하세요.');
+}
+function applyIntro() {
+  const txt = ld(K.intro,'');
+  const wrap = document.getElementById('introWrap');
+  const el   = document.getElementById('introText');
+  if(!wrap||!el) return;
+  if(txt) { el.textContent=txt; wrap.style.display=''; }
+  else    { wrap.style.display='none'; }
+}
+
+// ══════════════════════════════════════════
 //  ABOUT
 // ══════════════════════════════════════════
 function loadAboutForms() {
@@ -1052,6 +1402,14 @@ function loadAboutForms() {
   document.getElementById('a-desc').value  = a.desc;
   document.getElementById('a-quote').value = a.quote;
   document.getElementById('a-desc2').value = a.desc2;
+  const intro = ld(K.intro,'');
+  const introEl = document.getElementById('a-intro');
+  if(introEl) introEl.value = intro;
+  // 사역/성경/게시판 관리자 목록 로드
+  renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring();
+  // bibleNote 폼
+  const bnEl = document.getElementById('bs-note');
+  if(bnEl) bnEl.value = ld(K.bibleNote,'');
 }
 function loadGHForms() {
   document.getElementById('s-repo').value   = GH.repo;
@@ -1254,23 +1612,27 @@ function openModal(title, fields, cb) {
 function closeModal() { document.getElementById('editModal').classList.remove('open'); }
 document.getElementById('editModal').addEventListener('click', e => { if (e.target === document.getElementById('editModal')) closeModal(); });
 
-function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); }
+function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring(); }
 
 // ══════════════════════════════════════════
 //  INIT — loads data from ./data/*.json files
 // ══════════════════════════════════════════
 async function init() {
   // Render immediately from localStorage (instant display)
-  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite();
+  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard();
 
   // Then try to load fresh data from the JSON files (GitHub Pages serves these)
   try {
-    const [bulletins, events, news, settings, instagram] = await Promise.all([
+    const [bulletins, events, news, settings, instagram, ministry, bible, board, recurring] = await Promise.all([
       loadDataFile('bulletins.json'),
       loadDataFile('events.json'),
       loadDataFile('news.json'),
       loadDataFile('settings.json'),
-      loadDataFile('instagram.json')
+      loadDataFile('instagram.json'),
+      loadDataFile('ministry.json'),
+      loadDataFile('bible.json'),
+      loadDataFile('board.json'),
+      loadDataFile('recurring.json')
     ]);
 
     let changed = false;
@@ -1282,10 +1644,15 @@ async function init() {
       if (settings.pastor)  sv(K.p, settings.pastor);
       if (settings.about)   sv(K.a, settings.about);
       if (settings.site)    sv(K.s, settings.site);
+      if (settings.intro !== undefined) sv(K.intro, settings.intro);
       changed = true;
     }
+    if (ministry) { sv(K.ministry, ministry); changed = true; }
+    if (bible)    { if(bible.studies) sv(K.bible, bible.studies); if(bible.note!==undefined) sv(K.bibleNote, bible.note); changed = true; }
+    if (board)    { sv(K.board, board); changed = true; }
+    if (recurring){ sv(K.r, recurring); changed = true; }
     if (changed) {
-      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite();
+      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard();
     }
 
     // Instagram (renders separately)
