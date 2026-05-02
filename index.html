@@ -386,13 +386,13 @@ footer strong{color:white}
   <a href="#hero" class="nav-logo">ANMCCF</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#worship">예배 안내</a></li>
-    <li><a href="#bulletin">주보</a></li>
-    <li><a href="#calendar">일정</a></li>
     <li><a href="#about">교회 소개</a></li>
-    <li><a href="#community">소식/게시판</a></li>
+    <li><a href="#bulletin">주보</a></li>
     <li><a href="#praise">찬양</a></li>
+    <li><a href="#calendar">일정</a></li>
+    <li><a href="#community">소식/게시판</a></li>
     <li><a href="#programs">사역/성경공부</a></li>
-    <li><a href="#instagram">인스타그램</a></li>
+    <li><a href="#instagram">인스타</a></li>
     <li><a href="#contact">연락처</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
@@ -431,53 +431,9 @@ footer strong{color:white}
           <div class="info-card-icon">📍</div>
           <div class="info-card-text"><h3>장소</h3><p class="val" id="wLocation">All Faiths Chapel</p><p class="sub" id="wAddress">College Station, TX 77840</p></div>
         </div>
-        <div class="info-card">
-          <div class="info-card-icon">🌐</div>
-          <div class="info-card-text"><h3>홈페이지</h3><p class="val"><a href="https://anmccf.github.io/webpage/" target="_blank" style="color:var(--maroon);text-decoration:none" id="wWebsite">anmccf.github.io/webpage</a></p></div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-icon">📸</div>
-          <div class="info-card-text"><h3>인스타그램</h3><p class="val"><a href="https://www.instagram.com/anm_ccf" target="_blank" style="color:var(--maroon);text-decoration:none" id="wIg">@anm_ccf</a></p></div>
-        </div>
       </div>
       <div class="map-embed">
         <iframe src="https://maps.google.com/maps?q=All+Faiths+Chapel,+College+Station,+TX+77840&output=embed&z=16" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BULLETIN -->
-<section id="bulletin">
-  <div class="container">
-    <p class="section-label">Weekly Bulletin</p>
-    <h2 class="section-title">주보</h2>
-    <div class="divider"></div>
-    <div class="bulletin-grid" id="bulletinGrid"></div>
-    <div class="pagination" id="bulletinPaging"></div>
-  </div>
-</section>
-
-<!-- CALENDAR -->
-<section id="calendar">
-  <div class="container">
-    <p class="section-label">Schedule</p>
-    <h2 class="section-title">교회 일정</h2>
-    <div class="divider"></div>
-    <div class="calendar-layout">
-      <div>
-        <div class="cal-header">
-          <h3 id="calMonthYear"></h3>
-          <div class="cal-nav"><button id="calPrev">‹</button><button id="calNext">›</button></div>
-        </div>
-        <div class="cal-grid">
-          <div class="cal-days-header"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
-          <div class="cal-body" id="calBody"></div>
-        </div>
-      </div>
-      <div class="upcoming-events">
-        <h3>다가오는 일정</h3>
-        <div id="eventList"></div>
       </div>
     </div>
   </div>
@@ -511,6 +467,73 @@ footer strong{color:white}
         <p id="aDesc">ANMCCF (All Nations Mission Campus Christian Fellowship)는 Texas A&M 대학교 캠퍼스에 위치한 한인 교회입니다.</p>
         <blockquote id="aQuote">"독생자 외아들 예수 그리스도를 우리를 이 땅에 보내주신 창조주 하나님의 사랑으로 여러분을 축복하며 환영합니다. 교회는 하나님의 새로운 가족입니다."</blockquote>
         <p id="aDesc2">Texas A&M 한인 학생, 교수, 연구원 및 그 가족분들을 위한 신앙 공동체입니다. 새로운 환경에서 말씀 안에서 영적으로 성장하며, 서로에게 힘이 되어주는 공동체를 만들어가고 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BULLETIN -->
+<section id="bulletin">
+  <div class="container">
+    <p class="section-label">Weekly Bulletin</p>
+    <h2 class="section-title">주보</h2>
+    <div class="divider"></div>
+    <div class="bulletin-grid" id="bulletinGrid"></div>
+    <div class="pagination" id="bulletinPaging"></div>
+  </div>
+</section>
+
+<!-- PRAISE -->
+<section id="praise">
+  <div class="container">
+    <p class="section-label">Worship Songs</p>
+    <h2 class="section-title">이번 주 찬양</h2>
+    <div class="divider"></div>
+    <p class="yt-week-label" id="praiseWeekLabel"></p>
+    <div class="praise-layout">
+      <div>
+        <div class="praise-notice" id="praiseNotice" style="display:none"></div>
+        <div class="song-list" id="songList">
+          <div style="color:rgba(255,255,255,.4);font-size:.88rem;padding:1rem 0">이번 주 찬양 목록을 관리자 패널에서 추가해 주세요.</div>
+        </div>
+      </div>
+      <div>
+        <div class="yt-wrap" id="ytWrap">
+          <div class="yt-placeholder" id="ytPlaceholder">
+            <div class="yt-icon">▶</div>
+            <span>유튜브 플레이리스트</span>
+            <span style="font-size:.75rem">관리자 패널에서 링크를 입력해 주세요</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <details class="praise-archive" id="praiseArchiveEl">
+      <summary>이전 주 찬양 목록 보기</summary>
+      <div id="praiseArchiveList"></div>
+    </details>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar">
+  <div class="container">
+    <p class="section-label">Schedule</p>
+    <h2 class="section-title">교회 일정</h2>
+    <div class="divider"></div>
+    <div class="calendar-layout">
+      <div>
+        <div class="cal-header">
+          <h3 id="calMonthYear"></h3>
+          <div class="cal-nav"><button id="calPrev">‹</button><button id="calNext">›</button></div>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-days-header"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+          <div class="cal-body" id="calBody"></div>
+        </div>
+      </div>
+      <div class="upcoming-events">
+        <h3>다가오는 일정</h3>
+        <div id="eventList"></div>
       </div>
     </div>
   </div>
@@ -564,37 +587,6 @@ footer strong{color:white}
       <div class="empty-state" id="bibleEmpty"><div style="font-size:2rem">📖</div><p style="margin-top:.5rem">성경공부 일정을 관리자 패널에서 추가해 주세요.</p></div>
       <div id="bibleNote" style="margin-top:1.5rem;font-family:'Noto Serif KR',serif;font-size:.95rem;color:var(--text-mid);line-height:1.9;border-left:3px solid var(--gold);padding-left:1.5rem;display:none"></div>
     </div>
-  </div>
-</section>
-
-<!-- PRAISE -->
-<section id="praise">
-  <div class="container">
-    <p class="section-label">Worship Songs</p>
-    <h2 class="section-title">이번 주 찬양</h2>
-    <div class="divider"></div>
-    <p class="yt-week-label" id="praiseWeekLabel"></p>
-    <div class="praise-layout">
-      <div>
-        <div class="praise-notice" id="praiseNotice" style="display:none"></div>
-        <div class="song-list" id="songList">
-          <div style="color:rgba(255,255,255,.4);font-size:.88rem;padding:1rem 0">이번 주 찬양 목록을 관리자 패널에서 추가해 주세요.</div>
-        </div>
-      </div>
-      <div>
-        <div class="yt-wrap" id="ytWrap">
-          <div class="yt-placeholder" id="ytPlaceholder">
-            <div class="yt-icon">▶</div>
-            <span>유튜브 플레이리스트</span>
-            <span style="font-size:.75rem">관리자 패널에서 링크를 입력해 주세요</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <details class="praise-archive" id="praiseArchiveEl">
-      <summary>이전 주 찬양 목록 보기</summary>
-      <div id="praiseArchiveList"></div>
-    </details>
   </div>
 </section>
 
@@ -759,6 +751,10 @@ footer strong{color:white}
       <div class="fg"><label>분류</label><select id="n-tag"><option>공지</option><option>행사</option><option>안내</option><option>기도</option><option>감사</option><option>모집</option></select></div>
       <div class="fg"><label>제목</label><input type="text" id="n-title" placeholder="소식 제목"></div>
       <div class="fg"><label>내용</label><textarea id="n-body" placeholder="소식 내용을 입력하세요..."></textarea></div>
+      <div class="fg" style="display:flex;align-items:center;gap:.5rem">
+        <input type="checkbox" id="n-pin" style="width:auto">
+        <label style="margin:0;font-size:.82rem;color:var(--text-mid)">📌 상단 고정</label>
+      </div>
       <button class="submit-btn" onclick="addNews()">✅ 소식 추가</button>
       <hr class="form-hr">
       <div class="sec-heading">등록된 소식 (수정/삭제)</div>
@@ -1553,21 +1549,28 @@ function editEvent(id) {
 //  NEWS
 // ══════════════════════════════════════════
 function addNews() {
-  const tag   = document.getElementById('n-tag').value;
-  const title = document.getElementById('n-title').value.trim();
-  const body  = document.getElementById('n-body').value.trim();
+  const tag    = document.getElementById('n-tag').value;
+  const title  = document.getElementById('n-title').value.trim();
+  const body   = document.getElementById('n-body').value.trim();
+  const pinEl  = document.getElementById('n-pin');
+  const pinned = pinEl ? pinEl.checked : false;
   if (!title || !body) { toast('제목과 내용을 입력해 주세요.'); return; }
   const data = ld(K.n, []);
-  data.unshift({ id: uid(), tag, title, body, date: new Date().toISOString().split('T')[0] });
+  data.unshift({ id: uid(), tag, title, body, date: new Date().toISOString().split('T')[0], pinned });
   sv(K.n, data); renderNews(); renderAdminNews();
-  document.getElementById('n-title').value = ''; document.getElementById('n-body').value = '';
+  document.getElementById('n-title').value = '';
+  document.getElementById('n-body').value = '';
+  if(pinEl) pinEl.checked = false;
   toast('✅ 소식이 추가되었습니다! 발행 버튼으로 반영하세요.');
 }
 function renderNews() {
-  const data = ld(K.n, []);
+  let data = ld(K.n, []);
+  // 고정 글 먼저
+  data = [...data.filter(x=>x.pinned), ...data.filter(x=>!x.pinned)];
   const fixed = `<div class="news-card"><span class="tag">안내</span><h4>ANMCCF에 오신 것을 환영합니다</h4><p>Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다.</p><p class="ndate">상시</p></div>`;
-  document.getElementById('newsGrid').innerHTML = data.map(n => `<div class="news-card">
-    <span class="tag">${n.tag}</span><h4>${n.title}</h4>
+  document.getElementById('newsGrid').innerHTML = data.map(n => `<div class="news-card" style="${n.pinned?'border:1px solid rgba(196,154,42,.4);background:rgba(196,154,42,.06)':''}">
+    <span class="tag">${n.pinned?'📌 ':'' }${n.tag}</span>
+    <h4>${n.title}</h4>
     <p>${n.body.split('\n').join('<br>')}</p>
     <p class="ndate">${fmt(n.date)}</p>
   </div>`).join('') + fixed;
@@ -1577,8 +1580,12 @@ function renderAdminNews() {
   const el = document.getElementById('adminNewsList');
   if (!data.length) { el.innerHTML = '<p style="font-size:.82rem;color:var(--text-light)">등록된 소식이 없습니다.</p>'; return; }
   el.innerHTML = data.map(n => `<div class="ai">
-    <div class="ai-info"><div class="ai-title">📢 ${n.title}</div><div class="ai-meta">[${n.tag}] ${fmt(n.date)}</div></div>
+    <div class="ai-info">
+      <div class="ai-title">${n.pinned?'📌 ':''}${n.title}</div>
+      <div class="ai-meta">[${n.tag}] ${fmt(n.date)}</div>
+    </div>
     <div class="ai-actions">
+      <button class="ibtn edit" onclick="toggleNewsPin('${n.id}')">${n.pinned?'고정해제':'고정'}</button>
       <button class="ibtn edit" onclick="editNews('${n.id}')">수정</button>
       <button class="ibtn del"  onclick="delNews('${n.id}')">삭제</button>
     </div>
