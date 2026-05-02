@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "monynrw1feq",
+    "title": "주일예배",
+    "dow": 0,
+    "time": "오전 11:00",
+    "place": "All Faith Chapel",
+    "start": "2026-01-04",
+    "end": "2026-12-27"
+  }
+]
