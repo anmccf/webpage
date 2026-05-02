@@ -1133,7 +1133,7 @@ async function publishAll() {
     { name: 'recurring.json',   data: ld(K.r, []) },
     { name: 'exceptions.json',  data: ld(K.exc, []) },
     { name: 'praise.json',    data: { songs: ld(K.songs, {date:'',list:[]}), yt: ld(K.yt,''), notice: ld(K.praiseNotice,''), archive: ld(K.praiseArchive,[]) } },
-    { name: 'extras.json',    data: { bibleImg: ld(K.bibleImg,'') } }
+    { name: 'extras.json',    data: { bibleImg: ld(K.bibleImg,''), contacts: ld(K.contacts,[]), welcome: ld(K.welcomeMsg,'') } }
   ];
 
   const errors = [];
@@ -2447,15 +2447,13 @@ function importData() {
 //  INSTAGRAM (legacy – kept for data compat)
 // ══════════════════════════════════════════
 function renderInstagram(data) {
-  const container = document.getElementById('igContainer');
+  // igContainer는 제거됨 — Behold 임베드 방식 사용
+  // 혹시 instagram.json 데이터가 와도 무시 (applyIgEmbed로 처리됨)
+  return;
+  const container = document.getElementById('igEmbedContainer');
   const updatedEl = document.getElementById('igUpdated');
-
+  if (!container) return;
   if (!data || !data.data || !data.data.length) {
-    container.innerHTML = `<div class="ig-setup-note">
-      <h4>📸 인스타그램 피드 설정이 필요합니다</h4>
-      <p>GitHub Actions 워크플로우를 설정하면 인스타그램 게시글이 자동으로 표시됩니다.<br>
-      설정 방법은 프로젝트의 <code>README.md</code>를 참고하세요.</p>
-    </div>`;
     return;
   }
 
