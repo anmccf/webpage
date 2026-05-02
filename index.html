@@ -183,6 +183,25 @@ section{padding:6rem 2rem}
 .board-card p{font-size:.85rem;color:var(--text-mid);line-height:1.7}
 .board-date{font-size:.75rem;color:var(--text-light);white-space:nowrap}
 
+/* PRAISE / WORSHIP SONGS */
+#praise{background:var(--maroon)}
+#praise .section-label{color:var(--gold-light)}
+#praise .section-title{color:white}
+#praise .divider{background:var(--gold)}
+.praise-layout{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.song-list{display:flex;flex-direction:column;gap:.7rem}
+.song-item{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:1rem 1.2rem;transition:background .2s}
+.song-item:hover{background:rgba(255,255,255,.13)}
+.song-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold-light);width:28px;flex-shrink:0;text-align:center;opacity:.7}
+.song-info h4{font-size:.95rem;color:white;margin-bottom:.15rem}
+.song-info p{font-size:.78rem;color:rgba(255,255,255,.5)}
+.yt-wrap{background:rgba(0,0,0,.3);border-radius:10px;overflow:hidden;position:relative}
+.yt-wrap iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+.yt-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:rgba(255,255,255,.4);font-size:.85rem;cursor:pointer}
+.yt-placeholder .yt-icon{font-size:3rem;opacity:.5}
+.yt-week-label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem}
+@media(max-width:768px){.praise-layout{grid-template-columns:1fr}}
+
 /* CONTACT */
 #contact{background:var(--warm-white)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
@@ -313,6 +332,7 @@ footer strong{color:white}
     <li><a href="#calendar">일정</a></li>
     <li><a href="#about">교회 소개</a></li>
     <li><a href="#news">소식</a></li>
+    <li><a href="#praise">찬양</a></li>
     <li><a href="#ministry">사역</a></li>
     <li><a href="#bible">성경공부</a></li>
     <li><a href="#board">게시판</a></li>
@@ -348,11 +368,11 @@ footer strong{color:white}
     <div class="worship-grid">
       <div class="info-cards">
         <div class="info-card"><h3>예배 시간</h3><p class="val" id="wTime">주일 오전 11:00</p><p class="sub">Sunday Morning Service</p></div>
-        <div class="info-card"><h3>장소</h3><p class="val" id="wLocation" style="font-size:1.1rem">All Faiths Chapel</p><p class="sub" id="wAddress">College Station, TX 77844</p></div>
-        <div class="info-card"><h3>홈페이지</h3><p style="font-size:1rem"><a href="https://www.anmccf.org" target="_blank" style="color:var(--maroon);text-decoration:none" id="wWebsite">www.anmccf.org</a></p><p class="sub">공식 교회 홈페이지</p></div>
+        <div class="info-card"><h3>장소</h3><p class="val" id="wLocation" style="font-size:1.1rem">All Faiths Chapel</p><p class="sub" id="wAddress">College Station, TX 77840</p></div>
+        <div class="info-card"><h3>홈페이지</h3><p style="font-size:1rem"><a href="https://anmccf.github.io/webpage/" target="_blank" style="color:var(--maroon);text-decoration:none" id="wWebsite">anmccf.github.io/webpage</a></p><p class="sub">공식 교회 홈페이지</p></div>
       </div>
       <div class="map-embed">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3440.9565565623745!2d-96.34176682388153!3d30.61036767466208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8646848f3e9ef5e9%3A0x60e52f13c0a09e4!2sAll%20Faiths%20Chapel!5e0!3m2!1sko!2sus!4v1700000000000!5m2!1sko!2sus" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://maps.google.com/maps?q=All+Faiths+Chapel,+College+Station,+TX+77840&output=embed&z=16" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </div>
@@ -487,6 +507,32 @@ footer strong{color:white}
   </div>
 </section>
 
+<!-- PRAISE -->
+<section id="praise">
+  <div class="container">
+    <p class="section-label">Worship Songs</p>
+    <h2 class="section-title">이번 주 찬양</h2>
+    <div class="divider"></div>
+    <p class="yt-week-label" id="praiseWeekLabel"></p>
+    <div class="praise-layout">
+      <div>
+        <div class="song-list" id="songList">
+          <div style="color:rgba(255,255,255,.4);font-size:.88rem;padding:1rem 0">이번 주 찬양 목록을 관리자 패널에서 추가해 주세요.</div>
+        </div>
+      </div>
+      <div>
+        <div class="yt-wrap" id="ytWrap">
+          <div class="yt-placeholder" id="ytPlaceholder">
+            <div class="yt-icon">▶</div>
+            <span>유튜브 플레이리스트</span>
+            <span style="font-size:.75rem">관리자 패널에서 링크를 입력해 주세요</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- INSTAGRAM -->
 <section id="instagram">
   <div class="container">
@@ -501,7 +547,7 @@ footer strong{color:white}
     </div>
     <div class="ig-footer">
       <span class="ig-updated" id="igUpdated"></span>
-      <a href="https://www.instagram.com/anmccf" target="_blank" class="btn-ig-follow">
+      <a href="https://www.instagram.com/anm_ccf" target="_blank" class="btn-ig-follow">
         📸 인스타그램 팔로우
       </a>
     </div>
@@ -516,13 +562,13 @@ footer strong{color:white}
     <div class="divider"></div>
     <div class="contact-grid">
       <div>
-        <div class="contact-item"><div class="contact-icon">📍</div><div><h4>위치</h4><p id="cAddr">All Faiths Chapel<br>College Station, TX 77844</p></div></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><h4>위치</h4><p id="cAddr">All Faiths Chapel<br>College Station, TX 77840</p></div></div>
         <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>예배 시간</h4><p id="cTime">주일 오전 11:00</p></div></div>
       </div>
       <div>
         <div class="contact-item"><div class="contact-icon">📞</div><div><h4>전화 (목사님)</h4><p><a href="tel:4349441176" id="cPhone">434-944-1176</a></p></div></div>
         <div class="contact-item"><div class="contact-icon">✉️</div><div><h4>이메일</h4><p><a href="mailto:peterlove153@gmail.com" id="cEmail">peterlove153@gmail.com</a></p></div></div>
-        <div class="contact-item"><div class="contact-icon">🌐</div><div><h4>홈페이지</h4><p><a href="https://www.anmccf.org" target="_blank" id="cWeb">www.anmccf.org</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">🌐</div><div><h4>홈페이지</h4><p><a href="https://anmccf.github.io/webpage/" target="_blank" id="cWeb">anmccf.github.io/webpage</a></p></div></div>
       </div>
     </div>
   </div>
@@ -530,7 +576,7 @@ footer strong{color:white}
 
 <footer>
   <strong>ANMCCF — All Nations Mission Campus Christian Fellowship</strong><br>
-  All Faiths Chapel, College Station, TX 77844 &nbsp;|&nbsp; 주일 오전 11:00<br>
+  All Faiths Chapel, College Station, TX 77840 &nbsp;|&nbsp; 주일 오전 11:00<br>
   <span style="font-size:.75rem;opacity:.5;margin-top:.5rem;display:block">© 2025 ANMCCF. All rights reserved.</span>
 </footer>
 
@@ -563,6 +609,7 @@ footer strong{color:white}
     <button class="panel-tab active" data-tab="bulletin">📋 주보</button>
     <button class="panel-tab" data-tab="calendar">📅 일정</button>
     <button class="panel-tab" data-tab="news">📢 소식</button>
+    <button class="panel-tab" data-tab="praise">🎵 찬양</button>
     <button class="panel-tab" data-tab="about">👤 소개</button>
     <button class="panel-tab" data-tab="extra">🌿 사역/성경/게시판</button>
     <button class="panel-tab" data-tab="settings">⚙️ 설정</button>
@@ -632,6 +679,22 @@ footer strong{color:white}
       <div class="ail" id="adminNewsList"></div>
     </div>
 
+    <!-- 찬양 탭 -->
+    <div class="tab-content" id="tab-praise">
+      <div class="sec-heading">🎵 이번 주 찬양 목록</div>
+      <div class="fg"><label>날짜 (주일)</label><input type="date" id="pr-date"></div>
+      <div class="fg"><label>찬양 제목</label><input type="text" id="pr-title" placeholder="예: 주님께 영광"></div>
+      <div class="fg"><label>아티스트 / 앨범 (선택)</label><input type="text" id="pr-artist" placeholder="예: 어노인팅"></div>
+      <button class="submit-btn" onclick="addSong()">✅ 찬양 추가</button>
+      <hr class="form-hr">
+      <div class="sec-heading">▶ 유튜브 플레이리스트</div>
+      <div class="fg"><label>유튜브 링크 (일반 URL 또는 공유 링크)</label><input type="url" id="pr-yt" placeholder="https://youtube.com/playlist?list=... 또는 https://youtu.be/..."></div>
+      <button class="submit-btn" style="background:#c4302b" onclick="saveYoutube()">▶ 유튜브 저장</button>
+      <hr class="form-hr">
+      <div class="sec-heading">등록된 찬양</div>
+      <div class="ail" id="adminSongList"></div>
+    </div>
+
     <!-- 소개 탭 -->
     <div class="tab-content" id="tab-about">
       <div class="sec-heading">✏️ 상단 소개글</div>
@@ -641,7 +704,7 @@ footer strong{color:white}
       <div class="sec-heading">예배 정보 수정</div>
       <div class="fg"><label>예배 시간</label><input type="text" id="a-time" placeholder="예: 주일 오전 11:00"></div>
       <div class="fg"><label>장소명</label><input type="text" id="a-loc" placeholder="예: All Faiths Chapel"></div>
-      <div class="fg"><label>주소</label><input type="text" id="a-addr" placeholder="예: College Station, TX 77844"></div>
+      <div class="fg"><label>주소</label><input type="text" id="a-addr" placeholder="예: College Station, TX 77840"></div>
       <button class="submit-btn" onclick="saveWorshipInfo()">✅ 예배 정보 저장</button>
       <hr class="form-hr">
       <div class="sec-heading">목사님 정보 수정</div>
@@ -703,7 +766,7 @@ footer strong{color:white}
       <div class="sec-heading">🏠 사이트 기본 정보</div>
       <div class="fg"><label>교회 이름</label><input type="text" id="si-name" placeholder="예: ANMCCF"></div>
       <div class="fg"><label>교회 풀네임</label><input type="text" id="si-fullname" placeholder="예: All Nations Mission Campus Christian Fellowship"></div>
-      <div class="fg"><label>교회 웹사이트 URL</label><input type="url" id="si-web" placeholder="예: https://www.anmccf.org"></div>
+      <div class="fg"><label>교회 웹사이트 URL</label><input type="url" id="si-web" placeholder="예: https://anmccf.github.io/webpage/"></div>
       <div class="fg"><label>인스타그램 아이디 (@제외)</label><input type="text" id="si-ig" placeholder="예: anmccf"></div>
       <div class="fg"><label>카카오톡 오픈채팅 링크 (선택)</label><input type="url" id="si-kakao" placeholder="https://open.kakao.com/..."></div>
       <div class="fg"><label>히어로 서브라벨 (상단 작은 글씨)</label><input type="text" id="si-label" placeholder="예: Texas A&amp;M Campus Church · College Station"></div>
@@ -768,7 +831,7 @@ footer strong{color:white}
 //  CONSTANTS & HELPERS
 // ══════════════════════════════════════════
 const DEFAULT_PW = 'anmccf2025';
-const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro' };
+const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro', songs:'anm_songs', yt:'anm_youtube' };
 const GH_KEYS = { repo:'anm_gh_repo', branch:'anm_gh_branch', token:'anm_gh_token' };
 
 const ld  = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
@@ -870,7 +933,8 @@ async function publishAll() {
     { name: 'ministry.json',  data: ld(K.ministry, []) },
     { name: 'bible.json',     data: { studies: ld(K.bible,[]), note: ld(K.bibleNote,'') } },
     { name: 'board.json',     data: ld(K.board, []) },
-    { name: 'recurring.json', data: ld(K.r, []) }
+    { name: 'recurring.json', data: ld(K.r, []) },
+    { name: 'praise.json',    data: { songs: ld(K.songs, {date:'',list:[]}), yt: ld(K.yt,'') } }
   ];
 
   const errors = [];
@@ -1256,6 +1320,90 @@ function editNews(id) {
 }
 
 // ══════════════════════════════════════════
+//  PRAISE / WORSHIP SONGS
+// ══════════════════════════════════════════
+function addSong() {
+  const date   = document.getElementById('pr-date').value;
+  const title  = document.getElementById('pr-title').value.trim();
+  const artist = document.getElementById('pr-artist').value.trim();
+  if (!title) { toast('찬양 제목을 입력해 주세요.'); return; }
+  const songs = ld(K.songs, { date:'', list:[] });
+  // 날짜 바뀌면 목록 초기화 여부 확인
+  if (date && songs.date && date !== songs.date) {
+    if (!confirm('날짜가 다릅니다. 기존 목록을 지우고 새로 시작할까요?')) return;
+    songs.list = [];
+  }
+  if (date) songs.date = date;
+  songs.list.push({ id: uid(), title, artist });
+  sv(K.songs, songs); renderPraise(); renderAdminSongs();
+  document.getElementById('pr-title').value = '';
+  document.getElementById('pr-artist').value = '';
+  toast('✅ 찬양 추가! 발행 버튼으로 반영하세요.');
+}
+function saveYoutube() {
+  const raw = document.getElementById('pr-yt').value.trim();
+  if (!raw) { sv(K.yt,''); renderPraise(); toast('유튜브 링크가 삭제됐습니다.'); return; }
+  sv(K.yt, raw); renderPraise(); toast('✅ 유튜브 저장! 발행 버튼으로 반영하세요.');
+}
+function ytEmbedUrl(url) {
+  if (!url) return '';
+  // playlist: youtube.com/playlist?list=XXX
+  const plMatch = url.match(/[?&]list=([^&]+)/);
+  if (plMatch) return `https://www.youtube.com/embed/videoseries?list=${plMatch[1]}&rel=0`;
+  // youtu.be/ID  or  youtube.com/watch?v=ID
+  const vMatch = url.match(/(?:youtu\.be\/|[?&]v=)([^&?/]+)/);
+  if (vMatch) return `https://www.youtube.com/embed/${vMatch[1]}?rel=0`;
+  // already embed url
+  if (url.includes('youtube.com/embed')) return url;
+  return '';
+}
+function renderPraise() {
+  const songs = ld(K.songs, { date:'', list:[] });
+  const ytUrl = ld(K.yt, '');
+  // week label
+  const labelEl = document.getElementById('praiseWeekLabel');
+  if (labelEl) labelEl.textContent = songs.date ? fmt(songs.date) + ' 주일 찬양' : '';
+  // song list
+  const listEl = document.getElementById('songList');
+  if (listEl) {
+    if (!songs.list || !songs.list.length) {
+      listEl.innerHTML = '<div style="color:rgba(255,255,255,.4);font-size:.88rem;padding:1rem 0">이번 주 찬양 목록을 관리자 패널에서 추가해 주세요.</div>';
+    } else {
+      listEl.innerHTML = songs.list.map((s,i) => `<div class="song-item">
+        <div class="song-num">${i+1}</div>
+        <div class="song-info"><h4>${s.title}</h4>${s.artist?`<p>${s.artist}</p>`:''}</div>
+      </div>`).join('');
+    }
+  }
+  // youtube embed
+  const wrap = document.getElementById('ytWrap');
+  if (wrap) {
+    const embedUrl = ytEmbedUrl(ytUrl);
+    if (embedUrl) {
+      wrap.innerHTML = `<iframe src="${embedUrl}" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+    } else {
+      wrap.innerHTML = `<div class="yt-placeholder"><div class="yt-icon">▶</div><span>유튜브 플레이리스트</span><span style="font-size:.75rem">관리자 패널에서 링크를 입력해 주세요</span></div>`;
+    }
+  }
+}
+function renderAdminSongs() {
+  const songs = ld(K.songs, { date:'', list:[] });
+  const el = document.getElementById('adminSongList'); if (!el) return;
+  if (!songs.list || !songs.list.length) {
+    el.innerHTML = '<p style="font-size:.82rem;color:var(--text-light)">등록된 찬양이 없습니다.</p>'; return;
+  }
+  el.innerHTML = songs.list.map((s,i) => `<div class="ai">
+    <div class="ai-info"><div class="ai-title">🎵 ${i+1}. ${s.title}</div>${s.artist?`<div class="ai-meta">${s.artist}</div>`:''}</div>
+    <div class="ai-actions"><button class="ibtn del" onclick="delSong('${s.id}')">삭제</button></div>
+  </div>`).join('');
+}
+function delSong(id) {
+  const songs = ld(K.songs, { date:'', list:[] });
+  songs.list = songs.list.filter(x => x.id !== id);
+  sv(K.songs, songs); renderPraise(); renderAdminSongs(); toast('🗑 삭제됐습니다.');
+}
+
+// ══════════════════════════════════════════
 //  MINISTRY
 // ══════════════════════════════════════════
 function addMinistry() {
@@ -1274,8 +1422,7 @@ function renderMinistry() {
   const g = document.getElementById('ministryGrid');
   if(!g) return;
   if(!data.length) { g.innerHTML='<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem">🙏</div><p style="margin-top:.5rem">사역 소개 내용을 관리자 패널에서 추가해 주세요.</p></div>'; return; }
-  g.innerHTML = data.map(m=>`<div class="ministry-card"><div class="mc-icon">${m.icon}</div><h4>${m.title}</h4><p>${m.body.replace(/
-/g,'<br>')}</p></div>`).join('');
+  g.innerHTML = data.map(m=>`<div class="ministry-card"><div class="mc-icon">${m.icon}</div><h4>${m.title}</h4><p>${m.body.replace(/\n/g,'<br>')}</p></div>`).join('');
 }
 function renderAdminMinistry() {
   const data=ld(K.ministry,[]);
@@ -1354,8 +1501,7 @@ function renderBoard() {
   if(!data.length){el.innerHTML='<div class="empty-state"><div style="font-size:2rem">📌</div><p style="margin-top:.5rem">생활정보, 신입생 안내 등을 관리자 패널에서 추가해 주세요.</p></div>';return;}
   el.innerHTML=data.map(p=>`<div class="board-card">
     <div><span class="board-tag">${p.tag}</span></div>
-    <div><h4>${p.title}</h4><p>${p.body.replace(/
-/g,'<br>')}</p></div>
+    <div><h4>${p.title}</h4><p>${p.body.replace(/\n/g,'<br>')}</p></div>
     <div class="board-date">${fmt(p.date)}</div>
   </div>`).join('');
 }
@@ -1388,7 +1534,7 @@ function applyIntro() {
 //  ABOUT
 // ══════════════════════════════════════════
 function loadAboutForms() {
-  const w = ld(K.w, { time:'주일 오전 11:00', loc:'All Faiths Chapel', addr:'College Station, TX 77844' });
+  const w = ld(K.w, { time:'주일 오전 11:00', loc:'All Faiths Chapel', addr:'College Station, TX 77840' });
   document.getElementById('a-time').value = w.time;
   document.getElementById('a-loc').value  = w.loc;
   document.getElementById('a-addr').value = w.addr;
@@ -1405,6 +1551,8 @@ function loadAboutForms() {
   const intro = ld(K.intro,'');
   const introEl = document.getElementById('a-intro');
   if(introEl) introEl.value = intro;
+  const ytEl = document.getElementById('pr-yt');
+  if(ytEl) ytEl.value = ld(K.yt,'');
   // 사역/성경/게시판 관리자 목록 로드
   renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring();
   // bibleNote 폼
@@ -1424,7 +1572,7 @@ function saveWorshipInfo() {
   sv(K.w, w); applyWorship(); toast('✅ 저장되었습니다! 발행 버튼으로 반영하세요.');
 }
 function applyWorship() {
-  const w = ld(K.w, { time:'주일 오전 11:00', loc:'All Faiths Chapel', addr:'College Station, TX 77844' });
+  const w = ld(K.w, { time:'주일 오전 11:00', loc:'All Faiths Chapel', addr:'College Station, TX 77840' });
   document.getElementById('wTime').textContent     = w.time;
   document.getElementById('heroTime').textContent  = '매주 ' + w.time;
   document.getElementById('wLocation').textContent = w.loc;
@@ -1466,7 +1614,7 @@ function applyAbout() {
 const SITE_DEFAULTS = {
   name:     'ANMCCF',
   fullname: 'All Nations Mission Campus Christian Fellowship',
-  web:      'https://www.anmccf.org',
+  web:      'https://anmccf.github.io/webpage/',
   ig:       'anmccf',
   kakao:    '',
   label:    'Texas A&M Campus Church · College Station'
@@ -1512,7 +1660,7 @@ function applySite() {
     let kakaoLine = s.kakao ? `<br><a href="${s.kakao}" target="_blank" style="color:rgba(255,255,255,.6);text-decoration:none">💬 카카오톡 오픈채팅</a>` : '';
     footer.innerHTML = `
       <strong>${s.name} — ${s.fullname}</strong><br>
-      All Faiths Chapel, College Station, TX 77844 &nbsp;|&nbsp; 주일 오전 11:00
+      All Faiths Chapel, College Station, TX 77840 &nbsp;|&nbsp; 주일 오전 11:00
       ${kakaoLine}
       <span style="font-size:.75rem;opacity:.5;margin-top:.5rem;display:block">© 2025 ${s.name}. All rights reserved.</span>`;
   }
@@ -1612,18 +1760,18 @@ function openModal(title, fields, cb) {
 function closeModal() { document.getElementById('editModal').classList.remove('open'); }
 document.getElementById('editModal').addEventListener('click', e => { if (e.target === document.getElementById('editModal')) closeModal(); });
 
-function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring(); }
+function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring(); renderAdminSongs(); }
 
 // ══════════════════════════════════════════
 //  INIT — loads data from ./data/*.json files
 // ══════════════════════════════════════════
 async function init() {
   // Render immediately from localStorage (instant display)
-  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard();
+  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise();
 
   // Then try to load fresh data from the JSON files (GitHub Pages serves these)
   try {
-    const [bulletins, events, news, settings, instagram, ministry, bible, board, recurring] = await Promise.all([
+    const [bulletins, events, news, settings, instagram, ministry, bible, board, recurring, praise] = await Promise.all([
       loadDataFile('bulletins.json'),
       loadDataFile('events.json'),
       loadDataFile('news.json'),
@@ -1632,7 +1780,8 @@ async function init() {
       loadDataFile('ministry.json'),
       loadDataFile('bible.json'),
       loadDataFile('board.json'),
-      loadDataFile('recurring.json')
+      loadDataFile('recurring.json'),
+      loadDataFile('praise.json')
     ]);
 
     let changed = false;
@@ -1651,8 +1800,9 @@ async function init() {
     if (bible)    { if(bible.studies) sv(K.bible, bible.studies); if(bible.note!==undefined) sv(K.bibleNote, bible.note); changed = true; }
     if (board)    { sv(K.board, board); changed = true; }
     if (recurring){ sv(K.r, recurring); changed = true; }
+    if (praise)   { if(praise.songs!==undefined) sv(K.songs,praise.songs); if(praise.yt!==undefined) sv(K.yt,praise.yt); changed = true; }
     if (changed) {
-      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard();
+      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise();
     }
 
     // Instagram (renders separately)
