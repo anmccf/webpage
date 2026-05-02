@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANMCCF — Texas A&M 캠퍼스 교회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #faf7f2; --warm-white: #fff9f4;
+  --maroon: #500000; --maroon-light: #7a1c1c; --maroon-pale: #f5e8e8;
+  --gold: #c49a2a; --gold-light: #e8c96a;
+  --text-dark: #1a1208; --text-mid: #4a3c2a; --text-light: #8a7a6a;
+  --border: #e8ddd0; --danger: #c0392b;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--text-dark);line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--maroon);text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;color:var(--text-mid);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--maroon)}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--maroon)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--maroon)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(196,154,42,.15) 0%,transparent 60%),linear-gradient(160deg,#3a0000 0%,#500000 40%,#6b1010 100%)}
+.hero-cross{position:absolute;right:8%;top:50%;transform:translateY(-50%);opacity:.06;width:320px;height:480px}
+.hero-cross::before,.hero-cross::after{content:'';position:absolute;background:white;border-radius:4px}
+.hero-cross::before{width:60px;height:100%;left:50%;transform:translateX(-50%)}
+.hero-cross::after{height:60px;width:100%;top:28%}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:700px}
+.hero-label{display:inline-block;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(196,154,42,.4);padding:.35rem 1.2rem;border-radius:2px;margin-bottom:2rem;animation:fadeUp .8s ease both}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5rem);color:white;line-height:1.1;margin-bottom:1.5rem;animation:fadeUp .8s .15s ease both}
+.hero-title em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:.5rem;animation:fadeUp .8s .25s ease both;font-weight:300}
+.hero-time{font-family:'Noto Serif KR',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:2.5rem;animation:fadeUp .8s .3s ease both}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .4s ease both}
+.btn-primary{background:var(--gold);color:var(--text-dark);padding:.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s,transform .2s;display:inline-block}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.4);color:white;padding:.85rem 2rem;border-radius:3px;text-decoration:none;font-size:.9rem;transition:background .2s;display:inline-block}
+.btn-outline:hover{background:rgba(255,255,255,.08)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.4);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase}
+.hero-scroll::after{content:'';width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);animation:scrollPulse 2s infinite}
+
+/* SECTIONS */
+section{padding:6rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.section-label{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--maroon);line-height:1.2;margin-bottom:1.5rem}
+.divider{width:48px;height:2px;background:var(--gold);margin-bottom:2.5rem}
+
+/* WORSHIP */
+#worship{background:var(--warm-white)}
+.worship-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.info-cards{display:flex;flex-direction:column;gap:1.2rem}
+.info-card{background:white;border:1px solid var(--border);border-radius:8px;padding:2rem;position:relative;overflow:hidden}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--maroon),var(--gold))}
+.info-card h3{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.4rem}
+.info-card .val{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--maroon)}
+.info-card .sub{font-family:'Noto Sans KR',sans-serif;font-size:.82rem;color:var(--text-light);margin-top:.2rem}
+.map-embed{border-radius:8px;overflow:hidden;height:280px}
+.map-embed iframe{width:100%;height:100%;border:none}
+
+/* BULLETIN */
+#bulletin{background:var(--cream)}
+.bulletin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+.bulletin-card{background:white;border:1px solid var(--border);border-radius:8px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:box-shadow .2s,transform .2s;text-decoration:none;color:inherit}
+.bulletin-card:hover{box-shadow:0 8px 32px rgba(80,0,0,.08);transform:translateY(-3px)}
+.bulletin-icon{width:48px;height:48px;background:var(--maroon-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.bulletin-info h4{font-weight:600;font-size:.95rem;color:var(--text-dark);margin-bottom:.2rem}
+.bulletin-info .bdate{font-size:.8rem;color:var(--text-light)}
+
+/* CALENDAR */
+#calendar{background:var(--warm-white)}
+.calendar-layout{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.cal-header h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--maroon)}
+.cal-nav button{width:32px;height:32px;background:white;border:1px solid var(--border);border-radius:4px;cursor:pointer;font-size:1rem;color:var(--maroon);margin-left:4px}
+.cal-nav button:hover{background:var(--maroon-pale)}
+.cal-grid{background:white;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.cal-days-header{display:grid;grid-template-columns:repeat(7,1fr);background:var(--maroon)}
+.cal-days-header span{padding:.6rem;text-align:center;font-size:.72rem;color:rgba(255,255,255,.75)}
+.cal-body{display:grid;grid-template-columns:repeat(7,1fr)}
+.cal-day{min-height:68px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:.4rem;font-size:.8rem;color:var(--text-mid)}
+.cal-day.other-month{color:#ccc;background:#fafafa}
+.cal-day.today{background:var(--maroon-pale)}
+.cal-day.today .day-num{color:var(--maroon);font-weight:700}
+.cal-day.has-event .day-num::after{content:'';display:block;width:5px;height:5px;background:var(--gold);border-radius:50%;margin:2px auto 0}
+.day-num{text-align:center;font-weight:500;margin-bottom:2px}
+.day-event{font-size:.6rem;background:var(--maroon-pale);color:var(--maroon);padding:1px 4px;border-radius:2px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.upcoming-events h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:1rem}
+.event-item{display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid var(--border)}
+.event-date-badge{background:var(--maroon);color:white;border-radius:6px;width:44px;text-align:center;padding:.3rem 0;flex-shrink:0}
+.event-date-badge .month{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.event-date-badge .day{font-size:1.2rem;font-weight:700;line-height:1}
+.event-details h4{font-size:.9rem;font-weight:600;color:var(--text-dark);margin-bottom:.2rem}
+.event-details p{font-size:.8rem;color:var(--text-light)}
+
+/* ABOUT */
+#about{background:var(--cream)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.pastor-card{background:white;border:1px solid var(--border);border-radius:12px;padding:2.5rem;text-align:center}
+.pastor-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--maroon),var(--maroon-light));margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:white;font-family:'Playfair Display',serif}
+.pastor-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--maroon);margin-bottom:.3rem}
+.p-title-el{font-size:.85rem;color:var(--text-light);margin-bottom:1.5rem}
+.pastor-degrees{list-style:none;text-align:left;border-top:1px solid var(--border);padding-top:1.2rem}
+.pastor-degrees li{font-size:.82rem;color:var(--text-mid);padding:.35rem 0;display:flex;gap:.5rem}
+.pastor-degrees li::before{content:'✦';color:var(--gold);font-size:.6rem;flex-shrink:0;margin-top:4px}
+.about-text blockquote{font-family:'Noto Serif KR',serif;font-size:1rem;line-height:1.9;color:var(--text-mid);border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0;font-style:italic}
+.about-text p{color:var(--text-mid);margin-bottom:1rem;font-size:.95rem}
+
+/* NEWS */
+#news{background:var(--maroon)}
+#news .section-label{color:var(--gold-light)}
+#news .section-title{color:white}
+#news .divider{background:var(--gold)}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.news-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:1.8rem;transition:background .2s}
+.news-card:hover{background:rgba(255,255,255,.1)}
+.news-card .tag{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.8rem;display:block}
+.news-card h4{font-family:'Noto Serif KR',serif;font-size:1rem;color:white;margin-bottom:.7rem;line-height:1.5}
+.news-card p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7}
+.news-card .ndate{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:1rem}
+
+/* ── INSTAGRAM ── */
+#instagram{background:var(--cream)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+@media(min-width:768px){.ig-grid{grid-template-columns:repeat(6,1fr)}}
+.ig-card{display:block;aspect-ratio:1;overflow:hidden;position:relative;border-radius:4px;text-decoration:none;background:#f0e8e0}
+.ig-img{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .35s ease}
+.ig-card:hover .ig-img{transform:scale(1.06)}
+.ig-overlay{position:absolute;inset:0;background:rgba(80,0,0,.0);display:flex;align-items:flex-end;padding:.6rem;transition:background .25s}
+.ig-card:hover .ig-overlay{background:rgba(80,0,0,.55)}
+.ig-caption{font-size:.65rem;color:white;line-height:1.4;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ig-card:hover .ig-caption{opacity:1;transform:translateY(0)}
+.ig-video-badge{position:absolute;top:.5rem;right:.5rem;width:24px;height:24px;background:rgba(0,0,0,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:white}
+.ig-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;flex-wrap:wrap;gap:1rem}
+.ig-updated{font-size:.75rem;color:var(--text-light)}
+.btn-ig-follow{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#833ab4,#fd1d1d,#f56040);color:white;padding:.7rem 1.5rem;border-radius:6px;text-decoration:none;font-size:.85rem;font-weight:600;transition:opacity .2s}
+.btn-ig-follow:hover{opacity:.85}
+.ig-loading{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:3rem;color:var(--text-light);font-size:.9rem}
+.ig-spinner{width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ig-setup-note{background:var(--warm-white);border:1px dashed var(--border);border-radius:8px;padding:2rem;text-align:center}
+.ig-setup-note h4{color:var(--maroon);margin-bottom:.5rem}
+.ig-setup-note p{font-size:.85rem;color:var(--text-light)}
+
+/* CONTACT */
+#contact{background:var(--warm-white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-item{display:flex;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.contact-icon{width:40px;height:40px;background:var(--maroon-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.contact-item h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin-bottom:.3rem}
+.contact-item p{font-size:.9rem;color:var(--text-dark)}
+.contact-item a{color:var(--maroon);text-decoration:none}
+
+/* EMPTY STATE */
+.empty-state{grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-light);border:2px dashed var(--border);border-radius:8px}
+
+/* FOOTER */
+footer{background:var(--text-dark);color:rgba(255,255,255,.5);text-align:center;padding:2.5rem 2rem;font-size:.82rem;line-height:2}
+footer strong{color:white}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes slideIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* ══ ADMIN SYSTEM ══ */
+#adminOverlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(10,5,0,.75);backdrop-filter:blur(4px);align-items:center;justify-content:center}
+#adminOverlay.open{display:flex}
+.lock-box{background:white;border-radius:16px;padding:2.5rem;width:340px;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.3);animation:slideIn .3s ease}
+.lock-box .lock-icon{font-size:2.5rem;margin-bottom:1rem}
+.lock-box h2{font-family:'Playfair Display',serif;color:var(--maroon);font-size:1.4rem;margin-bottom:.3rem}
+.lock-box p{font-size:.85rem;color:var(--text-light);margin-bottom:1.5rem}
+.lock-input{width:100%;padding:.8rem 1rem;border:2px solid var(--border);border-radius:6px;font-family:'Noto Sans KR',sans-serif;font-size:1rem;text-align:center;letter-spacing:.2em;margin-bottom:.8rem;outline:none;transition:border-color .2s}
+.lock-input:focus{border-color:var(--maroon)}
+.lock-input.error{border-color:var(--danger);animation:shake .4s}
+.lock-btn{width:100%;padding:.8rem;background:var(--maroon);color:white;border:none;border-radius:6px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;margin-bottom:.8rem}
+.lock-btn:hover{background:var(--maroon-light)}
+.lock-cancel{font-size:.82rem;color:var(--text-light);cursor:pointer;background:none;border:none;text-decoration:underline;font-family:'Noto Sans KR',sans-serif}
+.lock-error{font-size:.82rem;color:var(--danger);margin:.3rem 0 .5rem;display:none}
+
+#adminFab{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--maroon);color:white;border:none;border-radius:50%;width:54px;height:54px;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 20px rgba(80,0,0,.35);z-index:300;transition:transform .2s}
+#adminFab:hover{transform:scale(1.08)}
+
+#adminPanel{position:fixed;top:0;right:-480px;bottom:0;width:460px;background:white;box-shadow:-8px 0 40px rgba(0,0,0,.15);z-index:400;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden}
+#adminPanel.open{right:0}
+.panel-header{background:var(--maroon);color:white;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.panel-header h2{font-family:'Playfair Display',serif;font-size:1.1rem}
+.panel-header-right{display:flex;gap:.5rem;align-items:center}
+.panel-logout{font-size:.75rem;background:rgba(255,255,255,.15);color:white;border:none;padding:.3rem .8rem;border-radius:4px;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.panel-logout:hover{background:rgba(255,255,255,.25)}
+.panel-close{background:none;border:none;color:white;font-size:1.4rem;cursor:pointer;line-height:1;padding:0 .2rem}
+.panel-tabs{display:flex;border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto}
+.panel-tab{flex:1;min-width:60px;padding:.85rem .3rem;background:none;border:none;border-bottom:2px solid transparent;font-family:'Noto Sans KR',sans-serif;font-size:.72rem;color:var(--text-light);cursor:pointer;transition:.2s;white-space:nowrap}
+.panel-tab.active{color:var(--maroon);border-bottom-color:var(--maroon);font-weight:600}
+.panel-body{flex:1;overflow-y:auto;padding:1.5rem}
+
+/* Publish Banner in panel */
+.publish-banner{background:linear-gradient(135deg,#1a3d1a,#2c7a4b);border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.publish-banner p{font-size:.8rem;color:rgba(255,255,255,.8);flex:1}
+.publish-banner strong{color:white;display:block;font-size:.88rem;margin-bottom:.15rem}
+#publishBtn{background:white;color:#1a3d1a;border:none;border-radius:5px;padding:.5rem 1rem;font-size:.8rem;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;white-space:nowrap;transition:opacity .2s}
+#publishBtn:hover{opacity:.85}
+#publishBtn:disabled{opacity:.5;cursor:not-allowed}
+
+/* Sync status badge */
+.sync-status{font-size:.72rem;padding:.2rem .6rem;border-radius:10px;font-weight:500}
+.sync-status.ok{background:#d4edda;color:#155724}
+.sync-status.warn{background:#fff3cd;color:#856404}
+.sync-status.err{background:#f8d7da;color:#721c24}
+
+/* GH config note */
+.gh-note{background:#e8f0fe;border-radius:6px;padding:.8rem 1rem;font-size:.8rem;color:#1a56db;margin-bottom:1rem;line-height:1.6}
+.gh-note a{color:#1a56db}
+
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:.8rem;font-weight:500;color:var(--text-mid);margin-bottom:.4rem}
+.fg input,.fg textarea,.fg select{width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:6px;font-family:'Noto Sans KR',sans-serif;font-size:.87rem;background:var(--cream);color:var(--text-dark);outline:none;transition:border-color .2s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--maroon);background:white}
+.fg textarea{resize:vertical;min-height:90px}
+.submit-btn{width:100%;padding:.75rem;background:var(--maroon);color:white;border:none;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;margin-top:.4rem}
+.submit-btn:hover{background:var(--maroon-light)}
+.sec-heading{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:600;color:var(--maroon);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.form-hr{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+
+.ail{display:flex;flex-direction:column;gap:.7rem;margin-top:1rem}
+.ai{background:var(--cream);border:1px solid var(--border);border-radius:6px;padding:.9rem;display:flex;align-items:flex-start;gap:.8rem}
+.ai-info{flex:1;min-width:0}
+.ai-info .ai-title{font-size:.88rem;font-weight:600;color:var(--text-dark);margin-bottom:.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ai-info .ai-meta{font-size:.75rem;color:var(--text-light)}
+.ai-actions{display:flex;gap:.4rem;flex-shrink:0}
+.ibtn{padding:.3rem .7rem;border-radius:4px;border:none;font-size:.75rem;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-weight:500;transition:.15s}
+.ibtn.edit{background:#e8f0fe;color:#1a56db}
+.ibtn.edit:hover{background:#c7d7fd}
+.ibtn.del{background:#fde8e8;color:var(--danger)}
+.ibtn.del:hover{background:#fbb}
+
+#editModal{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.55);align-items:center;justify-content:center}
+#editModal.open{display:flex}
+.modal-box{background:white;border-radius:12px;padding:2rem;width:90%;max-width:460px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.2);animation:slideIn .25s ease}
+.modal-box h3{font-family:'Playfair Display',serif;color:var(--maroon);font-size:1.2rem;margin-bottom:1.5rem}
+.modal-actions{display:flex;gap:.8rem;margin-top:1rem}
+.modal-save{flex:1;padding:.7rem;background:var(--maroon);color:white;border:none;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.modal-cancel{flex:1;padding:.7rem;background:var(--cream);color:var(--text-mid);border:1px solid var(--border);border-radius:6px;font-size:.9rem;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+
+#toast{position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(80px);background:#1a1208;color:white;padding:.8rem 1.5rem;border-radius:30px;font-size:.87rem;z-index:600;transition:transform .3s,opacity .3s;opacity:0;white-space:nowrap}
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+.pw-note{background:var(--maroon-pale);border-radius:6px;padding:.8rem 1rem;font-size:.8rem;color:var(--maroon);margin-bottom:1rem}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:white;padding:1.5rem 2rem;border-bottom:1px solid var(--border);z-index:99}
+  .worship-grid,.about-layout,.contact-grid,.calendar-layout{grid-template-columns:1fr}
+  .hero-cross{display:none}
+  #adminPanel{width:100%;right:-100%}
+  .ig-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">ANMCCF</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#worship">예배 안내</a></li>
+    <li><a href="#bulletin">주보</a></li>
+    <li><a href="#calendar">일정</a></li>
+    <li><a href="#about">교회 소개</a></li>
+    <li><a href="#news">소식</a></li>
+    <li><a href="#instagram">인스타그램</a></li>
+    <li><a href="#contact">연락처</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-cross"></div>
+  <div class="hero-content">
+    <span class="hero-label">Texas A&M Campus Church · College Station</span>
+    <h1 class="hero-title">All Nations Mission<br><em>Campus Christian</em><br>Fellowship</h1>
+    <p class="hero-sub">주일 예배</p>
+    <p class="hero-time" id="heroTime">매주 일요일 오전 11:00</p>
+    <div class="hero-buttons">
+      <a href="#worship" class="btn-primary">예배 안내 보기</a>
+      <a href="#contact" class="btn-outline">연락하기</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- WORSHIP -->
+<section id="worship">
+  <div class="container">
+    <p class="section-label">Worship</p>
+    <h2 class="section-title">예배 안내</h2>
+    <div class="divider"></div>
+    <div class="worship-grid">
+      <div class="info-cards">
+        <div class="info-card"><h3>예배 시간</h3><p class="val" id="wTime">주일 오전 11:00</p><p class="sub">Sunday Morning Service</p></div>
+        <div class="info-card"><h3>장소</h3><p class="val" id="wLocation" style="font-size:1.1rem">All Faiths Chapel</p><p class="sub" id="wAddress">College Station, TX 77844</p></div>
+        <div class="info-card"><h3>홈페이지</h3><p style="font-size:1rem"><a href="https://www.anmccf.org" target="_blank" style="color:var(--maroon);text-decoration:none" id="wWebsite">www.anmccf.org</a></p><p class="sub">공식 교회 홈페이지</p></div>
+      </div>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3440.9565565623745!2d-96.34176682388153!3d30.61036767466208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8646848f3e9ef5e9%3A0x60e52f13c0a09e4!2sAll%20Faiths%20Chapel!5e0!3m2!1sko!2sus!4v1700000000000!5m2!1sko!2sus" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BULLETIN -->
+<section id="bulletin">
+  <div class="container">
+    <p class="section-label">Weekly Bulletin</p>
+    <h2 class="section-title">주보</h2>
+    <div class="divider"></div>
+    <div class="bulletin-grid" id="bulletinGrid"></div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar">
+  <div class="container">
+    <p class="section-label">Schedule</p>
+    <h2 class="section-title">교회 일정</h2>
+    <div class="divider"></div>
+    <div class="calendar-layout">
+      <div>
+        <div class="cal-header">
+          <h3 id="calMonthYear"></h3>
+          <div class="cal-nav"><button id="calPrev">‹</button><button id="calNext">›</button></div>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-days-header"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+          <div class="cal-body" id="calBody"></div>
+        </div>
+      </div>
+      <div class="upcoming-events">
+        <h3>다가오는 일정</h3>
+        <div id="eventList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About Us</p>
+    <h2 class="section-title">교회 소개</h2>
+    <div class="divider"></div>
+    <div class="about-layout">
+      <div class="pastor-card">
+        <div class="pastor-avatar" id="pAvatar">유</div>
+        <h3 id="pName">유주호 목사님</h3>
+        <p class="p-title-el" id="pTitle">담임 목사 · Senior Pastor</p>
+        <ul class="pastor-degrees" id="pDegrees">
+          <li>Liberty Seminary, S.T.M.</li>
+          <li>에스라 성경대학원대학교, Th.M.</li>
+          <li>총신대학교 신학대학원, M.Div.</li>
+        </ul>
+        <div style="margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border)">
+          <p style="font-size:.82rem;color:var(--text-light)" id="pPhone">📞 434-944-1176</p>
+          <p style="font-size:.82rem;color:var(--text-light);margin-top:.3rem" id="pEmail">✉️ peterlove153@gmail.com</p>
+        </div>
+      </div>
+      <div class="about-text">
+        <p id="aDesc">ANMCCF (All Nations Mission Campus Christian Fellowship)는 Texas A&M 대학교 캠퍼스에 위치한 한인 교회입니다.</p>
+        <blockquote id="aQuote">"독생자 외아들 예수 그리스도를 우리를 이 땅에 보내주신 창조주 하나님의 사랑으로 여러분을 축복하며 환영합니다. 교회는 하나님의 새로운 가족입니다."</blockquote>
+        <p id="aDesc2">Texas A&M 한인 학생, 교수, 연구원 및 그 가족분들을 위한 신앙 공동체입니다. 새로운 환경에서 말씀 안에서 영적으로 성장하며, 서로에게 힘이 되어주는 공동체를 만들어가고 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="container">
+    <p class="section-label">News &amp; Notice</p>
+    <h2 class="section-title">교회 소식</h2>
+    <div class="divider"></div>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="container">
+    <p class="section-label">Instagram</p>
+    <h2 class="section-title">인스타그램</h2>
+    <div class="divider"></div>
+    <div id="igContainer">
+      <div class="ig-loading">
+        <div class="ig-spinner"></div>
+        <span>피드 불러오는 중...</span>
+      </div>
+    </div>
+    <div class="ig-footer">
+      <span class="ig-updated" id="igUpdated"></span>
+      <a href="https://www.instagram.com/anmccf" target="_blank" class="btn-ig-follow">
+        📸 인스타그램 팔로우
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">연락처</h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><h4>위치</h4><p id="cAddr">All Faiths Chapel<br>College Station, TX 77844</p></div></div>
+        <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>예배 시간</h4><p id="cTime">주일 오전 11:00</p></div></div>
+      </div>
+      <div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><h4>전화 (목사님)</h4><p><a href="tel:4349441176" id="cPhone">434-944-1176</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">✉️</div><div><h4>이메일</h4><p><a href="mailto:peterlove153@gmail.com" id="cEmail">peterlove153@gmail.com</a></p></div></div>
+        <div class="contact-item"><div class="contact-icon">🌐</div><div><h4>홈페이지</h4><p><a href="https://www.anmccf.org" target="_blank" id="cWeb">www.anmccf.org</a></p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>ANMCCF — All Nations Mission Campus Christian Fellowship</strong><br>
+  All Faiths Chapel, College Station, TX 77844 &nbsp;|&nbsp; 주일 오전 11:00<br>
+  <span style="font-size:.75rem;opacity:.5;margin-top:.5rem;display:block">© 2025 ANMCCF. All rights reserved.</span>
+</footer>
+
+<!-- Password Overlay -->
+<div id="adminOverlay">
+  <div class="lock-box">
+    <div class="lock-icon">🔐</div>
+    <h2>관리자 로그인</h2>
+    <p>비밀번호를 입력하세요</p>
+    <input type="password" class="lock-input" id="pwInput" placeholder="••••••" maxlength="20">
+    <p class="lock-error" id="pwError">비밀번호가 틀렸습니다.</p>
+    <button class="lock-btn" id="pwSubmit">로그인</button>
+    <button class="lock-cancel" id="pwCancel">취소</button>
+  </div>
+</div>
+
+<!-- Admin FAB -->
+<button id="adminFab" title="관리자">⚙️</button>
+
+<!-- Admin Drawer -->
+<div id="adminPanel">
+  <div class="panel-header">
+    <h2>⚙️ 관리자 패널</h2>
+    <div class="panel-header-right">
+      <button class="panel-logout" id="panelLogout">로그아웃</button>
+      <button class="panel-close" id="panelClose">✕</button>
+    </div>
+  </div>
+  <div class="panel-tabs">
+    <button class="panel-tab active" data-tab="bulletin">📋 주보</button>
+    <button class="panel-tab" data-tab="calendar">📅 일정</button>
+    <button class="panel-tab" data-tab="news">📢 소식</button>
+    <button class="panel-tab" data-tab="about">👤 소개</button>
+    <button class="panel-tab" data-tab="settings">⚙️ 설정</button>
+  </div>
+  <div class="panel-body">
+
+    <!-- 발행 배너 (모든 탭 공통) -->
+    <div class="publish-banner">
+      <div>
+        <strong>🚀 GitHub에 발행하기</strong>
+        <p>수정사항을 저장하면 방문자에게 즉시 반영됩니다.</p>
+      </div>
+      <button id="publishBtn" onclick="publishAll()">발행</button>
+    </div>
+
+    <!-- 주보 탭 -->
+    <div class="tab-content active" id="tab-bulletin">
+      <div class="sec-heading">새 주보 추가</div>
+      <div class="fg"><label>날짜</label><input type="date" id="b-date"></div>
+      <div class="fg"><label>설교 제목</label><input type="text" id="b-title" placeholder="예: 주님의 은혜"></div>
+      <div class="fg"><label>설교 본문 (선택)</label><input type="text" id="b-verse" placeholder="예: 요한복음 3:16"></div>
+      <div class="fg"><label>PDF 링크 (Google Drive 공유 링크)</label><input type="url" id="b-url" placeholder="https://drive.google.com/..."></div>
+      <button class="submit-btn" onclick="addBulletin()">✅ 주보 추가</button>
+      <hr class="form-hr">
+      <div class="sec-heading">등록된 주보 (수정/삭제)</div>
+      <div class="ail" id="adminBulletinList"></div>
+    </div>
+
+    <!-- 일정 탭 -->
+    <div class="tab-content" id="tab-calendar">
+      <div class="sec-heading">새 일정 추가</div>
+      <div class="fg"><label>날짜</label><input type="date" id="e-date"></div>
+      <div class="fg"><label>행사 제목</label><input type="text" id="e-title" placeholder="예: 새신자 환영회"></div>
+      <div class="fg"><label>시간</label><input type="text" id="e-time" placeholder="예: 오후 7:00"></div>
+      <div class="fg"><label>장소</label><input type="text" id="e-place" placeholder="예: All Faiths Chapel"></div>
+      <div class="fg"><label>상세 내용 (선택)</label><textarea id="e-detail" placeholder="행사 상세 내용"></textarea></div>
+      <button class="submit-btn" onclick="addEvent()">✅ 일정 추가</button>
+      <hr class="form-hr">
+      <div class="sec-heading">등록된 일정 (수정/삭제)</div>
+      <div class="ail" id="adminEventList"></div>
+    </div>
+
+    <!-- 소식 탭 -->
+    <div class="tab-content" id="tab-news">
+      <div class="sec-heading">새 소식 추가</div>
+      <div class="fg"><label>분류</label><select id="n-tag"><option>공지</option><option>행사</option><option>안내</option><option>기도</option><option>감사</option><option>모집</option></select></div>
+      <div class="fg"><label>제목</label><input type="text" id="n-title" placeholder="소식 제목"></div>
+      <div class="fg"><label>내용</label><textarea id="n-body" placeholder="소식 내용을 입력하세요..."></textarea></div>
+      <button class="submit-btn" onclick="addNews()">✅ 소식 추가</button>
+      <hr class="form-hr">
+      <div class="sec-heading">등록된 소식 (수정/삭제)</div>
+      <div class="ail" id="adminNewsList"></div>
+    </div>
+
+    <!-- 소개 탭 -->
+    <div class="tab-content" id="tab-about">
+      <div class="sec-heading">예배 정보 수정</div>
+      <div class="fg"><label>예배 시간</label><input type="text" id="a-time" placeholder="예: 주일 오전 11:00"></div>
+      <div class="fg"><label>장소명</label><input type="text" id="a-loc" placeholder="예: All Faiths Chapel"></div>
+      <div class="fg"><label>주소</label><input type="text" id="a-addr" placeholder="예: College Station, TX 77844"></div>
+      <button class="submit-btn" onclick="saveWorshipInfo()">✅ 예배 정보 저장</button>
+      <hr class="form-hr">
+      <div class="sec-heading">목사님 정보 수정</div>
+      <div class="fg"><label>이름</label><input type="text" id="a-pname" placeholder="예: 유주호 목사님"></div>
+      <div class="fg"><label>직책</label><input type="text" id="a-ptitle" placeholder="예: 담임 목사 · Senior Pastor"></div>
+      <div class="fg"><label>전화번호</label><input type="text" id="a-pphone" placeholder="예: 434-944-1176"></div>
+      <div class="fg"><label>이메일</label><input type="email" id="a-pemail"></div>
+      <div class="fg"><label>학력 (줄바꿈으로 구분)</label><textarea id="a-pdeg"></textarea></div>
+      <button class="submit-btn" onclick="savePastorInfo()">✅ 목사님 정보 저장</button>
+      <hr class="form-hr">
+      <div class="sec-heading">소개 문구 수정</div>
+      <div class="fg"><label>교회 소개 문구</label><textarea id="a-desc" style="min-height:100px"></textarea></div>
+      <div class="fg"><label>목사님 인용구</label><textarea id="a-quote" style="min-height:100px"></textarea></div>
+      <div class="fg"><label>추가 설명</label><textarea id="a-desc2" style="min-height:100px"></textarea></div>
+      <button class="submit-btn" onclick="saveAboutText()">✅ 소개 문구 저장</button>
+    </div>
+
+    <!-- 설정 탭 -->
+    <div class="tab-content" id="tab-settings">
+
+      <!-- 사이트 기본 정보 -->
+      <div class="sec-heading">🏠 사이트 기본 정보</div>
+      <div class="fg"><label>교회 이름</label><input type="text" id="si-name" placeholder="예: ANMCCF"></div>
+      <div class="fg"><label>교회 풀네임</label><input type="text" id="si-fullname" placeholder="예: All Nations Mission Campus Christian Fellowship"></div>
+      <div class="fg"><label>교회 웹사이트 URL</label><input type="url" id="si-web" placeholder="예: https://www.anmccf.org"></div>
+      <div class="fg"><label>인스타그램 아이디 (@제외)</label><input type="text" id="si-ig" placeholder="예: anmccf"></div>
+      <div class="fg"><label>카카오톡 오픈채팅 링크 (선택)</label><input type="url" id="si-kakao" placeholder="https://open.kakao.com/..."></div>
+      <div class="fg"><label>히어로 서브라벨 (상단 작은 글씨)</label><input type="text" id="si-label" placeholder="예: Texas A&amp;M Campus Church · College Station"></div>
+      <button class="submit-btn" style="background:#1a3d70" onclick="saveSiteInfo()">💾 사이트 정보 저장</button>
+
+      <hr class="form-hr">
+
+      <!-- GitHub 설정 -->
+      <div class="sec-heading">🐙 GitHub 설정</div>
+      <div class="gh-note">
+        ℹ️ GitHub에 직접 발행하려면 아래 정보를 입력하세요.<br>
+        Personal Access Token은 <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a>에서 생성하세요.<br>
+        권한: <strong>Contents: Read & Write</strong> (Fine-grained token 권장)
+      </div>
+      <div class="fg"><label>GitHub 저장소 (소유자/레포이름)</label><input type="text" id="s-repo" placeholder="예: anmccf/church-website"></div>
+      <div class="fg"><label>브랜치</label><input type="text" id="s-branch" placeholder="main" value="main"></div>
+      <div class="fg"><label>Personal Access Token (PAT)</label><input type="password" id="s-token" placeholder="github_pat_xxxxxxxxxxxx 또는 ghp_xxxx"></div>
+      <button class="submit-btn" style="background:#2c7a4b" onclick="saveGHConfig()">💾 GitHub 설정 저장</button>
+      <div id="ghStatus" style="margin-top:.8rem;font-size:.8rem"></div>
+
+      <hr class="form-hr">
+
+      <!-- 비밀번호 변경 -->
+      <div class="sec-heading">🔑 비밀번호 변경</div>
+      <div class="pw-note">⚠️ 초기 비밀번호: <strong>anmccf2025</strong><br>처음 로그인 후 꼭 변경해 주세요.</div>
+      <div class="fg"><label>현재 비밀번호</label><input type="password" id="s-cur"></div>
+      <div class="fg"><label>새 비밀번호 (4자 이상)</label><input type="password" id="s-new"></div>
+      <div class="fg"><label>새 비밀번호 확인</label><input type="password" id="s-cf"></div>
+      <button class="submit-btn" onclick="changePassword()">🔑 비밀번호 변경</button>
+
+      <hr class="form-hr">
+
+      <!-- 데이터 백업 -->
+      <div class="sec-heading">💾 데이터 백업</div>
+      <p style="font-size:.82rem;color:var(--text-light);margin-bottom:1rem">데이터를 파일로 저장하거나 복원할 수 있습니다.</p>
+      <button class="submit-btn" style="background:#1a56db;margin-bottom:.8rem" onclick="exportData()">📥 데이터 내보내기 (JSON)</button>
+      <div class="fg"><label>데이터 가져오기</label><input type="file" id="importFile" accept=".json"></div>
+      <button class="submit-btn" style="background:#6c757d" onclick="importData()">📤 데이터 복원하기</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div id="editModal">
+  <div class="modal-box">
+    <h3 id="modalTitle">수정</h3>
+    <div id="modalFields"></div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeModal()">취소</button>
+      <button class="modal-save" id="modalSave">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════
+//  CONSTANTS & HELPERS
+// ══════════════════════════════════════════
+const DEFAULT_PW = 'anmccf2025';
+const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site' };
+const GH_KEYS = { repo:'anm_gh_repo', branch:'anm_gh_branch', token:'anm_gh_token' };
+
+const ld  = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
+const sv  = (k, d) => localStorage.setItem(k, JSON.stringify(d));
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+const fmt = s => { if (!s) return ''; const d = new Date(s + 'T00:00:00'); return `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`; };
+const toast = msg => {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+};
+
+// ══════════════════════════════════════════
+//  GITHUB INTEGRATION
+// ══════════════════════════════════════════
+const GH = {
+  get repo()   { return ld(GH_KEYS.repo,   ''); },
+  get branch() { return ld(GH_KEYS.branch, 'main'); },
+  get token()  { return ld(GH_KEYS.token,  ''); }
+};
+
+/**
+ * Fetch a data file relative to index.html.
+ * Works both on GitHub Pages (./data/x.json) and locally.
+ */
+async function loadDataFile(filename) {
+  try {
+    const r = await fetch(`./data/${filename}?t=${Date.now()}`, { cache: 'no-store' });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+/**
+ * Commit a single file to GitHub via the Contents API.
+ * @param {string} filename  e.g. "bulletins.json"
+ * @param {any}    data      JSON-serialisable value
+ */
+async function ghCommit(filename, data) {
+  const { repo, branch, token } = GH;
+  if (!repo || !token) return false;
+
+  const apiUrl = `https://api.github.com/repos/${repo}/contents/data/${filename}`;
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
+    Accept: 'application/vnd.github+json'
+  };
+
+  // Need existing SHA for updates (PUT requires it)
+  let sha = '';
+  try {
+    const res = await fetch(apiUrl, { headers });
+    if (res.ok) { const d = await res.json(); sha = d.sha || ''; }
+  } catch { /* new file → no SHA needed */ }
+
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+  const body = { message: `chore: update ${filename} via admin panel`, content, branch };
+  if (sha) body.sha = sha;
+
+  const res = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+  return res.ok;
+}
+
+/** Publish ALL content data to GitHub at once. */
+async function publishAll() {
+  if (!GH.repo || !GH.token) {
+    toast('⚠️ 설정 탭에서 GitHub 정보를 먼저 입력해 주세요.');
+    document.querySelectorAll('.panel-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelector('[data-tab="settings"]').classList.add('active');
+    document.getElementById('tab-settings').classList.add('active');
+    return;
+  }
+
+  const btn = document.getElementById('publishBtn');
+  btn.disabled = true;
+  btn.textContent = '발행 중...';
+
+  const settings = {
+    worship: ld(K.w, {}),
+    pastor:  ld(K.p, {}),
+    about:   ld(K.a, {}),
+    site:    ld(K.s, SITE_DEFAULTS)
+  };
+
+  try {
+    const results = await Promise.all([
+      ghCommit('bulletins.json', ld(K.b, [])),
+      ghCommit('events.json',    ld(K.e, [])),
+      ghCommit('news.json',      ld(K.n, [])),
+      ghCommit('settings.json',  settings)
+    ]);
+    const ok = results.every(Boolean);
+    toast(ok ? '🚀 GitHub에 성공적으로 발행되었습니다!' : '⚠️ 일부 파일 발행 실패. 토큰/저장소명을 확인하세요.');
+  } catch (e) {
+    toast('❌ GitHub 발행 실패: ' + e.message);
+  }
+
+  btn.disabled = false;
+  btn.textContent = '발행';
+}
+
+function saveGHConfig() {
+  const repo   = document.getElementById('s-repo').value.trim();
+  const branch = document.getElementById('s-branch').value.trim() || 'main';
+  const token  = document.getElementById('s-token').value.trim();
+  sv(GH_KEYS.repo,   repo);
+  sv(GH_KEYS.branch, branch);
+  if (token) sv(GH_KEYS.token, token);
+  const status = document.getElementById('ghStatus');
+  if (repo) {
+    status.innerHTML = `<span class="sync-status ok">✅ 저장됨 · ${repo} (${branch})</span>`;
+  }
+  toast('💾 GitHub 설정이 저장되었습니다!');
+}
+
+// ══════════════════════════════════════════
+//  NAV
+// ══════════════════════════════════════════
+document.getElementById('hamburger').addEventListener('click', () =>
+  document.getElementById('navLinks').classList.toggle('open'));
+
+// ══════════════════════════════════════════
+//  AUTH
+// ══════════════════════════════════════════
+let loggedIn = false;
+const getPw = () => ld(K.pw, DEFAULT_PW);
+
+document.getElementById('adminFab').addEventListener('click', () => {
+  if (loggedIn) openPanel();
+  else {
+    document.getElementById('adminOverlay').classList.add('open');
+    setTimeout(() => document.getElementById('pwInput').focus(), 100);
+  }
+});
+document.getElementById('pwSubmit').addEventListener('click', tryLogin);
+document.getElementById('pwInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+document.getElementById('pwCancel').addEventListener('click', () => {
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.getElementById('pwInput').value = '';
+  document.getElementById('pwError').style.display = 'none';
+});
+function tryLogin() {
+  const v = document.getElementById('pwInput').value;
+  if (v === getPw()) {
+    loggedIn = true;
+    document.getElementById('adminOverlay').classList.remove('open');
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwError').style.display = 'none';
+    openPanel();
+  } else {
+    const i = document.getElementById('pwInput');
+    i.classList.add('error'); i.value = '';
+    document.getElementById('pwError').style.display = 'block';
+    setTimeout(() => i.classList.remove('error'), 500);
+  }
+}
+document.getElementById('panelClose').addEventListener('click', closePanel);
+document.getElementById('panelLogout').addEventListener('click', () => { loggedIn = false; closePanel(); toast('로그아웃 되었습니다.'); });
+
+function openPanel() {
+  document.getElementById('adminPanel').classList.add('open');
+  loadAboutForms();
+  loadGHForms();
+  loadSiteForms();
+  renderAdminLists();
+}
+function closePanel() { document.getElementById('adminPanel').classList.remove('open'); }
+
+// ══════════════════════════════════════════
+//  TABS
+// ══════════════════════════════════════════
+document.querySelectorAll('.panel-tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.panel-tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('tab-' + t.dataset.tab).classList.add('active');
+  });
+});
+
+// ══════════════════════════════════════════
+//  BULLETIN
+// ══════════════════════════════════════════
+function addBulletin() {
+  const date  = document.getElementById('b-date').value;
+  const title = document.getElementById('b-title').value.trim();
+  const verse = document.getElementById('b-verse').value.trim();
+  const url   = document.getElementById('b-url').value.trim();
+  if (!date || !title) { toast('날짜와 제목을 입력해 주세요.'); return; }
+  const data = ld(K.b, []);
+  data.unshift({ id: uid(), date, title, verse, url });
+  sv(K.b, data); renderBulletins(); renderAdminBulletins();
+  ['b-date','b-title','b-verse','b-url'].forEach(id => document.getElementById(id).value = '');
+  toast('✅ 주보가 추가되었습니다! 상단 [발행] 버튼으로 반영하세요.');
+}
+function renderBulletins() {
+  const data = ld(K.b, []);
+  const g = document.getElementById('bulletinGrid');
+  if (!data.length) { g.innerHTML = '<div class="empty-state"><div style="font-size:2rem">📋</div><p style="margin-top:.5rem">아직 등록된 주보가 없습니다.</p></div>'; return; }
+  g.innerHTML = data.map(b => `<a class="bulletin-card" href="${b.url||'#'}" target="${b.url?'_blank':'_self'}">
+    <div class="bulletin-icon">📄</div>
+    <div class="bulletin-info">
+      <h4>${b.title}</h4>
+      ${b.verse ? `<p style="font-size:.78rem;color:var(--gold)">${b.verse}</p>` : ''}
+      <p class="bdate">${fmt(b.date)}</p>
+    </div>
+  </a>`).join('');
+}
+function renderAdminBulletins() {
+  const data = ld(K.b, []);
+  const el = document.getElementById('adminBulletinList');
+  if (!data.length) { el.innerHTML = '<p style="font-size:.82rem;color:var(--text-light)">등록된 주보가 없습니다.</p>'; return; }
+  el.innerHTML = data.map(b => `<div class="ai">
+    <div class="ai-info"><div class="ai-title">📄 ${b.title}</div><div class="ai-meta">${fmt(b.date)}${b.verse?' · '+b.verse:''}</div></div>
+    <div class="ai-actions">
+      <button class="ibtn edit" onclick="editBulletin('${b.id}')">수정</button>
+      <button class="ibtn del"  onclick="delBulletin('${b.id}')">삭제</button>
+    </div>
+  </div>`).join('');
+}
+function delBulletin(id) {
+  if (!confirm('이 주보를 삭제할까요?')) return;
+  sv(K.b, ld(K.b, []).filter(x => x.id !== id)); renderBulletins(); renderAdminBulletins(); toast('🗑 삭제되었습니다. 발행 버튼으로 반영하세요.');
+}
+function editBulletin(id) {
+  const data = ld(K.b, []), b = data.find(x => x.id === id); if (!b) return;
+  openModal('주보 수정', [
+    { label:'날짜',    key:'date',  type:'date', val:b.date  },
+    { label:'설교 제목', key:'title', type:'text', val:b.title },
+    { label:'설교 본문', key:'verse', type:'text', val:b.verse },
+    { label:'PDF 링크', key:'url',   type:'url',  val:b.url   }
+  ], vals => { Object.assign(b, vals); sv(K.b, data); renderBulletins(); renderAdminBulletins(); toast('✅ 수정되었습니다! 발행 버튼으로 반영하세요.'); });
+}
+
+// ══════════════════════════════════════════
+//  CALENDAR
+// ══════════════════════════════════════════
+let calDate = new Date();
+function addEvent() {
+  const date   = document.getElementById('e-date').value;
+  const title  = document.getElementById('e-title').value.trim();
+  const time   = document.getElementById('e-time').value.trim();
+  const place  = document.getElementById('e-place').value.trim();
+  const detail = document.getElementById('e-detail').value.trim();
+  if (!date || !title) { toast('날짜와 제목을 입력해 주세요.'); return; }
+  const data = ld(K.e, []);
+  data.push({ id: uid(), date, title, time, place, detail });
+  data.sort((a, b) => a.date.localeCompare(b.date));
+  sv(K.e, data); renderCalendar(); renderAdminEvents();
+  ['e-date','e-title','e-time','e-place','e-detail'].forEach(id => document.getElementById(id).value = '');
+  toast('✅ 일정이 추가되었습니다! 발행 버튼으로 반영하세요.');
+}
+function renderCalendar() {
+  const events = ld(K.e, []);
+  const y = calDate.getFullYear(), m = calDate.getMonth();
+  document.getElementById('calMonthYear').textContent = `${y}년 ${m+1}월`;
+  const first = new Date(y, m, 1).getDay(), days = new Date(y, m+1, 0).getDate();
+  const today = new Date();
+  const total = Math.ceil((first + days) / 7) * 7;
+  let html = '', cnt = 1;
+  for (let i = 0; i < total; i++) {
+    if (i < first || cnt > days) { html += `<div class="cal-day other-month"></div>`; if (i >= first) cnt++; }
+    else {
+      const d = cnt, isToday = d === today.getDate() && m === today.getMonth() && y === today.getFullYear();
+      const ds = `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const de = events.filter(e => e.date === ds);
+      html += `<div class="cal-day ${isToday?'today':''} ${de.length?'has-event':''}">
+        <div class="day-num">${d}</div>
+        ${de.map(e => `<div class="day-event">${e.title}</div>`).join('')}
+      </div>`; cnt++;
+    }
+  }
+  document.getElementById('calBody').innerHTML = html;
+  renderUpcoming();
+}
+function renderUpcoming() {
+  const events = ld(K.e, []);
+  const now = new Date(); now.setHours(0,0,0,0);
+  const up = events.filter(e => new Date(e.date+'T00:00:00') >= now).slice(0, 5);
+  const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  if (!up.length) { document.getElementById('eventList').innerHTML = '<p style="font-size:.85rem;color:var(--text-light);padding:1rem 0">예정된 일정이 없습니다.</p>'; return; }
+  document.getElementById('eventList').innerHTML = up.map(e => {
+    const d = new Date(e.date+'T00:00:00');
+    return `<div class="event-item">
+      <div class="event-date-badge"><div class="month">${mo[d.getMonth()]}</div><div class="day">${d.getDate()}</div></div>
+      <div class="event-details"><h4>${e.title}</h4><p>${[e.time, e.place].filter(Boolean).join(' · ')}</p></div>
+    </div>`;
+  }).join('');
+}
+document.getElementById('calPrev').addEventListener('click', () => { calDate.setMonth(calDate.getMonth()-1); renderCalendar(); });
+document.getElementById('calNext').addEventListener('click', () => { calDate.setMonth(calDate.getMonth()+1); renderCalendar(); });
+function renderAdminEvents() {
+  const data = ld(K.e, []);
+  const el = document.getElementById('adminEventList');
+  if (!data.length) { el.innerHTML = '<p style="font-size:.82rem;color:var(--text-light)">등록된 일정이 없습니다.</p>'; return; }
+  el.innerHTML = data.map(e => `<div class="ai">
+    <div class="ai-info"><div class="ai-title">📅 ${e.title}</div><div class="ai-meta">${fmt(e.date)}${e.time?' · '+e.time:''}${e.place?' · '+e.place:''}</div></div>
+    <div class="ai-actions">
+      <button class="ibtn edit" onclick="editEvent('${e.id}')">수정</button>
+      <button class="ibtn del"  onclick="delEvent('${e.id}')">삭제</button>
+    </div>
+  </div>`).join('');
+}
+function delEvent(id) {
+  if (!confirm('이 일정을 삭제할까요?')) return;
+  sv(K.e, ld(K.e, []).filter(x => x.id !== id)); renderCalendar(); renderAdminEvents(); toast('🗑 삭제되었습니다. 발행 버튼으로 반영하세요.');
+}
+function editEvent(id) {
+  const data = ld(K.e, []), e = data.find(x => x.id === id); if (!e) return;
+  openModal('일정 수정', [
+    { label:'날짜',    key:'date',   type:'date',     val:e.date   },
+    { label:'제목',    key:'title',  type:'text',     val:e.title  },
+    { label:'시간',    key:'time',   type:'text',     val:e.time   },
+    { label:'장소',    key:'place',  type:'text',     val:e.place  },
+    { label:'상세 내용', key:'detail', type:'textarea', val:e.detail }
+  ], vals => { Object.assign(e, vals); data.sort((a,b)=>a.date.localeCompare(b.date)); sv(K.e, data); renderCalendar(); renderAdminEvents(); toast('✅ 수정되었습니다! 발행 버튼으로 반영하세요.'); });
+}
+
+// ══════════════════════════════════════════
+//  NEWS
+// ══════════════════════════════════════════
+function addNews() {
+  const tag   = document.getElementById('n-tag').value;
+  const title = document.getElementById('n-title').value.trim();
+  const body  = document.getElementById('n-body').value.trim();
+  if (!title || !body) { toast('제목과 내용을 입력해 주세요.'); return; }
+  const data = ld(K.n, []);
+  data.unshift({ id: uid(), tag, title, body, date: new Date().toISOString().split('T')[0] });
+  sv(K.n, data); renderNews(); renderAdminNews();
+  document.getElementById('n-title').value = ''; document.getElementById('n-body').value = '';
+  toast('✅ 소식이 추가되었습니다! 발행 버튼으로 반영하세요.');
+}
+function renderNews() {
+  const data = ld(K.n, []);
+  const fixed = `<div class="news-card"><span class="tag">안내</span><h4>ANMCCF에 오신 것을 환영합니다</h4><p>Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다.</p><p class="ndate">상시</p></div>`;
+  document.getElementById('newsGrid').innerHTML = data.map(n => `<div class="news-card">
+    <span class="tag">${n.tag}</span><h4>${n.title}</h4>
+    <p>${n.body.replace(/\n/g,'<br>')}</p>
+    <p class="ndate">${fmt(n.date)}</p>
+  </div>`).join('') + fixed;
+}
+function renderAdminNews() {
+  const data = ld(K.n, []);
+  const el = document.getElementById('adminNewsList');
+  if (!data.length) { el.innerHTML = '<p style="font-size:.82rem;color:var(--text-light)">등록된 소식이 없습니다.</p>'; return; }
+  el.innerHTML = data.map(n => `<div class="ai">
+    <div class="ai-info"><div class="ai-title">📢 ${n.title}</div><div class="ai-meta">[${n.tag}] ${fmt(n.date)}</div></div>
+    <div class="ai-actions">
+      <button class="ibtn edit" onclick="editNews('${n.id}')">수정</button>
+      <button class="ibtn del"  onclick="delNews('${n.id}')">삭제</button>
+    </div>
+  </div>`).join('');
+}
+function delNews(id) {
+  if (!confirm('이 소식을 삭제할까요?')) return;
+  sv(K.n, ld(K.n, []).filter(x => x.id !== id)); renderNews(); renderAdminNews(); toast('🗑 삭제되었습니다. 발행 버튼으로 반영하세요.');
+}
+function editNews(id) {
+  const data = ld(K.n, []), n = data.find(x => x.id === id); if (!n) return;
+  openModal('소식 수정', [
+    { label:'분류', key:'tag',   type:'select', options:['공지','행사','안내','기도','감사','모집'], val:n.tag },
+    { label:'제목', key:'title', type:'text',   val:n.title },
+    { label:'내용', key:'body',  type:'textarea', val:n.body }
+  ], vals => { Object.assign(n, vals); sv(K.n, data); renderNews(); renderAdminNews(); toast('✅ 수정되었습니다! 발행 버튼으로 반영하세요.'); });
+}
+
+// ══════════════════════════════════════════
+//  ABOUT
+// ══════════════════════════════════════════
+function loadAboutForms() {
+  const w = ld(K.w, { time:'주일 오전 11:00', loc:'All Faiths Chapel', addr:'College Station, TX 77844' });
+  document.getElementById('a-time').value = w.time;
+  document.getElementById('a-loc').value  = w.loc;
+  document.getElementById('a-addr').value = w.addr;
+  const p = ld(K.p, { name:'유주호 목사님', title:'담임 목사 · Senior Pastor', phone:'434-944-1176', email:'peterlove153@gmail.com', deg:'Liberty Seminary, S.T.M.\n에스라 성경대학원대학교, Th.M.\n총신대학교 신학대학원, M.Div.' });
+  document.getElementById('a-pname').value  = p.name;
+  document.getElementById('a-ptitle').value = p.title;
+  document.getElementById('a-pphone').value = p.phone;
+  document.getElementById('a-pemail').value = p.email;
+  document.getElementById('a-pdeg').value   = p.deg;
+  const a = ld(K.a, { desc:'', quote:'', desc2:'' });
+  document.getElementById('a-desc').value  = a.desc;
+  document.getElementById('a-quote').value = a.quote;
+  document.getElementById('a-desc2').value = a.desc2;
+}
+function loadGHForms() {
+  document.getElementById('s-repo').value   = GH.repo;
+  document.getElementById('s-branch').value = GH.branch;
+  if (GH.repo) {
+    document.getElementById('ghStatus').innerHTML =
+      `<span class="sync-status ok">✅ 연결됨 · ${GH.repo} (${GH.branch})</span>`;
+  }
+}
+function saveWorshipInfo() {
+  const w = { time: document.getElementById('a-time').value.trim(), loc: document.getElementById('a-loc').value.trim(), addr: document.getElementById('a-addr').value.trim() };
+  sv(K.w, w); applyWorship(); toast('✅ 저장되었습니다! 발행 버튼으로 반영하세요.');
+}
+function applyWorship() {
+  const w = ld(K.w, { time:'주일 오전 11:00', loc:'All Faiths Chapel', addr:'College Station, TX 77844' });
+  document.getElementById('wTime').textContent     = w.time;
+  document.getElementById('heroTime').textContent  = '매주 ' + w.time;
+  document.getElementById('wLocation').textContent = w.loc;
+  document.getElementById('wAddress').textContent  = w.addr;
+  document.getElementById('cTime').textContent     = w.time;
+  document.getElementById('cAddr').innerHTML       = w.loc + '<br>' + w.addr;
+}
+function savePastorInfo() {
+  const p = { name: document.getElementById('a-pname').value.trim(), title: document.getElementById('a-ptitle').value.trim(), phone: document.getElementById('a-pphone').value.trim(), email: document.getElementById('a-pemail').value.trim(), deg: document.getElementById('a-pdeg').value.trim() };
+  sv(K.p, p); applyPastor(); toast('✅ 저장되었습니다! 발행 버튼으로 반영하세요.');
+}
+function applyPastor() {
+  const p = ld(K.p, { name:'유주호 목사님', title:'담임 목사 · Senior Pastor', phone:'434-944-1176', email:'peterlove153@gmail.com', deg:'Liberty Seminary, S.T.M.\n에스라 성경대학원대학교, Th.M.\n총신대학교 신학대학원, M.Div.' });
+  document.getElementById('pName').textContent  = p.name;
+  document.getElementById('pTitle').textContent = p.title;
+  document.getElementById('pPhone').textContent = '📞 ' + p.phone;
+  document.getElementById('pEmail').textContent = '✉️ ' + p.email;
+  document.getElementById('pAvatar').textContent = p.name.charAt(0);
+  document.getElementById('cPhone').textContent  = p.phone;
+  document.getElementById('cPhone').href = 'tel:' + p.phone.replace(/-/g,'');
+  document.getElementById('cEmail').textContent  = p.email;
+  document.getElementById('cEmail').href = 'mailto:' + p.email;
+  document.getElementById('pDegrees').innerHTML = p.deg.split('\n').filter(Boolean).map(d => `<li>${d}</li>`).join('');
+}
+function saveAboutText() {
+  const a = { desc: document.getElementById('a-desc').value.trim(), quote: document.getElementById('a-quote').value.trim(), desc2: document.getElementById('a-desc2').value.trim() };
+  sv(K.a, a); applyAbout(); toast('✅ 저장되었습니다! 발행 버튼으로 반영하세요.');
+}
+function applyAbout() {
+  const a = ld(K.a, { desc:'', quote:'', desc2:'' });
+  if (a.desc)  document.getElementById('aDesc').textContent  = a.desc;
+  if (a.quote) document.getElementById('aQuote').textContent = a.quote;
+  if (a.desc2) document.getElementById('aDesc2').textContent = a.desc2;
+}
+
+// ══════════════════════════════════════════
+//  SITE INFO
+// ══════════════════════════════════════════
+const SITE_DEFAULTS = {
+  name:     'ANMCCF',
+  fullname: 'All Nations Mission Campus Christian Fellowship',
+  web:      'https://www.anmccf.org',
+  ig:       'anmccf',
+  kakao:    '',
+  label:    'Texas A&M Campus Church · College Station'
+};
+function loadSiteForms() {
+  const s = ld(K.s, SITE_DEFAULTS);
+  document.getElementById('si-name').value    = s.name     || SITE_DEFAULTS.name;
+  document.getElementById('si-fullname').value= s.fullname || SITE_DEFAULTS.fullname;
+  document.getElementById('si-web').value     = s.web      || SITE_DEFAULTS.web;
+  document.getElementById('si-ig').value      = s.ig       || SITE_DEFAULTS.ig;
+  document.getElementById('si-kakao').value   = s.kakao    || '';
+  document.getElementById('si-label').value   = s.label    || SITE_DEFAULTS.label;
+}
+function saveSiteInfo() {
+  const s = {
+    name:     document.getElementById('si-name').value.trim()     || SITE_DEFAULTS.name,
+    fullname: document.getElementById('si-fullname').value.trim() || SITE_DEFAULTS.fullname,
+    web:      document.getElementById('si-web').value.trim()      || SITE_DEFAULTS.web,
+    ig:       document.getElementById('si-ig').value.trim()       || SITE_DEFAULTS.ig,
+    kakao:    document.getElementById('si-kakao').value.trim(),
+    label:    document.getElementById('si-label').value.trim()    || SITE_DEFAULTS.label
+  };
+  sv(K.s, s); applySite(); toast('✅ 사이트 정보가 저장되었습니다! 발행 버튼으로 반영하세요.');
+}
+function applySite() {
+  const s = ld(K.s, SITE_DEFAULTS);
+  // nav logo
+  const logo = document.querySelector('.nav-logo');
+  if (logo) logo.textContent = s.name;
+  // hero label
+  const heroLabel = document.querySelector('.hero-label');
+  if (heroLabel) heroLabel.textContent = s.label;
+  // hero title (fullname split into lines)
+  // website links
+  const webLinks = [document.getElementById('wWebsite'), document.getElementById('cWeb')];
+  webLinks.forEach(el => { if (!el) return; el.textContent = s.web.replace(/^https?:\/\//,''); el.href = s.web; });
+  // instagram follow button
+  const igBtn = document.querySelector('.btn-ig-follow');
+  if (igBtn) igBtn.href = `https://www.instagram.com/${s.ig}`;
+  // footer
+  const footer = document.querySelector('footer');
+  if (footer) {
+    let kakaoLine = s.kakao ? `<br><a href="${s.kakao}" target="_blank" style="color:rgba(255,255,255,.6);text-decoration:none">💬 카카오톡 오픈채팅</a>` : '';
+    footer.innerHTML = `
+      <strong>${s.name} — ${s.fullname}</strong><br>
+      All Faiths Chapel, College Station, TX 77844 &nbsp;|&nbsp; 주일 오전 11:00
+      ${kakaoLine}
+      <span style="font-size:.75rem;opacity:.5;margin-top:.5rem;display:block">© 2025 ${s.name}. All rights reserved.</span>`;
+  }
+}
+
+// ══════════════════════════════════════════
+//  SETTINGS
+// ══════════════════════════════════════════
+function changePassword() {
+  const cur = document.getElementById('s-cur').value;
+  const nw  = document.getElementById('s-new').value;
+  const cf  = document.getElementById('s-cf').value;
+  if (cur !== getPw())  { toast('❌ 현재 비밀번호가 틀렸습니다.'); return; }
+  if (nw.length < 4)    { toast('❌ 새 비밀번호는 4자 이상이어야 합니다.'); return; }
+  if (nw !== cf)        { toast('❌ 새 비밀번호가 일치하지 않습니다.'); return; }
+  sv(K.pw, nw);
+  ['s-cur','s-new','s-cf'].forEach(id => document.getElementById(id).value = '');
+  toast('🔑 비밀번호가 변경되었습니다!');
+}
+function exportData() {
+  const all = {}; Object.entries(K).forEach(([k,v]) => { all[k] = ld(v, null); });
+  const blob = new Blob([JSON.stringify(all, null, 2)], { type:'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a'); a.href = url; a.download = 'anmccf-backup-' + new Date().toISOString().split('T')[0] + '.json'; a.click(); URL.revokeObjectURL(url);
+  toast('📥 백업 파일을 다운로드했습니다!');
+}
+function importData() {
+  const file = document.getElementById('importFile').files[0];
+  if (!file) { toast('파일을 선택해 주세요.'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      Object.entries(K).forEach(([k,v]) => { if (data[k] !== undefined) sv(v, data[k]); });
+      init(); toast('📤 데이터를 복원했습니다!');
+    } catch { toast('❌ 올바른 백업 파일이 아닙니다.'); }
+  };
+  reader.readAsText(file);
+}
+
+// ══════════════════════════════════════════
+//  INSTAGRAM
+// ══════════════════════════════════════════
+function renderInstagram(data) {
+  const container = document.getElementById('igContainer');
+  const updatedEl = document.getElementById('igUpdated');
+
+  if (!data || !data.data || !data.data.length) {
+    container.innerHTML = `<div class="ig-setup-note">
+      <h4>📸 인스타그램 피드 설정이 필요합니다</h4>
+      <p>GitHub Actions 워크플로우를 설정하면 인스타그램 게시글이 자동으로 표시됩니다.<br>
+      설정 방법은 프로젝트의 <code>README.md</code>를 참고하세요.</p>
+    </div>`;
+    return;
+  }
+
+  if (data.updated_at) {
+    const d = new Date(data.updated_at);
+    updatedEl.textContent = `마지막 업데이트: ${d.toLocaleDateString('ko-KR')} ${d.toLocaleTimeString('ko-KR', {hour:'2-digit', minute:'2-digit'})}`;
+  }
+
+  const posts = data.data.slice(0, 12);
+  container.innerHTML = `<div class="ig-grid">${posts.map(post => {
+    const img = post.media_type === 'VIDEO' ? (post.thumbnail_url || post.media_url) : post.media_url;
+    const caption = (post.caption || '').replace(/\n/g,' ').substring(0, 100);
+    return `<a href="${post.permalink}" target="_blank" rel="noopener" class="ig-card">
+      <div class="ig-img" style="background-image:url('${img}')">
+        ${post.media_type === 'VIDEO' ? '<div class="ig-video-badge">▶</div>' : ''}
+        ${post.media_type === 'CAROUSEL_ALBUM' ? '<div class="ig-video-badge" style="font-size:.5rem">❐</div>' : ''}
+      </div>
+      <div class="ig-overlay">
+        <div class="ig-caption">${caption}</div>
+      </div>
+    </a>`;
+  }).join('')}</div>`;
+}
+
+// ══════════════════════════════════════════
+//  MODAL
+// ══════════════════════════════════════════
+function openModal(title, fields, cb) {
+  document.getElementById('modalTitle').textContent = title;
+  const S = 'width:100%;padding:.65rem .85rem;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:.87rem;background:var(--cream);color:var(--text-dark)';
+  document.getElementById('modalFields').innerHTML = fields.map(f => {
+    let inp;
+    if (f.type === 'textarea') inp = `<textarea id="mf-${f.key}" style="${S};min-height:80px;resize:vertical">${f.val||''}</textarea>`;
+    else if (f.type === 'select') inp = `<select id="mf-${f.key}" style="${S}">${(f.options||[]).map(o=>`<option${o===f.val?' selected':''}>${o}</option>`).join('')}</select>`;
+    else inp = `<input id="mf-${f.key}" type="${f.type}" value="${(f.val||'').replace(/"/g,'&quot;')}" style="${S}">`;
+    return `<div style="margin-bottom:.9rem"><label style="display:block;font-size:.8rem;font-weight:500;color:var(--text-mid);margin-bottom:.35rem">${f.label}</label>${inp}</div>`;
+  }).join('');
+  document.getElementById('modalSave').onclick = () => {
+    const vals = {}; fields.forEach(f => { vals[f.key] = document.getElementById('mf-'+f.key).value; });
+    cb(vals); closeModal();
+  };
+  document.getElementById('editModal').classList.add('open');
+}
+function closeModal() { document.getElementById('editModal').classList.remove('open'); }
+document.getElementById('editModal').addEventListener('click', e => { if (e.target === document.getElementById('editModal')) closeModal(); });
+
+function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); }
+
+// ══════════════════════════════════════════
+//  INIT — loads data from ./data/*.json files
+// ══════════════════════════════════════════
+async function init() {
+  // Render immediately from localStorage (instant display)
+  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite();
+
+  // Then try to load fresh data from the JSON files (GitHub Pages serves these)
+  try {
+    const [bulletins, events, news, settings, instagram] = await Promise.all([
+      loadDataFile('bulletins.json'),
+      loadDataFile('events.json'),
+      loadDataFile('news.json'),
+      loadDataFile('settings.json'),
+      loadDataFile('instagram.json')
+    ]);
+
+    let changed = false;
+    if (bulletins && JSON.stringify(bulletins) !== JSON.stringify(ld(K.b,[]))) { sv(K.b, bulletins); changed = true; }
+    if (events    && JSON.stringify(events)    !== JSON.stringify(ld(K.e,[]))) { sv(K.e, events);    changed = true; }
+    if (news      && JSON.stringify(news)      !== JSON.stringify(ld(K.n,[]))) { sv(K.n, news);      changed = true; }
+    if (settings) {
+      if (settings.worship) sv(K.w, settings.worship);
+      if (settings.pastor)  sv(K.p, settings.pastor);
+      if (settings.about)   sv(K.a, settings.about);
+      if (settings.site)    sv(K.s, settings.site);
+      changed = true;
+    }
+    if (changed) {
+      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite();
+    }
+
+    // Instagram (renders separately)
+    renderInstagram(instagram);
+
+  } catch (e) {
+    // Running locally without a server → render from localStorage only
+    renderInstagram(null);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
