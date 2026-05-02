@@ -365,6 +365,8 @@ footer strong{color:white}
 .ibtn.edit:hover{background:#c7d7fd}
 .ibtn.del{background:#fde8e8;color:var(--danger)}
 .ibtn.del:hover{background:#fbb}
+.ibtn.move{background:#f0f0f0;color:#555;padding:.3rem .5rem}
+.ibtn.move:hover{background:#ddd}
 
 #editModal{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.55);align-items:center;justify-content:center}
 #editModal.open{display:flex}
@@ -1616,6 +1618,7 @@ function delNews(id) {
 function editNews(id) {
   const data = ld(K.n, []), n = data.find(x => x.id === id); if (!n) return;
   openModal('소식 수정', [
+    { label:'날짜',         key:'date',      type:'date',     val:n.date||'' },
     { label:'분류',         key:'tag',       type:'select', options:['공지','행사','안내','기도','감사','모집'], val:n.tag },
     { label:'제목',         key:'title',     type:'text',     val:n.title },
     { label:'내용',         key:'body',      type:'textarea', val:n.body  },
@@ -2045,10 +2048,27 @@ function renderAdminBoard() {
       <div class="ai-meta">[${p.tag}] ${fmt(p.date)}</div>
     </div>
     <div class="ai-actions">
+      <button class="ibtn edit" onclick="editBoard('${p.id}')">수정</button>
       <button class="ibtn edit" onclick="togglePin('${p.id}')">${p.pinned?'고정해제':'고정'}</button>
       <button class="ibtn del" onclick="delBoard('${p.id}')">삭제</button>
     </div>
   </div>`).join('');
+}
+function editBoard(id) {
+  const data = ld(K.board,[]), p = data.find(x=>x.id===id); if(!p) return;
+  openModal('게시글 수정', [
+    { label:'날짜',      key:'date',      type:'date',   val:p.date||'' },
+    { label:'분류',      key:'tag',       type:'select', options:['생활정보','신입생 안내','구인/구직','물품 나눔','자유게시판','기도요청'], val:p.tag },
+    { label:'제목',      key:'title',     type:'text',   val:p.title },
+    { label:'내용',      key:'body',      type:'textarea', val:p.body },
+    { label:'이미지 URL', key:'img',      type:'url',    val:p.img||'' },
+    { label:'링크 URL',  key:'link',      type:'url',    val:p.link||'' },
+    { label:'링크 이름', key:'linkLabel', type:'text',   val:p.linkLabel||'링크 보기' }
+  ], vals => {
+    Object.assign(p, vals);
+    sv(K.board, data); renderBoard(); renderAdminBoard();
+    toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.');
+  });
 }
 function togglePin(id) {
   const data = ld(K.board,[]);
@@ -2147,7 +2167,11 @@ function renderAdminContactList() {
   const members = ld(K.contacts, []);
   const el = document.getElementById('adminContactList'); if(!el) return;
   if (!members.length) { el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 연락처가 없습니다.</p>'; return; }
-  el.innerHTML = members.map(m => `<div class="ai">
+  el.innerHTML = members.map((m, i) => `<div class="ai">
+    <div class="ai-actions" style="flex-direction:column;gap:2px;margin-right:.2rem">
+      <button class="ibtn move" onclick="moveContact(${i},-1)" ${i===0?'disabled':''}>▲</button>
+      <button class="ibtn move" onclick="moveContact(${i}, 1)" ${i===members.length-1?'disabled':''}>▼</button>
+    </div>
     <div class="ai-info">
       <div class="ai-title">${m.role} · ${m.name}</div>
       <div class="ai-meta">${[m.phone,m.email].filter(Boolean).join(' · ')}</div>
@@ -2157,6 +2181,14 @@ function renderAdminContactList() {
       <button class="ibtn del"  onclick="delContactMember('${m.id}')">삭제</button>
     </div>
   </div>`).join('');
+}
+function moveContact(idx, dir) {
+  const members = ld(K.contacts, []);
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= members.length) return;
+  [members[idx], members[newIdx]] = [members[newIdx], members[idx]];
+  sv(K.contacts, members); applyContact(); renderAdminContactList();
+  toast('↕ 순서가 변경됐습니다. 발행 버튼으로 반영하세요.');
 }
 function editContactMember(id) {
   const members = ld(K.contacts, []);
