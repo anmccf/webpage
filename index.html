@@ -58,12 +58,14 @@ section{padding:6rem 2rem}
 /* WORSHIP */
 #worship{background:var(--warm-white)}
 .worship-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.info-cards{display:flex;flex-direction:column;gap:1.2rem}
-.info-card{background:white;border:1px solid var(--border);border-radius:8px;padding:2rem;position:relative;overflow:hidden}
-.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--maroon),var(--gold))}
-.info-card h3{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.4rem}
-.info-card .val{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--maroon)}
-.info-card .sub{font-family:'Noto Sans KR',sans-serif;font-size:.82rem;color:var(--text-light);margin-top:.2rem}
+.info-cards{display:flex;flex-direction:column;gap:.6rem}
+.info-card{background:white;border:1px solid var(--border);border-radius:6px;padding:.9rem 1.2rem;position:relative;overflow:hidden;display:flex;align-items:center;gap:1rem}
+.info-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--maroon),var(--gold))}
+.info-card-icon{font-size:1.2rem;flex-shrink:0;margin-left:.2rem}
+.info-card-text{flex:1}
+.info-card h3{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.15rem}
+.info-card .val{font-family:'Noto Serif KR',serif;font-size:1rem;color:var(--maroon);font-weight:600}
+.info-card .sub{font-size:.75rem;color:var(--text-light);margin-top:.05rem}
 .map-embed{border-radius:8px;overflow:hidden;height:280px}
 .map-embed iframe{width:100%;height:100%;border:none}
 
@@ -194,6 +196,20 @@ section{padding:6rem 2rem}
 .board-card{background:white;border:1px solid var(--border);border-radius:8px;padding:1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:start;transition:box-shadow .2s}
 .board-card:hover{box-shadow:0 4px 16px rgba(80,0,0,.07)}
 .board-tag{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--maroon-pale);color:var(--maroon);padding:.2rem .6rem;border-radius:3px;white-space:nowrap}
+/* Community / Program Tabs */
+.community-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:.5rem}
+.comm-tab{background:none;border:none;padding:.5rem 1.2rem;font-family:'Noto Sans KR',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);cursor:pointer;border-radius:4px;transition:.15s;border-bottom:2px solid transparent}
+.comm-tab.active{color:var(--gold-light);border-bottom-color:var(--gold-light);background:rgba(255,255,255,.05)}
+.prog-tab{color:var(--text-light) !important}
+.prog-tab.active{color:var(--maroon) !important;border-bottom-color:var(--maroon) !important;background:var(--maroon-pale) !important}
+#programs .community-tabs{border-bottom-color:var(--border)}
+/* dark board cards */
+#ct-board .board-card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+#ct-board .board-card:hover{background:rgba(255,255,255,.12);box-shadow:none}
+#ct-board .board-tag{background:rgba(196,154,42,.2);color:var(--gold-light)}
+#ct-board .board-card h4{color:white}
+#ct-board .board-card p{color:rgba(255,255,255,.6)}
+#ct-board .board-date{color:rgba(255,255,255,.35)}
 .board-card h4{font-size:.95rem;font-weight:600;color:var(--text-dark);margin-bottom:.3rem}
 .board-card p{font-size:.85rem;color:var(--text-mid);line-height:1.7}
 .board-date{font-size:.75rem;color:var(--text-light);white-space:nowrap}
@@ -227,12 +243,18 @@ section{padding:6rem 2rem}
 
 /* CONTACT */
 #contact{background:var(--warm-white)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.contact-item{display:flex;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
-.contact-icon{width:40px;height:40px;background:var(--maroon-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-.contact-item h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin-bottom:.3rem}
-.contact-item p{font-size:.9rem;color:var(--text-dark)}
-.contact-item a{color:var(--maroon);text-decoration:none}
+.contact-welcome{background:linear-gradient(135deg,var(--maroon),#7a1c1c);border-radius:10px;padding:1.8rem 2rem;margin-bottom:2rem;color:white}
+.contact-welcome h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.5rem}
+.contact-welcome p{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.8}
+.contact-persons{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-bottom:2rem}
+.contact-person{background:white;border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem}
+.contact-person .cp-role{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.contact-person .cp-name{font-family:'Noto Serif KR',serif;font-size:1rem;color:var(--text-dark);font-weight:600;margin-bottom:.5rem}
+.contact-person a{display:block;font-size:.82rem;color:var(--maroon);text-decoration:none;margin-top:.2rem}
+.contact-person a:hover{text-decoration:underline}
+.contact-links{display:flex;flex-wrap:wrap;gap:.8rem}
+.contact-link-item{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;background:white;border:1px solid var(--border);border-radius:6px;text-decoration:none;color:var(--text-mid);font-size:.85rem;transition:.15s}
+.contact-link-item:hover{border-color:var(--maroon);color:var(--maroon)}
 
 /* EMPTY STATE */
 .empty-state{grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-light);border:2px dashed var(--border);border-radius:8px}
@@ -354,11 +376,9 @@ footer strong{color:white}
     <li><a href="#bulletin">주보</a></li>
     <li><a href="#calendar">일정</a></li>
     <li><a href="#about">교회 소개</a></li>
-    <li><a href="#news">소식</a></li>
+    <li><a href="#community">소식/게시판</a></li>
     <li><a href="#praise">찬양</a></li>
-    <li><a href="#ministry">사역</a></li>
-    <li><a href="#bible">성경공부</a></li>
-    <li><a href="#board">게시판</a></li>
+    <li><a href="#programs">사역/성경공부</a></li>
     <li><a href="#instagram">인스타그램</a></li>
     <li><a href="#contact">연락처</a></li>
   </ul>
@@ -390,9 +410,22 @@ footer strong{color:white}
     <div class="divider"></div>
     <div class="worship-grid">
       <div class="info-cards">
-        <div class="info-card"><h3>예배 시간</h3><p class="val" id="wTime">주일 오전 11:00</p><p class="sub">Sunday Morning Service</p></div>
-        <div class="info-card"><h3>장소</h3><p class="val" id="wLocation" style="font-size:1.1rem">All Faiths Chapel</p><p class="sub" id="wAddress">College Station, TX 77840</p></div>
-        <div class="info-card"><h3>홈페이지</h3><p style="font-size:1rem"><a href="https://anmccf.github.io/webpage/" target="_blank" style="color:var(--maroon);text-decoration:none" id="wWebsite">anmccf.github.io/webpage</a></p><p class="sub">공식 교회 홈페이지</p></div>
+        <div class="info-card">
+          <div class="info-card-icon">🕐</div>
+          <div class="info-card-text"><h3>예배 시간</h3><p class="val" id="wTime">주일 오전 11:00</p><p class="sub">Sunday Morning Service</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📍</div>
+          <div class="info-card-text"><h3>장소</h3><p class="val" id="wLocation">All Faiths Chapel</p><p class="sub" id="wAddress">College Station, TX 77840</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🌐</div>
+          <div class="info-card-text"><h3>홈페이지</h3><p class="val"><a href="https://anmccf.github.io/webpage/" target="_blank" style="color:var(--maroon);text-decoration:none" id="wWebsite">anmccf.github.io/webpage</a></p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📸</div>
+          <div class="info-card-text"><h3>인스타그램</h3><p class="val"><a href="https://www.instagram.com/anm_ccf" target="_blank" style="color:var(--maroon);text-decoration:none" id="wIg">@anm_ccf</a></p></div>
+        </div>
       </div>
       <div class="map-embed">
         <iframe src="https://maps.google.com/maps?q=All+Faiths+Chapel,+College+Station,+TX+77840&output=embed&z=16" allowfullscreen="" loading="lazy"></iframe>
@@ -470,63 +503,53 @@ footer strong{color:white}
   </div>
 </section>
 
-<!-- NEWS -->
-<section id="news">
+<!-- COMMUNITY: 소식 + 게시판 합침 -->
+<section id="community" style="background:var(--maroon)">
   <div class="container">
-    <p class="section-label">News &amp; Notice</p>
-    <h2 class="section-title">교회 소식</h2>
-    <div class="divider"></div>
-    <div class="news-grid" id="newsGrid"></div>
-  </div>
-</section>
-
-<!-- MINISTRY -->
-<section id="ministry">
-  <div class="container">
-    <p class="section-label">Ministry</p>
-    <h2 class="section-title">후원 사역</h2>
-    <div class="divider"></div>
-    <div class="ministry-grid" id="ministryGrid">
-      <div class="empty-state" style="grid-column:1/-1">
-        <div style="font-size:2rem">🙏</div>
-        <p style="margin-top:.5rem">사역 소개 내용을 관리자 패널에서 추가해 주세요.</p>
+    <p class="section-label" style="color:var(--gold-light)">News &amp; Board</p>
+    <h2 class="section-title" style="color:white">소식 &amp; 게시판</h2>
+    <div class="divider" style="background:var(--gold)"></div>
+    <div class="community-tabs" id="communityTabs">
+      <button class="comm-tab active" data-ct="news">📢 교회 소식</button>
+      <button class="comm-tab" data-ct="board">📌 게시판</button>
+    </div>
+    <div id="ct-news" class="ct-pane active">
+      <div class="news-grid" id="newsGrid"></div>
+    </div>
+    <div id="ct-board" class="ct-pane" style="display:none">
+      <div class="board-list" id="boardList">
+        <div class="empty-state" style="border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.5)">
+          <div style="font-size:2rem">📌</div>
+          <p style="margin-top:.5rem">생활정보, 신입생 안내 등을 관리자 패널에서 추가해 주세요.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BIBLE STUDY -->
-<section id="bible">
+<!-- PROGRAMS: 사역 + 성경공부 합침 -->
+<section id="programs" style="background:var(--cream)">
   <div class="container">
-    <p class="section-label">Bible Study</p>
-    <h2 class="section-title">성경공부 안내</h2>
+    <p class="section-label">Programs</p>
+    <h2 class="section-title">사역 &amp; 성경공부</h2>
     <div class="divider"></div>
-    <div id="bibleContent">
+    <div class="community-tabs" id="programTabs" style="border-color:var(--border)">
+      <button class="comm-tab prog-tab active" data-pt="ministry">🙏 후원 사역</button>
+      <button class="comm-tab prog-tab" data-pt="bible">📖 성경공부</button>
+    </div>
+    <div id="pt-ministry" class="pt-pane active">
+      <div class="ministry-grid" id="ministryGrid">
+        <div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem">🙏</div><p style="margin-top:.5rem">사역 소개를 관리자 패널에서 추가해 주세요.</p></div>
+      </div>
+    </div>
+    <div id="pt-bible" class="pt-pane" style="display:none">
       <img id="bibleImgEl" class="bible-img" src="" alt="성경공부" style="display:none">
       <table class="bible-table" id="bibleTable" style="display:none">
         <thead><tr><th>모임</th><th>시간</th><th>장소</th><th>대상</th></tr></thead>
         <tbody id="bibleBody"></tbody>
       </table>
-      <div class="empty-state" id="bibleEmpty">
-        <div style="font-size:2rem">📖</div>
-        <p style="margin-top:.5rem">성경공부 일정을 관리자 패널에서 추가해 주세요.</p>
-      </div>
-    </div>
-    <div id="bibleNote" style="margin-top:1.5rem;font-family:'Noto Serif KR',serif;font-size:.95rem;color:var(--text-mid);line-height:1.9;border-left:3px solid var(--gold);padding-left:1.5rem;display:none"></div>
-  </div>
-</section>
-
-<!-- BOARD -->
-<section id="board">
-  <div class="container">
-    <p class="section-label">Community Board</p>
-    <h2 class="section-title">게시판</h2>
-    <div class="divider"></div>
-    <div class="board-list" id="boardList">
-      <div class="empty-state">
-        <div style="font-size:2rem">📌</div>
-        <p style="margin-top:.5rem">생활정보, 신입생 안내 등을 관리자 패널에서 추가해 주세요.</p>
-      </div>
+      <div class="empty-state" id="bibleEmpty"><div style="font-size:2rem">📖</div><p style="margin-top:.5rem">성경공부 일정을 관리자 패널에서 추가해 주세요.</p></div>
+      <div id="bibleNote" style="margin-top:1.5rem;font-family:'Noto Serif KR',serif;font-size:.95rem;color:var(--text-mid);line-height:1.9;border-left:3px solid var(--gold);padding-left:1.5rem;display:none"></div>
     </div>
   </div>
 </section>
@@ -584,16 +607,34 @@ footer strong{color:white}
     <p class="section-label">Contact</p>
     <h2 class="section-title">연락처</h2>
     <div class="divider"></div>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-item"><div class="contact-icon">📍</div><div><h4>위치</h4><p id="cAddr">All Faiths Chapel<br>College Station, TX 77840</p></div></div>
-        <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>예배 시간</h4><p id="cTime">주일 오전 11:00</p></div></div>
+    <div class="contact-welcome" id="contactWelcome">
+      <h3>🤝 새로 오신 분들을 환영합니다!</h3>
+      <p id="contactWelcomeText">Texas A&M에 새로 오셨나요? 정착하는 데 도움이 필요하시면 언제든지 편하게 연락해 주세요. 함께 신앙 공동체를 만들어가요!</p>
+    </div>
+    <div class="contact-persons" id="contactPersons">
+      <div class="contact-person">
+        <div class="cp-role">담임 목사</div>
+        <div class="cp-name" id="cPastorName">유주호 목사님</div>
+        <a href="tel:4349441176" id="cPhone">📞 434-944-1176</a>
+        <a href="mailto:peterlove153@gmail.com" id="cEmail">✉️ peterlove153@gmail.com</a>
       </div>
-      <div>
-        <div class="contact-item"><div class="contact-icon">📞</div><div><h4>전화 (목사님)</h4><p><a href="tel:4349441176" id="cPhone">434-944-1176</a></p></div></div>
-        <div class="contact-item"><div class="contact-icon">✉️</div><div><h4>이메일</h4><p><a href="mailto:peterlove153@gmail.com" id="cEmail">peterlove153@gmail.com</a></p></div></div>
-        <div class="contact-item"><div class="contact-icon">🌐</div><div><h4>홈페이지</h4><p><a href="https://anmccf.github.io/webpage/" target="_blank" id="cWeb">anmccf.github.io/webpage</a></p></div></div>
+      <div class="contact-person" id="contactRep" style="display:none">
+        <div class="cp-role">학생 대표</div>
+        <div class="cp-name" id="cRepName"></div>
+        <a href="#" id="cRepPhone" style="display:none"></a>
+        <a href="#" id="cRepEmail" style="display:none"></a>
       </div>
+      <div class="contact-person" id="contactSec" style="display:none">
+        <div class="cp-role">학생 총무</div>
+        <div class="cp-name" id="cSecName"></div>
+        <a href="#" id="cSecPhone" style="display:none"></a>
+        <a href="#" id="cSecEmail" style="display:none"></a>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="https://anmccf.github.io/webpage/" target="_blank" class="contact-link-item" id="cWeb">🌐 홈페이지</a>
+      <a href="https://www.instagram.com/anm_ccf" target="_blank" class="contact-link-item" id="cIg">📸 인스타그램</a>
+      <a href="#" class="contact-link-item" id="cKakao" style="display:none">💬 카카오톡 오픈채팅</a>
     </div>
   </div>
 </section>
@@ -632,10 +673,11 @@ footer strong{color:white}
   <div class="panel-tabs">
     <button class="panel-tab active" data-tab="bulletin">📋 주보</button>
     <button class="panel-tab" data-tab="calendar">📅 일정</button>
-    <button class="panel-tab" data-tab="news">📢 소식</button>
+    <button class="panel-tab" data-tab="community">📢 소식/게시판</button>
+    <button class="panel-tab" data-tab="programs">🌿 사역/성경</button>
     <button class="panel-tab" data-tab="praise">🎵 찬양</button>
     <button class="panel-tab" data-tab="about">👤 소개</button>
-    <button class="panel-tab" data-tab="extra">🌿 사역/성경/게시판</button>
+    <button class="panel-tab" data-tab="contact-admin">📞 연락처</button>
     <button class="panel-tab" data-tab="settings">⚙️ 설정</button>
   </div>
   <div class="panel-body">
@@ -697,7 +739,7 @@ footer strong{color:white}
     </div>
 
     <!-- 소식 탭 -->
-    <div class="tab-content" id="tab-news">
+    <div class="tab-content" id="tab-community">
       <div class="sec-heading">새 소식 추가</div>
       <div class="fg"><label>분류</label><select id="n-tag"><option>공지</option><option>행사</option><option>안내</option><option>기도</option><option>감사</option><option>모집</option></select></div>
       <div class="fg"><label>제목</label><input type="text" id="n-title" placeholder="소식 제목"></div>
@@ -766,7 +808,7 @@ footer strong{color:white}
     </div>
 
     <!-- 사역/성경/게시판 탭 -->
-    <div class="tab-content" id="tab-extra">
+    <div class="tab-content" id="tab-programs">
 
       <div class="sec-heading">🙏 후원 사역 카드</div>
       <div class="fg"><label>아이콘 (이모지)</label><input type="text" id="m-icon" placeholder="예: 🙏" maxlength="4"></div>
@@ -791,19 +833,31 @@ footer strong{color:white}
       <button class="submit-btn" style="background:#6c757d" onclick="saveBibleNote()">✅ 안내 문구 저장</button>
       <div class="ail" id="adminBibleList" style="margin-top:1rem"></div>
 
-      <hr class="form-hr">
+    </div>
 
-      <div class="sec-heading">📌 게시판 글쓰기</div>
-      <div class="fg"><label>분류</label>
-        <select id="bd-tag">
-          <option>생활정보</option><option>신입생 안내</option><option>구인/구직</option>
-          <option>물품 나눔</option><option>자유게시판</option><option>기도요청</option>
-        </select>
-      </div>
-      <div class="fg"><label>제목</label><input type="text" id="bd-title" placeholder="게시글 제목"></div>
-      <div class="fg"><label>내용</label><textarea id="bd-body" placeholder="내용을 입력하세요..."></textarea></div>
-      <button class="submit-btn" onclick="addBoard()">✅ 게시글 추가</button>
-      <div class="ail" id="adminBoardList" style="margin-top:1rem"></div>
+    <!-- 연락처 관리 탭 -->
+    <div class="tab-content" id="tab-contact-admin">
+      <div class="sec-heading">🤝 신입생 환영 메시지</div>
+      <div class="fg"><label>환영 문구</label><textarea id="ca-welcome" style="min-height:80px" placeholder="Texas A&M에 새로 오셨나요?..."></textarea></div>
+      <button class="submit-btn" onclick="saveWelcomeMsg()">✅ 환영 메시지 저장</button>
+
+      <hr class="form-hr">
+      <div class="sec-heading">👨‍💼 담임 목사 연락처</div>
+      <p style="font-size:.78rem;color:var(--text-light);margin-bottom:.8rem">소개 탭 → 목사님 정보에서 수정할 수 있어요.</p>
+
+      <hr class="form-hr">
+      <div class="sec-heading">👩‍🎓 학생 대표</div>
+      <div class="fg"><label>이름</label><input type="text" id="ca-rep-name" placeholder="예: 홍길동"></div>
+      <div class="fg"><label>전화번호</label><input type="tel" id="ca-rep-phone" placeholder="예: 010-1234-5678"></div>
+      <div class="fg"><label>이메일 (선택)</label><input type="email" id="ca-rep-email"></div>
+      <button class="submit-btn" onclick="saveContacts()">✅ 학생 대표 저장</button>
+
+      <hr class="form-hr">
+      <div class="sec-heading">📋 학생 총무</div>
+      <div class="fg"><label>이름</label><input type="text" id="ca-sec-name" placeholder="예: 김철수"></div>
+      <div class="fg"><label>전화번호</label><input type="tel" id="ca-sec-phone" placeholder="예: 010-9876-5432"></div>
+      <div class="fg"><label>이메일 (선택)</label><input type="email" id="ca-sec-email"></div>
+      <button class="submit-btn" onclick="saveContacts()">✅ 학생 총무 저장</button>
     </div>
 
     <!-- 설정 탭 -->
@@ -901,7 +955,7 @@ footer strong{color:white}
 //  CONSTANTS & HELPERS
 // ══════════════════════════════════════════
 const DEFAULT_PW = 'anmccf2025';
-const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro', songs:'anm_songs', yt:'anm_youtube', igEmbed:'anm_ig_embed', praiseNotice:'anm_praise_notice', bibleImg:'anm_bible_img', exc:'anm_exceptions' };
+const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro', songs:'anm_songs', yt:'anm_youtube', igEmbed:'anm_ig_embed', praiseNotice:'anm_praise_notice', bibleImg:'anm_bible_img', exc:'anm_exceptions', contacts:'anm_contacts', welcomeMsg:'anm_welcome' };
 const GH_KEYS = { repo:'anm_gh_repo', branch:'anm_gh_branch', token:'anm_gh_token' };
 
 const ld  = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } };
@@ -1120,6 +1174,7 @@ function openPanel() {
   loadAboutForms();
   loadGHForms();
   loadSiteForms();
+  loadContactForms();
   renderAdminLists();
 }
 function closePanel() { document.getElementById('adminPanel').classList.remove('open'); }
@@ -1127,6 +1182,28 @@ function closePanel() { document.getElementById('adminPanel').classList.remove('
 // ══════════════════════════════════════════
 //  TABS
 // ══════════════════════════════════════════
+// Community tabs (소식/게시판)
+document.addEventListener('click', e => {
+  const ct = e.target.closest('.comm-tab[data-ct]');
+  if (ct) {
+    const parent = ct.closest('[id]');
+    ct.parentElement.querySelectorAll('.comm-tab').forEach(x=>x.classList.remove('active'));
+    ct.classList.add('active');
+    const pane = ct.dataset.ct;
+    document.getElementById('ct-news').style.display = pane==='news' ? '' : 'none';
+    document.getElementById('ct-board').style.display = pane==='board' ? '' : 'none';
+    return;
+  }
+  const pt = e.target.closest('.comm-tab[data-pt]');
+  if (pt) {
+    pt.parentElement.querySelectorAll('.comm-tab').forEach(x=>x.classList.remove('active'));
+    pt.classList.add('active');
+    const pane = pt.dataset.pt;
+    document.getElementById('pt-ministry').style.display = pane==='ministry' ? '' : 'none';
+    document.getElementById('pt-bible').style.display = pane==='bible' ? '' : 'none';
+  }
+});
+
 document.querySelectorAll('.panel-tab').forEach(t => {
   t.addEventListener('click', () => {
     document.querySelectorAll('.panel-tab').forEach(x => x.classList.remove('active'));
@@ -1608,8 +1685,23 @@ function renderAdminSongs() {
   }
   el.innerHTML = songs.list.map((s,i) => `<div class="ai">
     <div class="ai-info"><div class="ai-title">🎵 ${i+1}. ${s.title}</div>${s.ytLink?`<div class="ai-meta">▶ 링크 있음</div>`:''}</div>
-    <div class="ai-actions"><button class="ibtn del" onclick="delSong('${s.id}')">삭제</button></div>
+    <div class="ai-actions">
+      <button class="ibtn edit" onclick="editSong('${s.id}')">수정</button>
+      <button class="ibtn del"  onclick="delSong('${s.id}')">삭제</button>
+    </div>
   </div>`).join('');
+}
+function editSong(id) {
+  const songs = ld(K.songs, { date:'', list:[] });
+  const s = songs.list.find(x => x.id === id); if (!s) return;
+  openModal('찬양 수정', [
+    { label:'찬양 제목', key:'title',  type:'text', val:s.title  },
+    { label:'유튜브 링크', key:'ytLink', type:'url',  val:s.ytLink||'' }
+  ], vals => {
+    Object.assign(s, vals);
+    sv(K.songs, songs); renderPraise(); renderAdminSongs();
+    toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.');
+  });
 }
 function delSong(id) {
   const songs = ld(K.songs, { date:'', list:[] });
@@ -1817,6 +1909,71 @@ function saveWorshipInfo() {
   const w = { time: document.getElementById('a-time').value.trim(), loc: document.getElementById('a-loc').value.trim(), addr: document.getElementById('a-addr').value.trim() };
   sv(K.w, w); applyWorship(); toast('✅ 저장되었습니다! 발행 버튼으로 반영하세요.');
 }
+// ══════════════════════════════════════════
+//  CONTACT
+// ══════════════════════════════════════════
+const CONTACT_DEFAULTS = { rep:{name:'',phone:'',email:''}, sec:{name:'',phone:'',email:''} };
+function saveWelcomeMsg() {
+  const msg = document.getElementById('ca-welcome').value.trim();
+  sv(K.welcomeMsg, msg); applyContact(); toast('✅ 저장됐습니다! 발행 버튼으로 반영하세요.');
+}
+function saveContacts() {
+  const c = {
+    rep: { name:document.getElementById('ca-rep-name').value.trim(), phone:document.getElementById('ca-rep-phone').value.trim(), email:document.getElementById('ca-rep-email').value.trim() },
+    sec: { name:document.getElementById('ca-sec-name').value.trim(), phone:document.getElementById('ca-sec-phone').value.trim(), email:document.getElementById('ca-sec-email').value.trim() }
+  };
+  sv(K.contacts, c); applyContact(); toast('✅ 연락처 저장됐습니다! 발행 버튼으로 반영하세요.');
+}
+function applyContact() {
+  const c = Object.assign({rep:{},sec:{}}, ld(K.contacts, CONTACT_DEFAULTS));
+  const welcome = ld(K.welcomeMsg, '');
+  const el = id => document.getElementById(id);
+  // welcome message
+  if (el('contactWelcomeText') && welcome) el('contactWelcomeText').textContent = welcome;
+  // pastor (from pastor data)
+  const p = ld(K.p, {}); 
+  if (el('cPastorName')) el('cPastorName').textContent = p.name || '유주호 목사님';
+  if (el('cPhone')) { el('cPhone').textContent = '📞 ' + (p.phone||'434-944-1176'); el('cPhone').href = 'tel:' + (p.phone||'').replace(/-/g,''); }
+  if (el('cEmail')) { el('cEmail').textContent = '✉️ ' + (p.email||'peterlove153@gmail.com'); el('cEmail').href = 'mailto:' + (p.email||''); }
+  // rep
+  const repCard = el('contactRep');
+  if (repCard) {
+    if (c.rep && c.rep.name) {
+      repCard.style.display = '';
+      if(el('cRepName')) el('cRepName').textContent = c.rep.name;
+      if(el('cRepPhone') && c.rep.phone) { el('cRepPhone').textContent='📞 '+c.rep.phone; el('cRepPhone').href='tel:'+c.rep.phone.replace(/-/g,''); el('cRepPhone').style.display=''; }
+      if(el('cRepEmail') && c.rep.email) { el('cRepEmail').textContent='✉️ '+c.rep.email; el('cRepEmail').href='mailto:'+c.rep.email; el('cRepEmail').style.display=''; }
+    } else { repCard.style.display='none'; }
+  }
+  // sec
+  const secCard = el('contactSec');
+  if (secCard) {
+    if (c.sec && c.sec.name) {
+      secCard.style.display = '';
+      if(el('cSecName')) el('cSecName').textContent = c.sec.name;
+      if(el('cSecPhone') && c.sec.phone) { el('cSecPhone').textContent='📞 '+c.sec.phone; el('cSecPhone').href='tel:'+c.sec.phone.replace(/-/g,''); el('cSecPhone').style.display=''; }
+      if(el('cSecEmail') && c.sec.email) { el('cSecEmail').textContent='✉️ '+c.sec.email; el('cSecEmail').href='mailto:'+c.sec.email; el('cSecEmail').style.display=''; }
+    } else { secCard.style.display='none'; }
+  }
+  // links
+  const s = Object.assign({}, SITE_DEFAULTS, ld(K.s, SITE_DEFAULTS));
+  if(el('cWeb')) { el('cWeb').href = s.web; }
+  if(el('cIg'))  { el('cIg').href = 'https://www.instagram.com/' + s.ig; }
+  const kakaoLink = el('cKakao');
+  if(kakaoLink) { if(s.kakao){ kakaoLink.href=s.kakao; kakaoLink.style.display=''; } else { kakaoLink.style.display='none'; } }
+}
+function loadContactForms() {
+  const c = Object.assign({rep:{},sec:{}}, ld(K.contacts, CONTACT_DEFAULTS));
+  const el = id => document.getElementById(id);
+  if(el('ca-welcome')) el('ca-welcome').value = ld(K.welcomeMsg,'');
+  if(el('ca-rep-name'))  el('ca-rep-name').value  = c.rep.name  ||'';
+  if(el('ca-rep-phone')) el('ca-rep-phone').value = c.rep.phone ||'';
+  if(el('ca-rep-email')) el('ca-rep-email').value = c.rep.email ||'';
+  if(el('ca-sec-name'))  el('ca-sec-name').value  = c.sec.name  ||'';
+  if(el('ca-sec-phone')) el('ca-sec-phone').value = c.sec.phone ||'';
+  if(el('ca-sec-email')) el('ca-sec-email').value = c.sec.email ||'';
+}
+
 function applyWorship() {
   const D = { time:'주일 오전 11:00', loc:'All Faiths Chapel', addr:'College Station, TX 77840' };
   const w = ld(K.w, D);
@@ -1828,8 +1985,8 @@ function applyWorship() {
   if(el('heroTime'))  el('heroTime').textContent  = '매주 ' + time;
   if(el('wLocation')) el('wLocation').textContent = loc;
   if(el('wAddress'))  el('wAddress').textContent  = addr;
-  if(el('cTime'))     el('cTime').textContent     = time;
-  if(el('cAddr'))     el('cAddr').innerHTML        = loc + '<br>' + addr;
+  // wIg in worship card
+  if(el('wIg')) { const s=Object.assign({},SITE_DEFAULTS,ld(K.s,SITE_DEFAULTS)); el('wIg').textContent='@'+s.ig; el('wIg').href='https://www.instagram.com/'+s.ig; }
 }
 function savePastorInfo() {
   const p = { name: document.getElementById('a-pname').value.trim(), title: document.getElementById('a-ptitle').value.trim(), phone: document.getElementById('a-pphone').value.trim(), email: document.getElementById('a-pemail').value.trim(), deg: document.getElementById('a-pdeg').value.trim() };
@@ -2061,7 +2218,7 @@ function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); rende
 // ══════════════════════════════════════════
 async function init() {
   // Render immediately from localStorage (instant display)
-  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed(); 
+  renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed(); applyContact();
 
   // Then try to load fresh data from the JSON files (GitHub Pages serves these)
   try {
@@ -2098,10 +2255,15 @@ async function init() {
     if (board)    { sv(K.board, board); changed = true; }
     if (recurring){ sv(K.r, recurring); changed = true; }
     if (praise)   { if(praise.songs!==undefined) sv(K.songs,praise.songs); if(praise.yt!==undefined) sv(K.yt,praise.yt); if(praise.notice!==undefined) sv(K.praiseNotice,praise.notice); changed = true; }
-    if (extras)     { if(extras.bibleImg!==undefined) sv(K.bibleImg,extras.bibleImg); changed = true; }
+    if (extras) {
+      if(extras.bibleImg!==undefined) sv(K.bibleImg, extras.bibleImg);
+      if(extras.contacts!==undefined) sv(K.contacts, extras.contacts);
+      if(extras.welcome!==undefined)  sv(K.welcomeMsg, extras.welcome);
+      changed = true;
+    }
     if (exceptions) { sv(K.exc, exceptions); changed = true; }
     if (changed) {
-      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed(); 
+      renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed(); applyContact();applyContact();
     }
 
     // Instagram (renders separately)
