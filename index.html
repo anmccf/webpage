@@ -1276,6 +1276,7 @@ function tryLogin() {
     document.getElementById('adminOverlay').classList.remove('open');
     document.getElementById('pwInput').value = '';
     document.getElementById('pwError').style.display = 'none';
+    renderCalendar(); // 로그인 시 캘린더 재렌더 (수정 tooltip 활성화)
     openPanel();
   } else {
     const i = document.getElementById('pwInput');
@@ -1285,7 +1286,7 @@ function tryLogin() {
   }
 }
 document.getElementById('panelClose').addEventListener('click', closePanel);
-document.getElementById('panelLogout').addEventListener('click', () => { loggedIn = false; closePanel(); toast('로그아웃 되었습니다.'); });
+document.getElementById('panelLogout').addEventListener('click', () => { loggedIn = false; closePanel(); renderCalendar(); toast('로그아웃 되었습니다.'); });
 
 function openPanel() {
   document.getElementById('adminPanel').classList.add('open');
@@ -1550,9 +1551,9 @@ function renderCalendar() {
         ${de.map(e => {
           const isExc = e.isException;
           const da = e.recurId
-            ? `data-rid="${e.recurId}" data-ds="${ds}" data-title="${(e.title||'').replace(/"/g,'&quot;')}" data-time="${(e.time||'').replace(/"/g,'&quot;')}" data-place="${(e.place||'').replace(/"/g,'&quot;')}" class="day-event ${isExc?'is-exception':''} rec-event"`
+            ? `data-rid="${e.recurId}" data-ds="${ds}" data-title="${(e.title||'').replace(/"/g,'&quot;')}" data-time="${(e.time||'').replace(/"/g,'&quot;')}" data-place="${(e.place||'').replace(/"/g,'&quot;')}" class="day-event ${isExc?'is-exception':''} rec-event" style="${loggedIn?'':'cursor:default'}"`
             : `class="day-event ${isExc?'is-exception':''}"`;
-          return `<div ${da} title="${isExc?'예외 설정됨·클릭수정':'클릭해서 이날만 수정'}">${e.title}</div>`;
+          return `<div ${da} title="${loggedIn ? (isExc?'예외 설정됨·클릭수정':'클릭해서 이날만 수정') : ''}">${e.title}</div>`;
         }).join('')}
       </div>`; cnt++;
     }
@@ -1579,6 +1580,7 @@ document.getElementById('calNext').addEventListener('click', () => { calDate.set
 document.getElementById('calBody').addEventListener('click', e => {
   const el = e.target.closest('.rec-event');
   if (!el) return;
+  if (!loggedIn) return; // 로그인하지 않은 사용자는 수정 불가
   editRecurringDay(el.dataset.rid, el.dataset.ds, el.dataset.title, el.dataset.time, el.dataset.place);
 });
 function renderAdminEvents() {
