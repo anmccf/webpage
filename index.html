@@ -3,7 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANMCCF — Texas A&M 캠퍼스 교회</title>
+<title>ANMCCF | A&M 캠퍼스교회 — Texas A&M 한인교회 College Station</title>
+
+<!-- SEO 기본 메타태그 -->
+<meta name="description" content="ANMCCF A&M 캠퍼스교회 — 텍사스 A&M 대학교 캠퍼스 한인 교회. College Station, Texas. 주일예배 오전 11시. Texas A&M Korean Campus Church.">
+<meta name="keywords" content="ANMCCF, A&M 캠퍼스교회, 한인교회, Korean church, Texas A&M, College Station, 텍사스, 캠퍼스교회, 대학교회, Korean campus church, Texas A&M Korean church">
+<meta name="author" content="ANMCCF A&M 캠퍼스교회">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://anmccf.github.io/webpage/">
+
+<!-- Open Graph (카카오톡·페이스북 공유 시 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anmccf.github.io/webpage/">
+<meta property="og:title" content="ANMCCF | A&M 캠퍼스교회 — Texas A&M 한인교회">
+<meta property="og:description" content="텍사스 A&M 대학교 캠퍼스 한인 교회 | 주일예배 오전 11시 | All Faith Chapel, College Station, TX 77840">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="ANMCCF A&M 캠퍼스교회">
+
+<!-- 구글 지식 패널용 구조화 데이터 (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Church",
+  "name": "ANMCCF A&M 캠퍼스교회",
+  "alternateName": ["A&M 캠퍼스교회", "ANMCCF", "A&M Korean Campus Church", "텍사스 A&M 한인교회"],
+  "url": "https://anmccf.github.io/webpage/",
+  "description": "텍사스 A&M 대학교 캠퍼스 한인 교회. Texas A&M Korean Campus Church.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "All Faith Chapel",
+    "addressLocality": "College Station",
+    "addressRegion": "TX",
+    "postalCode": "77840",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.6155,
+    "longitude": -96.3406
+  },
+  "openingHours": "Su 11:00-13:00",
+  "inLanguage": ["ko", "en"],
+  "sameAs": [
+    "https://anmccf.github.io/webpage/"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -945,9 +991,9 @@ footer strong{color:white}
         Personal Access Token은 <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a>에서 생성하세요.<br>
         권한: <strong>Contents: Read & Write</strong> (Fine-grained token 권장)
       </div>
-      <div class="fg"><label>GitHub 저장소 (소유자/레포이름)</label><input type="text" id="s-repo" placeholder="예: anmccf/church-website"></div>
-      <div class="fg"><label>브랜치</label><input type="text" id="s-branch" placeholder="main" value="main"></div>
-      <div class="fg"><label>Personal Access Token (PAT)</label><input type="password" id="s-token" placeholder="github_pat_xxxxxxxxxxxx 또는 ghp_xxxx"></div>
+      <div class="fg"><label>GitHub 저장소 (소유자/레포이름)</label><input type="text" id="s-repo" value="anmccf/webpage" readonly style="background:#f0f0f0;color:#888;cursor:not-allowed"></div>
+      <div class="fg"><label>브랜치</label><input type="text" id="s-branch" value="main" readonly style="background:#f0f0f0;color:#888;cursor:not-allowed"></div>
+      <div class="fg"><label>Personal Access Token (PAT) <span id="pat-status" style="font-size:.75rem;color:#2c7a4b;font-weight:normal"></span></label><input type="password" id="s-token" placeholder="새 PAT 발급 시에만 입력 (한 번 저장하면 자동 유지)"></div>
       <button class="submit-btn" style="background:#2c7a4b" onclick="saveGHConfig()">💾 GitHub 설정 저장</button>
       <button class="submit-btn" style="background:#1a56db;margin-top:.5rem" onclick="testGHConnection()">🔌 연결 테스트</button>
       <div id="ghStatus" style="margin-top:.8rem;font-size:.8rem"></div>
@@ -1045,7 +1091,7 @@ const toast = msg => {
 //  GITHUB INTEGRATION
 // ══════════════════════════════════════════
 const GH = {
-  get repo()   { return ld(GH_KEYS.repo,   ''); },
+  get repo()   { return ld(GH_KEYS.repo,   'anmccf/webpage'); },
   get branch() { return ld(GH_KEYS.branch, 'main'); },
   get token()  { return ld(GH_KEYS.token,  ''); }
 };
@@ -2522,6 +2568,13 @@ function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); rende
 //  INIT — loads data from ./data/*.json files
 // ══════════════════════════════════════════
 async function init() {
+  // Auto-fix repo & branch (hardcoded, never changes)
+  sv(GH_KEYS.repo,   'anmccf/webpage');
+  sv(GH_KEYS.branch, 'main');
+  // Show PAT status in settings UI
+  const patEl = document.getElementById('pat-status');
+  if (patEl) patEl.textContent = GH.token ? '✅ 저장됨' : '⚠️ 미입력';
+
   // Render immediately from localStorage (instant display)
   renderBulletins(); renderCalendar(); renderNews(); applyWorship(); applyPastor(); applyAbout(); applySite(); applyIntro(); renderMinistry(); renderBible(); renderBoard(); renderPraise(); applyIgEmbed(); applyContact(); renderArchive();
 
