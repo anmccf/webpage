@@ -6,5 +6,45 @@
     "time": "오후 1:00",
     "place": "All Faith Chapel",
     "detail": ""
+  },
+  {
+    "id": "moqp6jznmzq",
+    "date": "2026-05-06",
+    "title": "졸업식 (학사)",
+    "time": "오후 7:00",
+    "place": "Reed Arena",
+    "detail": "Undergraduates in the School of Public Health"
+  },
+  {
+    "id": "moqp4b7dth9",
+    "date": "2026-06-29",
+    "title": "2026 KOSTA USA",
+    "time": "",
+    "place": "Wheaton College, IL",
+    "detail": ""
+  },
+  {
+    "id": "moqp4ra36pf",
+    "date": "2026-06-30",
+    "title": "2026 KOSTA USA",
+    "time": "",
+    "place": "Wheaton College, IL",
+    "detail": ""
+  },
+  {
+    "id": "moqp50l6gey",
+    "date": "2026-07-01",
+    "title": "2026 KOSTA USA",
+    "time": "",
+    "place": "Wheaton College, IL",
+    "detail": ""
+  },
+  {
+    "id": "moqp59rtsc6",
+    "date": "2026-07-02",
+    "title": "2026 KOSTA USA",
+    "time": "",
+    "place": "Wheaton College, IL",
+    "detail": ""
   }
 ]
