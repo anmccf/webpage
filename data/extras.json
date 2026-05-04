@@ -7,6 +7,27 @@
       "name": "유주호",
       "phone": "434-944-1176",
       "email": "peterlove153@gmail.com"
+    },
+    {
+      "id": "moqkz8firbn",
+      "role": "Primary Advisor (지도교수)",
+      "name": "김무현",
+      "phone": "979-847-8710",
+      "email": "m-kim3@tamu.edu"
+    },
+    {
+      "id": "moqky1t33wo",
+      "role": "Chief Student Leader (학생대표)",
+      "name": "어양현",
+      "phone": "979-326-7850",
+      "email": "yanghyun@tamu.edu"
+    },
+    {
+      "id": "moqkye4g9lb",
+      "role": "Treasurer (총무)",
+      "name": "박기태",
+      "phone": "979-492-9696",
+      "email": "parky2025@tamu.edu"
     }
   ],
   "welcome": "Texas A&M에 새로 오셨나요? 정착하는 데 도움이 필요하시면 언제든지 편하게 연락해 주세요. 함께 믿음의 공동체를 만들어가요!"
