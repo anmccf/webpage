@@ -662,7 +662,7 @@ footer strong{color:white}
     </div>
     <div class="ig-footer" style="margin-top:1.5rem">
       <a href="https://www.instagram.com/anm_ccf" target="_blank" class="btn-ig-follow" id="igFollowBtn" data-ig="anm_ccf">
-        📸 @anm_ccf 팔로우
+        📸 인스타그램 팔로우
       </a>
     </div>
   </div>
@@ -789,6 +789,7 @@ footer strong{color:white}
     <!-- 소식 탭 -->
     <div class="tab-content" id="tab-community">
       <div class="sec-heading">새 소식 추가</div>
+      <div class="fg"><label>날짜 (선택 — 비워두면 오늘 날짜)</label><input type="date" id="n-date"></div>
       <div class="fg"><label>분류</label><select id="n-tag"><option>공지</option><option>행사</option><option>안내</option><option>기도</option><option>감사</option><option>모집</option></select></div>
       <div class="fg"><label>제목</label><input type="text" id="n-title" placeholder="소식 제목"></div>
       <div class="fg"><label>내용</label><textarea id="n-body" placeholder="소식 내용을 입력하세요..."></textarea></div>
@@ -810,6 +811,7 @@ footer strong{color:white}
 
       <hr class="form-hr">
       <div class="sec-heading">📌 게시판 글쓰기</div>
+      <div class="fg"><label>날짜 (선택 — 비워두면 오늘 날짜)</label><input type="date" id="bd-date"></div>
       <div class="fg"><label>분류</label>
         <select id="bd-tag">
           <option>생활정보</option><option>신입생 안내</option><option>구인/구직</option>
@@ -1622,11 +1624,13 @@ function addNews() {
   const img   = (document.getElementById('n-img')        ||{}).value||'';
   const link  = (document.getElementById('n-link')       ||{}).value||'';
   const lbl   = (document.getElementById('n-link-label') ||{}).value||'링크 보기';
+  const dateEl = document.getElementById('n-date');
+  const date   = (dateEl && dateEl.value) ? dateEl.value : new Date().toISOString().split('T')[0];
   if (!title || !body) { toast('제목과 내용을 입력해 주세요.'); return; }
   const data = ld(K.n, []);
-  data.unshift({ id:uid(), tag, title, body, date:new Date().toISOString().split('T')[0], pinned, img:img.trim(), link:link.trim(), linkLabel:lbl.trim()||'링크 보기' });
+  data.unshift({ id:uid(), tag, title, body, date, pinned, img:img.trim(), link:link.trim(), linkLabel:lbl.trim()||'링크 보기' });
   sv(K.n, data); renderNews(); renderAdminNews();
-  ['n-title','n-body','n-img','n-link','n-link-label'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  ['n-date','n-title','n-body','n-img','n-link','n-link-label'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
   if(pinEl) pinEl.checked = false;
   toast('✅ 소식이 추가되었습니다! 발행 버튼으로 반영하세요.');
 }
@@ -2065,11 +2069,13 @@ function addBoard() {
   const img   = (document.getElementById('bd-img')        ||{}).value||'';
   const link  = (document.getElementById('bd-link')       ||{}).value||'';
   const lbl   = (document.getElementById('bd-link-label') ||{}).value||'링크 보기';
+  const dateEl = document.getElementById('bd-date');
+  const date   = (dateEl && dateEl.value) ? dateEl.value : new Date().toISOString().split('T')[0];
   if (!title||!body) { toast('제목과 내용을 입력해 주세요.'); return; }
   const data = ld(K.board,[]);
-  data.unshift({id:uid(),tag,title,body,date:new Date().toISOString().split('T')[0],pinned,img:img.trim(),link:link.trim(),linkLabel:lbl.trim()||'링크 보기'});
+  data.unshift({id:uid(),tag,title,body,date,pinned,img:img.trim(),link:link.trim(),linkLabel:lbl.trim()||'링크 보기'});
   sv(K.board,data); renderBoard(); renderAdminBoard();
-  ['bd-title','bd-body','bd-img','bd-link','bd-link-label'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  ['bd-date','bd-title','bd-body','bd-img','bd-link','bd-link-label'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
   if(document.getElementById('bd-pin')) document.getElementById('bd-pin').checked=false;
   toast('✅ 게시글 추가됐습니다! 발행 버튼으로 반영하세요.');
 }
