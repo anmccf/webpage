@@ -1650,22 +1650,32 @@ function renderUpcoming() {
   const now = new Date(); now.setHours(0,0,0,0);
   const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-  // 다가오는 일정: 오늘 이후, 날짜순 정렬, 중복제거(다중날짜 이벤트는 시작일만)
-  const seen = new Set();
-  const upcoming = allEvents
+  // 단회 일정 — 전부 포함 (다중날짜 포함)
+  const singleUpcoming = allEvents
     .filter(e => {
-      const startDate = new Date(e.date+'T00:00:00');
-      const endDate   = e.endDate ? new Date(e.endDate+'T00:00:00') : startDate;
-      // 오늘 이후인 이벤트 (종료일이 오늘 이후이면 포함)
-      if (endDate < now) return false;
-      // 다중날짜는 한 번만 표시 (eid 또는 recurId+date 기준)
-      const key = e.recurId ? (e.recurId + '_' + e.date) : (e.id || e.date + '_' + e.title);
-      if (seen.has(key)) return false;
-      seen.add(key);
+      if (e.recurId) return false;
+      const endD = e.endDate ? new Date(e.endDate+'T00:00:00') : new Date(e.date+'T00:00:00');
+      return endD >= now;
+    })
+    .sort((a,b) => a.date.localeCompare(b.date));
+
+  // 정기 행사 — 날짜순 최대 3개
+  const recurSeen = new Set();
+  const recurUpcoming = allEvents
+    .filter(e => {
+      if (!e.recurId) return false;
+      if (new Date(e.date+'T00:00:00') < now) return false;
+      const key = e.recurId + '_' + e.date;
+      if (recurSeen.has(key)) return false;
+      recurSeen.add(key);
       return true;
     })
     .sort((a,b) => a.date.localeCompare(b.date))
-    .slice(0, 5);
+    .slice(0, 3);
+
+  // 합쳐서 날짜순 정렬
+  const upcoming = [...singleUpcoming, ...recurUpcoming]
+    .sort((a,b) => a.date.localeCompare(b.date));
 
   const makeItem = (e, isPast) => {
     const d = new Date(e.date+'T00:00:00');
