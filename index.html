@@ -628,7 +628,7 @@ footer strong{color:white}
         </div>
       </div>
       <div class="upcoming-events">
-        <h3>다가오는 일정</h3>
+        <h3 id="upcomingLabel">이번 달 일정</h3>
         <div id="eventList"></div>
         <details class="past-events" id="pastEventsDetails">
           <summary>이전 일정 보기</summary>
@@ -1647,34 +1647,41 @@ function renderCalendar() {
 }
 function renderUpcoming() {
   const allEvents = [...ld(K.e, []), ...expandRecurring()];
-  const now = new Date(); now.setHours(0,0,0,0);
-  const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const now    = new Date(); now.setHours(0,0,0,0);
+  const viewY  = calDate.getFullYear();
+  const viewM  = calDate.getMonth();
+  const mo     = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const moKo   = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  const monthStart = new Date(viewY, viewM, 1);
+  const monthEnd   = new Date(viewY, viewM + 1, 0);
+  const isCurrentMonth = viewY === now.getFullYear() && viewM === now.getMonth();
 
-  // 단회 일정 — 전부 포함 (다중날짜 포함)
-  const singleUpcoming = allEvents
-    .filter(e => {
-      if (e.recurId) return false;
-      const endD = e.endDate ? new Date(e.endDate+'T00:00:00') : new Date(e.date+'T00:00:00');
-      return endD >= now;
-    })
-    .sort((a,b) => a.date.localeCompare(b.date));
+  // 사이드바 레이블
+  const labelEl = document.getElementById('upcomingLabel');
+  if (labelEl) labelEl.textContent = isCurrentMonth ? '이번 달 일정' : `${viewY}년 ${moKo[viewM]} 일정`;
 
-  // 정기 행사 — 날짜순 최대 3개
+  // 해당 월에 걸치는 단회 일정
+  const singleMonth = allEvents.filter(e => {
+    if (e.recurId) return false;
+    const start = new Date(e.date+'T00:00:00');
+    const end   = e.endDate ? new Date(e.endDate+'T00:00:00') : start;
+    return start <= monthEnd && end >= monthStart;
+  }).sort((a,b) => a.date.localeCompare(b.date));
+
+  // 해당 월의 정기 행사 (최대 3개)
   const recurSeen = new Set();
-  const recurUpcoming = allEvents
-    .filter(e => {
-      if (!e.recurId) return false;
-      if (new Date(e.date+'T00:00:00') < now) return false;
-      const key = e.recurId + '_' + e.date;
-      if (recurSeen.has(key)) return false;
-      recurSeen.add(key);
-      return true;
-    })
-    .sort((a,b) => a.date.localeCompare(b.date))
-    .slice(0, 3);
+  const recurMonth = allEvents.filter(e => {
+    if (!e.recurId) return false;
+    const d = new Date(e.date+'T00:00:00');
+    if (d < monthStart || d > monthEnd) return false;
+    const key = e.recurId + '_' + e.date;
+    if (recurSeen.has(key)) return false;
+    recurSeen.add(key);
+    return true;
+  }).sort((a,b) => a.date.localeCompare(b.date)).slice(0, 3);
 
-  // 합쳐서 날짜순 정렬, 최대 5개
-  const upcoming = [...singleUpcoming, ...recurUpcoming]
+  // 합쳐서 날짜순, 최대 5개
+  const upcoming = [...singleMonth, ...recurMonth]
     .sort((a,b) => a.date.localeCompare(b.date))
     .slice(0, 5);
 
@@ -1705,7 +1712,7 @@ function renderUpcoming() {
 
   const upEl = document.getElementById('eventList');
   if (!upcoming.length) {
-    upEl.innerHTML = '<p style="font-size:.85rem;color:var(--text-light);padding:1rem 0">예정된 일정이 없습니다.</p>';
+    upEl.innerHTML = '<p style="font-size:.85rem;color:var(--text-light);padding:1rem 0">이 달에 예정된 일정이 없습니다.</p>';
   } else {
     upEl.innerHTML = upcoming.map(e => makeItem(e, false)).join('');
   }
