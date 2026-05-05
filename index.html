@@ -167,6 +167,39 @@ section{padding:6rem 2rem}
 .event-date-badge .day{font-size:1.2rem;font-weight:700;line-height:1}
 .event-details h4{font-size:.9rem;font-weight:600;color:var(--text-dark);margin-bottom:.2rem}
 .event-details p{font-size:.8rem;color:var(--text-light)}
+.event-item{cursor:pointer;border-radius:6px;margin:0 -.3rem;padding:.9rem .3rem;transition:background .15s}
+.event-item:hover{background:var(--maroon-pale)}
+.event-item:last-child{border-bottom:none}
+
+/* Event Detail Popup */
+#eventDetailModal{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.55);align-items:center;justify-content:center}
+#eventDetailModal.open{display:flex}
+.ed-box{background:white;border-radius:12px;padding:2rem;width:90%;max-width:520px;max-height:88vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.2);animation:slideIn .25s ease}
+.ed-close{float:right;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text-light);line-height:1}
+.ed-type-badge{display:inline-block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--maroon-pale);color:var(--maroon);padding:.25rem .7rem;border-radius:3px;margin-bottom:.8rem}
+.ed-type-badge.recurring{background:#e8f4e8;color:#1a5c1a}
+.ed-box h3{font-family:'Noto Serif KR',serif;font-size:1.25rem;color:var(--text-dark);margin-bottom:.4rem;clear:both}
+.ed-date{font-size:.85rem;color:var(--text-light);margin-bottom:.3rem}
+.ed-meta{font-size:.88rem;color:var(--maroon);font-weight:500;margin-bottom:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
+.ed-meta span{display:flex;align-items:center;gap:.3rem}
+.ed-body{font-size:.92rem;color:var(--text-mid);line-height:1.9;white-space:pre-wrap;border-top:1px solid var(--border);padding-top:1rem;margin-top:.5rem}
+
+/* Multi-day event in calendar */
+.day-event.multiday-start{border-radius:3px 0 0 3px;background:var(--maroon);color:white}
+.day-event.multiday-mid{border-radius:0;background:rgba(80,0,0,.15);color:var(--maroon);font-style:italic;font-size:.55rem}
+.day-event.multiday-end{border-radius:0 3px 3px 0;background:rgba(80,0,0,.25);color:var(--maroon);font-size:.55rem}
+.day-event.multiday-start:hover{background:var(--maroon-light);color:white}
+.day-event.multiday-mid:hover,.day-event.multiday-end:hover{background:rgba(80,0,0,.3);color:var(--maroon)}
+
+/* Past events section */
+.past-events{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.past-events h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:1rem}
+.event-item.past .event-date-badge{background:var(--text-light)}
+.event-item.past .event-details h4{color:var(--text-light)}
+
+/* Upcoming section show-more */
+.event-show-more{font-size:.78rem;color:var(--gold);cursor:pointer;text-align:center;padding:.5rem;border:1px dashed var(--border);border-radius:4px;margin-top:.5rem;background:none;width:100%;font-family:inherit;transition:background .15s}
+.event-show-more:hover{background:var(--maroon-pale)}
 
 /* ABOUT */
 #about{background:var(--cream)}
@@ -592,6 +625,10 @@ footer strong{color:white}
       <div class="upcoming-events">
         <h3>다가오는 일정</h3>
         <div id="eventList"></div>
+        <div class="past-events">
+          <h3>지난 일정</h3>
+          <div id="pastEventList"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -775,7 +812,11 @@ footer strong{color:white}
       <div class="ail" id="adminRecurringList" style="margin-top:1rem"></div>
       <hr class="form-hr">
       <div class="sec-heading">📅 단회 일정 추가</div>
-      <div class="fg"><label>날짜</label><input type="date" id="e-date"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+        <div class="fg" style="margin:0"><label>시작 날짜</label><input type="date" id="e-date"></div>
+        <div class="fg" style="margin:0"><label>종료 날짜 <span style="font-weight:400;color:var(--text-light)">(며칠 일정)</span></label><input type="date" id="e-enddate"></div>
+      </div>
+      <p style="font-size:.75rem;color:var(--text-light);margin:.3rem 0 .8rem">종료 날짜를 비우면 단일 날짜 일정입니다.</p>
       <div class="fg"><label>행사 제목</label><input type="text" id="e-title" placeholder="예: 새신자 환영회"></div>
       <div class="fg"><label>시간</label><input type="text" id="e-time" placeholder="예: 오후 7:00"></div>
       <div class="fg"><label>장소</label><input type="text" id="e-place" placeholder="예: All Faiths Chapel"></div>
@@ -1023,6 +1064,18 @@ footer strong{color:white}
   </div>
 </div>
 
+<!-- Event Detail Modal (non-admin view) -->
+<div id="eventDetailModal">
+  <div class="ed-box">
+    <button class="ed-close" onclick="closeEventDetail()">✕</button>
+    <span class="ed-type-badge" id="edTypeBadge">단회 일정</span>
+    <h3 id="edTitle"></h3>
+    <p class="ed-date" id="edDate"></p>
+    <div class="ed-meta" id="edMeta"></div>
+    <div class="ed-body" id="edBody" style="display:none"></div>
+  </div>
+</div>
+
 <!-- Board Modal -->
 <div id="boardModal">
   <div class="board-modal-box">
@@ -1238,6 +1291,9 @@ function saveGHConfig() {
   sv(GH_KEYS.repo,   repo);
   sv(GH_KEYS.branch, branch);
   if (token) sv(GH_KEYS.token, token);
+  // PAT 상태 업데이트
+  const patEl = document.getElementById('pat-status');
+  if (patEl) patEl.textContent = (token || GH.token) ? '✅ 저장됨' : '⚠️ 미입력';
   const status = document.getElementById('ghStatus');
   if (repo) {
     status.innerHTML = `<span class="sync-status ok">✅ 저장됨 · ${repo} (${branch})</span>`;
@@ -1521,17 +1577,19 @@ function editRecurringDay(recurId, date, curTitle, curTime, curPlace) {
 // ══════════════════════════════════════════
 let calDate = new Date();
 function addEvent() {
-  const date   = document.getElementById('e-date').value;
-  const title  = document.getElementById('e-title').value.trim();
-  const time   = document.getElementById('e-time').value.trim();
-  const place  = document.getElementById('e-place').value.trim();
-  const detail = document.getElementById('e-detail').value.trim();
+  const date    = document.getElementById('e-date').value;
+  const endDate = (document.getElementById('e-enddate')||{}).value || '';
+  const title   = document.getElementById('e-title').value.trim();
+  const time    = document.getElementById('e-time').value.trim();
+  const place   = document.getElementById('e-place').value.trim();
+  const detail  = document.getElementById('e-detail').value.trim();
   if (!date || !title) { toast('날짜와 제목을 입력해 주세요.'); return; }
+  if (endDate && endDate < date) { toast('종료 날짜가 시작 날짜보다 앞입니다.'); return; }
   const data = ld(K.e, []);
-  data.push({ id: uid(), date, title, time, place, detail });
+  data.push({ id: uid(), date, endDate: endDate||'', title, time, place, detail });
   data.sort((a, b) => a.date.localeCompare(b.date));
   sv(K.e, data); renderCalendar(); renderAdminEvents();
-  ['e-date','e-title','e-time','e-place','e-detail'].forEach(id => document.getElementById(id).value = '');
+  ['e-date','e-enddate','e-title','e-time','e-place','e-detail'].forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
   toast('✅ 일정이 추가되었습니다! 발행 버튼으로 반영하세요.');
 }
 function renderCalendar() {
@@ -1547,15 +1605,32 @@ function renderCalendar() {
     else {
       const d = cnt, isToday = d === today.getDate() && m === today.getMonth() && y === today.getFullYear();
       const ds = `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const de = events.filter(e => e.date === ds);
+      // 이 날짜에 해당하는 이벤트 (다중날짜 지원)
+      const de = events.filter(e => {
+        if (e.endDate) return ds >= e.date && ds <= e.endDate;
+        return e.date === ds;
+      });
       html += `<div class="cal-day ${isToday?'today':''} ${de.length?'has-event':''}">
         <div class="day-num">${d}</div>
         ${de.map(e => {
           const isExc = e.isException;
-          const da = e.recurId
-            ? `data-rid="${e.recurId}" data-ds="${ds}" data-title="${(e.title||'').replace(/"/g,'&quot;')}" data-time="${(e.time||'').replace(/"/g,'&quot;')}" data-place="${(e.place||'').replace(/"/g,'&quot;')}" class="day-event ${isExc?'is-exception':''} rec-event" style="${loggedIn?'':'cursor:default'}"`
-            : `class="day-event ${isExc?'is-exception':''}"`;
-          return `<div ${da} title="${loggedIn ? (isExc?'예외 설정됨·클릭수정':'클릭해서 이날만 수정') : ''}">${e.title}</div>`;
+          // 다중날짜 스타일
+          let multiClass = '';
+          if (e.endDate) {
+            if (ds === e.date) multiClass = 'multiday-start';
+            else if (ds === e.endDate) multiClass = 'multiday-end';
+            else multiClass = 'multiday-mid';
+          }
+          // 이벤트 데이터 속성 (클릭용)
+          const safeAttr = v => (v||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+          if (e.recurId) {
+            // 정기 행사
+            return `<div data-rid="${e.recurId}" data-ds="${ds}" data-title="${safeAttr(e.title)}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-recurring="1" class="day-event ${isExc?'is-exception':''} ${multiClass} rec-event" title="${loggedIn?(isExc?'예외 설정됨·클릭수정':'클릭해서 이날만 수정'):'클릭해서 상세 보기'}">${e.title}</div>`;
+          } else {
+            // 단회 행사
+            const displayTitle = (e.endDate && multiClass !== 'multiday-start') ? (multiClass==='multiday-end'?'↩ '+e.title:'…') : e.title;
+            return `<div data-eid="${e.id}" data-title="${safeAttr(e.title)}" data-date="${e.date}" data-enddate="${safeAttr(e.endDate||'')}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-detail="${safeAttr(e.detail||'')}" class="day-event ${isExc?'is-exception':''} ${multiClass} single-event" title="클릭해서 상세 보기">${displayTitle}</div>`;
+          }
         }).join('')}
       </div>`; cnt++;
     }
@@ -1564,26 +1639,170 @@ function renderCalendar() {
   renderUpcoming();
 }
 function renderUpcoming() {
-  const events = [...ld(K.e, []), ...expandRecurring()];
+  const allEvents = [...ld(K.e, []), ...expandRecurring()];
   const now = new Date(); now.setHours(0,0,0,0);
-  const up = events.filter(e => new Date(e.date+'T00:00:00') >= now).slice(0, 5);
   const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  if (!up.length) { document.getElementById('eventList').innerHTML = '<p style="font-size:.85rem;color:var(--text-light);padding:1rem 0">예정된 일정이 없습니다.</p>'; return; }
-  document.getElementById('eventList').innerHTML = up.map(e => {
+
+  // 다가오는 일정: 오늘 이후, 날짜순 정렬, 중복제거(다중날짜 이벤트는 시작일만)
+  const seen = new Set();
+  const upcoming = allEvents
+    .filter(e => {
+      const startDate = new Date(e.date+'T00:00:00');
+      const endDate   = e.endDate ? new Date(e.endDate+'T00:00:00') : startDate;
+      // 오늘 이후인 이벤트 (종료일이 오늘 이후이면 포함)
+      if (endDate < now) return false;
+      // 다중날짜는 한 번만 표시 (eid 또는 recurId+date 기준)
+      const key = e.recurId ? (e.recurId + '_' + e.date) : (e.id || e.date + '_' + e.title);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((a,b) => a.date.localeCompare(b.date))
+    .slice(0, 8);
+
+  const makeItem = (e, isPast) => {
     const d = new Date(e.date+'T00:00:00');
-    return `<div class="event-item">
-      <div class="event-date-badge"><div class="month">${mo[d.getMonth()]}</div><div class="day">${d.getDate()}</div></div>
-      <div class="event-details"><h4>${e.title}</h4><p>${[e.time, e.place].filter(Boolean).join(' · ')}</p></div>
+    const dateLabel = e.endDate
+      ? `${mo[d.getMonth()]} ${d.getDate()} – ${(()=>{const ed=new Date(e.endDate+'T00:00:00');return mo[ed.getMonth()]+' '+ed.getDate();})()} `
+      : `${mo[d.getMonth()]} ${d.getDate()}`;
+    const safeAttr = v => (v||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    const dataAttrs = e.recurId
+      ? `data-rid="${e.recurId}" data-ds="${e.date}" data-title="${safeAttr(e.title)}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-recurring="1"`
+      : `data-eid="${e.id||''}" data-title="${safeAttr(e.title)}" data-date="${e.date}" data-enddate="${safeAttr(e.endDate||'')}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-detail="${safeAttr(e.detail||'')}"`;
+    const badgeMonth = e.endDate
+      ? `<div class="month">${mo[d.getMonth()]}–</div><div class="day">${d.getDate()}</div>`
+      : `<div class="month">${mo[d.getMonth()]}</div><div class="day">${d.getDate()}</div>`;
+    return `<div class="event-item${isPast?' past':''}" ${dataAttrs} onclick="handleEventItemClick(this)">
+      <div class="event-date-badge">${badgeMonth}</div>
+      <div class="event-details">
+        <h4>${e.title}</h4>
+        <p>${[e.time, e.place].filter(Boolean).join(' · ') || (e.recurring?'정기 행사':'단회 일정')}</p>
+      </div>
     </div>`;
-  }).join('');
+  };
+
+  const upEl = document.getElementById('eventList');
+  if (!upcoming.length) {
+    upEl.innerHTML = '<p style="font-size:.85rem;color:var(--text-light);padding:1rem 0">예정된 일정이 없습니다.</p>';
+  } else {
+    upEl.innerHTML = upcoming.map(e => makeItem(e, false)).join('');
+  }
+
+  // 지난 일정
+  const pastSeen = new Set();
+  const past = allEvents
+    .filter(e => {
+      const endDate = e.endDate ? new Date(e.endDate+'T00:00:00') : new Date(e.date+'T00:00:00');
+      if (endDate >= now) return false;
+      const key = e.recurId ? (e.recurId + '_' + e.date) : (e.id || e.date + '_' + e.title);
+      if (pastSeen.has(key)) return false;
+      pastSeen.add(key);
+      return true;
+    })
+    .sort((a,b) => b.date.localeCompare(a.date))
+    .slice(0, 6);
+
+  const pastEl = document.getElementById('pastEventList');
+  if (pastEl) {
+    if (!past.length) {
+      pastEl.innerHTML = '<p style="font-size:.85rem;color:var(--text-light);padding:.5rem 0">지난 일정이 없습니다.</p>';
+    } else {
+      pastEl.innerHTML = past.map(e => makeItem(e, true)).join('');
+    }
+  }
 }
 document.getElementById('calPrev').addEventListener('click', () => { calDate.setMonth(calDate.getMonth()-1); renderCalendar(); });
 document.getElementById('calNext').addEventListener('click', () => { calDate.setMonth(calDate.getMonth()+1); renderCalendar(); });
 document.getElementById('calBody').addEventListener('click', e => {
-  const el = e.target.closest('.rec-event');
-  if (!el) return;
-  if (!loggedIn) return; // 로그인하지 않은 사용자는 수정 불가
-  editRecurringDay(el.dataset.rid, el.dataset.ds, el.dataset.title, el.dataset.time, el.dataset.place);
+  const rec    = e.target.closest('.rec-event');
+  const single = e.target.closest('.single-event');
+  if (rec) {
+    if (loggedIn) {
+      editRecurringDay(rec.dataset.rid, rec.dataset.ds, rec.dataset.title, rec.dataset.time, rec.dataset.place);
+    } else {
+      openEventDetail({
+        type: 'recurring',
+        title: rec.dataset.title,
+        date:  rec.dataset.ds,
+        time:  rec.dataset.time,
+        place: rec.dataset.place
+      });
+    }
+  } else if (single) {
+    openEventDetail({
+      type:    'single',
+      title:   single.dataset.title,
+      date:    single.dataset.date,
+      endDate: single.dataset.enddate,
+      time:    single.dataset.time,
+      place:   single.dataset.place,
+      detail:  single.dataset.detail
+    });
+  }
+});
+
+function handleEventItemClick(el) {
+  if (el.dataset.recurring) {
+    openEventDetail({
+      type:  'recurring',
+      title: el.dataset.title,
+      date:  el.dataset.ds,
+      time:  el.dataset.time,
+      place: el.dataset.place
+    });
+  } else {
+    openEventDetail({
+      type:    'single',
+      title:   el.dataset.title,
+      date:    el.dataset.date,
+      endDate: el.dataset.enddate,
+      time:    el.dataset.time,
+      place:   el.dataset.place,
+      detail:  el.dataset.detail
+    });
+  }
+}
+
+function openEventDetail(ev) {
+  const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const moKo = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  const fmt2 = ds => { if(!ds) return ''; const d = new Date(ds+'T00:00:00'); return `${d.getFullYear()}년 ${moKo[d.getMonth()]} ${d.getDate()}일 (${['일','월','화','수','목','금','토'][d.getDay()]})`; };
+
+  const badge = document.getElementById('edTypeBadge');
+  badge.textContent = ev.type === 'recurring' ? '🔁 정기 행사' : '📅 단회 일정';
+  badge.className   = 'ed-type-badge' + (ev.type==='recurring'?' recurring':'');
+
+  document.getElementById('edTitle').textContent = ev.title || '';
+
+  // 날짜
+  let dateStr = fmt2(ev.date);
+  if (ev.endDate && ev.endDate !== ev.date) {
+    dateStr = `${fmt2(ev.date)} ~ ${fmt2(ev.endDate)}`;
+  }
+  document.getElementById('edDate').textContent = dateStr;
+
+  // 시간/장소
+  const metaEl = document.getElementById('edMeta');
+  const parts = [];
+  if (ev.time)  parts.push(`<span>🕐 ${ev.time}</span>`);
+  if (ev.place) parts.push(`<span>📍 ${ev.place}</span>`);
+  metaEl.innerHTML = parts.join('');
+
+  // 상세 내용
+  const bodyEl = document.getElementById('edBody');
+  if (ev.detail && ev.detail.trim()) {
+    bodyEl.textContent = ev.detail;
+    bodyEl.style.display = '';
+  } else {
+    bodyEl.style.display = 'none';
+  }
+
+  document.getElementById('eventDetailModal').classList.add('open');
+}
+function closeEventDetail() { document.getElementById('eventDetailModal').classList.remove('open'); }
+document.addEventListener('click', e => {
+  const m = document.getElementById('eventDetailModal');
+  if (m && e.target === m) closeEventDetail();
 });
 function renderAdminEvents() {
   const data = ld(K.e, []);
@@ -1604,11 +1823,12 @@ function delEvent(id) {
 function editEvent(id) {
   const data = ld(K.e, []), e = data.find(x => x.id === id); if (!e) return;
   openModal('일정 수정', [
-    { label:'날짜',    key:'date',   type:'date',     val:e.date   },
-    { label:'제목',    key:'title',  type:'text',     val:e.title  },
-    { label:'시간',    key:'time',   type:'text',     val:e.time   },
-    { label:'장소',    key:'place',  type:'text',     val:e.place  },
-    { label:'상세 내용', key:'detail', type:'textarea', val:e.detail }
+    { label:'시작 날짜',   key:'date',    type:'date',     val:e.date   },
+    { label:'종료 날짜 (며칠 일정이면 입력, 없으면 비워둠)', key:'endDate', type:'date', val:e.endDate||'' },
+    { label:'제목',        key:'title',   type:'text',     val:e.title  },
+    { label:'시간',        key:'time',    type:'text',     val:e.time   },
+    { label:'장소',        key:'place',   type:'text',     val:e.place  },
+    { label:'상세 내용',   key:'detail',  type:'textarea', val:e.detail }
   ], vals => { Object.assign(e, vals); data.sort((a,b)=>a.date.localeCompare(b.date)); sv(K.e, data); renderCalendar(); renderAdminEvents(); toast('✅ 수정되었습니다! 발행 버튼으로 반영하세요.'); });
 }
 
@@ -2216,6 +2436,9 @@ function loadAboutForms() {
 function loadGHForms() {
   document.getElementById('s-repo').value   = GH.repo;
   document.getElementById('s-branch').value = GH.branch;
+  // PAT 상태 표시
+  const patEl = document.getElementById('pat-status');
+  if (patEl) patEl.textContent = GH.token ? '✅ 저장됨' : '⚠️ 미입력';
   if (GH.repo) {
     document.getElementById('ghStatus').innerHTML =
       `<span class="sync-status ok">✅ 연결됨 · ${GH.repo} (${GH.branch})</span>`;
