@@ -16,6 +16,24 @@
     "detail": "Undergraduates in the School of Public Health"
   },
   {
+    "id": "mos0ohjodw0",
+    "date": "2026-05-07",
+    "endDate": "",
+    "title": "졸업식 (학사)",
+    "time": "오후 2:00",
+    "place": "Reed Arena",
+    "detail": "Undergraduates in the College of Engineering"
+  },
+  {
+    "id": "mos0ovu75ec",
+    "date": "2026-05-09",
+    "endDate": "",
+    "title": "졸업식 (석/박사)",
+    "time": "오후 2:00",
+    "place": "Read Arena",
+    "detail": "College of Engineering"
+  },
+  {
     "id": "mos0nevlsag",
     "date": "2026-06-29",
     "endDate": "2026-07-02",
