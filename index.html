@@ -1633,9 +1633,7 @@ function renderCalendar() {
             return `<div data-rid="${e.recurId}" data-ds="${ds}" data-title="${safeAttr(e.title)}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-recurring="1" class="day-event ${isExc?'is-exception':''} ${multiClass} rec-event" title="${loggedIn?(isExc?'예외 설정됨·클릭수정':'클릭해서 이날만 수정'):'클릭해서 상세 보기'}">${e.title}</div>`;
           } else {
             // 단회 행사
-            const displayTitle = (e.endDate && multiClass !== 'multiday-start')
-              ? (multiClass === 'multiday-end' ? '↳ ' + e.title : '→ ' + e.title)
-              : e.title;
+            const displayTitle = e.title;
             return `<div data-eid="${e.id}" data-title="${safeAttr(e.title)}" data-date="${e.date}" data-enddate="${safeAttr(e.endDate||'')}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-detail="${safeAttr(e.detail||'')}" class="day-event ${isExc?'is-exception':''} ${multiClass} single-event" title="클릭해서 상세 보기">${displayTitle}</div>`;
           }
         }).join('')}
