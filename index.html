@@ -1673,9 +1673,10 @@ function renderUpcoming() {
     .sort((a,b) => a.date.localeCompare(b.date))
     .slice(0, 3);
 
-  // 합쳐서 날짜순 정렬
+  // 합쳐서 날짜순 정렬, 최대 5개
   const upcoming = [...singleUpcoming, ...recurUpcoming]
-    .sort((a,b) => a.date.localeCompare(b.date));
+    .sort((a,b) => a.date.localeCompare(b.date))
+    .slice(0, 5);
 
   const makeItem = (e, isPast) => {
     const d = new Date(e.date+'T00:00:00');
