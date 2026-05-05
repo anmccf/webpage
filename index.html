@@ -1678,12 +1678,11 @@ function renderUpcoming() {
     if (recurSeen.has(key)) return false;
     recurSeen.add(key);
     return true;
-  }).sort((a,b) => a.date.localeCompare(b.date)).slice(0, 3);
+  }).sort((a,b) => a.date.localeCompare(b.date));
 
-  // 합쳐서 날짜순, 최대 5개
+  // 합쳐서 날짜순, 단회 일정은 전부 + 정기 행사도 전부 (월 내 전체)
   const upcoming = [...singleMonth, ...recurMonth]
-    .sort((a,b) => a.date.localeCompare(b.date))
-    .slice(0, 5);
+    .sort((a,b) => a.date.localeCompare(b.date));
 
   const makeItem = (e, isPast) => {
     const d = new Date(e.date+'T00:00:00');
