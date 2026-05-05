@@ -10,28 +10,11 @@
   {
     "id": "moqp6jznmzq",
     "date": "2026-05-06",
-    "title": "졸업식 (학사)",
-    "time": "오후 7:00",
+    "title": "졸업식",
+    "time": "오후 2:00 / 오후 7:00",
     "place": "Reed Arena",
-    "detail": "Undergraduates in the School of Public Health"
-  },
-  {
-    "id": "mos0ohjodw0",
-    "date": "2026-05-07",
-    "endDate": "",
-    "title": "졸업식 (학사)",
-    "time": "오후 2:00",
-    "place": "Reed Arena",
-    "detail": "Undergraduates in the College of Engineering"
-  },
-  {
-    "id": "mos0ovu75ec",
-    "date": "2026-05-09",
-    "endDate": "",
-    "title": "졸업식 (석/박사)",
-    "time": "오후 2:00",
-    "place": "Read Arena",
-    "detail": "College of Engineering"
+    "detail": "05/06 7:00 p.m.\nUndergraduates in the School of Public Health\n\n05/07 2:00 p.m.\nUndergraduates in the College of Engineering\n\n05/09 2:00 p.m.\nCollege of Engineering",
+    "endDate": "2026-05-09"
   },
   {
     "id": "mos0nevlsag",
