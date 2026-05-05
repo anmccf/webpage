@@ -192,8 +192,13 @@ section{padding:6rem 2rem}
 .day-event.multiday-mid:hover,.day-event.multiday-end:hover{background:rgba(80,0,0,.3);color:var(--maroon)}
 
 /* Past events section */
-.past-events{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-.past-events h3{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:1rem}
+.past-events{margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border)}
+.past-events summary{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-light);cursor:pointer;list-style:none;display:flex;align-items:center;gap:.45rem;padding:.3rem 0;user-select:none}
+.past-events summary::-webkit-details-marker{display:none}
+.past-events summary::before{content:'▶';font-size:.55rem;transition:transform .2s;color:var(--gold)}
+.past-events[open] summary::before{transform:rotate(90deg)}
+.past-events summary:hover{color:var(--maroon)}
+.past-events #pastEventList{margin-top:.5rem}
 .event-item.past .event-date-badge{background:var(--text-light)}
 .event-item.past .event-details h4{color:var(--text-light)}
 
@@ -625,10 +630,10 @@ footer strong{color:white}
       <div class="upcoming-events">
         <h3>다가오는 일정</h3>
         <div id="eventList"></div>
-        <div class="past-events">
-          <h3>지난 일정</h3>
+        <details class="past-events" id="pastEventsDetails">
+          <summary>이전 일정 보기</summary>
           <div id="pastEventList"></div>
-        </div>
+        </details>
       </div>
     </div>
   </div>
@@ -1628,7 +1633,9 @@ function renderCalendar() {
             return `<div data-rid="${e.recurId}" data-ds="${ds}" data-title="${safeAttr(e.title)}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-recurring="1" class="day-event ${isExc?'is-exception':''} ${multiClass} rec-event" title="${loggedIn?(isExc?'예외 설정됨·클릭수정':'클릭해서 이날만 수정'):'클릭해서 상세 보기'}">${e.title}</div>`;
           } else {
             // 단회 행사
-            const displayTitle = (e.endDate && multiClass !== 'multiday-start') ? (multiClass==='multiday-end'?'↩ '+e.title:'…') : e.title;
+            const displayTitle = (e.endDate && multiClass !== 'multiday-start')
+              ? (multiClass === 'multiday-end' ? '↳ ' + e.title : '→ ' + e.title)
+              : e.title;
             return `<div data-eid="${e.id}" data-title="${safeAttr(e.title)}" data-date="${e.date}" data-enddate="${safeAttr(e.endDate||'')}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-detail="${safeAttr(e.detail||'')}" class="day-event ${isExc?'is-exception':''} ${multiClass} single-event" title="클릭해서 상세 보기">${displayTitle}</div>`;
           }
         }).join('')}
@@ -1658,25 +1665,29 @@ function renderUpcoming() {
       return true;
     })
     .sort((a,b) => a.date.localeCompare(b.date))
-    .slice(0, 8);
+    .slice(0, 5);
 
   const makeItem = (e, isPast) => {
     const d = new Date(e.date+'T00:00:00');
-    const dateLabel = e.endDate
-      ? `${mo[d.getMonth()]} ${d.getDate()} – ${(()=>{const ed=new Date(e.endDate+'T00:00:00');return mo[ed.getMonth()]+' '+ed.getDate();})()} `
-      : `${mo[d.getMonth()]} ${d.getDate()}`;
+    // 배지는 항상 시작일 기준
+    const badgeMonth = mo[d.getMonth()];
+    const badgeDay   = d.getDate();
+    // 기간 라벨 (며칠 일정이면 표시)
+    let periodLabel = '';
+    if (e.endDate && e.endDate !== e.date) {
+      const ed = new Date(e.endDate+'T00:00:00');
+      periodLabel = `${mo[d.getMonth()]} ${d.getDate()} – ${mo[ed.getMonth()]} ${ed.getDate()}`;
+    }
+    const subText = [e.time, e.place].filter(Boolean).join(' · ') || (e.recurring ? '정기 행사' : '단회 일정');
     const safeAttr = v => (v||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
     const dataAttrs = e.recurId
       ? `data-rid="${e.recurId}" data-ds="${e.date}" data-title="${safeAttr(e.title)}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-recurring="1"`
       : `data-eid="${e.id||''}" data-title="${safeAttr(e.title)}" data-date="${e.date}" data-enddate="${safeAttr(e.endDate||'')}" data-time="${safeAttr(e.time)}" data-place="${safeAttr(e.place)}" data-detail="${safeAttr(e.detail||'')}"`;
-    const badgeMonth = e.endDate
-      ? `<div class="month">${mo[d.getMonth()]}–</div><div class="day">${d.getDate()}</div>`
-      : `<div class="month">${mo[d.getMonth()]}</div><div class="day">${d.getDate()}</div>`;
     return `<div class="event-item${isPast?' past':''}" ${dataAttrs} onclick="handleEventItemClick(this)">
-      <div class="event-date-badge">${badgeMonth}</div>
+      <div class="event-date-badge"><div class="month">${badgeMonth}</div><div class="day">${badgeDay}</div></div>
       <div class="event-details">
         <h4>${e.title}</h4>
-        <p>${[e.time, e.place].filter(Boolean).join(' · ') || (e.recurring?'정기 행사':'단회 일정')}</p>
+        <p>${periodLabel ? `<span style="color:var(--maroon);font-weight:500">${periodLabel}</span>${subText ? ' · '+subText : ''}` : subText}</p>
       </div>
     </div>`;
   };
