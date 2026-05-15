@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-05-10",
+    "date": "2026-05-17",
     "list": [
       {
-        "id": "mouy1bq69uj",
+        "id": "mp6ba8qtg4q",
         "title": "주 하나님 지으신 모든 세계",
-        "ytLink": "https://youtu.be/yklUCD-3C5k?si=E2AOxLIqPfO6TtT4"
+        "ytLink": "https://youtu.be/yklUCD-3C5k?si=sz-3t1RqQMB1xSaH"
       },
       {
-        "id": "mouy1bq6twr",
+        "id": "mp6ba8qtm38",
         "title": "위대하신 주 (빛나는 왕의 왕)",
-        "ytLink": "https://youtu.be/im-XNKykxZ0?si=-08GQd8elDmY7S-L"
+        "ytLink": "https://youtu.be/im-XNKykxZ0?si=M9A5x9fsGPVHEkTq"
       },
       {
-        "id": "mouy1bq7law",
-        "title": "삶의 예배",
-        "ytLink": "https://youtu.be/TdgfiTxaGNc?si=lce8LnE4Yo48pQtN"
+        "id": "mp6ba8qttsz",
+        "title": "오 하나님 오 땅 위에",
+        "ytLink": "https://youtu.be/hh3o2W3wPZ4?si=_ntYl8nNDLknomIT"
       },
       {
-        "id": "mouy1bq7o6i",
+        "id": "mp6ba8qtbuu",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=RdW-zI2IdDH3LKfH"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=oR8VMHtR-ash0zJA"
       },
       {
-        "id": "mouy1bq7qsj",
-        "title": "참 아름다워라",
-        "ytLink": "https://youtu.be/Qu_AH4pJzgM?si=DOkzl-nQblootKYp"
+        "id": "mp6ba8qt7d8",
+        "title": "주님은 산 같아서",
+        "ytLink": "https://youtu.be/lNtKfdo6Q40?si=Kv8EBsllRU7GtJGG"
       },
       {
-        "id": "mouy1bq73ac",
+        "id": "mp6ba8qtcju",
         "title": "하나님께서 당신을 통해",
-        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=24sBdf_-FyqDb2nv"
+        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=H69hX4hVIAZdoKp2"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8OK3RpFa-ahBKVcozWcSGD&si=xB3mffIOe2gqrpoj",
-  "notice": "이번 주 찬양은 변경되는 곡들이 꽤 있습니다. 창세기 1장, 성부 하나님의 창조를 묵상하며 미리 곡을 들어오시면 감사하겠습니다. 🙏  이번 주 졸업하시는 다섯 분 모두 졸업을 진심으로 축하드립니다! 🎉 앞으로의 삶 속에서도 주님의 축복이 가득하길 기도합니다!",
+  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK9WDY3RSpJ4hTbe09GRAB6D&si=KcJ2rGI0_w20s3JA",
+  "notice": "앞으로 11주 동안 목사님께서 \"성경 흐름을 잡아라\"는 책의 순서를 따라 성경 전체를 한 번 훑으며 말씀을 전해주신다고 합니다. 이 흐름에 맞춰 성부 하나님과 그 속성을 찬양하고 신약으로 넘어가며 성자 예수 그리스도, 성령 하나님 흐름으로 찬양을 골라보도록 하겠습니다 :) 방학기간동안 더 하나님과 가까워지는 우리 ANMCCF 모두가 되길 소망합니다!",
   "archive": [
+    {
+      "id": "mp6b9y3we4j",
+      "date": "2026-05-10",
+      "list": [
+        {
+          "id": "mouy1bq69uj",
+          "title": "주 하나님 지으신 모든 세계",
+          "ytLink": "https://youtu.be/yklUCD-3C5k?si=E2AOxLIqPfO6TtT4"
+        },
+        {
+          "id": "mouy1bq6twr",
+          "title": "위대하신 주 (빛나는 왕의 왕)",
+          "ytLink": "https://youtu.be/im-XNKykxZ0?si=-08GQd8elDmY7S-L"
+        },
+        {
+          "id": "mouy1bq7law",
+          "title": "삶의 예배",
+          "ytLink": "https://youtu.be/TdgfiTxaGNc?si=lce8LnE4Yo48pQtN"
+        },
+        {
+          "id": "mouy1bq7o6i",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=RdW-zI2IdDH3LKfH"
+        },
+        {
+          "id": "mouy1bq7qsj",
+          "title": "참 아름다워라",
+          "ytLink": "https://youtu.be/Qu_AH4pJzgM?si=DOkzl-nQblootKYp"
+        },
+        {
+          "id": "mouy1bq73ac",
+          "title": "하나님께서 당신을 통해",
+          "ytLink": "https://youtu.be/lBS5ZG_KobU?si=24sBdf_-FyqDb2nv"
+        }
+      ],
+      "notice": "이번 주 찬양은 변경되는 곡들이 꽤 있습니다. 창세기 1장, 성부 하나님의 창조를 묵상하며 미리 곡을 들어오시면 감사하겠습니다. 🙏  이번 주 졸업하시는 다섯 분 모두 졸업을 진심으로 축하드립니다! 🎉 앞으로의 삶 속에서도 주님의 축복이 가득하길 기도합니다!",
+      "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8OK3RpFa-ahBKVcozWcSGD&si=xB3mffIOe2gqrpoj"
+    },
     {
       "id": "mousqlze9lx",
       "date": "2026-05-03",
