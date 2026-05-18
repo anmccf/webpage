@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "mpanhox5gsh",
+    "tag": "공지",
+    "title": "test",
+    "body": "test",
+    "date": "2026-05-18",
+    "pinned": false,
+    "img": "",
+    "link": "",
+    "linkLabel": "링크 보기"
+  }
+]
