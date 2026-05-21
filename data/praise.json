@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-05-17",
+    "date": "2026-05-24",
     "list": [
       {
-        "id": "mp6ba8qtg4q",
-        "title": "주 하나님 지으신 모든 세계",
-        "ytLink": "https://youtu.be/yklUCD-3C5k?si=sz-3t1RqQMB1xSaH"
+        "id": "mpf2d9iwkqw",
+        "title": "위대하신 주 (How Great Is Our God)",
+        "ytLink": "https://youtu.be/im-XNKykxZ0?si=3XaIGcw2A_eSB_1R"
       },
       {
-        "id": "mp6ba8qtm38",
-        "title": "위대하신 주 (빛나는 왕의 왕)",
-        "ytLink": "https://youtu.be/im-XNKykxZ0?si=M9A5x9fsGPVHEkTq"
+        "id": "mpf2d9iwnnk",
+        "title": "거룩 영원히 (Holy Forever)",
+        "ytLink": "https://youtu.be/aADwu3hrYQQ?si=W3IL89kM4EP0a5yq"
       },
       {
-        "id": "mp6ba8qttsz",
-        "title": "오 하나님 오 땅 위에",
-        "ytLink": "https://youtu.be/hh3o2W3wPZ4?si=_ntYl8nNDLknomIT"
+        "id": "mpf2d9iw60m",
+        "title": "오 하나님 온 땅 위에",
+        "ytLink": "https://youtu.be/hh3o2W3wPZ4?si=cyf2Blc0_kP9bg9e"
       },
       {
-        "id": "mp6ba8qtbuu",
+        "id": "mpf2d9iwyl1",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=oR8VMHtR-ash0zJA"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=cVFtr4gbZ_wky4hh"
       },
       {
-        "id": "mp6ba8qt7d8",
-        "title": "주님은 산 같아서",
-        "ytLink": "https://youtu.be/lNtKfdo6Q40?si=Kv8EBsllRU7GtJGG"
+        "id": "mpf2d9iwyth",
+        "title": "주께 가오니",
+        "ytLink": "https://youtu.be/O3At-6BUP9o?si=wi8ILJ9eJeVLpFzI"
       },
       {
-        "id": "mp6ba8qtcju",
+        "id": "mpf2d9iws68",
         "title": "하나님께서 당신을 통해",
-        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=H69hX4hVIAZdoKp2"
+        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=TMGPCqLUKRQJZ_eU"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK9WDY3RSpJ4hTbe09GRAB6D&si=vvmTEOnBd3VJNN9s",
-  "notice": "앞으로 11주 동안 목사님께서 \"성경 흐름을 잡아라\"는 책의 순서를 따라 성경 전체를 한 번 훑으며 말씀을 전해주신다고 합니다. 이 흐름에 맞춰 성부 하나님과 그 속성을 찬양하고 신약으로 넘어가며 성자 예수 그리스도, 성령 하나님 흐름으로 찬양을 골라보도록 하겠습니다 :) 방학기간동안 더 하나님과 가까워지는 우리 ANMCCF 모두가 되길 소망합니다!",
+  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8o_hMwDnCmnuZl6VCcN1T-&si=UCXtN-yYBb3Xa0Gx",
+  "notice": "이번 주 첫 번째, 두 번째 찬양은 모두 Chris Tomlin의 곡입니다.\n'How Great Is Our God', 'Our God' 등으로 잘 알려진 미국 CCM 아티스트이자 예배 인도자인데요, 텍사스 A&M에서 Breakaway Ministries의 첫 예배 인도자로 시작해 세계적인 아티스트가 된 그는 \"A&M과 Breakaway가 아니었다면 지금의 나는 없었을 것\"이라고 말합니다. 저희가 있는 바로 이곳에서요 :)\n거룩 영원히 (Holy Forever)는 곡 진행이 다소 복잡할 수 있으니, 악보와 마커스워십 버전 미리 들어보고 와주세요!\n남은 한 주도 평안히 보내시고, 주일에 만나요~~!",
   "archive": [
+    {
+      "id": "mpf2d68ceaz",
+      "date": "2026-05-17",
+      "list": [
+        {
+          "id": "mp6ba8qtg4q",
+          "title": "주 하나님 지으신 모든 세계",
+          "ytLink": "https://youtu.be/yklUCD-3C5k?si=sz-3t1RqQMB1xSaH"
+        },
+        {
+          "id": "mp6ba8qtm38",
+          "title": "위대하신 주 (빛나는 왕의 왕)",
+          "ytLink": "https://youtu.be/im-XNKykxZ0?si=M9A5x9fsGPVHEkTq"
+        },
+        {
+          "id": "mp6ba8qttsz",
+          "title": "오 하나님 오 땅 위에",
+          "ytLink": "https://youtu.be/hh3o2W3wPZ4?si=_ntYl8nNDLknomIT"
+        },
+        {
+          "id": "mp6ba8qtbuu",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=oR8VMHtR-ash0zJA"
+        },
+        {
+          "id": "mp6ba8qt7d8",
+          "title": "주님은 산 같아서",
+          "ytLink": "https://youtu.be/lNtKfdo6Q40?si=Kv8EBsllRU7GtJGG"
+        },
+        {
+          "id": "mp6ba8qtcju",
+          "title": "하나님께서 당신을 통해",
+          "ytLink": "https://youtu.be/lBS5ZG_KobU?si=H69hX4hVIAZdoKp2"
+        }
+      ],
+      "notice": "앞으로 11주 동안 목사님께서 \"성경 흐름을 잡아라\"는 책의 순서를 따라 성경 전체를 한 번 훑으며 말씀을 전해주신다고 합니다. 이 흐름에 맞춰 성부 하나님과 그 속성을 찬양하고 신약으로 넘어가며 성자 예수 그리스도, 성령 하나님 흐름으로 찬양을 골라보도록 하겠습니다 :) 방학기간동안 더 하나님과 가까워지는 우리 ANMCCF 모두가 되길 소망합니다!",
+      "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK9WDY3RSpJ4hTbe09GRAB6D&si=vvmTEOnBd3VJNN9s"
+    },
     {
       "id": "mp6b9y3we4j",
       "date": "2026-05-10",
