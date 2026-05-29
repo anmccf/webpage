@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-05-24",
+    "date": "2026-05-31",
     "list": [
       {
-        "id": "mpf2d9iwkqw",
+        "id": "mpqi6d8znga",
         "title": "위대하신 주 (How Great Is Our God)",
-        "ytLink": "https://youtu.be/im-XNKykxZ0?si=3XaIGcw2A_eSB_1R"
+        "ytLink": "https://youtu.be/im-XNKykxZ0?si=5LCwQpdT9H7ClHJv"
       },
       {
-        "id": "mpf2d9iwnnk",
+        "id": "mpqi6d8zxv0",
         "title": "거룩 영원히 (Holy Forever)",
-        "ytLink": "https://youtu.be/aADwu3hrYQQ?si=W3IL89kM4EP0a5yq"
+        "ytLink": "https://youtu.be/aADwu3hrYQQ?si=oM5SzEm_VfbVzXEa"
       },
       {
-        "id": "mpf2d9iw60m",
-        "title": "오 하나님 온 땅 위에",
-        "ytLink": "https://youtu.be/hh3o2W3wPZ4?si=cyf2Blc0_kP9bg9e"
+        "id": "mpqi6d8zxyd",
+        "title": "하나님의 어린 양",
+        "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=Nz4HV3i3-_4NW1L-"
       },
       {
-        "id": "mpf2d9iwyl1",
+        "id": "mpqi6d8zd30",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=cVFtr4gbZ_wky4hh"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=NsC4JKS-jQPDHEql"
       },
       {
-        "id": "mpf2d9iwyth",
-        "title": "주께 가오니",
-        "ytLink": "https://youtu.be/O3At-6BUP9o?si=wi8ILJ9eJeVLpFzI"
+        "id": "mpqi6d8zpuf",
+        "title": "이 산지를 내게 주소서",
+        "ytLink": "https://youtu.be/HAuq9rS4jCQ?si=wYiKbJ-WNJ13fmTX"
       },
       {
-        "id": "mpf2d9iws68",
+        "id": "mpqi6d8z3ep",
         "title": "하나님께서 당신을 통해",
-        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=TMGPCqLUKRQJZ_eU"
+        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=qJqXjuC4HCEW5pjK"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8o_hMwDnCmnuZl6VCcN1T-&si=UCXtN-yYBb3Xa0Gx",
-  "notice": "이번 주 첫 번째, 두 번째 찬양은 모두 Chris Tomlin의 곡입니다.\n'How Great Is Our God', 'Our God' 등으로 잘 알려진 미국 CCM 아티스트이자 예배 인도자인데요, 텍사스 A&M에서 Breakaway Ministries의 첫 예배 인도자로 시작해 세계적인 아티스트가 된 그는 \"A&M과 Breakaway가 아니었다면 지금의 나는 없었을 것\"이라고 말합니다. 저희가 있는 바로 이곳에서요 :)\n거룩 영원히 (Holy Forever)는 곡 진행이 다소 복잡할 수 있으니, 악보와 마커스워십 버전 미리 들어보고 와주세요!\n남은 한 주도 평안히 보내시고, 주일에 만나요~~!",
+  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8-Fsguta04rgrgGw_K6UgJ&si=d4tX1zfU2nyz4P2V",
+  "notice": "이번 주 찬양의 주제는 \"거룩\"입니다.\n창세기부터 계시록까지 이어지는 하나님의 구원 역사를 살펴보면, 특별히 모세오경에는 거룩하신 하나님에 대한 말씀이 반복해서 등장합니다.\n하나님께서는 아브라함을 부르실 때도, 모세를 부르실 때도, 이스라엘 백성을 인도하실 때도 거룩하신 분으로 자신을 나타내셨고, 백성들에게도 \"너희는 거룩하라\" 말씀하셨습니다.\n이번주 여호수아서 말씀을 함께 보게 되는데, 여호수아가 가나안 땅으로 들어가기 전에 가장 먼저 배워야 했던 것도 하나님의 능력 이전에 하나님의 거룩하심이었습니다.\n이번주 찬양을 통해 거룩하신 하나님을 바라보며 주님 앞에 경배하는 시간 되기를 원합니다 :)",
   "archive": [
+    {
+      "id": "mpqi67fnsop",
+      "date": "2026-05-24",
+      "list": [
+        {
+          "id": "mpqi64bee71",
+          "title": "위대하신 주 (How Great Is Our God)",
+          "ytLink": "https://youtu.be/im-XNKykxZ0?si=3XaIGcw2A_eSB_1R"
+        },
+        {
+          "id": "mpqi64beg2u",
+          "title": "거룩 영원히 (Holy Forever)",
+          "ytLink": "https://youtu.be/aADwu3hrYQQ?si=W3IL89kM4EP0a5yq"
+        },
+        {
+          "id": "mpqi64be1w0",
+          "title": "오 하나님 온 땅 위에",
+          "ytLink": "https://youtu.be/hh3o2W3wPZ4?si=cyf2Blc0_kP9bg9e"
+        },
+        {
+          "id": "mpqi64bf1wg",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=cVFtr4gbZ_wky4hh"
+        },
+        {
+          "id": "mpqi64bf3fp",
+          "title": "주께 가오니",
+          "ytLink": "https://youtu.be/O3At-6BUP9o?si=wi8ILJ9eJeVLpFzI"
+        },
+        {
+          "id": "mpqi64bfjip",
+          "title": "하나님께서 당신을 통해",
+          "ytLink": "https://youtu.be/lBS5ZG_KobU?si=TMGPCqLUKRQJZ_eU"
+        }
+      ],
+      "notice": "이번 주 첫 번째, 두 번째 찬양은 모두 Chris Tomlin의 곡입니다.\n'How Great Is Our God', 'Our God' 등으로 잘 알려진 미국 CCM 아티스트이자 예배 인도자인데요, 텍사스 A&M에서 Breakaway Ministries의 첫 예배 인도자로 시작해 세계적인 아티스트가 된 그는 \"A&M과 Breakaway가 아니었다면 지금의 나는 없었을 것\"이라고 말합니다. 저희가 있는 바로 이곳에서요 :)\n거룩 영원히 (Holy Forever)는 곡 진행이 다소 복잡할 수 있으니, 악보와 마커스워십 버전 미리 들어보고 와주세요!\n남은 한 주도 평안히 보내시고, 주일에 만나요~~!",
+      "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8o_hMwDnCmnuZl6VCcN1T-&si=UCXtN-yYBb3Xa0Gx"
+    },
     {
       "id": "mpf2d68ceaz",
       "date": "2026-05-17",
