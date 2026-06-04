@@ -607,6 +607,7 @@ footer strong{color:white}
     <details class="praise-archive" id="praiseArchiveEl">
       <summary>이전 주 찬양 목록 보기</summary>
       <div id="praiseArchiveList"></div>
+      <div class="pagination" id="praiseArchivePaging"></div>
     </details>
   </div>
 </section>
@@ -1153,9 +1154,9 @@ const toast = msg => {
 // ══════════════════════════════════════════
 // PAT를 세 조각으로 나눠 저장 (GitHub 자동 스캔 우회)
 // 아래 _t1 _t2 _t3 에 실제 PAT를 3등분해서 붙여넣으세요.
-const _t1 = 'github_pat_11CDAKUNA0mO0F5Piixfw8';
-const _t2 = '_dOPkmWJTSvAPtxm1nbhE1NUNhUwB2GQ';
-const _t3 = 'nIlhMo15VJeIHDYGAKGOIjDCCmOr';
+const _t1 = 'YOUR_PART1';
+const _t2 = 'YOUR_PART2';
+const _t3 = 'YOUR_PART3';
 const _tk = () => _t1 + _t2 + _t3;
 
 const GH = {
@@ -2111,13 +2112,33 @@ function archiveCurrentPraise() {
   renderPraise(); renderAdminSongs(); renderArchive(); renderAdminArchive();
   toast('📦 보관됐습니다! 이제 이번 주 찬양을 등록해 주세요.');
 }
-function renderArchive() {
-  const archive = ld(K.praiseArchive, []);
+let praiseArchivePage = 0;
+const PRAISE_ARCHIVE_PER_PAGE = 4;
+function renderArchive(page) {
+  if (page !== undefined) praiseArchivePage = page;
+
+  const archive = [...ld(K.praiseArchive, [])].sort((a,b) => (b.date || '').localeCompare(a.date || ''));
   const el = document.getElementById('praiseArchiveList'); if(!el) return;
+  const pg = document.getElementById('praiseArchivePaging');
   const archiveEl = document.getElementById('praiseArchiveEl');
-  if (!archive.length) { if(archiveEl) archiveEl.style.display='none'; return; }
+
+  if (!archive.length) {
+    if(archiveEl) archiveEl.style.display='none';
+    if(pg) pg.innerHTML='';
+    return;
+  }
+
   if(archiveEl) archiveEl.style.display='';
-  el.innerHTML = archive.map(w => `
+  const totalPages = Math.ceil(archive.length / PRAISE_ARCHIVE_PER_PAGE);
+  if (praiseArchivePage >= totalPages) praiseArchivePage = totalPages - 1;
+  if (praiseArchivePage < 0) praiseArchivePage = 0;
+
+  const slice = archive.slice(
+    praiseArchivePage * PRAISE_ARCHIVE_PER_PAGE,
+    (praiseArchivePage + 1) * PRAISE_ARCHIVE_PER_PAGE
+  );
+
+  el.innerHTML = slice.map(w => `
     <div class="archive-week">
       <h5>${w.date ? fmt(w.date) + ' 주일' : '날짜 미상'}${w.yt ? ' <a href="'+w.yt+'" target="_blank" style="font-size:.7rem;color:var(--gold-light);margin-left:.5rem">▶ 전체 재생</a>' : ''}</h5>
       <div class="song-list">
@@ -2127,6 +2148,17 @@ function renderArchive() {
         </div>`).join('')}
       </div>
     </div>`).join('');
+
+  if (pg) {
+    if (totalPages <= 1) { pg.innerHTML=''; return; }
+    let html = `<button class="pag-btn" onclick="renderArchive(${praiseArchivePage-1})" ${praiseArchivePage===0?'disabled':''}>‹</button>`;
+    for (let i=0;i<totalPages;i++) {
+      html += `<button class="pag-btn ${i===praiseArchivePage?'active':''}" onclick="renderArchive(${i})">${i+1}</button>`;
+    }
+    html += `<button class="pag-btn" onclick="renderArchive(${praiseArchivePage+1})" ${praiseArchivePage===totalPages-1?'disabled':''}>›</button>`;
+    html += `<span class="pag-info">${praiseArchivePage+1} / ${totalPages} 페이지</span>`;
+    pg.innerHTML = html;
+  }
 }
 function renderAdminArchive() {
   const archive = ld(K.praiseArchive, []);
