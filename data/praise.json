@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-05-31",
+    "date": "2026-06-07",
     "list": [
       {
-        "id": "mpqi6d8znga",
-        "title": "위대하신 주 (How Great Is Our God)",
-        "ytLink": "https://youtu.be/im-XNKykxZ0?si=5LCwQpdT9H7ClHJv"
+        "id": "mpz5pnviys4",
+        "title": "왕되신 주께 감사하세",
+        "ytLink": "https://youtu.be/eytwu1Lvphc?si=mhVyBUx5pixYb58r"
       },
       {
-        "id": "mpqi6d8zxv0",
-        "title": "거룩 영원히 (Holy Forever)",
-        "ytLink": "https://youtu.be/aADwu3hrYQQ?si=oM5SzEm_VfbVzXEa"
+        "id": "mpz5pnvi7ps",
+        "title": "주 이름 찬양",
+        "ytLink": "https://youtu.be/xITJZa0hpu0?si=GJFHKTlStuveEfGV"
       },
       {
-        "id": "mpqi6d8zxyd",
+        "id": "mpz5pnvixqw",
         "title": "하나님의 어린 양",
-        "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=Nz4HV3i3-_4NW1L-"
+        "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=zHW8kXK-I3hlM-PK"
       },
       {
-        "id": "mpqi6d8zd30",
+        "id": "mpz5pnvim2x",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=NsC4JKS-jQPDHEql"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=h2vGxiBXHCbjc-Sj"
       },
       {
-        "id": "mpqi6d8zpuf",
-        "title": "이 산지를 내게 주소서",
-        "ytLink": "https://youtu.be/HAuq9rS4jCQ?si=wYiKbJ-WNJ13fmTX"
+        "id": "mpz5pnvid13",
+        "title": "문들아 머리 들어라",
+        "ytLink": "https://youtu.be/p3BBGQMSjNc?si=i4COCZ6qhYZTtpEB"
       },
       {
-        "id": "mpqi6d8z3ep",
+        "id": "mpz5pnvii3w",
         "title": "하나님께서 당신을 통해",
-        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=qJqXjuC4HCEW5pjK"
+        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=vUoqR6UruVnNPxVw"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8-Fsguta04rgrgGw_K6UgJ&si=d4tX1zfU2nyz4P2V",
-  "notice": "이번 주 찬양의 주제는 \"거룩\"입니다.\n창세기부터 계시록까지 이어지는 하나님의 구원 역사를 살펴보면, 특별히 모세오경에는 거룩하신 하나님에 대한 말씀이 반복해서 등장합니다.\n하나님께서는 아브라함을 부르실 때도, 모세를 부르실 때도, 이스라엘 백성을 인도하실 때도 거룩하신 분으로 자신을 나타내셨고, 백성들에게도 \"너희는 거룩하라\" 말씀하셨습니다.\n이번주 여호수아서 말씀을 함께 보게 되는데, 여호수아가 가나안 땅으로 들어가기 전에 가장 먼저 배워야 했던 것도 하나님의 능력 이전에 하나님의 거룩하심이었습니다.\n이번주 찬양을 통해 거룩하신 하나님을 바라보며 주님 앞에 경배하는 시간 되기를 원합니다 :)",
+  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK_h0zaxdB4D-1Om8XUW4-wv&si=BTOfu5EPW6t2Qorx",
+  "notice": "지난 주에 우리 함께 거룩하신 하나님 앞에 섰었죠.\n이번 주는, 그 하나님이 우리의 왕이심을 함께 고백하려 합니다.\n사사기와 사무엘상을 보면, 이스라엘 백성들은 하나님이 왕이신 줄 알면서도 자꾸 다른 왕을 찾았고, 우리에게도 그 모습이 보입니다.\n그럼에도 하나님은 여전히 왕이십니다.\n이번 주 찬양을 통해, 우리 삶의 진짜 왕이 누구인지 함께 고백하는 시간 되길 바랍니다 :)",
   "archive": [
+    {
+      "id": "mpz5piwz8of",
+      "date": "2026-05-31",
+      "list": [
+        {
+          "id": "mpqi6d8znga",
+          "title": "위대하신 주 (How Great Is Our God)",
+          "ytLink": "https://youtu.be/im-XNKykxZ0?si=5LCwQpdT9H7ClHJv"
+        },
+        {
+          "id": "mpqi6d8zxv0",
+          "title": "거룩 영원히 (Holy Forever)",
+          "ytLink": "https://youtu.be/aADwu3hrYQQ?si=oM5SzEm_VfbVzXEa"
+        },
+        {
+          "id": "mpqi6d8zxyd",
+          "title": "하나님의 어린 양",
+          "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=Nz4HV3i3-_4NW1L-"
+        },
+        {
+          "id": "mpqi6d8zd30",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=NsC4JKS-jQPDHEql"
+        },
+        {
+          "id": "mpqi6d8zpuf",
+          "title": "이 산지를 내게 주소서",
+          "ytLink": "https://youtu.be/HAuq9rS4jCQ?si=wYiKbJ-WNJ13fmTX"
+        },
+        {
+          "id": "mpqi6d8z3ep",
+          "title": "하나님께서 당신을 통해",
+          "ytLink": "https://youtu.be/lBS5ZG_KobU?si=qJqXjuC4HCEW5pjK"
+        }
+      ],
+      "notice": "이번 주 찬양의 주제는 \"거룩\"입니다.\n창세기부터 계시록까지 이어지는 하나님의 구원 역사를 살펴보면, 특별히 모세오경에는 거룩하신 하나님에 대한 말씀이 반복해서 등장합니다.\n하나님께서는 아브라함을 부르실 때도, 모세를 부르실 때도, 이스라엘 백성을 인도하실 때도 거룩하신 분으로 자신을 나타내셨고, 백성들에게도 \"너희는 거룩하라\" 말씀하셨습니다.\n이번주 여호수아서 말씀을 함께 보게 되는데, 여호수아가 가나안 땅으로 들어가기 전에 가장 먼저 배워야 했던 것도 하나님의 능력 이전에 하나님의 거룩하심이었습니다.\n이번주 찬양을 통해 거룩하신 하나님을 바라보며 주님 앞에 경배하는 시간 되기를 원합니다 :)",
+      "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK8-Fsguta04rgrgGw_K6UgJ&si=d4tX1zfU2nyz4P2V"
+    },
     {
       "id": "mpqi67fnsop",
       "date": "2026-05-24",
