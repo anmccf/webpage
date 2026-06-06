@@ -62,12 +62,13 @@
   --border: #e8ddd0; --danger: #c0392b;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--text-dark);line-height:1.7;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--text-dark);line-height:1.7;overflow-x:hidden;width:100%;min-width:0}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--maroon);text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;background:rgba(250,247,242,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;width:146px;max-width:45vw;text-decoration:none}
+.nav-logo img{display:block;width:100%;height:auto}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;color:var(--text-mid);text-decoration:none;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--maroon)}
@@ -96,8 +97,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,
 .hero-scroll::after{content:'';width:1px;height:48px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);animation:scrollPulse 2s infinite}
 
 /* SECTIONS */
-section{padding:6rem 2rem}
-.container{max-width:1100px;margin:0 auto}
+section{padding:6rem 2rem;width:100%}
+.container{width:100%;max-width:1100px;margin:0 auto}
 .section-label{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--maroon);line-height:1.2;margin-bottom:1.5rem}
 .divider{width:48px;height:2px;background:var(--gold);margin-bottom:2.5rem}
@@ -467,9 +468,21 @@ footer strong{color:white}
 .pw-note{background:var(--maroon-pale);border-radius:6px;padding:.8rem 1rem;font-size:.8rem;color:var(--maroon);margin-bottom:1rem}
 
 @media(max-width:768px){
+  nav{padding:0 1rem}
+  .nav-logo{width:132px;max-width:52vw}
   .nav-links{display:none}
   .nav-hamburger{display:flex}
-  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:white;padding:1.5rem 2rem;border-bottom:1px solid var(--border);z-index:99}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;width:100%;background:white;padding:1.5rem 1rem;border-bottom:1px solid var(--border);z-index:99}
+  section{padding:4.5rem 1rem}
+  .container{max-width:none}
+  .hero-content{width:100%;max-width:none;padding:1rem}
+  .hero-buttons{width:100%}
+  .btn-primary,.btn-outline{width:min(100%,280px);text-align:center}
+  .calendar-layout,.worship-grid,.about-layout,.contact-grid{gap:1.5rem}
+  .cal-day{min-height:58px;padding:.3rem}
+  .contact-welcome{padding:1.4rem 1rem}
+  .modal-box,.board-modal-box,.ed-box{width:calc(100% - 2rem);padding:1.4rem}
+  #toast{max-width:calc(100% - 2rem);white-space:normal;text-align:center}
   .worship-grid,.about-layout,.contact-grid,.calendar-layout{grid-template-columns:1fr}
   .hero-cross{display:none}
   #adminPanel{width:100%;right:-100%}
@@ -480,7 +493,9 @@ footer strong{color:white}
 <body>
 
 <nav>
-  <a href="#hero" class="nav-logo">ANMCCF</a>
+  <a href="#hero" class="nav-logo" aria-label="ANMCCF 홈">
+    <img src="assets/anmccf-logo.png" alt="ANMCCF">
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#worship">예배 안내</a></li>
     <li><a href="#about">교회 소개</a></li>
@@ -1046,6 +1061,7 @@ footer strong{color:white}
       <div class="fg"><label>Personal Access Token (PAT) <span id="pat-status" style="font-size:.75rem;color:#2c7a4b;font-weight:normal"></span></label><input type="password" id="s-token" placeholder="새 PAT 발급 시에만 입력 (한 번 저장하면 자동 유지)"></div>
       <button class="submit-btn" style="background:#2c7a4b" onclick="saveGHConfig()">💾 GitHub 설정 저장</button>
       <button class="submit-btn" style="background:#1a56db;margin-top:.5rem" onclick="testGHConnection()">🔌 연결 테스트</button>
+      <button class="submit-btn" style="background:#8a3b3b;margin-top:.5rem" onclick="clearGHToken()">🗑 저장된 토큰 삭제</button>
       <div id="ghStatus" style="margin-top:.8rem;font-size:.8rem"></div>
 
       <hr class="form-hr">
@@ -1154,15 +1170,27 @@ const toast = msg => {
 // ══════════════════════════════════════════
 // PAT를 세 조각으로 나눠 저장 (GitHub 자동 스캔 우회)
 // 아래 _t1 _t2 _t3 에 실제 PAT를 3등분해서 붙여넣으세요.
-const _t1 = 'YOUR_PART1';
-const _t2 = 'YOUR_PART2';
-const _t3 = 'YOUR_PART3';
-const _tk = () => _t1 + _t2 + _t3;
+const _t1 = '';
+const _t2 = '';
+const _t3 = '';
+const _tk = () => (_t1 + _t2 + _t3).trim();
+
+const cleanToken = token => {
+  const t = (token || '').trim();
+  if (!t || /^YOUR_PART/i.test(t)) return '';
+  return t;
+};
+
+const authHeaders = token => ({
+  Authorization: `Bearer ${token}`,
+  Accept: 'application/vnd.github+json',
+  'X-GitHub-Api-Version': '2022-11-28'
+});
 
 const GH = {
   get repo()   { return ld(GH_KEYS.repo,   'anmccf/webpage'); },
   get branch() { return ld(GH_KEYS.branch, 'main'); },
-  get token()  { return ld(GH_KEYS.token,  '') || _tk(); }
+  get token()  { return cleanToken(ld(GH_KEYS.token,  '')) || cleanToken(_tk()); }
 };
 
 /**
@@ -1187,12 +1215,9 @@ async function ghCommit(filename, data) {
   if (!repo || !token) return false;
 
   const apiUrl = `https://api.github.com/repos/${repo}/contents/data/${filename}`;
-  const authHeader = token.startsWith('github_pat_') ? `Bearer ${token}` : `token ${token}`;
   const headers = {
-    Authorization: authHeader,
+    ...authHeaders(token),
     'Content-Type': 'application/json',
-    Accept: 'application/vnd.github+json',
-    'X-GitHub-Api-Version': '2022-11-28'
   };
 
   let sha = '';
@@ -1226,6 +1251,22 @@ async function publishAll() {
 
   const btn = document.getElementById('publishBtn');
   btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = '연결 확인 중...';
+
+  const canConnect = await checkGHConnection(GH.repo, GH.token);
+  if (!canConnect.ok) {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    showGHError(canConnect);
+    toast('GitHub 토큰을 다시 확인해 주세요.');
+    document.querySelectorAll('.panel-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelector('[data-tab="settings"]').classList.add('active');
+    document.getElementById('tab-settings').classList.add('active');
+    return;
+  }
+
   btn.textContent = '발행 중...';
 
   const settings = {
@@ -1258,7 +1299,7 @@ async function publishAll() {
   }
 
   btn.disabled = false;
-  btn.textContent = '발행';
+  btn.textContent = originalText;
 
   if (errors.length === 0) {
     toast('🚀 발행 완료!');
@@ -1272,36 +1313,54 @@ async function publishAll() {
   }
 }
 
+async function checkGHConnection(repo, token) {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}`, {
+      headers: authHeaders(token)
+    });
+    const body = await res.json().catch(() => ({}));
+    return { ok: res.ok, status: res.status, body };
+  } catch (e) {
+    return { ok: false, status: 0, body: { message: e.message || 'Network error' } };
+  }
+}
+
+function showGHError(result) {
+  const status = document.getElementById('ghStatus');
+  if (!status) return;
+
+  if (result.ok) {
+    const d = result.body || {};
+    status.innerHTML = `<span class="sync-status ok">✅ 연결 성공! 저장소: ${d.full_name || GH.repo} (${d.visibility || '확인됨'})</span>`;
+    return;
+  }
+
+  if (result.status === 401) {
+    status.innerHTML = '<span class="sync-status err">❌ GitHub 토큰이 만료되었거나 잘못됐어요. 저장된 토큰 삭제 후 새 PAT를 입력하고 다시 저장해 주세요.</span>';
+  } else if (result.status === 403) {
+    status.innerHTML = '<span class="sync-status err">❌ 토큰 권한이 부족해요. Fine-grained PAT에서 anmccf/webpage 저장소의 Contents: Read and write 권한을 주세요.</span>';
+  } else if (result.status === 404) {
+    status.innerHTML = '<span class="sync-status err">❌ 저장소를 찾을 수 없거나 토큰에 저장소 접근 권한이 없어요. (anmccf/webpage 권한 확인)</span>';
+  } else if (result.status === 0) {
+    status.innerHTML = '<span class="sync-status err">❌ 네트워크 오류. 인터넷 연결을 확인해 주세요.</span>';
+  } else {
+    status.innerHTML = `<span class="sync-status err">❌ GitHub 오류 ${result.status}: ${(result.body && result.body.message) || 'Unknown error'}</span>`;
+  }
+}
+
 async function testGHConnection() {
   const repo  = document.getElementById('s-repo').value.trim();
-  const token = document.getElementById('s-token').value.trim() || GH.token;
+  const token = cleanToken(document.getElementById('s-token').value) || GH.token;
   const status = document.getElementById('ghStatus');
   if (!repo || !token) { status.innerHTML = '<span class="sync-status err">❌ 저장소명과 토큰을 먼저 입력하세요</span>'; return; }
   status.innerHTML = '<span class="sync-status warn">⏳ 연결 확인 중...</span>';
-  const authHeader = token.startsWith('github_pat_') ? `Bearer ${token}` : `token ${token}`;
-  try {
-    const res = await fetch(`https://api.github.com/repos/${repo}`, {
-      headers: { Authorization: authHeader, Accept: 'application/vnd.github+json' }
-    });
-    if (res.ok) {
-      const d = await res.json();
-      status.innerHTML = `<span class="sync-status ok">✅ 연결 성공! 저장소: ${d.full_name} (${d.visibility})</span>`;
-    } else if (res.status === 401) {
-      status.innerHTML = '<span class="sync-status err">❌ 토큰이 잘못됐어요. 다시 확인해 주세요.</span>';
-    } else if (res.status === 404) {
-      status.innerHTML = '<span class="sync-status err">❌ 저장소를 찾을 수 없어요. 이름을 확인해 주세요. (예: anmccf/webpage)</span>';
-    } else {
-      status.innerHTML = `<span class="sync-status err">❌ 오류 ${res.status}</span>`;
-    }
-  } catch (e) {
-    status.innerHTML = '<span class="sync-status err">❌ 네트워크 오류. 인터넷 연결을 확인해 주세요.</span>';
-  }
+  showGHError(await checkGHConnection(repo, token));
 }
 
 function saveGHConfig() {
   const repo   = document.getElementById('s-repo').value.trim();
   const branch = document.getElementById('s-branch').value.trim() || 'main';
-  const token  = document.getElementById('s-token').value.trim();
+  const token  = cleanToken(document.getElementById('s-token').value);
   sv(GH_KEYS.repo,   repo);
   sv(GH_KEYS.branch, branch);
   if (token) sv(GH_KEYS.token, token);
@@ -1313,6 +1372,19 @@ function saveGHConfig() {
     status.innerHTML = `<span class="sync-status ok">✅ 저장됨 · ${repo} (${branch})</span>`;
   }
   toast('💾 GitHub 설정이 저장되었습니다!');
+}
+
+function clearGHToken() {
+  localStorage.removeItem(GH_KEYS.token);
+  const tokenInput = document.getElementById('s-token');
+  if (tokenInput) tokenInput.value = '';
+  const patEl = document.getElementById('pat-status');
+  if (patEl) patEl.textContent = '⚠️ 미입력';
+  const status = document.getElementById('ghStatus');
+  if (status) {
+    status.innerHTML = '<span class="sync-status warn">저장된 토큰을 삭제했습니다. 새 PAT를 입력한 뒤 GitHub 설정 저장을 눌러 주세요.</span>';
+  }
+  toast('저장된 GitHub 토큰을 삭제했습니다.');
 }
 
 // ══════════════════════════════════════════
@@ -2739,7 +2811,7 @@ function applySite() {
   const el = id => document.getElementById(id);
   // nav logo
   const logo = document.querySelector('.nav-logo');
-  if (logo) logo.textContent = s.name;
+  if (logo) logo.setAttribute('aria-label', `${s.name} 홈`);
   // hero label
   const heroLabel = document.querySelector('.hero-label');
   if (heroLabel) heroLabel.textContent = s.label;
