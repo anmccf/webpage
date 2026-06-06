@@ -67,8 +67,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;background:rgba(250,247,242,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{display:flex;align-items:center;width:146px;max-width:45vw;text-decoration:none}
-.nav-logo img{display:block;width:100%;height:auto}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--maroon);text-decoration:none}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;color:var(--text-mid);text-decoration:none;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--maroon)}
@@ -469,7 +468,6 @@ footer strong{color:white}
 
 @media(max-width:768px){
   nav{padding:0 1rem}
-  .nav-logo{width:132px;max-width:52vw}
   .nav-links{display:none}
   .nav-hamburger{display:flex}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;width:100%;background:white;padding:1.5rem 1rem;border-bottom:1px solid var(--border);z-index:99}
@@ -493,9 +491,7 @@ footer strong{color:white}
 <body>
 
 <nav>
-  <a href="#hero" class="nav-logo" aria-label="ANMCCF 홈">
-    <img src="assets/anmccf-logo.png" alt="ANMCCF">
-  </a>
+  <a href="#hero" class="nav-logo">ANMCCF</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#worship">예배 안내</a></li>
     <li><a href="#about">교회 소개</a></li>
@@ -2811,7 +2807,7 @@ function applySite() {
   const el = id => document.getElementById(id);
   // nav logo
   const logo = document.querySelector('.nav-logo');
-  if (logo) logo.setAttribute('aria-label', `${s.name} 홈`);
+  if (logo) logo.textContent = s.name;
   // hero label
   const heroLabel = document.querySelector('.hero-label');
   if (heroLabel) heroLabel.textContent = s.label;
