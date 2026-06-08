@@ -153,8 +153,8 @@ section{padding:6rem 2rem;width:100%}
 .day-event.is-exception:hover{background:#1a5c1a;color:white}
 .board-card{cursor:pointer}
 /* Board modal */
-#boardModal{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.55);align-items:center;justify-content:center}
-#boardModal.open{display:flex}
+#boardModal,#newsModal{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.55);align-items:center;justify-content:center}
+#boardModal.open,#newsModal.open{display:flex}
 .board-modal-box{background:white;border-radius:12px;padding:2rem;width:90%;max-width:560px;max-height:85vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.2);animation:slideIn .25s ease}
 .board-modal-box .bm-tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:var(--maroon-pale);color:var(--maroon);padding:.25rem .7rem;border-radius:3px}
 .board-modal-box h3{font-family:'Noto Serif KR',serif;font-size:1.2rem;color:var(--text-dark);margin:1rem 0 .5rem}
@@ -226,15 +226,16 @@ section{padding:6rem 2rem;width:100%}
 #news .section-title{color:white}
 #news .divider{background:var(--gold)}
 .news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
-.news-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:1.8rem;transition:background .2s}
-.news-card:hover{background:rgba(255,255,255,.1)}
+.news-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:1.8rem;transition:background .2s,transform .2s;cursor:pointer}
+.news-card:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
 .news-card .tag{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.8rem;display:block}
 .news-card h4{font-family:'Noto Serif KR',serif;font-size:1rem;color:white;margin-bottom:.7rem;line-height:1.5}
-.news-card p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7}
+.news-card p:not(.ndate){font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .news-card .ndate{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:1rem}
 .news-card .nc-img{width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:.8rem}
 .news-card .nc-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.78rem;color:var(--gold-light);text-decoration:none;border:1px solid rgba(196,154,42,.3);padding:.25rem .7rem;border-radius:4px;transition:.15s}
 .news-card .nc-link:hover{background:rgba(196,154,42,.1)}
+.news-more{display:inline-block;margin-top:.8rem;font-size:.75rem;color:var(--gold-light)}
 .nc-autolink{color:var(--gold-light);text-decoration:underline;word-break:break-all}
 /* board modal image */
 .bm-img{width:100%;max-height:280px;object-fit:cover;border-radius:8px;margin-bottom:1rem}
@@ -865,6 +866,13 @@ footer strong{color:white}
       </div>
       <button class="submit-btn" onclick="addNews()">✅ 소식 추가</button>
       <hr class="form-hr">
+      <div class="sec-heading">기본 안내 수정</div>
+      <div class="fg"><label>분류</label><input type="text" id="nw-tag" placeholder="안내"></div>
+      <div class="fg"><label>제목</label><input type="text" id="nw-title" placeholder="ANMCCF에 오신 것을 환영합니다"></div>
+      <div class="fg"><label>내용</label><textarea id="nw-body" placeholder="Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다."></textarea></div>
+      <div class="fg"><label>날짜/표시 문구</label><input type="text" id="nw-date" placeholder="상시"></div>
+      <button class="submit-btn" style="background:#6c757d" onclick="saveWelcomeNews()">✅ 기본 안내 저장</button>
+      <hr class="form-hr">
       <div class="sec-heading">등록된 소식 (수정/삭제)</div>
       <div class="ail" id="adminNewsList"></div>
 
@@ -1108,6 +1116,19 @@ footer strong{color:white}
   </div>
 </div>
 
+<!-- News Modal -->
+<div id="newsModal">
+  <div class="board-modal-box">
+    <button class="board-modal-close" onclick="closeNewsModal()">✕</button>
+    <span class="bm-tag" id="nmTag"></span>
+    <h3 id="nmTitle"></h3>
+    <p class="bm-date" id="nmDate"></p>
+    <img class="bm-img" id="nmImg" src="" alt="" style="display:none" onerror="this.style.display='none'">
+    <div class="bm-body" id="nmBody"></div>
+    <a class="bm-link" id="nmLink" href="#" target="_blank" rel="noopener" style="display:none">🔗 <span id="nmLinkLabel">링크 보기</span></a>
+  </div>
+</div>
+
 <!-- Edit Modal -->
 <div id="editModal">
   <div class="modal-box">
@@ -1128,7 +1149,7 @@ footer strong{color:white}
 //  CONSTANTS & HELPERS
 // ══════════════════════════════════════════
 const DEFAULT_PW = 'anmccf2025';
-const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro', songs:'anm_songs', yt:'anm_youtube', igEmbed:'anm_ig_embed', praiseNotice:'anm_praise_notice', bibleImg:'anm_bible_img', exc:'anm_exceptions', contacts:'anm_contacts', welcomeMsg:'anm_welcome', praiseArchive:'anm_praise_archive' };
+const K = { pw:'anm_pw', b:'anm_bulletins', e:'anm_events', n:'anm_news', w:'anm_worship', p:'anm_pastor', a:'anm_about', s:'anm_site', r:'anm_recurring', ministry:'anm_ministry', bible:'anm_bible', bibleNote:'anm_biblenote', board:'anm_board', intro:'anm_intro', songs:'anm_songs', yt:'anm_youtube', igEmbed:'anm_ig_embed', praiseNotice:'anm_praise_notice', bibleImg:'anm_bible_img', exc:'anm_exceptions', contacts:'anm_contacts', welcomeMsg:'anm_welcome', newsWelcome:'anm_news_welcome', praiseArchive:'anm_praise_archive' };
 const GH_KEYS = { repo:'anm_gh_repo', branch:'anm_gh_branch', token:'anm_gh_token' };
 
 // Google Drive 공유링크 → 직접 이미지 링크 변환
@@ -1285,7 +1306,7 @@ async function publishAll() {
     { name: 'recurring.json',   data: ld(K.r, []) },
     { name: 'exceptions.json',  data: ld(K.exc, []) },
     { name: 'praise.json',    data: { songs: ld(K.songs, {date:'',list:[]}), yt: ld(K.yt,''), notice: ld(K.praiseNotice,''), archive: ld(K.praiseArchive,[]) } },
-    { name: 'extras.json',    data: { bibleImg: ld(K.bibleImg,''), contacts: ld(K.contacts,[]), welcome: ld(K.welcomeMsg,'') } }
+    { name: 'extras.json',    data: { bibleImg: ld(K.bibleImg,''), contacts: ld(K.contacts,[]), welcome: ld(K.welcomeMsg,''), newsWelcome: ld(K.newsWelcome,{}) } }
   ];
 
   const errors = [];
@@ -1961,22 +1982,71 @@ function renderNews() {
   let data = ld(K.n, []);
   // 고정 글 먼저
   data = [...data.filter(x=>x.pinned), ...data.filter(x=>!x.pinned)];
-  const fixed = `<div class="news-card"><span class="tag">안내</span><h4>ANMCCF에 오신 것을 환영합니다</h4><p>Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다.</p><p class="ndate">상시</p></div>`;
+  const welcome = getWelcomeNews();
+  const fixed = `<div class="news-card" onclick="openNewsModal('welcome')" title="클릭해서 전체 보기"><span class="tag">${welcome.tag}</span><h4>${welcome.title}</h4><p>${autoLink(welcome.body)}</p><span class="news-more">더 보기 ›</span><p class="ndate">${welcome.date}</p></div>`;
   document.getElementById('newsGrid').innerHTML = data.map(n => {
     const imgHtml  = n.img  ? `<img class="nc-img" src="${driveImg(n.img)}" alt="" onerror="this.style.display='none'">` : '';
-    const linkHtml = n.link ? `<a class="nc-link" href="${n.link}" target="_blank" rel="noopener">🔗 ${n.linkLabel||'링크 보기'}</a>` : '';
-    return `<div class="news-card" style="${n.pinned?'border:1px solid rgba(196,154,42,.4);background:rgba(196,154,42,.06)':''}">
+    return `<div class="news-card" onclick="openNewsModal('${n.id}')" title="클릭해서 전체 보기" style="${n.pinned?'border:1px solid rgba(196,154,42,.4);background:rgba(196,154,42,.06)':''}">
       ${imgHtml}
       <span class="tag">${n.pinned?'📌 ':''}${n.tag}</span>
       <h4>${n.title}</h4>
       <p>${autoLink(n.body)}</p>
-      ${linkHtml}
+      <span class="news-more">더 보기 ›</span>
       <p class="ndate">${fmt(n.date)}</p>
     </div>`;
   }).join('') + fixed;
 }
+function getWelcomeNews() {
+  const saved = ld(K.newsWelcome, {});
+  return {
+    tag: saved.tag || '안내',
+    title: saved.title || 'ANMCCF에 오신 것을 환영합니다',
+    body: saved.body || 'Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다.',
+    date: saved.date || '상시'
+  };
+}
+function loadWelcomeNewsForm() {
+  const w = getWelcomeNews();
+  [['nw-tag',w.tag],['nw-title',w.title],['nw-body',w.body],['nw-date',w.date]].forEach(([id,val]) => {
+    const field = document.getElementById(id);
+    if (field) field.value = val;
+  });
+}
+function saveWelcomeNews() {
+  const tag = (document.getElementById('nw-tag')||{}).value.trim() || '안내';
+  const title = (document.getElementById('nw-title')||{}).value.trim() || 'ANMCCF에 오신 것을 환영합니다';
+  const body = (document.getElementById('nw-body')||{}).value.trim() || 'Texas A&M 한인 학생, 교수, 연구원 및 가족분들을 위한 신앙 공동체에 오신 것을 환영합니다.';
+  const date = (document.getElementById('nw-date')||{}).value.trim() || '상시';
+  sv(K.newsWelcome, { tag, title, body, date });
+  renderNews();
+  loadWelcomeNewsForm();
+  toast('✅ 기본 안내가 저장되었습니다! 발행 버튼으로 반영하세요.');
+}
+function openNewsModal(id) {
+  const n = id === 'welcome' ? getWelcomeNews() : ld(K.n, []).find(x => x.id === id);
+  if (!n) return;
+  document.getElementById('nmTag').textContent = n.pinned ? `📌 ${n.tag}` : n.tag;
+  document.getElementById('nmTitle').textContent = n.title;
+  document.getElementById('nmDate').textContent = id === 'welcome' ? n.date : fmt(n.date);
+  document.getElementById('nmBody').innerHTML = autoLink(n.body || '');
+  const img = document.getElementById('nmImg');
+  if (n.img) { img.src = driveImg(n.img); img.style.display = ''; } else { img.removeAttribute('src'); img.style.display = 'none'; }
+  const link = document.getElementById('nmLink');
+  if (n.link) {
+    link.href = n.link;
+    document.getElementById('nmLinkLabel').textContent = n.linkLabel || '링크 보기';
+    link.style.display = 'inline-flex';
+  } else {
+    link.style.display = 'none';
+  }
+  document.getElementById('newsModal').classList.add('open');
+}
+function closeNewsModal() {
+  document.getElementById('newsModal').classList.remove('open');
+}
 function renderAdminNews() {
   const data = ld(K.n, []);
+  loadWelcomeNewsForm();
   const el = document.getElementById('adminNewsList');
   if (!data.length) { el.innerHTML = '<p style="font-size:.82rem;color:var(--text-light)">등록된 소식이 없습니다.</p>'; return; }
   el.innerHTML = data.map(n => `<div class="ai">
@@ -2926,6 +2996,7 @@ function openModal(title, fields, cb) {
 function closeModal() { document.getElementById('editModal').classList.remove('open'); }
 document.getElementById('editModal').addEventListener('click', e => { if (e.target === document.getElementById('editModal')) closeModal(); });
 document.getElementById('boardModal').addEventListener('click', e => { if (e.target === document.getElementById('boardModal')) closeBoardModal(); });
+document.getElementById('newsModal').addEventListener('click', e => { if (e.target === document.getElementById('newsModal')) closeNewsModal(); });
 
 function renderAdminLists() { renderAdminBulletins(); renderAdminEvents(); renderAdminNews(); renderAdminMinistry(); renderAdminBible(); renderAdminBoard(); renderAdminRecurring(); renderAdminSongs(); renderAdminArchive(); renderAdminContactList(); }
 
@@ -2982,6 +3053,7 @@ async function init() {
       if(extras.bibleImg!==undefined) sv(K.bibleImg, extras.bibleImg);
       if(extras.contacts!==undefined) sv(K.contacts, extras.contacts);
       if(extras.welcome!==undefined)  sv(K.welcomeMsg, extras.welcome);
+      if(extras.newsWelcome!==undefined) sv(K.newsWelcome, extras.newsWelcome);
       changed = true;
     }
     if (exceptions) { sv(K.exc, exceptions); changed = true; }
