@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-06-07",
+    "date": "2026-06-14",
     "list": [
       {
-        "id": "mpz5pnviys4",
+        "id": "mq7i61ekwmp",
         "title": "왕되신 주께 감사하세",
-        "ytLink": "https://youtu.be/eytwu1Lvphc?si=mhVyBUx5pixYb58r"
+        "ytLink": "https://youtu.be/eytwu1Lvphc?si=_M8YZFDRAgnN0DP5"
       },
       {
-        "id": "mpz5pnvi7ps",
+        "id": "mq7i61ekecv",
         "title": "주 이름 찬양",
-        "ytLink": "https://youtu.be/xITJZa0hpu0?si=GJFHKTlStuveEfGV"
+        "ytLink": "https://youtu.be/xITJZa0hpu0?si=mFrHoK9ue6uyjbuD"
       },
       {
-        "id": "mpz5pnvixqw",
+        "id": "mq7i61ek3i6",
         "title": "하나님의 어린 양",
-        "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=zHW8kXK-I3hlM-PK"
+        "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=4xlpXk4nOPIWywwz"
       },
       {
-        "id": "mpz5pnvim2x",
+        "id": "mq7i61ekr3o",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=h2vGxiBXHCbjc-Sj"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=iw8YtGxjSNYowL3-"
       },
       {
-        "id": "mpz5pnvid13",
-        "title": "문들아 머리 들어라",
-        "ytLink": "https://youtu.be/p3BBGQMSjNc?si=i4COCZ6qhYZTtpEB"
+        "id": "mq7i61ekf79",
+        "title": "마음이 상한 자를",
+        "ytLink": "https://youtu.be/oU6ERb5kmjw?si=TU4Ie_61aI4Dw5b4"
       },
       {
-        "id": "mpz5pnvii3w",
-        "title": "하나님께서 당신을 통해",
-        "ytLink": "https://youtu.be/lBS5ZG_KobU?si=vUoqR6UruVnNPxVw"
+        "id": "mq7i61ek3tf",
+        "title": "야곱의 축복",
+        "ytLink": "https://youtu.be/VZuscqNiOjg?si=9PPDFmaqspZolD5c"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK_h0zaxdB4D-1Om8XUW4-wv&si=BTOfu5EPW6t2Qorx",
-  "notice": "지난 주에 우리 함께 거룩하신 하나님 앞에 섰었죠.\n이번 주는, 그 하나님이 우리의 왕이심을 함께 고백하려 합니다.\n사사기와 사무엘상을 보면, 이스라엘 백성들은 하나님이 왕이신 줄 알면서도 자꾸 다른 왕을 찾았고, 우리에게도 그 모습이 보입니다.\n그럼에도 하나님은 여전히 왕이십니다.\n이번 주 찬양을 통해, 우리 삶의 진짜 왕이 누구인지 함께 고백하는 시간 되길 바랍니다 :)",
+  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK_HffWr3c7NUjihDBhu2vCO&si=P6cK0TMLsmQoIAQU",
+  "notice": "지난주와 이번주 찬양은 거의 같은데, 이번주부터 축복찬양을 '야곱의 축복'으로 부르려고 합니다. 마지막 두곡 꼭 들어보고 와주세요! 그럼 한주도 주님 안에서 평안하고 힘차게 보내다 주일에 만나요!",
   "archive": [
+    {
+      "id": "mq7i5zybnej",
+      "date": "2026-06-07",
+      "list": [
+        {
+          "id": "mpz5pnviys4",
+          "title": "왕되신 주께 감사하세",
+          "ytLink": "https://youtu.be/eytwu1Lvphc?si=mhVyBUx5pixYb58r"
+        },
+        {
+          "id": "mpz5pnvi7ps",
+          "title": "주 이름 찬양",
+          "ytLink": "https://youtu.be/xITJZa0hpu0?si=GJFHKTlStuveEfGV"
+        },
+        {
+          "id": "mpz5pnvixqw",
+          "title": "하나님의 어린 양",
+          "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=zHW8kXK-I3hlM-PK"
+        },
+        {
+          "id": "mpz5pnvim2x",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=h2vGxiBXHCbjc-Sj"
+        },
+        {
+          "id": "mpz5pnvid13",
+          "title": "문들아 머리 들어라",
+          "ytLink": "https://youtu.be/p3BBGQMSjNc?si=i4COCZ6qhYZTtpEB"
+        },
+        {
+          "id": "mpz5pnvii3w",
+          "title": "하나님께서 당신을 통해",
+          "ytLink": "https://youtu.be/lBS5ZG_KobU?si=vUoqR6UruVnNPxVw"
+        }
+      ],
+      "notice": "지난 주에 우리 함께 거룩하신 하나님 앞에 섰었죠.\n이번 주는, 그 하나님이 우리의 왕이심을 함께 고백하려 합니다.\n사사기와 사무엘상을 보면, 이스라엘 백성들은 하나님이 왕이신 줄 알면서도 자꾸 다른 왕을 찾았고, 우리에게도 그 모습이 보입니다.\n그럼에도 하나님은 여전히 왕이십니다.\n이번 주 찬양을 통해, 우리 삶의 진짜 왕이 누구인지 함께 고백하는 시간 되길 바랍니다 :)",
+      "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK_h0zaxdB4D-1Om8XUW4-wv&si=BTOfu5EPW6t2Qorx"
+    },
     {
       "id": "mpz5piwz8of",
       "date": "2026-05-31",
