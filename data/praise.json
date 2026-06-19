@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-06-14",
+    "date": "",
     "list": [
       {
-        "id": "mq7i61ekwmp",
-        "title": "왕되신 주께 감사하세",
-        "ytLink": "https://youtu.be/eytwu1Lvphc?si=_M8YZFDRAgnN0DP5"
+        "id": "mqkkkvx0wcg",
+        "title": "주께 가까이",
+        "ytLink": "https://youtu.be/PXo_-_BaY_E?si=YebOzy_9qjcIRwuc"
       },
       {
-        "id": "mq7i61ekecv",
-        "title": "주 이름 찬양",
-        "ytLink": "https://youtu.be/xITJZa0hpu0?si=mFrHoK9ue6uyjbuD"
+        "id": "mqkkkvx0qh1",
+        "title": "신실하게 진실하게",
+        "ytLink": "https://youtu.be/uodfPXuTXvc?si=FtCTnUVakoWpr-3u"
       },
       {
-        "id": "mq7i61ek3i6",
-        "title": "하나님의 어린 양",
-        "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=4xlpXk4nOPIWywwz"
+        "id": "mqkkkvx0k4c",
+        "title": "나의 백성이",
+        "ytLink": "https://youtu.be/sxmvTLUd--U?si=FaNoUIBH_GnA651K"
       },
       {
-        "id": "mq7i61ekr3o",
+        "id": "mqkkkvx0nh2",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=iw8YtGxjSNYowL3-"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=_JulnTnBoUg1vy9e"
       },
       {
-        "id": "mq7i61ekf79",
-        "title": "마음이 상한 자를",
-        "ytLink": "https://youtu.be/oU6ERb5kmjw?si=TU4Ie_61aI4Dw5b4"
+        "id": "mqkkkvx0xlh",
+        "title": "여호와께 돌아가자",
+        "ytLink": "https://youtu.be/lcSOAgsK0mQ?si=VSa0jH2scwMDn1QV"
       },
       {
-        "id": "mq7i61ek3tf",
+        "id": "mqkkkvx0wgc",
         "title": "야곱의 축복",
-        "ytLink": "https://youtu.be/VZuscqNiOjg?si=9PPDFmaqspZolD5c"
+        "ytLink": "https://youtu.be/VZuscqNiOjg?si=uGnGTT_uoyOItDeu"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK_HffWr3c7NUjihDBhu2vCO&si=P6cK0TMLsmQoIAQU",
-  "notice": "지난주와 이번주 찬양은 거의 같은데, 이번주부터 축복찬양을 '야곱의 축복'으로 부르려고 합니다. 마지막 두곡 꼭 들어보고 와주세요! 그럼 한주도 주님 안에서 평안하고 힘차게 보내다 주일에 만나요!",
+  "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK9uHdM1__qif1PViegajoHA&si=LtxIvM6pukanxKYL",
+  "notice": "모든 것이 무너지고 절망만이 남았을 때, 희망이 보이지 않을 때, 느헤미야는 하나님 앞에 엎드려 기도했습니다. 회개했습니다. 그리고 하나님의 말씀을 근거로 주님의 자비를 구했습니다.눈물의 기도와 간구처럼, 이번 주 찬양곡들은 우리가 기도하는 방법을 노래합니다.\n[전체찬양]",
   "archive": [
+    {
+      "id": "mqkkkr7d9up",
+      "date": "2026-06-14",
+      "list": [
+        {
+          "id": "mq7i61ekwmp",
+          "title": "왕되신 주께 감사하세",
+          "ytLink": "https://youtu.be/eytwu1Lvphc?si=_M8YZFDRAgnN0DP5"
+        },
+        {
+          "id": "mq7i61ekecv",
+          "title": "주 이름 찬양",
+          "ytLink": "https://youtu.be/xITJZa0hpu0?si=mFrHoK9ue6uyjbuD"
+        },
+        {
+          "id": "mq7i61ek3i6",
+          "title": "하나님의 어린 양",
+          "ytLink": "https://youtu.be/Ku3Vh9mzKGM?si=4xlpXk4nOPIWywwz"
+        },
+        {
+          "id": "mq7i61ekr3o",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=iw8YtGxjSNYowL3-"
+        },
+        {
+          "id": "mq7i61ekf79",
+          "title": "마음이 상한 자를",
+          "ytLink": "https://youtu.be/oU6ERb5kmjw?si=TU4Ie_61aI4Dw5b4"
+        },
+        {
+          "id": "mq7i61ek3tf",
+          "title": "야곱의 축복",
+          "ytLink": "https://youtu.be/VZuscqNiOjg?si=9PPDFmaqspZolD5c"
+        }
+      ],
+      "notice": "지난주와 이번주 찬양은 거의 같은데, 이번주부터 축복찬양을 '야곱의 축복'으로 부르려고 합니다. 마지막 두곡 꼭 들어보고 와주세요! 그럼 한주도 주님 안에서 평안하고 힘차게 보내다 주일에 만나요!",
+      "yt": "https://youtube.com/playlist?list=PLFaIJJNVGzK_HffWr3c7NUjihDBhu2vCO&si=P6cK0TMLsmQoIAQU"
+    },
     {
       "id": "mq7i5zybnej",
       "date": "2026-06-07",
