@@ -1,6 +1,16 @@
 {
   "studies": [
     {
+      "id": "mqnavvch9x3",
+      "name": "마가복음 구역 성경공부",
+      "semester": "2026 Spring",
+      "period": "1-4월",
+      "time": "주일 오후 1:30",
+      "place": "ILSB",
+      "leader": "구역장",
+      "target": "전교인"
+    },
+    {
       "id": "moo23fahbm6",
       "name": "요한계시록 성경공부",
       "semester": "2026 Spring",
@@ -19,16 +29,6 @@
       "place": "HEB",
       "leader": "김무현 장로님",
       "target": "대학생/대학원생"
-    },
-    {
-      "id": "mqnavvch9x3",
-      "name": "마가복음 구역 성경공부",
-      "semester": "2026 Spring",
-      "period": "1-4월",
-      "time": "주일 오후 1:30",
-      "place": "ILSB",
-      "leader": "구역장",
-      "target": "전교인"
     }
   ],
   "note": ""
