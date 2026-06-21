@@ -239,6 +239,8 @@ section{padding:6rem 2rem;width:100%}
 .nc-autolink{color:var(--gold-light);text-decoration:underline;word-break:break-all}
 /* board modal image */
 .bm-img{width:100%;max-height:280px;object-fit:cover;border-radius:8px;margin-bottom:1rem}
+.bm-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem;margin-bottom:1rem}
+.bm-gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;background:var(--cream)}
 .bm-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.85rem;color:var(--maroon);text-decoration:none;border:1px solid var(--border);padding:.4rem 1rem;border-radius:4px;transition:.15s}
 .bm-link:hover{background:var(--maroon-pale)}
 /* board card image thumbnail */
@@ -889,7 +891,8 @@ footer strong{color:white}
       </div>
       <div class="fg"><label>제목</label><input type="text" id="bd-title" placeholder="게시글 제목"></div>
       <div class="fg"><label>내용</label><textarea id="bd-body" placeholder="내용을 입력하세요..."></textarea></div>
-      <div class="fg"><label>이미지 URL (선택)</label><input type="url" id="bd-img" placeholder="https://drive.google.com/file/d/... 또는 https://i.imgur.com/..."></div>
+      <div class="fg"><label>이미지 URL (선택, 여러 장은 줄바꿈으로 입력)</label><textarea id="bd-img" placeholder="https://drive.google.com/file/d/...
+https://i.imgur.com/..."></textarea></div>
       <div class="fg"><label>링크 (선택)</label>
         <div style="display:grid;grid-template-columns:1fr auto;gap:.5rem">
           <input type="url" id="bd-link" placeholder="https://...">
@@ -1112,7 +1115,7 @@ footer strong{color:white}
     <span class="bm-tag" id="bmTag"></span>
     <h3 id="bmTitle"></h3>
     <p class="bm-date" id="bmDate"></p>
-    <img class="bm-img" id="bmImg" src="" alt="" style="display:none" onerror="this.style.display='none'">
+    <div class="bm-gallery" id="bmGallery" style="display:none"></div>
     <div class="bm-body" id="bmBody"></div>
     <a class="bm-link" id="bmLink" href="#" target="_blank" rel="noopener" style="display:none">🔗 <span id="bmLinkLabel">링크 보기</span></a>
   </div>
@@ -2454,20 +2457,31 @@ function renderAdminBible() {
   const data=ld(K.bible,[]);
   const el=document.getElementById('adminBibleList'); if(!el) return;
   if(!data.length){el.innerHTML='<p style="font-size:.82rem;color:var(--text-light)">등록된 성경공부가 없습니다.</p>';return;}
-  el.innerHTML=data.map(b=>{
+  el.innerHTML=data.map((b, idx)=>{
     const semPeriod = [b.semester, b.period].filter(Boolean).join(' ');
     const meta = [semPeriod, b.time, b.place, b.leader].filter(Boolean).join(' · ');
     return `<div class="ai">
       <div class="ai-info">
-        <div class="ai-title">📖 ${b.name}</div>
+        <div class="ai-title">📖 ${idx+1}. ${b.name}</div>
         <div class="ai-meta">${meta||'(정보 없음)'}</div>
       </div>
       <div class="ai-actions">
+        <button class="ibtn edit" onclick="moveBible('${b.id}',-1)" ${idx===0?'disabled':''}>위</button>
+        <button class="ibtn edit" onclick="moveBible('${b.id}',1)" ${idx===data.length-1?'disabled':''}>아래</button>
         <button class="ibtn edit" onclick="editBible('${b.id}')">수정</button>
         <button class="ibtn del" onclick="delBible('${b.id}')">삭제</button>
       </div>
     </div>`;
   }).join('');
+}
+function moveBible(id, dir) {
+  const data = ld(K.bible,[]);
+  const idx = data.findIndex(x=>x.id===id);
+  const next = idx + dir;
+  if (idx < 0 || next < 0 || next >= data.length) return;
+  [data[idx], data[next]] = [data[next], data[idx]];
+  sv(K.bible,data); renderBible(); renderAdminBible();
+  toast('✅ 순서가 변경됐습니다! 발행 버튼으로 반영하세요.');
 }
 function editBible(id) {
   const data=ld(K.bible,[]), b=data.find(x=>x.id===id); if(!b) return;
@@ -2486,6 +2500,13 @@ function delBible(id){if(!confirm('삭제할까요?'))return;sv(K.bible,ld(K.bib
 // ══════════════════════════════════════════
 //  BOARD
 // ══════════════════════════════════════════
+function boardImages(p) {
+  const imgs = Array.isArray(p.images) ? p.images : (p.img ? [p.img] : []);
+  return imgs.map(x => (x||'').trim()).filter(Boolean);
+}
+function parseBoardImages(raw) {
+  return (raw||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+}
 function addBoard() {
   const tag    = document.getElementById('bd-tag').value;
   const title  = document.getElementById('bd-title').value.trim();
@@ -2493,13 +2514,14 @@ function addBoard() {
   const pinEl  = document.getElementById('bd-pin');
   const pinned = pinEl ? pinEl.checked : false;
   const img   = (document.getElementById('bd-img')        ||{}).value||'';
+  const images = parseBoardImages(img);
   const link  = (document.getElementById('bd-link')       ||{}).value||'';
   const lbl   = (document.getElementById('bd-link-label') ||{}).value||'링크 보기';
   const dateEl = document.getElementById('bd-date');
   const date   = (dateEl && dateEl.value) ? dateEl.value : new Date().toISOString().split('T')[0];
   if (!title||!body) { toast('제목과 내용을 입력해 주세요.'); return; }
   const data = ld(K.board,[]);
-  data.unshift({id:uid(),tag,title,body,date,pinned,img:img.trim(),link:link.trim(),linkLabel:lbl.trim()||'링크 보기'});
+  data.unshift({id:uid(),tag,title,body,date,pinned,img:images[0]||'',images,link:link.trim(),linkLabel:lbl.trim()||'링크 보기'});
   sv(K.board,data); renderBoard(); renderAdminBoard();
   ['bd-date','bd-title','bd-body','bd-img','bd-link','bd-link-label'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
   if(document.getElementById('bd-pin')) document.getElementById('bd-pin').checked=false;
@@ -2514,7 +2536,8 @@ function renderBoard() {
   el.innerHTML=data.map(p=>{
     const preview  = p.body.split('\n').slice(0,2).join(' ').substring(0,80) + (p.body.length>80?'…':'');
     const pinBadge = p.pinned ? '<span class="pin-badge">📌 고정</span>' : '';
-    const thumbHtml = p.img ? `<img class="board-thumb" src="${driveImg(p.img)}" alt="" onerror="this.style.display='none'">` : '';
+    const imgs = boardImages(p);
+    const thumbHtml = imgs.length ? `<img class="board-thumb" src="${driveImg(imgs[0])}" alt="" onerror="this.style.display='none'">${imgs.length>1?`<span style="font-size:.65rem;color:var(--gold)">+${imgs.length-1}장</span>`:''}` : '';
     const linkIcon  = p.link ? ' 🔗' : '';
     return `<div class="board-card ${p.pinned?'pinned':''}" onclick="openBoardModal('${p.id}')" title="클릭해서 전체 보기">
       <div><span class="board-tag">${p.tag}</span></div>
@@ -2534,9 +2557,18 @@ function openBoardModal(id) {
   el('bmTitle').textContent = p.title;
   el('bmDate').textContent  = fmt(p.date);
   el('bmBody').innerHTML    = autoLink(p.body);
-  // image
-  const imgEl = el('bmImg');
-  if(imgEl) { if(p.img){imgEl.src=driveImg(p.img);imgEl.style.display='';}else{imgEl.style.display='none';} }
+  // images
+  const galleryEl = el('bmGallery');
+  const imgs = boardImages(p);
+  if(galleryEl) {
+    if(imgs.length){
+      galleryEl.innerHTML = imgs.map(src=>`<img src="${driveImg(src)}" alt="" onerror="this.style.display='none'">`).join('');
+      galleryEl.style.display='grid';
+    } else {
+      galleryEl.innerHTML = '';
+      galleryEl.style.display='none';
+    }
+  }
   // link
   const linkEl = el('bmLink');
   if(linkEl) {
@@ -2571,11 +2603,13 @@ function editBoard(id) {
     { label:'분류',      key:'tag',       type:'select', options:['생활정보','신입생 안내','구인/구직','물품 나눔','자유게시판','기도요청'], val:p.tag },
     { label:'제목',      key:'title',     type:'text',   val:p.title },
     { label:'내용',      key:'body',      type:'textarea', val:p.body },
-    { label:'이미지 URL', key:'img',      type:'url',    val:p.img||'' },
+    { label:'이미지 URL (여러 장은 줄바꿈)', key:'img', type:'textarea', val:boardImages(p).join('\n') },
     { label:'링크 URL',  key:'link',      type:'url',    val:p.link||'' },
     { label:'링크 이름', key:'linkLabel', type:'text',   val:p.linkLabel||'링크 보기' }
   ], vals => {
     Object.assign(p, vals);
+    p.images = parseBoardImages(vals.img);
+    p.img = p.images[0] || '';
     sv(K.board, data); renderBoard(); renderAdminBoard();
     toast('✅ 수정됐습니다! 발행 버튼으로 반영하세요.');
   });
