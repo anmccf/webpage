@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-06-28",
+    "date": "2026-07-05",
     "list": [
       {
-        "id": "mquks51m8d9",
+        "id": "mr5xehlz6wd",
         "title": "주님의 선하심 (Goodness of God)",
-        "ytLink": "https://youtu.be/BFKbbxa8uio?si=kZ3L3BGLrgDNWPgN"
+        "ytLink": "https://youtu.be/BFKbbxa8uio?si=jKPpqHEGRHHFey2C"
       },
       {
-        "id": "mquks51m0i3",
+        "id": "mr5xehlzxqw",
         "title": "주 여호와는 광대하시도다",
-        "ytLink": "https://youtu.be/LPY2B9Kk7DA?si=clvxckYoxRJu-UQ8"
+        "ytLink": "https://youtu.be/LPY2B9Kk7DA?si=NFEbkj8P_F9VRpYH"
       },
       {
-        "id": "mquks51mn88",
+        "id": "mr5xehlz2wt",
         "title": "주의 아름다움은 말로 다",
-        "ytLink": "https://youtu.be/ZWquExqPvO0?si=pGf8XYNuUILsRs5C"
+        "ytLink": "https://youtu.be/ZWquExqPvO0?si=jopjpSWuLzkGY92e"
       },
       {
-        "id": "mquks51mfhn",
+        "id": "mr5xehm0z34",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=eRMzoIoh0_712MSd"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=PbshwUBsMfmdDu51"
       },
       {
-        "id": "mquks51ml9z",
-        "title": "주의 아름다움은 말로 다",
-        "ytLink": "https://youtu.be/ZWquExqPvO0?si=pGf8XYNuUILsRs5C"
+        "id": "mr5xehm0m4g",
+        "title": "내 평생 사는동안",
+        "ytLink": "https://youtu.be/iqQfEWTGMRc?si=WoWOPmhIupPwvFgx"
       },
       {
-        "id": "mquks51mg1e",
+        "id": "mr5xehm0ldm",
         "title": "야곱의 축복",
-        "ytLink": "https://youtu.be/VZuscqNiOjg?si=9Mw3HzSMZC1ljVX8"
+        "ytLink": "https://youtu.be/VZuscqNiOjg?si=xEdv7LgLqWS3_RR2"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLayEFHSTEcjo&si=U2ulVQ40LlSH0YYx",
-  "notice": "이번 주 말씀은 잠언 1장입니다.\n잠언은 \"여호와를 경외하는 것이 지식의 시작\"이라고 선포하며, 세상의 수많은 목소리보다 하나님의 지혜를 선택하라고 우리를 초대합니다.\n이번 주 찬양을 통해 하나님을 두려워하는 마음으로 엎드리고, 그분의 음성에 귀 기울이는 마음을 함께 고백하는 시간 되길 바랍니다. :)",
+  "yt": "https://youtube.com/playlist?list=PLZz6_PjBHbpU&si=wsWEoo3HBdCYUb62",
+  "notice": "모두들 한 주 잘 보내고 계신가요! 이번주는 좀 늦었지만,, 지난주 곡에서 딱 하나 헌금찬양만 바뀌니 크게 부담없이 듣고 오셔도 될 것 같습니다 :) 다만 '주의 아름다움은 말로 다' 이 곡 A코드에서 G코드로 낮춰서 진행하니 꼭 악보 체크해보고 와주세요!",
   "archive": [
+    {
+      "id": "mr5xecnqgvb",
+      "date": "2026-06-28",
+      "list": [
+        {
+          "id": "mquks51m8d9",
+          "title": "주님의 선하심 (Goodness of God)",
+          "ytLink": "https://youtu.be/BFKbbxa8uio?si=kZ3L3BGLrgDNWPgN"
+        },
+        {
+          "id": "mquks51m0i3",
+          "title": "주 여호와는 광대하시도다",
+          "ytLink": "https://youtu.be/LPY2B9Kk7DA?si=clvxckYoxRJu-UQ8"
+        },
+        {
+          "id": "mquks51mn88",
+          "title": "주의 아름다움은 말로 다",
+          "ytLink": "https://youtu.be/ZWquExqPvO0?si=pGf8XYNuUILsRs5C"
+        },
+        {
+          "id": "mquks51mfhn",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=eRMzoIoh0_712MSd"
+        },
+        {
+          "id": "mquks51ml9z",
+          "title": "주의 아름다움은 말로 다",
+          "ytLink": "https://youtu.be/ZWquExqPvO0?si=pGf8XYNuUILsRs5C"
+        },
+        {
+          "id": "mquks51mg1e",
+          "title": "야곱의 축복",
+          "ytLink": "https://youtu.be/VZuscqNiOjg?si=9Mw3HzSMZC1ljVX8"
+        }
+      ],
+      "notice": "이번 주 말씀은 잠언 1장입니다.\n잠언은 \"여호와를 경외하는 것이 지식의 시작\"이라고 선포하며, 세상의 수많은 목소리보다 하나님의 지혜를 선택하라고 우리를 초대합니다.\n이번 주 찬양을 통해 하나님을 두려워하는 마음으로 엎드리고, 그분의 음성에 귀 기울이는 마음을 함께 고백하는 시간 되길 바랍니다. :)",
+      "yt": "https://youtube.com/playlist?list=PLayEFHSTEcjo&si=U2ulVQ40LlSH0YYx"
+    },
     {
       "id": "mqukrtykbxh",
       "date": "2026-06-21",
