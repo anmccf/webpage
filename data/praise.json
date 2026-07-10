@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-07-05",
+    "date": "2026-07-12",
     "list": [
       {
-        "id": "mr5xehlz6wd",
+        "id": "mreyfvtwycs",
         "title": "주님의 선하심 (Goodness of God)",
-        "ytLink": "https://youtu.be/BFKbbxa8uio?si=jKPpqHEGRHHFey2C"
+        "ytLink": "https://youtu.be/BFKbbxa8uio?si=k9ttk_EUCyj7Wvqi"
       },
       {
-        "id": "mr5xehlzxqw",
-        "title": "주 여호와는 광대하시도다",
-        "ytLink": "https://youtu.be/LPY2B9Kk7DA?si=NFEbkj8P_F9VRpYH"
-      },
-      {
-        "id": "mr5xehlz2wt",
+        "id": "mreyfvtwef1",
         "title": "주의 아름다움은 말로 다",
-        "ytLink": "https://youtu.be/ZWquExqPvO0?si=jopjpSWuLzkGY92e"
+        "ytLink": "https://youtu.be/ZWquExqPvO0?si=MJgKCG8IbSIMDBpj"
       },
       {
-        "id": "mr5xehm0z34",
+        "id": "mreyfvtw6sy",
+        "title": "성령이 오셨네",
+        "ytLink": "https://youtu.be/8QiJFeiuwtk?si=H-RlJ8u9guRD3fKj"
+      },
+      {
+        "id": "mreyfvtwcki",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=PbshwUBsMfmdDu51"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=5VDBiW7wsNkwFeOa"
       },
       {
-        "id": "mr5xehm0m4g",
-        "title": "내 평생 사는동안",
-        "ytLink": "https://youtu.be/iqQfEWTGMRc?si=WoWOPmhIupPwvFgx"
+        "id": "mreyfvtwsx3",
+        "title": "십자가의 도 순교자의 길",
+        "ytLink": "https://youtu.be/nz8RgcfAo4Q?si=Q7OcTHg7dncyoSG7"
       },
       {
-        "id": "mr5xehm0ldm",
+        "id": "mreyfvtw826",
         "title": "야곱의 축복",
-        "ytLink": "https://youtu.be/VZuscqNiOjg?si=xEdv7LgLqWS3_RR2"
+        "ytLink": "https://youtu.be/VZuscqNiOjg?si=gPQwB0Xuy0CgJivz"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLZz6_PjBHbpU&si=wsWEoo3HBdCYUb62",
-  "notice": "모두들 한 주 잘 보내고 계신가요! 이번주는 좀 늦었지만,, 지난주 곡에서 딱 하나 헌금찬양만 바뀌니 크게 부담없이 듣고 오셔도 될 것 같습니다 :) 다만 '주의 아름다움은 말로 다' 이 곡 A코드에서 G코드로 낮춰서 진행하니 꼭 악보 체크해보고 와주세요!",
+  "yt": "https://youtube.com/playlist?list=PLM4sy01GCmAQ&si=OaI3oe4HQA1QON0c",
+  "notice": "사도행전은 이름은 '사도들의 행적'이지만, 사실은 그 이상의 이야기예요. 1장 8절 말씀처럼, 성령님이 우리와 함께하시고 성령님이 교회를 세워가시며, 예루살렘에서 유대와 사마리아를 거쳐 온 세상으로 복음이 퍼져나가는 이야기를 담고 있어요.\n이번 주에는 우리에게 좋으신 분, 아름다우신 주님 그리고 우리에게 성령님을 보내주신 하나님을 함께 찬양합시다!",
   "archive": [
+    {
+      "id": "mreyftqotc0",
+      "date": "2026-07-05",
+      "list": [
+        {
+          "id": "mr5xehlz6wd",
+          "title": "주님의 선하심 (Goodness of God)",
+          "ytLink": "https://youtu.be/BFKbbxa8uio?si=jKPpqHEGRHHFey2C"
+        },
+        {
+          "id": "mr5xehlzxqw",
+          "title": "주 여호와는 광대하시도다",
+          "ytLink": "https://youtu.be/LPY2B9Kk7DA?si=NFEbkj8P_F9VRpYH"
+        },
+        {
+          "id": "mr5xehlz2wt",
+          "title": "주의 아름다움은 말로 다",
+          "ytLink": "https://youtu.be/ZWquExqPvO0?si=jopjpSWuLzkGY92e"
+        },
+        {
+          "id": "mr5xehm0z34",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=PbshwUBsMfmdDu51"
+        },
+        {
+          "id": "mr5xehm0m4g",
+          "title": "내 평생 사는동안",
+          "ytLink": "https://youtu.be/iqQfEWTGMRc?si=WoWOPmhIupPwvFgx"
+        },
+        {
+          "id": "mr5xehm0ldm",
+          "title": "야곱의 축복",
+          "ytLink": "https://youtu.be/VZuscqNiOjg?si=xEdv7LgLqWS3_RR2"
+        }
+      ],
+      "notice": "모두들 한 주 잘 보내고 계신가요! 이번주는 좀 늦었지만,, 지난주 곡에서 딱 하나 헌금찬양만 바뀌니 크게 부담없이 듣고 오셔도 될 것 같습니다 :) 다만 '주의 아름다움은 말로 다' 이 곡 A코드에서 G코드로 낮춰서 진행하니 꼭 악보 체크해보고 와주세요!",
+      "yt": "https://youtube.com/playlist?list=PLZz6_PjBHbpU&si=wsWEoo3HBdCYUb62"
+    },
     {
       "id": "mr5xecnqgvb",
       "date": "2026-06-28",
