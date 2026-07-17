@@ -1,42 +1,75 @@
 {
   "songs": {
-    "date": "2026-07-12",
+    "date": "2026-07-19",
     "list": [
       {
-        "id": "mreyfvtwycs",
-        "title": "주님의 선하심 (Goodness of God)",
-        "ytLink": "https://youtu.be/BFKbbxa8uio?si=k9ttk_EUCyj7Wvqi"
+        "id": "mromo4xd5n7",
+        "title": "그 크신 하나님의 사랑 + 예수 하나님의 공의",
+        "ytLink": "https://youtu.be/_pr-7UWndWo?si=iCkc8LX9GLJE1GMI"
       },
       {
-        "id": "mreyfvtwef1",
-        "title": "주의 아름다움은 말로 다",
-        "ytLink": "https://youtu.be/ZWquExqPvO0?si=MJgKCG8IbSIMDBpj"
-      },
-      {
-        "id": "mreyfvtw6sy",
+        "id": "mromo4xd2ga",
         "title": "성령이 오셨네",
-        "ytLink": "https://youtu.be/8QiJFeiuwtk?si=H-RlJ8u9guRD3fKj"
+        "ytLink": "https://youtu.be/XbQU6bPr2Mg?si=kMUIjbYIh9nsIXJa"
       },
       {
-        "id": "mreyfvtwcki",
+        "id": "mromo4xd7pq",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=5VDBiW7wsNkwFeOa"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=9DZPNZfRUrQxuXE9"
       },
       {
-        "id": "mreyfvtwsx3",
-        "title": "십자가의 도 순교자의 길",
-        "ytLink": "https://youtu.be/nz8RgcfAo4Q?si=Q7OcTHg7dncyoSG7"
+        "id": "mromo4xdup1",
+        "title": "주를 향한 나의 사랑을",
+        "ytLink": "https://youtu.be/27V8Glxnaso?si=mjyGZ2Jn6D-p_UK8"
       },
       {
-        "id": "mreyfvtw826",
+        "id": "mromo4xddh6",
         "title": "야곱의 축복",
-        "ytLink": "https://youtu.be/VZuscqNiOjg?si=gPQwB0Xuy0CgJivz"
+        "ytLink": "https://youtu.be/VZuscqNiOjg?si=7EjF2VmUXFCqDBMN"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLM4sy01GCmAQ&si=OaI3oe4HQA1QON0c",
-  "notice": "사도행전은 이름은 '사도들의 행적'이지만, 사실은 그 이상의 이야기예요. 1장 8절 말씀처럼, 성령님이 우리와 함께하시고 성령님이 교회를 세워가시며, 예루살렘에서 유대와 사마리아를 거쳐 온 세상으로 복음이 퍼져나가는 이야기를 담고 있어요.\n이번 주에는 우리에게 좋으신 분, 아름다우신 주님 그리고 우리에게 성령님을 보내주신 하나님을 함께 찬양합시다!",
+  "yt": "https://youtube.com/playlist?list=PLRkwNNV-KJv4&si=5CaGsVFkBPeKPIQq",
+  "notice": "사랑이 뭘까요?\n참고, 다정하고, 거들먹거리거나 무례하지 않고, 나보다 남을 먼저 생각하며 화내지 않고 감싸주는 것. 그것이 사랑이라 합니다.\n멸종 위기 사랑의 시대를 살아내며 사랑보다 경계가 익숙한 지금, 말씀에서 우리는 사랑받았기에 사랑할 수 있는 존재라 합니다. 하나님이 어떤 사랑의 언어로 우리를 사랑하셨는지, 오늘 목소리와 악기로 함께 표현해봅시다.",
   "archive": [
+    {
+      "id": "mromkner2k6",
+      "date": "2026-07-12",
+      "list": [
+        {
+          "id": "mreyfvtwycs",
+          "title": "주님의 선하심 (Goodness of God)",
+          "ytLink": "https://youtu.be/BFKbbxa8uio?si=k9ttk_EUCyj7Wvqi"
+        },
+        {
+          "id": "mreyfvtwef1",
+          "title": "주의 아름다움은 말로 다",
+          "ytLink": "https://youtu.be/ZWquExqPvO0?si=MJgKCG8IbSIMDBpj"
+        },
+        {
+          "id": "mreyfvtw6sy",
+          "title": "성령이 오셨네",
+          "ytLink": "https://youtu.be/8QiJFeiuwtk?si=H-RlJ8u9guRD3fKj"
+        },
+        {
+          "id": "mreyfvtwcki",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=5VDBiW7wsNkwFeOa"
+        },
+        {
+          "id": "mreyfvtwsx3",
+          "title": "십자가의 도 순교자의 길",
+          "ytLink": "https://youtu.be/nz8RgcfAo4Q?si=Q7OcTHg7dncyoSG7"
+        },
+        {
+          "id": "mreyfvtw826",
+          "title": "야곱의 축복",
+          "ytLink": "https://youtu.be/VZuscqNiOjg?si=gPQwB0Xuy0CgJivz"
+        }
+      ],
+      "notice": "사도행전은 이름은 '사도들의 행적'이지만, 사실은 그 이상의 이야기예요. 1장 8절 말씀처럼, 성령님이 우리와 함께하시고 성령님이 교회를 세워가시며, 예루살렘에서 유대와 사마리아를 거쳐 온 세상으로 복음이 퍼져나가는 이야기를 담고 있어요.\n이번 주에는 우리에게 좋으신 분, 아름다우신 주님 그리고 우리에게 성령님을 보내주신 하나님을 함께 찬양합시다!",
+      "yt": "https://youtube.com/playlist?list=PLM4sy01GCmAQ&si=OaI3oe4HQA1QON0c"
+    },
     {
       "id": "mreyftqotc0",
       "date": "2026-07-05",
