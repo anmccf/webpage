@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-08-09",
+    "date": "2026-08-16",
     "list": [
       {
-        "id": "msihqyanp84",
+        "id": "mstz8mxa2eu",
         "title": "갈릴리 바닷가에서",
-        "ytLink": "https://youtu.be/-njNwZjfR-Q?si=IgQW-Tpv4itjV-pm"
+        "ytLink": "https://youtu.be/-njNwZjfR-Q?si=CjEO-I1BzZVaSmNm"
       },
       {
-        "id": "msihqyaniva",
+        "id": "mstz8mxah2s",
         "title": "십자가를 참으신",
-        "ytLink": "https://youtu.be/iBC7oym-Ih8?si=FJtZMv7nbQgHbCcq"
+        "ytLink": "https://youtu.be/iBC7oym-Ih8?si=yCER2IzyC0rSFxJ0"
       },
       {
-        "id": "msihqyanbrn",
-        "title": "주님은 신실하고",
-        "ytLink": "https://youtu.be/66KK6gGv4tw?si=COf7OLwuoPp5RSGO"
+        "id": "mstz8mxain3",
+        "title": "당신은 영광의 왕",
+        "ytLink": "https://youtu.be/9h44OUxrQbM?si=9aHOUAMoc6mVWWhq"
       },
       {
-        "id": "msihqyan3th",
+        "id": "mstz8mxag48",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=eXfw8UU54ElWcIcK"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=DgBqBCy5PjrgCc4Q"
       },
       {
-        "id": "msihqyan0j6",
-        "title": "주께 가오니",
-        "ytLink": "https://youtu.be/q3eemQqUE8g?si=06AtEWSv2P1gpraZ"
+        "id": "mstz8mxaldn",
+        "title": "주님 보좌 앞에 나아가",
+        "ytLink": "https://youtu.be/qDFVxlCp5Bs?si=iSWYEIX1U1WRwo7t"
       },
       {
-        "id": "msihqyanfcx",
+        "id": "mstz8mxa22b",
         "title": "야곱의 축복",
-        "ytLink": "https://youtu.be/VZuscqNiOjg?si=2f3U11zcHHeg4yZe"
+        "ytLink": "https://youtu.be/VZuscqNiOjg?si=FkoeTwpKn1c4LglZ"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLOQAzUHqAXAQ&si=AWvMryBfSGLV478P",
-  "notice": "예수님은 우리를 부르시고, 십자가로 사랑을 보여주셨고, 지금도 변함없이 신실하신(약속을 지키시는, 믿을 수 있는) 분이죠.\n찬양 가사들을 통해, 이번 주 말씀을 통해 한 번 예수님에 대해 묵상해봅시다!",
+  "yt": "https://youtube.com/playlist?list=PLD48B5hEXgQM&si=2KAG8__7IE4Hfaxf",
+  "notice": "'교회'의 원어인 헬라어 '에클레시아'의 의미는 '불러냄을 받은 자들의 모임' 입니다. 다시 말해 교회의 신학적 의미는 하나님께 먼저 부르심을 받아 그리스도 안에 하나된 공동체인거죠. 그래서 크리스천은 내가 믿는 내 믿음이 아니라, 하나님이 이미 불러주셨고 그 사랑을 누리는 온전한 은혜의 사람일 수 있는 것입니다. 그 사랑을 돌아보며, 우리를 사랑해주신다는 그 신이 누구인지를 생각해보며 가사를 묵상하며 우리의 목소리로 찬양해봅시다!",
   "archive": [
+    {
+      "id": "mstz8l0zitf",
+      "date": "2026-08-09",
+      "list": [
+        {
+          "id": "msihqyanp84",
+          "title": "갈릴리 바닷가에서",
+          "ytLink": "https://youtu.be/-njNwZjfR-Q?si=IgQW-Tpv4itjV-pm"
+        },
+        {
+          "id": "msihqyaniva",
+          "title": "십자가를 참으신",
+          "ytLink": "https://youtu.be/iBC7oym-Ih8?si=FJtZMv7nbQgHbCcq"
+        },
+        {
+          "id": "msihqyanbrn",
+          "title": "주님은 신실하고",
+          "ytLink": "https://youtu.be/66KK6gGv4tw?si=COf7OLwuoPp5RSGO"
+        },
+        {
+          "id": "msihqyan3th",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=eXfw8UU54ElWcIcK"
+        },
+        {
+          "id": "msihqyan0j6",
+          "title": "주께 가오니",
+          "ytLink": "https://youtu.be/q3eemQqUE8g?si=06AtEWSv2P1gpraZ"
+        },
+        {
+          "id": "msihqyanfcx",
+          "title": "야곱의 축복",
+          "ytLink": "https://youtu.be/VZuscqNiOjg?si=2f3U11zcHHeg4yZe"
+        }
+      ],
+      "notice": "예수님은 우리를 부르시고, 십자가로 사랑을 보여주셨고, 지금도 변함없이 신실하신(약속을 지키시는, 믿을 수 있는) 분이죠.\n찬양 가사들을 통해, 이번 주 말씀을 통해 한 번 예수님에 대해 묵상해봅시다!",
+      "yt": "https://youtube.com/playlist?list=PLOQAzUHqAXAQ&si=AWvMryBfSGLV478P"
+    },
     {
       "id": "msihqvtibg4",
       "date": "2026-08-02",
