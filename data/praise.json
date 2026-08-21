@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-08-16",
+    "date": "2026-08-23",
     "list": [
       {
-        "id": "mstz8mxa2eu",
+        "id": "mt3hu3o1zc6",
         "title": "갈릴리 바닷가에서",
-        "ytLink": "https://youtu.be/-njNwZjfR-Q?si=CjEO-I1BzZVaSmNm"
+        "ytLink": "https://youtu.be/-njNwZjfR-Q?si=fpL4jIjcdA_L5Dvw"
       },
       {
-        "id": "mstz8mxah2s",
+        "id": "mt3hu3o19hv",
         "title": "십자가를 참으신",
-        "ytLink": "https://youtu.be/iBC7oym-Ih8?si=yCER2IzyC0rSFxJ0"
+        "ytLink": "https://youtu.be/iBC7oym-Ih8?si=xOAGZ8-78wMNRDpF"
       },
       {
-        "id": "mstz8mxain3",
+        "id": "mt3hu3o1ll4",
         "title": "당신은 영광의 왕",
-        "ytLink": "https://youtu.be/9h44OUxrQbM?si=9aHOUAMoc6mVWWhq"
+        "ytLink": "https://youtu.be/9h44OUxrQbM?si=mVyrxGKuuBnVtsW2"
       },
       {
-        "id": "mstz8mxag48",
+        "id": "mt3hu3o1d1o",
         "title": "Still",
-        "ytLink": "https://youtu.be/lAdwX8HypJM?si=DgBqBCy5PjrgCc4Q"
+        "ytLink": "https://youtu.be/lAdwX8HypJM?si=_FrXmzQvGoy4Z0DU"
       },
       {
-        "id": "mstz8mxaldn",
+        "id": "mt3hu3o132m",
         "title": "주님 보좌 앞에 나아가",
-        "ytLink": "https://youtu.be/qDFVxlCp5Bs?si=iSWYEIX1U1WRwo7t"
+        "ytLink": "https://youtu.be/qDFVxlCp5Bs?si=KS6KuDTqocwXCTa3"
       },
       {
-        "id": "mstz8mxa22b",
-        "title": "야곱의 축복",
-        "ytLink": "https://youtu.be/VZuscqNiOjg?si=FkoeTwpKn1c4LglZ"
+        "id": "mt3hu3o1ixv",
+        "title": "함께 지어져 가네",
+        "ytLink": "https://youtu.be/TtH4qHWdTto?si=GmYkNdgDUv2KRH6r"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLD48B5hEXgQM&si=2KAG8__7IE4Hfaxf",
-  "notice": "'교회'의 원어인 헬라어 '에클레시아'의 의미는 '불러냄을 받은 자들의 모임' 입니다. 다시 말해 교회의 신학적 의미는 하나님께 먼저 부르심을 받아 그리스도 안에 하나된 공동체인거죠. 그래서 크리스천은 내가 믿는 내 믿음이 아니라, 하나님이 이미 불러주셨고 그 사랑을 누리는 온전한 은혜의 사람일 수 있는 것입니다. 그 사랑을 돌아보며, 우리를 사랑해주신다는 그 신이 누구인지를 생각해보며 가사를 묵상하며 우리의 목소리로 찬양해봅시다!",
+  "yt": "https://youtube.com/playlist?list=PLR-K-wtbXfig&si=n1qwspr2pcAqTdmW",
+  "notice": "'교회'를 생각해보며, 지난주와 같은 찬양들로 구성했는데요, 딱 한 곡, 우리 마지막에 서로 부르는 축복 찬양만 바꿔봤습니다. '함께 지어져 가네' 라는 찬양곡으로 서로를 축복하는 시간을 가져봅시다! 이번주가 지나면 또 개강인데요, 모두들 개강 준비는 잘 하셨나요? 주일 모여서만 교회가 아니라 우리는 살아가는 그 자리에서 교회임을 기억하며 돌아오는 주일 다 같이 행복하게 만나요!",
   "archive": [
+    {
+      "id": "mt3hu1cxq4w",
+      "date": "2026-08-16",
+      "list": [
+        {
+          "id": "mstz8mxa2eu",
+          "title": "갈릴리 바닷가에서",
+          "ytLink": "https://youtu.be/-njNwZjfR-Q?si=CjEO-I1BzZVaSmNm"
+        },
+        {
+          "id": "mstz8mxah2s",
+          "title": "십자가를 참으신",
+          "ytLink": "https://youtu.be/iBC7oym-Ih8?si=yCER2IzyC0rSFxJ0"
+        },
+        {
+          "id": "mstz8mxain3",
+          "title": "당신은 영광의 왕",
+          "ytLink": "https://youtu.be/9h44OUxrQbM?si=9aHOUAMoc6mVWWhq"
+        },
+        {
+          "id": "mstz8mxag48",
+          "title": "Still",
+          "ytLink": "https://youtu.be/lAdwX8HypJM?si=DgBqBCy5PjrgCc4Q"
+        },
+        {
+          "id": "mstz8mxaldn",
+          "title": "주님 보좌 앞에 나아가",
+          "ytLink": "https://youtu.be/qDFVxlCp5Bs?si=iSWYEIX1U1WRwo7t"
+        },
+        {
+          "id": "mstz8mxa22b",
+          "title": "야곱의 축복",
+          "ytLink": "https://youtu.be/VZuscqNiOjg?si=FkoeTwpKn1c4LglZ"
+        }
+      ],
+      "notice": "'교회'의 원어인 헬라어 '에클레시아'의 의미는 '불러냄을 받은 자들의 모임' 입니다. 다시 말해 교회의 신학적 의미는 하나님께 먼저 부르심을 받아 그리스도 안에 하나된 공동체인거죠. 그래서 크리스천은 내가 믿는 내 믿음이 아니라, 하나님이 이미 불러주셨고 그 사랑을 누리는 온전한 은혜의 사람일 수 있는 것입니다. 그 사랑을 돌아보며, 우리를 사랑해주신다는 그 신이 누구인지를 생각해보며 가사를 묵상하며 우리의 목소리로 찬양해봅시다!",
+      "yt": "https://youtube.com/playlist?list=PLD48B5hEXgQM&si=2KAG8__7IE4Hfaxf"
+    },
     {
       "id": "mstz8l0zitf",
       "date": "2026-08-09",
