@@ -1,37 +1,75 @@
 {
   "songs": {
-    "date": "2026-08-30",
+    "date": "2026-09-06",
     "list": [
       {
-        "id": "mtc48f6kpie",
-        "title": "예수 하나님의 공의",
-        "ytLink": "https://youtu.be/ZOEJdgg_mMM?si=hS6TSF0xhY6Rnmxm"
-      },
-      {
-        "id": "mtc48f6ksfl",
-        "title": "나의 하나님",
-        "ytLink": "https://youtu.be/YnyY7dsWPg0?si=0VWbq6fEjWdPqj1u"
-      },
-      {
-        "id": "mtc48f6kkzr",
+        "id": "mtmeeip9k2x",
         "title": "지극히 높으신 주",
-        "ytLink": "https://youtu.be/9X2h5fJd3H0?si=8PjcHCiudjvHG3UD"
+        "ytLink": "https://youtu.be/9X2h5fJd3H0?si=_-L3JNcceLo8wCg-"
       },
       {
-        "id": "mtc48f6kmri",
+        "id": "mtmeeip9rpq",
+        "title": "주 나의 왕",
+        "ytLink": "https://youtu.be/zvcanx9yhm8?si=-3PMcFSQWugGoaVs"
+      },
+      {
+        "id": "mtmeeip909m",
+        "title": "좋으신 하나님",
+        "ytLink": "https://youtu.be/2X4gwuvTlxE?si=ngeJUywjEhDatGLm"
+      },
+      {
+        "id": "mtmeeip9hrc",
         "title": "주 여호와는 광대하시도다",
-        "ytLink": "https://youtu.be/WLebzuM5OM8?si=mNKohvOXJI_OafSA"
+        "ytLink": "https://youtu.be/WLebzuM5OM8?si=EDBfxRFh2_FBOtEd"
       },
       {
-        "id": "mtc48f6k1yp",
+        "id": "mtmeeip9w17",
+        "title": "나 이제 주님의 새 생명 얻은 몸",
+        "ytLink": "https://youtu.be/HaI0Kv9zlZE?si=M_CFBgM5PPaam4zK"
+      },
+      {
+        "id": "mtmeeip9wc4",
         "title": "함께 지어져 가네",
-        "ytLink": "https://youtu.be/TtH4qHWdTto?si=Wf2oXNbSkHGCxV0u"
+        "ytLink": "https://youtu.be/TtH4qHWdTto?si=8XbQ9rWRiddouAMA"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLMU3LvhQFT2U&si=gSJ1M4kR1pF1y_DW",
-  "notice": "개강 첫주 잘 보내고 계신가요?? 에베소서 말씀을 같이 듣고 묵상하고 있는데요, 이번주 부터는 결단찬양도 바꿔보려 합니다. '주 여호와는 광대하시도다' 라는 찬양의 가사가 삶으로 느껴질 수 있도록 제가 먼저 찬양팀으로 섬겨주시는, 그리고 이 톡방에 계시는 여러분들을 위해 기도하고 살아내겠습니다. 그럼 주일에 만나요!\n*가능하다면 주 여호와는 광대하시도다 한국어/영어 가사 모두 띄워주시기 바랍니다!",
+  "yt": "https://youtube.com/playlist?list=PLNDHW68d8lOA&si=wZYFmOpoZUNHe7Vv",
+  "notice": "이번주 말씀은 '그리스도의 사랑' 입니다. 그 말씀과 함께 하나님이 우리를 어떻게 사랑하시는지 찬양을 골라봤는데요, 가사와 멜로디를 한 번 들어보고 일상 속에서 하나님을 누리시길 소망하고 축복합니다!\n- 지극히 높으신 주의 후렴은 영어가사도 함께 띄워주시기 바랍니다!\n- 주 여호와는 광대하시도다는 F코드에서 G코드로 바꿨습니다!\n- 앞으로 매달 첫 주는 성찬식이 진행됩니다. 이번 찬양은 '나 이제 주님의 새 생명 얻은 몸' 입니다!",
   "archive": [
+    {
+      "id": "mtme9abceng",
+      "date": "2026-08-30",
+      "list": [
+        {
+          "id": "mtc48f6kpie",
+          "title": "예수 하나님의 공의",
+          "ytLink": "https://youtu.be/ZOEJdgg_mMM?si=hS6TSF0xhY6Rnmxm"
+        },
+        {
+          "id": "mtc48f6ksfl",
+          "title": "나의 하나님",
+          "ytLink": "https://youtu.be/YnyY7dsWPg0?si=0VWbq6fEjWdPqj1u"
+        },
+        {
+          "id": "mtc48f6kkzr",
+          "title": "지극히 높으신 주",
+          "ytLink": "https://youtu.be/9X2h5fJd3H0?si=8PjcHCiudjvHG3UD"
+        },
+        {
+          "id": "mtc48f6kmri",
+          "title": "주 여호와는 광대하시도다",
+          "ytLink": "https://youtu.be/WLebzuM5OM8?si=mNKohvOXJI_OafSA"
+        },
+        {
+          "id": "mtc48f6k1yp",
+          "title": "함께 지어져 가네",
+          "ytLink": "https://youtu.be/TtH4qHWdTto?si=Wf2oXNbSkHGCxV0u"
+        }
+      ],
+      "notice": "개강 첫주 잘 보내고 계신가요?? 에베소서 말씀을 같이 듣고 묵상하고 있는데요, 이번주 부터는 결단찬양도 바꿔보려 합니다. '주 여호와는 광대하시도다' 라는 찬양의 가사가 삶으로 느껴질 수 있도록 제가 먼저 찬양팀으로 섬겨주시는, 그리고 이 톡방에 계시는 여러분들을 위해 기도하고 살아내겠습니다. 그럼 주일에 만나요!\n*가능하다면 주 여호와는 광대하시도다 한국어/영어 가사 모두 띄워주시기 바랍니다!",
+      "yt": "https://youtube.com/playlist?list=PLMU3LvhQFT2U&si=gSJ1M4kR1pF1y_DW"
+    },
     {
       "id": "mtc487obt8m",
       "date": "2026-08-23",
