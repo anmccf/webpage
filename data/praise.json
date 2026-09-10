@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-09-06",
+    "date": "2026-09-13",
     "list": [
       {
-        "id": "mtmeeip9k2x",
-        "title": "지극히 높으신 주",
-        "ytLink": "https://youtu.be/9X2h5fJd3H0?si=_-L3JNcceLo8wCg-"
+        "id": "mtvyppia1r5",
+        "title": "우리는 주의 움직이는 교회",
+        "ytLink": "https://youtu.be/R9z0ISZJSig?si=Ka_Bm1psBKIWDMDT"
       },
       {
-        "id": "mtmeeip9rpq",
+        "id": "mtvyppiafur",
         "title": "주 나의 왕",
-        "ytLink": "https://youtu.be/zvcanx9yhm8?si=-3PMcFSQWugGoaVs"
+        "ytLink": "https://youtu.be/zvcanx9yhm8?si=fipgOE9qD0QBqofv"
       },
       {
-        "id": "mtmeeip909m",
+        "id": "mtvyppialpe",
         "title": "좋으신 하나님",
-        "ytLink": "https://youtu.be/2X4gwuvTlxE?si=ngeJUywjEhDatGLm"
+        "ytLink": "https://youtu.be/2X4gwuvTlxE?si=dH-M-VU9EDjd1D4Z"
       },
       {
-        "id": "mtmeeip9hrc",
+        "id": "mtvyppiaj68",
         "title": "주 여호와는 광대하시도다",
-        "ytLink": "https://youtu.be/WLebzuM5OM8?si=EDBfxRFh2_FBOtEd"
+        "ytLink": "https://youtu.be/WLebzuM5OM8?si=aIE_GZUM1pZ3ZK0S"
       },
       {
-        "id": "mtmeeip9w17",
-        "title": "나 이제 주님의 새 생명 얻은 몸",
-        "ytLink": "https://youtu.be/HaI0Kv9zlZE?si=M_CFBgM5PPaam4zK"
+        "id": "mtvyppiajda",
+        "title": "기대",
+        "ytLink": "https://youtu.be/jTdAHYwV5_4?si=Fp-XK2oyVJyU2XaS"
       },
       {
-        "id": "mtmeeip9wc4",
+        "id": "mtvyppia3zt",
         "title": "함께 지어져 가네",
-        "ytLink": "https://youtu.be/TtH4qHWdTto?si=8XbQ9rWRiddouAMA"
+        "ytLink": "https://youtu.be/TtH4qHWdTto?si=dc39SmiEj6isldzu"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLNDHW68d8lOA&si=wZYFmOpoZUNHe7Vv",
-  "notice": "이번주 말씀은 '그리스도의 사랑' 입니다. 그 말씀과 함께 하나님이 우리를 어떻게 사랑하시는지 찬양을 골라봤는데요, 가사와 멜로디를 한 번 들어보고 일상 속에서 하나님을 누리시길 소망하고 축복합니다!\n- 지극히 높으신 주의 후렴은 영어가사도 함께 띄워주시기 바랍니다!\n- 주 여호와는 광대하시도다는 F코드에서 G코드로 바꿨습니다!\n- 앞으로 매달 첫 주는 성찬식이 진행됩니다. 이번 찬양은 '나 이제 주님의 새 생명 얻은 몸' 입니다!",
+  "yt": "https://youtube.com/playlist?list=PLcuDTbAkemGk&si=WhpbEIgjz-FIvHzX",
+  "notice": "이번 주 에베소서 4:1-16 말씀 핵심주제는 '우리, 교회’입니다. 우리가 그리스도 안에서 한 몸을 이루고, 서로 사랑하며 함께 자라가는 교회임을 고백하는 찬양을 통해 우리가 함께 지어져 가는 교회임을 누리길 축복합니다!",
   "archive": [
+    {
+      "id": "mtvypllyfa7",
+      "date": "2026-09-06",
+      "list": [
+        {
+          "id": "mtmeeip9k2x",
+          "title": "지극히 높으신 주",
+          "ytLink": "https://youtu.be/9X2h5fJd3H0?si=_-L3JNcceLo8wCg-"
+        },
+        {
+          "id": "mtmeeip9rpq",
+          "title": "주 나의 왕",
+          "ytLink": "https://youtu.be/zvcanx9yhm8?si=-3PMcFSQWugGoaVs"
+        },
+        {
+          "id": "mtmeeip909m",
+          "title": "좋으신 하나님",
+          "ytLink": "https://youtu.be/2X4gwuvTlxE?si=ngeJUywjEhDatGLm"
+        },
+        {
+          "id": "mtmeeip9hrc",
+          "title": "주 여호와는 광대하시도다",
+          "ytLink": "https://youtu.be/WLebzuM5OM8?si=EDBfxRFh2_FBOtEd"
+        },
+        {
+          "id": "mtmeeip9w17",
+          "title": "나 이제 주님의 새 생명 얻은 몸",
+          "ytLink": "https://youtu.be/HaI0Kv9zlZE?si=M_CFBgM5PPaam4zK"
+        },
+        {
+          "id": "mtmeeip9wc4",
+          "title": "함께 지어져 가네",
+          "ytLink": "https://youtu.be/TtH4qHWdTto?si=8XbQ9rWRiddouAMA"
+        }
+      ],
+      "notice": "이번주 말씀은 '그리스도의 사랑' 입니다. 그 말씀과 함께 하나님이 우리를 어떻게 사랑하시는지 찬양을 골라봤는데요, 가사와 멜로디를 한 번 들어보고 일상 속에서 하나님을 누리시길 소망하고 축복합니다!\n- 지극히 높으신 주의 후렴은 영어가사도 함께 띄워주시기 바랍니다!\n- 주 여호와는 광대하시도다는 F코드에서 G코드로 바꿨습니다!\n- 앞으로 매달 첫 주는 성찬식이 진행됩니다. 이번 찬양은 '나 이제 주님의 새 생명 얻은 몸' 입니다!",
+      "yt": "https://youtube.com/playlist?list=PLNDHW68d8lOA&si=wZYFmOpoZUNHe7Vv"
+    },
     {
       "id": "mtme9abceng",
       "date": "2026-08-30",
