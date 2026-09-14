@@ -1,6 +1,16 @@
 {
   "studies": [
     {
+      "id": "mu1byz0rjjo",
+      "name": "구역 성경공부",
+      "semester": "2026 Fall",
+      "period": "9-12월",
+      "time": "주일 오후 1:30",
+      "place": "ILSB",
+      "leader": "유주호 목사님 · 구역장",
+      "target": "전교인"
+    },
+    {
       "id": "mqnavvch9x3",
       "name": "마가복음 구역 성경공부",
       "semester": "2026 Spring",
