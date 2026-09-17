@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-09-13",
+    "date": "2026-09-20",
     "list": [
       {
-        "id": "mtvyppia1r5",
+        "id": "mu5motf0fku",
         "title": "우리는 주의 움직이는 교회",
-        "ytLink": "https://youtu.be/R9z0ISZJSig?si=Ka_Bm1psBKIWDMDT"
+        "ytLink": "https://youtu.be/R9z0ISZJSig?si=cnT8AkiNj5vF3EZ9"
       },
       {
-        "id": "mtvyppiafur",
-        "title": "주 나의 왕",
-        "ytLink": "https://youtu.be/zvcanx9yhm8?si=fipgOE9qD0QBqofv"
+        "id": "mu5motf0q60",
+        "title": "왕 되신 주께 감사하세",
+        "ytLink": "https://youtu.be/00WSA1hpPOA?si=VxEvX5hQBBzajAK-"
       },
       {
-        "id": "mtvyppialpe",
-        "title": "좋으신 하나님",
-        "ytLink": "https://youtu.be/2X4gwuvTlxE?si=dH-M-VU9EDjd1D4Z"
+        "id": "mu5motf02k6",
+        "title": "빛으로 비추시네",
+        "ytLink": "https://youtu.be/4KDP6E2Kezo?si=9kwl6uiQzEUhsdNF"
       },
       {
-        "id": "mtvyppiaj68",
+        "id": "mu5motf0bpy",
         "title": "주 여호와는 광대하시도다",
-        "ytLink": "https://youtu.be/WLebzuM5OM8?si=aIE_GZUM1pZ3ZK0S"
+        "ytLink": "https://youtu.be/WLebzuM5OM8?si=hcIjss0dQFC2rBhS"
       },
       {
-        "id": "mtvyppiajda",
+        "id": "mu5motf0ig7",
         "title": "기대",
-        "ytLink": "https://youtu.be/jTdAHYwV5_4?si=Fp-XK2oyVJyU2XaS"
+        "ytLink": "https://youtu.be/jTdAHYwV5_4?si=M8cQ7ZmO36K8Qwi4"
       },
       {
-        "id": "mtvyppia3zt",
+        "id": "mu5motf0be0",
         "title": "함께 지어져 가네",
-        "ytLink": "https://youtu.be/TtH4qHWdTto?si=dc39SmiEj6isldzu"
+        "ytLink": "https://youtu.be/TtH4qHWdTto?si=WnRdZVDfTBgk6r9d"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLcuDTbAkemGk&si=WhpbEIgjz-FIvHzX",
-  "notice": "이번 주 에베소서 4:1-16 말씀 핵심주제는 '우리, 교회’입니다. 우리가 그리스도 안에서 한 몸을 이루고, 서로 사랑하며 함께 자라가는 교회임을 고백하는 찬양을 통해 우리가 함께 지어져 가는 교회임을 누리길 축복합니다!",
+  "yt": "https://youtube.com/playlist?list=PLAxgqiisFcNA&si=Uj8Q3xtVAOa8ajiR",
+  "notice": "이번 주 에베소서 4:17-32 말씀의 핵심주제는 ‘새 사람으로 살아가는 교회’입니다. 옛 사람을 벗어버리고 그리스도 안에서 새 사람을 입어, 진실을 말하고 서로를 세워주며 친절과 용서로 살아가는 것이 교회의 모습입니다. 우리를 새롭게 하시는 주님을 찬양하며, 그리스도를 닮아 서로 사랑으로 세워져 가는 교회가 되기를 축복합니다!",
   "archive": [
+    {
+      "id": "mu5momj57pe",
+      "date": "2026-09-13",
+      "list": [
+        {
+          "id": "mtvyppia1r5",
+          "title": "우리는 주의 움직이는 교회",
+          "ytLink": "https://youtu.be/R9z0ISZJSig?si=Ka_Bm1psBKIWDMDT"
+        },
+        {
+          "id": "mtvyppiafur",
+          "title": "주 나의 왕",
+          "ytLink": "https://youtu.be/zvcanx9yhm8?si=fipgOE9qD0QBqofv"
+        },
+        {
+          "id": "mtvyppialpe",
+          "title": "좋으신 하나님",
+          "ytLink": "https://youtu.be/2X4gwuvTlxE?si=dH-M-VU9EDjd1D4Z"
+        },
+        {
+          "id": "mtvyppiaj68",
+          "title": "주 여호와는 광대하시도다",
+          "ytLink": "https://youtu.be/WLebzuM5OM8?si=aIE_GZUM1pZ3ZK0S"
+        },
+        {
+          "id": "mtvyppiajda",
+          "title": "기대",
+          "ytLink": "https://youtu.be/jTdAHYwV5_4?si=Fp-XK2oyVJyU2XaS"
+        },
+        {
+          "id": "mtvyppia3zt",
+          "title": "함께 지어져 가네",
+          "ytLink": "https://youtu.be/TtH4qHWdTto?si=dc39SmiEj6isldzu"
+        }
+      ],
+      "notice": "이번 주 에베소서 4:1-16 말씀 핵심주제는 '우리, 교회’입니다. 우리가 그리스도 안에서 한 몸을 이루고, 서로 사랑하며 함께 자라가는 교회임을 고백하는 찬양을 통해 우리가 함께 지어져 가는 교회임을 누리길 축복합니다!",
+      "yt": "https://youtube.com/playlist?list=PLcuDTbAkemGk&si=WhpbEIgjz-FIvHzX"
+    },
     {
       "id": "mtvypllyfa7",
       "date": "2026-09-06",
