@@ -1,42 +1,80 @@
 {
   "songs": {
-    "date": "2026-09-20",
+    "date": "2026-09-27",
     "list": [
       {
-        "id": "mu5motf0fku",
-        "title": "우리는 주의 움직이는 교회",
-        "ytLink": "https://youtu.be/R9z0ISZJSig?si=cnT8AkiNj5vF3EZ9"
-      },
-      {
-        "id": "mu5motf0q60",
+        "id": "muf1tqj8t9y",
         "title": "왕 되신 주께 감사하세",
-        "ytLink": "https://youtu.be/00WSA1hpPOA?si=VxEvX5hQBBzajAK-"
+        "ytLink": "https://youtu.be/00WSA1hpPOA?si=nYCL1I0NLknrTVd_"
       },
       {
-        "id": "mu5motf02k6",
+        "id": "muf1tqj8ksw",
         "title": "빛으로 비추시네",
-        "ytLink": "https://youtu.be/4KDP6E2Kezo?si=9kwl6uiQzEUhsdNF"
+        "ytLink": "https://youtu.be/4KDP6E2Kezo?si=4DsIhx62-bhDNiqg"
       },
       {
-        "id": "mu5motf0bpy",
+        "id": "muf1tqj8lyh",
+        "title": "주 하나님 독생자 예수",
+        "ytLink": "https://youtu.be/XOuf4HWpn14?si=EZeAtTQ5q_tZ5cBV"
+      },
+      {
+        "id": "muf1tqj8ewk",
         "title": "주 여호와는 광대하시도다",
-        "ytLink": "https://youtu.be/WLebzuM5OM8?si=hcIjss0dQFC2rBhS"
+        "ytLink": "https://youtu.be/WLebzuM5OM8?si=cZJIBN1Q85GXii59"
       },
       {
-        "id": "mu5motf0ig7",
-        "title": "기대",
-        "ytLink": "https://youtu.be/jTdAHYwV5_4?si=M8cQ7ZmO36K8Qwi4"
+        "id": "muf1tqj8xl7",
+        "title": "나의 안에 거하라",
+        "ytLink": "https://youtu.be/pM4RC2GSdXU?si=O7_pkEY9CBMKl-Yq"
       },
       {
-        "id": "mu5motf0be0",
+        "id": "muf1tqj8i4l",
         "title": "함께 지어져 가네",
-        "ytLink": "https://youtu.be/TtH4qHWdTto?si=WnRdZVDfTBgk6r9d"
+        "ytLink": "https://youtu.be/TtH4qHWdTto?si=hFJMBSxzhj_iVRlU"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLAxgqiisFcNA&si=Uj8Q3xtVAOa8ajiR",
-  "notice": "이번 주 에베소서 4:17-32 말씀의 핵심주제는 ‘새 사람으로 살아가는 교회’입니다. 옛 사람을 벗어버리고 그리스도 안에서 새 사람을 입어, 진실을 말하고 서로를 세워주며 친절과 용서로 살아가는 것이 교회의 모습입니다. 우리를 새롭게 하시는 주님을 찬양하며, 그리스도를 닮아 서로 사랑으로 세워져 가는 교회가 되기를 축복합니다!",
+  "yt": "https://youtube.com/playlist?list=PLRz-NIQuzyEs&si=TJbhHnK7jBWaZWW5",
+  "notice": "이번 주 에베소서 5:1–20 말씀의 핵심 주제는 ‘사랑 안에서 살아가는 자녀’입니다. 하나님의 사랑받는 자녀답게 사랑 가운데 행하고, 빛의 자녀답게 무엇이 주님을 기쁘시게 하는지 분별하며, 성령으로 충만하여 찬송과 감사로 살아가는 모습입니다. 우리도 빛에 속한 자로서 삶의 한 순간 한 순간마다 “하나님께서 이것을 기뻐하실까?”를 돌아보며 살아가는 자녀 되기를 축복합니다!",
   "archive": [
+    {
+      "id": "muf1tl6o70c",
+      "date": "2026-09-20",
+      "list": [
+        {
+          "id": "mu5motf0fku",
+          "title": "우리는 주의 움직이는 교회",
+          "ytLink": "https://youtu.be/R9z0ISZJSig?si=cnT8AkiNj5vF3EZ9"
+        },
+        {
+          "id": "mu5motf0q60",
+          "title": "왕 되신 주께 감사하세",
+          "ytLink": "https://youtu.be/00WSA1hpPOA?si=VxEvX5hQBBzajAK-"
+        },
+        {
+          "id": "mu5motf02k6",
+          "title": "빛으로 비추시네",
+          "ytLink": "https://youtu.be/4KDP6E2Kezo?si=9kwl6uiQzEUhsdNF"
+        },
+        {
+          "id": "mu5motf0bpy",
+          "title": "주 여호와는 광대하시도다",
+          "ytLink": "https://youtu.be/WLebzuM5OM8?si=hcIjss0dQFC2rBhS"
+        },
+        {
+          "id": "mu5motf0ig7",
+          "title": "기대",
+          "ytLink": "https://youtu.be/jTdAHYwV5_4?si=M8cQ7ZmO36K8Qwi4"
+        },
+        {
+          "id": "mu5motf0be0",
+          "title": "함께 지어져 가네",
+          "ytLink": "https://youtu.be/TtH4qHWdTto?si=WnRdZVDfTBgk6r9d"
+        }
+      ],
+      "notice": "이번 주 에베소서 4:17-32 말씀의 핵심주제는 ‘새 사람으로 살아가는 교회’입니다. 옛 사람을 벗어버리고 그리스도 안에서 새 사람을 입어, 진실을 말하고 서로를 세워주며 친절과 용서로 살아가는 것이 교회의 모습입니다. 우리를 새롭게 하시는 주님을 찬양하며, 그리스도를 닮아 서로 사랑으로 세워져 가는 교회가 되기를 축복합니다!",
+      "yt": "https://youtube.com/playlist?list=PLAxgqiisFcNA&si=Uj8Q3xtVAOa8ajiR"
+    },
     {
       "id": "mu5momj57pe",
       "date": "2026-09-13",
