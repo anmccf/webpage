@@ -1,6 +1,36 @@
 {
   "studies": [
     {
+      "id": "mv2oga8gk2a",
+      "name": "마가복음 성경공부",
+      "semester": "2026 Fall",
+      "period": "9월~11월",
+      "time": "수요일 오후 5:10",
+      "place": "HEB",
+      "leader": "김무현 장로님",
+      "target": ""
+    },
+    {
+      "id": "mv2oh66ed2i",
+      "name": "Asking Jesus",
+      "semester": "2026 Fall",
+      "period": "9월~11월",
+      "time": "토요일 오후 6:00",
+      "place": "Tower Park Apartment",
+      "leader": "박기태",
+      "target": "기도회 참가자"
+    },
+    {
+      "id": "mv2oi38ojj0",
+      "name": "찬양과 경배",
+      "semester": "2026 Fall",
+      "period": "5회",
+      "time": "월요일 오후 1:00",
+      "place": "HEB",
+      "leader": "박기태",
+      "target": "찬양에 관심있는 사람들"
+    },
+    {
       "id": "mu1byz0rjjo",
       "name": "구역 성경공부",
       "semester": "2026 Fall",
