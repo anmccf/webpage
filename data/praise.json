@@ -1,42 +1,75 @@
 {
   "songs": {
-    "date": "2026-11-08",
+    "date": "2026-11-22",
     "list": [
       {
-        "id": "mwmrgarjgg6",
-        "title": "예수 아름다우신",
-        "ytLink": "https://youtu.be/2jzjfcEqDfI?si=9fyisWiGgliENh04"
+        "id": "mwn81tometl",
+        "title": "내 구주 예수를 더욱 사랑 (찬송가 314장) + 내 영혼이 은총입어 (찬송가 438장)",
+        "ytLink": "https://youtu.be/04mER3YIOY8?si=5uLFyANbkIlp84i6"
       },
       {
-        "id": "mwmrgarjh0t",
-        "title": "모든 열방 주 볼 때 까지 + 물이 바다 덮음같이",
-        "ytLink": "https://youtu.be/TWJ8u4hdJ0M?si=QFtky398InKWw_AC"
+        "id": "mwn81tom288",
+        "title": "주님은 신실하고",
+        "ytLink": "https://youtu.be/4Qy4VghSs8k?si=IkvPfnpRnKyU2-B6"
       },
       {
-        "id": "mwmrgarj7fe",
+        "id": "mwn81tomjsn",
         "title": "주 여호와는 광대하시도다",
-        "ytLink": "https://youtu.be/WLebzuM5OM8?si=xRyH1y6kTZSwihk2"
+        "ytLink": "https://youtu.be/WLebzuM5OM8?si=MBYOMxwFXvdS6IYB"
       },
       {
-        "id": "mwmrgarjgbk",
-        "title": "구주와 함께 나 죽었으니",
-        "ytLink": "https://youtu.be/lIhIrsSsbVw?si=LAZl2V8AlDd1cZyJ"
+        "id": "mwn81tom0jg",
+        "title": "모든 이름 위에 뛰어난 이름 + 오직 예수",
+        "ytLink": "https://youtu.be/rX2xBeyPgcA?si=4XcUzaCynHD9U--K"
       },
       {
-        "id": "mwmrgarjaxi",
-        "title": "내가 주인 삼은",
-        "ytLink": "https://youtu.be/pXpVwtFXq1g?si=UyvahTSEDQWffvGD"
-      },
-      {
-        "id": "mwmrgarjd2b",
+        "id": "mwn81tom2dk",
         "title": "함께 지어져 가네",
-        "ytLink": "https://youtu.be/TtH4qHWdTto?si=eKZVPMYOjBvP1l1c"
+        "ytLink": "https://youtu.be/TtH4qHWdTto?si=Jv18LTtWoPjkkXic"
       }
     ]
   },
-  "yt": "https://youtube.com/playlist?list=PLYdq6gJZgnMM&si=gzUTQOwIfYEgy7tg",
-  "notice": "이번주는 송지훈 박사님께서 찬양인도를 해주십니다. 미리 찬양곡들을 보내드리니 돌아오는 주 찬양 잘 부탁드립니다! 골로새서 1:15-23 말씀의 핵심 주제는 '만물의 으뜸 되시고 십자가로 우리를 화목하게 하신 그리스도'입니다. 보이지 않는 하나님의 형상이신 그리스도는 만물을 창조하시고 붙드시며, 교회의 머리로서 모든 것의 으뜸이 되셨습니다. 그분은 십자가의 피로 화평을 이루셔서 하나님과 멀어졌던 우리를 화목하게 하시고 거룩하고 흠 없는 자로 세우셨습니다. 크리스천은 이 그리스도를 삶의 으뜸으로 모시는 자들인 만큼, 이번 한 주도 믿음에 굳게 서서 복음의 소망에서 흔들리지 않는 성도 되기를 축복합니다!\n[전체찬양]",
+  "yt": "https://youtube.com/playlist?list=PLDaAIPb1o0K4&si=mD4xqUoT0STUous0",
+  "notice": "골로새서 2:4-15 말씀의 핵심 주제는 '그리스도 안에 뿌리를 박고 세움을 받아 충만해진 삶'입니다. 세상의 헛된 철학과 그럴듯한 말이 우리를 흔들려 할지라도, 신성의 모든 충만이 육체로 거하시는 그리스도 안에서 우리는 이미 충만하게 되었습니다. 그분은 우리를 거스르던 빚 문서를 십자가에 못 박아 모든 죄를 용서하시고, 통치자들과 권세들을 무력화하여 십자가로 승리하셨습니다. 크리스천은 그리스도와 함께 장사되고 함께 다시 살아난 자들인 만큼, 이번 한 주도 주 안에서 행하며 믿음에 굳게 서서 감사가 넘치는 성도 되기를 축복합니다!",
   "archive": [
+    {
+      "id": "mwn8194ftz9",
+      "date": "2026-11-08",
+      "list": [
+        {
+          "id": "mwmrgarjgg6",
+          "title": "예수 아름다우신",
+          "ytLink": "https://youtu.be/2jzjfcEqDfI?si=9fyisWiGgliENh04"
+        },
+        {
+          "id": "mwmrgarjh0t",
+          "title": "모든 열방 주 볼 때 까지 + 물이 바다 덮음같이",
+          "ytLink": "https://youtu.be/TWJ8u4hdJ0M?si=QFtky398InKWw_AC"
+        },
+        {
+          "id": "mwmrgarj7fe",
+          "title": "주 여호와는 광대하시도다",
+          "ytLink": "https://youtu.be/WLebzuM5OM8?si=xRyH1y6kTZSwihk2"
+        },
+        {
+          "id": "mwmrgarjgbk",
+          "title": "구주와 함께 나 죽었으니",
+          "ytLink": "https://youtu.be/lIhIrsSsbVw?si=LAZl2V8AlDd1cZyJ"
+        },
+        {
+          "id": "mwmrgarjaxi",
+          "title": "내가 주인 삼은",
+          "ytLink": "https://youtu.be/pXpVwtFXq1g?si=UyvahTSEDQWffvGD"
+        },
+        {
+          "id": "mwmrgarjd2b",
+          "title": "함께 지어져 가네",
+          "ytLink": "https://youtu.be/TtH4qHWdTto?si=eKZVPMYOjBvP1l1c"
+        }
+      ],
+      "notice": "이번주는 송지훈 박사님께서 찬양인도를 해주십니다. 미리 찬양곡들을 보내드리니 돌아오는 주 찬양 잘 부탁드립니다! 골로새서 1:15-23 말씀의 핵심 주제는 '만물의 으뜸 되시고 십자가로 우리를 화목하게 하신 그리스도'입니다. 보이지 않는 하나님의 형상이신 그리스도는 만물을 창조하시고 붙드시며, 교회의 머리로서 모든 것의 으뜸이 되셨습니다. 그분은 십자가의 피로 화평을 이루셔서 하나님과 멀어졌던 우리를 화목하게 하시고 거룩하고 흠 없는 자로 세우셨습니다. 크리스천은 이 그리스도를 삶의 으뜸으로 모시는 자들인 만큼, 이번 한 주도 믿음에 굳게 서서 복음의 소망에서 흔들리지 않는 성도 되기를 축복합니다!\n[전체찬양]",
+      "yt": "https://youtube.com/playlist?list=PLYdq6gJZgnMM&si=gzUTQOwIfYEgy7tg"
+    },
     {
       "id": "mwmrg83edwy",
       "date": "2026-10-25",
