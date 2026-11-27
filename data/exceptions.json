@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "recurId": "monynrw1feq",
+    "date": "2026-11-29",
+    "title": "주일예배 (야외예배)",
+    "time": "오전 11:00",
+    "place": "8000 Atlas Pear Dr, Bryan, TX 77807",
+    "cancelled": false
+  },
+  {
+    "recurId": "monynrw1feq",
+    "date": "2026-11-01",
+    "title": "주일예배 (야외예배)",
+    "time": "오전 11:00",
+    "place": "Aggie Park",
+    "cancelled": false
+  }
+]
